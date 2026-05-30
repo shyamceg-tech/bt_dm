@@ -1,0 +1,219 @@
+/* ============================================================================
+   Certifications.module.css — BlueTick 2026 Refresh
+
+   Phase 1 source: bluetick-2026-refresh-v3.html lines 2186–2320.
+   ============================================================================ */
+
+.section {
+  background: var(--bg-base);
+  padding: var(--s-56) 0;
+}
+
+@media (min-width: 1024px) { .section { padding: var(--s-96) 0; } }
+
+.inner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter-mobile);
+}
+
+@media (min-width: 768px) { .inner { padding: 0 var(--gutter-tablet); } }
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px)  { .heading { font-size: 2rem; } }
+@media (min-width: 1024px) { .heading { font-size: 2.5rem; max-width: 22ch; } }
+
+.subline {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-top: var(--s-16);
+  max-width: 56ch;
+  line-height: 1.55;
+}
+
+/* ─── Carousel: mobile horizontal scroll → tablet 3-col → desktop 4-col ── */
+.carousel {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin: var(--s-32) calc(var(--gutter-mobile) * -1) 0;
+  padding: 8px var(--gutter-mobile) 18px;
+  mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 40px), transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 40px), transparent 100%);
+}
+
+.carousel::-webkit-scrollbar { display: none; }
+
+@media (min-width: 768px) {
+  .carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: var(--s-32) 0 0;
+    padding: 0;
+    overflow: visible;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ─── Tile ──────────────────────────────────────────────────────────────── */
+.tile {
+  position: relative;
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+  background: var(--bg-base);
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-card);
+  padding: var(--s-20) var(--s-16);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 140px;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+@media (min-width: 768px) { .tile { flex: initial; min-height: 130px; } }
+
+.tile:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-card-lift);
+  transform: translateY(-2px);
+}
+
+.tile_check {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--success-green);
+  border-radius: 50%;
+  color: #FFFFFF;
+}
+
+.tile_check svg { width: 12px; height: 12px; }
+
+/* ─── Brand pill (6 variants) ───────────────────────────────────────────── */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--brand-blue-soft);
+  color: var(--brand-blue);
+}
+
+.brand_google    { background: #FEF3C7; color: #B45309; }
+.brand_microsoft { background: #E0F2FE; color: #075985; }
+.brand_meta      { background: #E0E7FF; color: #3730A3; }
+.brand_hubspot   { background: #FFEDD5; color: #C2410C; }
+.brand_semrush   { background: #FAE8FF; color: #86198F; }
+.brand_linkedin  { background: #DBEAFE; color: #1E40AF; }
+
+.tile_title {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ─── Mobile-only scroll hint ───────────────────────────────────────────── */
+.hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) { .hint { display: none; } }
+
+.hint svg { animation: bt-nudge 1.8s ease-in-out infinite; }
+
+/* ─── Callout + confidence ──────────────────────────────────────────────── */
+.callout {
+  margin-top: var(--s-32);
+  padding: var(--s-20);
+  background: var(--brand-blue-soft);
+  border-radius: var(--r-card);
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+.callout strong { font-weight: 700; }
+
+.confidence {
+  margin-top: var(--s-20);
+  padding: var(--s-20);
+  background: var(--bg-base);
+  border: 1.5px dashed var(--cta-orange);
+  border-radius: var(--r-card);
+  display: flex;
+  gap: var(--s-12);
+  align-items: flex-start;
+}
+
+.confidence_icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--cta-orange-soft);
+  color: var(--cta-orange);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confidence_text {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.confidence_text em {
+  color: var(--cta-orange);
+  font-style: normal;
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hint svg { animation: none !important; }
+  .tile { transition: none !important; }
+}

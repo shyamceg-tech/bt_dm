@@ -1,0 +1,155 @@
+/* ============================================================================
+   TrustStrip.module.css — BlueTick 2026 Refresh
+
+   Phase 1 sources:
+     - Mobile defaults:   bluetick-2026-refresh-v3.html lines 742–810
+     - Marquee keyframe:  in globals.css (`bt-marquee-scroll`)
+     - Desktop ≥1024px:   lines 1027–1049
+     - Polish:            lines 5915–5938 (soft mint background, dot grid,
+                          green eyebrow, pill labels)
+     - Reduced motion:    lines 1072–1075
+   ============================================================================ */
+
+/* ─── Section shell ─────────────────────────────────────────────────────── */
+.section {
+  background:
+    radial-gradient(circle at 1px 1px, rgba(16, 185, 129, 0.10) 1px, transparent 1px),
+    linear-gradient(180deg, #ECFDF5 0%, #F0FDFA 100%);
+  background-size: 22px 22px, 100% 100%;
+  padding: var(--s-56) 0;
+}
+
+@media (min-width: 1024px) {
+  .section { padding: var(--s-96) 0; }
+}
+
+.inner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter-mobile);
+}
+
+@media (min-width: 768px) {
+  .inner { padding: 0 var(--gutter-tablet); }
+}
+
+/* ─── Heading + eyebrow ─────────────────────────────────────────────────── */
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  text-align: center;
+  max-width: 28ch;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .heading { font-size: 2.5rem; }
+}
+
+.eyebrow {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--c-mint);
+  text-align: center;
+  margin-top: var(--s-24);
+}
+
+/* ─── Marquee group ─────────────────────────────────────────────────────── */
+.group {
+  margin-top: var(--s-16);
+}
+
+@media (min-width: 1024px) {
+  .group {
+    margin-top: var(--s-40);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-24);
+  }
+}
+
+/* ─── Single marquee ────────────────────────────────────────────────────── */
+.marquee {
+  margin-top: var(--s-16);
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+.row {
+  display: flex;
+  width: max-content;
+  gap: 60px;
+  align-items: center;
+  animation: bt-marquee-scroll 20s linear infinite;
+}
+
+/* Row-2 reversed direction + slower; row-3 even slower */
+.marquee_row2 .row { animation-duration: 26s; animation-direction: reverse; }
+.marquee_row3 .row { animation-duration: 32s; }
+
+/* Per-row label — hidden on mobile (single mixed marquee), shown desktop */
+.row_label {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .row_label {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.10);
+    color: #047857;
+    border: 1px solid rgba(16, 185, 129, 0.22);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-family: var(--font-body), system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+}
+
+/* ─── Logo cell (image or text wordmark) ────────────────────────────────── */
+.logo {
+  flex-shrink: 0;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 200ms ease, opacity 200ms ease;
+  white-space: nowrap;
+}
+
+.logo_img {
+  /* The Image wrapper is span; its inner <img> sizes via height + auto width */
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .marquee:hover .logo { opacity: 0.85; filter: grayscale(60%); }
+  .marquee .logo:hover { opacity: 1; filter: grayscale(0%); }
+}
+
+/* ─── Reduced motion ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .row { animation: none !important; }
+}

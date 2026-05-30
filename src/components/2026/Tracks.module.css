@@ -1,0 +1,453 @@
+/* ============================================================================
+   Tracks.module.css — BlueTick 2026 Refresh
+
+   Phase 1 source: bluetick-2026-refresh-v3.html
+     - Section shell:    lines 3640–3680  (#section-14 padding + grid)
+     - Track card:       lines 3682–3712
+     - Track parts:      lines 3714–3938  (title/specs/hireable/tickrow/fee/batch/sash)
+     - cta-primary btn:  lines 3611–3635
+     - Elevate variant:  lines 3876–3885
+     - section-eyebrow + section-h2 shared primitives: lines 3570–3587
+   ============================================================================ */
+
+/* ─── Section shell ─────────────────────────────────────────────────────── */
+.section {
+  background: var(--bg-alt);
+  padding: 72px 0;
+  scroll-margin-top: 80px; /* hash-link target offset */
+}
+
+@media (min-width: 1024px) {
+  .section { padding: 96px 0; }
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 var(--gutter-lg); }
+}
+
+/* ─── Head ──────────────────────────────────────────────────────────────── */
+.head {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 768px) { .heading { font-size: 36px; } }
+@media (min-width: 1024px) { .heading { font-size: 44px; } }
+
+/* ─── Grid ──────────────────────────────────────────────────────────────── */
+.grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 40px;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid { gap: 32px; }
+}
+
+/* ─── Card shell ────────────────────────────────────────────────────────── */
+.card {
+  position: relative;
+  background: var(--bg-base);
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  padding: 24px 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) { .card { padding: 32px 28px; } }
+
+@media (min-width: 1024px) { .card { padding: 28px 22px; } }
+@media (min-width: 1280px) { .card { padding: 32px 26px; } }
+
+/* PGCP variant (recommended, violet border + glow) */
+.card_pgcp {
+  border: 2px solid var(--pgcp-color);
+  box-shadow: 0 12px 32px -20px rgba(107, 79, 224, 0.35),
+              0 4px 16px -8px rgba(11, 20, 34, 0.06);
+}
+
+/* Elevate variant (teal border + glow) */
+.card_elevate {
+  border: 2px solid var(--elevate-color);
+  box-shadow: 0 12px 32px -20px rgba(15, 128, 134, 0.30),
+              0 4px 16px -8px rgba(11, 20, 34, 0.06);
+}
+
+/* ─── Track eyebrow chip (3-Month Track / 5-Month / 7-Month) ────────────── */
+.track_eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  align-self: flex-start;
+  /* Default = PCP (blue) */
+  background: var(--pcp-soft);
+  color: var(--pcp-color);
+}
+
+.card_pgcp .track_eyebrow {
+  background: var(--pgcp-soft);
+  color: var(--pgcp-color);
+}
+
+.card_elevate .track_eyebrow {
+  background: var(--elevate-soft);
+  color: var(--elevate-color);
+}
+
+/* ─── Title ─────────────────────────────────────────────────────────────── */
+.title {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 22px;
+  line-height: 1.22;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 16px;
+}
+
+@media (min-width: 768px) { .title { font-size: 24px; } }
+@media (min-width: 1024px) { .title { font-size: 21px; } }
+@media (min-width: 1280px) { .title { font-size: 23px; } }
+
+/* ─── Divider ───────────────────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: var(--border-default);
+  margin: 16px 0;
+}
+
+/* ─── Specs (Duration / Format / Schedule) ──────────────────────────────── */
+.specs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.specs_row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.specs_key {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding-top: 2px;
+}
+
+.specs_val {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ─── Section label ("Hireable for") ────────────────────────────────────── */
+.section_label {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+/* ─── Hireable list with colored bullets ────────────────────────────────── */
+.hireable {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hireable li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.hireable li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pcp-color);
+}
+
+.card_pgcp .hireable li::before { background: var(--pgcp-color); }
+.card_elevate .hireable li::before { background: var(--elevate-color); }
+
+/* ─── Tickrow ("15+ live projects · 20+ tools…") ────────────────────────── */
+.tickrow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tickrow li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  align-items: center;
+  font-size: 14.5px;
+  color: var(--text-primary);
+}
+
+.tickrow_mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #E2F4EA;
+  color: var(--success-green);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* ─── Fee block ─────────────────────────────────────────────────────────── */
+.fee_block {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--bg-alt);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.card_pgcp .fee_block { background: var(--pgcp-soft); }
+.card_elevate .fee_block { background: var(--elevate-soft); }
+
+.fee_cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.fee_label {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.fee_value {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--pcp-color);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.card_pgcp .fee_value { color: var(--pgcp-color); }
+.card_elevate .fee_value { color: var(--elevate-color); }
+
+.fee_suffix {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-left: 2px;
+}
+
+/* ─── Next-batch block ──────────────────────────────────────────────────── */
+.batch_block {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--brand-blue-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.card_pgcp .batch_block { background: var(--pgcp-soft); gap: 8px; }
+.card_elevate .batch_block { background: var(--elevate-soft); }
+
+.batch_label {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.batch_date {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand-blue);
+}
+
+.card_pgcp .batch_date { color: var(--pgcp-color); }
+.card_elevate .batch_date { color: var(--elevate-color); }
+
+.seat_chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--bg-base);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+}
+
+.seat_chip::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success-green);
+  box-shadow: 0 0 0 2px rgba(31, 157, 85, 0.18);
+}
+
+/* ─── PGCP recommended sash ─────────────────────────────────────────────── */
+.sash {
+  position: absolute;
+  top: 18px;
+  right: -42px;
+  background: var(--pgcp-color);
+  color: var(--text-on-deep);
+  padding: 6px 50px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transform: rotate(45deg);
+  transform-origin: center center;
+  box-shadow: 0 4px 12px -4px rgba(107, 79, 224, 0.5);
+  z-index: 2;
+  text-align: center;
+}
+
+/* ─── CTA button (orange primary) ───────────────────────────────────────── */
+.cta_wrap { margin-top: 18px; }
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--cta-orange);
+  color: var(--text-on-deep);
+  border: none;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  width: 100%;
+  min-height: 48px;
+  transition: background-color 120ms ease, transform 120ms ease;
+}
+
+.cta:hover { background: var(--cta-orange-hover); }
+.cta:active { transform: translateY(1px); }
+.cta:focus-visible {
+  outline: 3px solid rgba(255, 106, 26, 0.4);
+  outline-offset: 2px;
+}
+
+.cta_arrow {
+  font-size: 18px;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+/* ─── Scarcity footer line ──────────────────────────────────────────────── */
+.scarcity {
+  margin: 28px auto 0;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.55;
+  font-style: italic;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
+/* ─── Reduced motion ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cta { transition: none !important; }
+}

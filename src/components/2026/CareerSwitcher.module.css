@@ -1,0 +1,238 @@
+/* ============================================================================
+   CareerSwitcher.module.css — BlueTick 2026 Refresh
+
+   Phase 1 source: bluetick-2026-refresh-v3.html lines 4167–4303, 8986–9093.
+   ============================================================================ */
+
+.section {
+  /* Was `var(--bg-base)` — switched to `var(--bg-alt)` in 2K polish to break
+     the visual jam between DayInLife (bg-base) and Comparison (bg-base).
+     The card backgrounds are still white, so they pop nicely against the
+     light gray section bg. */
+  background: var(--bg-alt);
+  padding: 56px 0;
+  scroll-margin-top: 80px;
+}
+
+@media (min-width: 1024px) { .section { padding: 96px 0; } }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 768px) { .container { padding: 0 var(--gutter-lg); } }
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+.head { max-width: 760px; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 768px)  { .heading { font-size: 36px; } }
+@media (min-width: 1024px) { .heading { font-size: 44px; } }
+
+/* Inline "41%" stat — display-weight + brand-blue */
+.stat_inline {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  color: var(--brand-blue);
+}
+
+.sub {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  max-width: 56ch;
+}
+
+/* ─── Grid of 3 switcher cards ──────────────────────────────────────────── */
+.grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+}
+
+/* ─── Card ──────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-base);
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .card { padding: 28px 24px; }
+}
+
+.head_row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+/* ─── Avatar (3 color variants tied to the 3 program tints) ─────────────── */
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand-blue-soft) 0%, #D8E3FA 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--brand-blue);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.avatar_2 {
+  background: linear-gradient(135deg, var(--pgcp-soft) 0%, #DDD2F5 100%);
+  color: var(--pgcp-color);
+}
+
+.avatar_3 {
+  background: linear-gradient(135deg, var(--elevate-soft) 0%, #C0E4E6 100%);
+  color: var(--elevate-color);
+}
+
+.id_name {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin: 0 0 2px;
+}
+
+.id_meta {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ─── From → To salary jump block ───────────────────────────────────────── */
+.fromto {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--bg-alt);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ft_row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ft_key {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.ft_line {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.ft_salary {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  margin-top: 2px;
+}
+
+.ft_row_from .ft_salary { color: var(--text-secondary); }
+.ft_row_to   .ft_salary { color: var(--success-green); }
+
+.ft_arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 0;
+}
+
+/* ─── Quote ─────────────────────────────────────────────────────────────── */
+.quote {
+  margin: 16px 0 0;
+  padding: 16px 0 0 12px;
+  border-top: 1px dashed var(--border-default);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--text-primary);
+  font-style: italic;
+  position: relative;
+  flex: 1;
+}
+
+.quote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 18px;
+  bottom: 0;
+  width: 2px;
+  background: var(--brand-blue);
+  border-radius: 1px;
+}
+
+/* ─── Closing line ──────────────────────────────────────────────────────── */
+.closing {
+  margin: 32px auto 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.55;
+  font-style: italic;
+  color: var(--text-secondary);
+  max-width: 600px;
+}
+
+@media (min-width: 768px) { .closing { font-size: 18px; } }

@@ -1,0 +1,246 @@
+/* ============================================================================
+   Comparison.module.css — BlueTick 2026 Refresh
+
+   Phase 1 source: bluetick-2026-refresh-v3.html lines 4316–4581, 9099–9169.
+
+   Single horizontal-swipe table at all breakpoints. Mobile-only mask-fade
+   on right edge + animated swipe-hint chevron. Desktop ≥1024px: scroll
+   disappears, table fits within rounded container with subtle shadow.
+   ============================================================================ */
+
+.section {
+  background: var(--bg-base);
+  padding: 56px 0;
+  scroll-margin-top: 80px;
+}
+
+@media (min-width: 1024px) { .section { padding: 96px 0; } }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 768px) { .container { padding: 0 var(--gutter-lg); } }
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+.head { max-width: 760px; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 768px)  { .heading { font-size: 36px; } }
+@media (min-width: 1024px) { .heading { font-size: 44px; } }
+
+/* ─── Table wrap (horizontal swipe at mobile, full container at desktop) ─ */
+.table_wrap {
+  margin-top: var(--s-32);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) transparent;
+  margin-left: calc(var(--gutter-mobile) * -1);
+  margin-right: calc(var(--gutter-mobile) * -1);
+  padding: 0 var(--gutter-mobile) 8px;
+  /* Right-edge fade tells the user there's more to scroll */
+  mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 32px), transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 32px), transparent 100%);
+}
+
+.table_wrap:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
+@media (min-width: 1024px) {
+  .table_wrap {
+    margin-top: 56px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    overflow: visible;
+    border-radius: 16px;
+    border: 1px solid var(--border-default);
+    box-shadow: 0 16px 36px -20px rgba(11, 20, 34, 0.12);
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+
+.table_wrap > .table {
+  min-width: 760px;
+}
+
+@media (min-width: 1024px) {
+  .table_wrap > .table { min-width: 0; }
+}
+
+/* ─── Swipe hint (mobile only) ─────────────────────────────────────────── */
+.swipe_hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+.swipe_hint svg {
+  width: 14px;
+  height: 14px;
+  animation: bt-nudge 1.6s ease-in-out infinite;
+}
+
+@media (min-width: 1024px) { .swipe_hint { display: none; } }
+
+/* ─── Table proper ──────────────────────────────────────────────────────── */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+/* ─── Header row ────────────────────────────────────────────────────────── */
+.table thead th {
+  background: var(--bg-deep);
+  color: var(--text-on-deep);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 18px 16px;
+  text-align: left;
+  vertical-align: middle;
+  position: relative;
+}
+
+.table thead th.col_bt {
+  background: var(--bg-deepest);
+  position: relative;
+}
+
+.table thead th.col_bt::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--aurora-grad);
+}
+
+.star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--cta-orange);
+  color: var(--text-on-deep);
+  font-size: 11px;
+  font-weight: 800;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* ─── Body rows ─────────────────────────────────────────────────────────── */
+.table tbody td {
+  padding: 16px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border-default);
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.table tbody td.col_criterion {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--bg-base);
+  width: 22%;
+}
+
+.table tbody td.col_bt {
+  background: var(--brand-blue-soft);
+  font-weight: 600;
+}
+
+.table tbody tr:nth-child(even) td:not(.col_bt) {
+  background: var(--bg-alt);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ─── Cell marks (yes / na / no) ────────────────────────────────────────── */
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  vertical-align: middle;
+}
+
+.mark_yes {
+  background: #E2F4EA;
+  color: var(--success-green);
+}
+
+.mark_na {
+  background: #ECEFF4;
+  color: var(--text-secondary);
+}
+
+.mark_no {
+  background: rgba(220, 38, 38, 0.10);
+  color: var(--danger-red);
+}
+
+/* Sr-only utility */
+.sr_only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swipe_hint svg { animation: none !important; }
+}

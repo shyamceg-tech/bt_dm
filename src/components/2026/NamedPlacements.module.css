@@ -1,0 +1,285 @@
+/* ============================================================================
+   NamedPlacements.module.css — BlueTick 2026 Refresh
+
+   Phase 1 sources:
+     - Mobile defaults:   bluetick-2026-refresh-v3.html lines 1228–1342
+     - Desktop ≥768px:    lines 1863–1894 (grid + filter pills appear)
+     - Desktop ≥1024px:   lines 1954–1956 (3-col grid + larger heading)
+     - Polish:            lines 5965–6007 (sky-blue grid bg + electric photo)
+     - Reduced motion:    via bt-nudge keyframe disable
+   ============================================================================ */
+
+/* ─── Section shell ─────────────────────────────────────────────────────── */
+.section {
+  background:
+    linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, #F0F9FF 0%, #ECFEFF 100%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  padding: var(--s-56) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.18), transparent 70%);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .section { padding: var(--s-96) 0; }
+}
+
+.inner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter-mobile);
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .inner { padding: 0 var(--gutter-tablet); }
+}
+
+/* ─── Heading + subline (mirrors shared section-heading but local for
+       the larger desktop scale this section uses) ─────────────────────── */
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .heading { font-size: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .heading { font-size: 2.5rem; max-width: 24ch; }
+}
+
+.subline {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-top: var(--s-16);
+  max-width: 52ch;
+  line-height: 1.55;
+}
+
+/* ─── Filter pills (hidden on mobile horizontal scroller; show at ≥768) ─── */
+.filters {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: var(--s-24);
+  }
+}
+
+.filter_pill {
+  padding: 8px 14px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--r-pill);
+  background: var(--bg-base);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.filter_pill:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.filter_pill_active {
+  background: var(--grad-electric);
+  color: #FFFFFF;
+  border-color: transparent;
+}
+
+.filter_pill_active:hover {
+  color: #FFFFFF;
+}
+
+/* ─── Alumni grid: mobile horizontal scroll, tablet 2-col, desktop 3-col ── */
+.grid {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin: var(--s-32) calc(var(--gutter-mobile) * -1) 0;
+  padding: 8px var(--gutter-mobile) 16px;
+  mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 40px), transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 calc(100% - 40px), transparent 100%);
+}
+
+.grid::-webkit-scrollbar { display: none; }
+
+@media (min-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-20);
+    overflow: visible;
+    padding: 0;
+    margin: var(--s-32) 0 0;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s-24);
+  }
+}
+
+/* ─── Alumni card ───────────────────────────────────────────────────────── */
+.card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  background: var(--bg-base);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: var(--r-card);
+  padding: var(--s-20);
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              border-color 0.25s ease;
+}
+
+@media (min-width: 768px) {
+  .card { flex: initial; }
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.30);
+  border-color: rgba(6, 182, 212, 0.42);
+}
+
+/* Photo container — gradient-electric background visible only behind
+   missing/transparent photos (acts as initial avatar fallback). */
+.photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--grad-electric);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.photo_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+}
+
+.name {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: var(--s-16);
+  line-height: 1.25;
+}
+
+.batch {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.role {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  margin-top: var(--s-12);
+  line-height: 1.4;
+}
+
+.role_company { font-weight: 600; }
+
+.package_pill {
+  display: inline-flex;
+  align-items: center;
+  margin-top: var(--s-16);
+  padding: 4px 10px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(6, 182, 212, 0.12));
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: var(--r-pill);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+/* ─── Scroll hint (mobile only) ─────────────────────────────────────────── */
+.scroll_hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--s-12);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 768px) {
+  .scroll_hint { display: none; }
+}
+
+.scroll_hint_dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.scroll_hint_dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.scroll_hint_dots span:first-child {
+  background: var(--brand-blue);
+  width: 16px;
+  border-radius: 999px;
+}
+
+.scroll_hint_arrow {
+  display: inline-flex;
+  align-items: center;
+  color: var(--brand-blue);
+  animation: bt-nudge 1.8s ease-in-out infinite;
+}
+
+/* ─── Reduced motion ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .scroll_hint_arrow { animation: none !important; }
+  .card { transition: none !important; }
+}

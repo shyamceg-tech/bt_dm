@@ -1,0 +1,166 @@
+/* ============================================================================
+   Faqs.module.css — BlueTick 2026 Refresh
+
+   Phase 1 source: bluetick-2026-refresh-v3.html lines 4877–4975, 9347–9438.
+
+   Native HTML <details> + <summary> accordion. Exclusive single-open mode
+   uses the `name` HTML attribute (modern browsers); older browsers fall
+   back to multi-open which is still functional.
+
+   Zero JS. The "plus → x" toggle is pure CSS — rotated pseudo-elements that
+   rotate 45° when [open] is set.
+   ============================================================================ */
+
+.section {
+  background: var(--bg-base);
+  padding: 56px 0;
+  scroll-margin-top: 80px;
+}
+
+@media (min-width: 1024px) { .section { padding: 96px 0; } }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 768px) { .container { padding: 0 var(--gutter-lg); } }
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+.head { max-width: 760px; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 768px)  { .heading { font-size: 36px; } }
+@media (min-width: 1024px) { .heading { font-size: 44px; } }
+
+/* ─── List ──────────────────────────────────────────────────────────────── */
+.list { margin-top: 32px; }
+
+@media (min-width: 1024px) {
+  .list {
+    margin-top: 48px;
+    column-count: 2;
+    column-gap: 48px;
+  }
+}
+
+/* ─── Single FAQ ────────────────────────────────────────────────────────── */
+.faq {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  border-top: 1px solid var(--border-default);
+  margin: 0;
+}
+
+.list .faq:last-child { border-bottom: 1px solid var(--border-default); }
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 0;
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  gap: 16px;
+  align-items: flex-start;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+  letter-spacing: -0.005em;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .faq summary { font-size: 17px; padding: 22px 0; }
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::marker { content: ''; }
+
+/* ─── Plus → X toggle (pure CSS) ────────────────────────────────────────── */
+.toggle {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: color 150ms ease, transform 200ms ease;
+  margin-top: 2px;
+}
+
+.faq summary:hover .toggle { color: var(--brand-blue); }
+.faq[open] .toggle {
+  color: var(--brand-blue);
+  transform: rotate(45deg);
+}
+
+.toggle::before,
+.toggle::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+/* horizontal stroke */
+.toggle::before {
+  left: 4px;
+  right: 4px;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+/* vertical stroke */
+.toggle::after {
+  top: 4px;
+  bottom: 4px;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+}
+
+/* ─── Body ──────────────────────────────────────────────────────────────── */
+.body {
+  padding: 0 32px 22px 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 768px) {
+  .body { font-size: 15.5px; }
+}
+
+.body strong { color: var(--text-primary); font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle { transition: none !important; }
+}

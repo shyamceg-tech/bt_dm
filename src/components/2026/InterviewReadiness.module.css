@@ -1,0 +1,243 @@
+/* ============================================================================
+   InterviewReadiness.module.css — BlueTick 2026 Refresh
+
+   Phase 1 source: bluetick-2026-refresh-v3.html lines 2881–3053.
+   ============================================================================ */
+
+.section {
+  background: var(--bg-base);
+  padding: 56px 0;
+  scroll-margin-top: 80px;
+}
+
+@media (min-width: 1024px) { .section { padding: 96px 0; } }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 768px) { .container { padding: 0 var(--gutter-lg); } }
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+.head { max-width: 760px; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 768px)  { .heading { font-size: 36px; } }
+@media (min-width: 1024px) { .heading { font-size: 44px; } }
+
+/* ─── Grid: mobile horizontal swipe rail → desktop 2-col grid ──────────── */
+.grid {
+  margin-top: 40px;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  margin-left: calc(var(--gutter-mobile) * -1);
+  margin-right: calc(var(--gutter-mobile) * -1);
+  padding: 4px var(--gutter-mobile) 12px;
+}
+
+.grid::-webkit-scrollbar { display: none; }
+
+@media (min-width: 1024px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 56px 0 0;
+    padding: 0;
+    overflow: visible;
+  }
+}
+
+/* ─── Swipe hint (mobile only) ─────────────────────────────────────────── */
+.swipe_hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+.swipe_hint svg {
+  width: 14px;
+  height: 14px;
+  animation: bt-nudge 1.6s ease-in-out infinite;
+}
+
+@media (min-width: 1024px) { .swipe_hint { display: none; } }
+
+/* ─── Card ──────────────────────────────────────────────────────────────── */
+.card {
+  position: relative;
+  background: var(--bg-base);
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  padding: 28px 20px 24px;
+  overflow: hidden;
+  flex: 0 0 70%;
+  max-width: 360px;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) { .card { padding: 36px 28px 32px; } }
+
+@media (min-width: 1024px) {
+  .card { flex: initial; max-width: none; }
+}
+
+/* Top accent bar — 4px tall */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+/* ── Fresher variant: red top bar + gray bg ─── */
+.card_fresher {
+  background: var(--bg-alt);
+}
+
+.card_fresher::before {
+  background: var(--danger-red);
+}
+
+/* ── BlueTick variant: aurora top bar + soft inner glow ─── */
+.card_bluetick {
+  background: var(--bg-base);
+  box-shadow:
+    inset 0 1px 0 rgba(26, 95, 255, 0.06),
+    0 0 0 1px rgba(26, 95, 255, 0.04);
+}
+
+.card_bluetick::before {
+  background: var(--aurora-grad);
+}
+
+.card_bluetick::after {
+  content: '';
+  position: absolute;
+  inset: 4px 0 auto 0;
+  height: 120px;
+  background: linear-gradient(180deg, rgba(230, 238, 255, 0.55) 0%, rgba(230, 238, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card_title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0 0 20px;
+}
+
+@media (min-width: 768px) { .card_title { font-size: 22px; } }
+
+.card_fresher  .card_title { color: var(--danger-red); }
+.card_bluetick .card_title { color: var(--text-primary); }
+
+/* ─── List ──────────────────────────────────────────────────────────────── */
+.list {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 12px;
+  align-items: start;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.item q {
+  font-style: normal;
+  quotes: "“" "”";
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.card_fresher .mark {
+  background: #FCE7EA;
+  color: var(--danger-red);
+}
+
+.card_bluetick .mark {
+  background: #E2F4EA;
+  color: var(--success-green);
+}
+
+/* ─── Closing line ──────────────────────────────────────────────────────── */
+.closing {
+  margin: 40px auto 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.55;
+  font-style: italic;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
+@media (min-width: 768px) {
+  .closing { font-size: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swipe_hint svg { animation: none !important; }
+}

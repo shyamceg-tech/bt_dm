@@ -1,0 +1,70 @@
+/* ============================================================================
+   StickyBar.module.css — BlueTick 2026 Refresh
+
+   Phase 1 source: bluetick-2026-refresh-v3.html lines 5108–5150, 9525–9534.
+
+   Mobile-only fixed-bottom WhatsApp CTA. Visible <1024px, hidden on
+   desktop (real header CTA + multiple inline forms serve that role).
+   Honors `env(safe-area-inset-bottom)` for iOS notch / home indicator.
+   ============================================================================ */
+
+.bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-base);
+  border-top: 1px solid var(--border-default);
+  box-shadow: 0 -4px 12px rgba(11, 20, 34, 0.06);
+  padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px));
+  z-index: 90;
+}
+
+@media (min-width: 1024px) {
+  .bar { display: none; }
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  background: var(--cta-orange);
+  color: var(--text-on-deep);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 120ms ease, transform 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cta:hover { background: var(--cta-orange-hover); }
+.cta:active { transform: translateY(1px); }
+
+.cta:focus-visible {
+  outline: 3px solid rgba(255, 106, 26, 0.4);
+  outline-offset: 2px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.chev {
+  font-size: 18px;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta { transition: none !important; }
+}

@@ -1,0 +1,89 @@
+/* ============================================================================
+   MiniFormBand.module.css — BlueTick 2026 Refresh
+
+   Phase 1 source: bluetick-2026-refresh-v3.html lines 187–278.
+
+   Short 2-field capture band placed right after the Tracks section to catch
+   warm leads who've just seen the price. Deep-navy backdrop with aurora blob;
+   the MiniForm inside is the light-theme white card.
+   ============================================================================ */
+
+.section {
+  background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-deepest) 100%);
+  color: var(--text-on-deep);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-top: var(--s-40);
+  padding-bottom: var(--s-40);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* Aurora blob top-right */
+.section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, var(--aurora-1) 0%, var(--aurora-2) 45%, transparent 70%);
+  filter: blur(90px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--s-32) var(--gutter-mobile);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    padding-top: var(--s-48);
+    padding-bottom: var(--s-48);
+    padding-left: var(--gutter-tablet);
+    padding-right: var(--gutter-tablet);
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cta-orange);
+  margin: 0 0 6px;
+}
+
+.title {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text-on-deep);
+  margin: 0 0 var(--s-16);
+}
+
+@media (min-width: 768px) {
+  .title { font-size: 1.875rem; }
+}
+
+.micro {
+  margin-top: var(--s-12);
+  font-size: 0.8125rem;
+  color: var(--text-on-deep-muted);
+}

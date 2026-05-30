@@ -1,0 +1,308 @@
+/* ============================================================================
+   Trainers.module.css — BlueTick 2026 Refresh
+
+   Phase 1 sources:
+     - Mobile defaults:  bluetick-2026-refresh-v3.html lines 2325–2488
+     - Tablet ≥768px:    lines 2425–2433
+     - Polish layer:     lines 5478–5490 (additional aurora-1 blob bottom-right)
+   ============================================================================ */
+
+/* ─── Section shell ─────────────────────────────────────────────────────── */
+.section {
+  position: relative;
+  background: var(--bg-deep);
+  color: var(--text-on-deep);
+  padding: var(--s-80) 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+@media (min-width: 1024px) { .section { padding: var(--s-128) 0; } }
+
+/* Aurora blob top-left */
+.section::before {
+  content: '';
+  position: absolute;
+  top: -180px;
+  left: -160px;
+  width: 540px;
+  height: 540px;
+  background: radial-gradient(circle, var(--aurora-2) 0%, transparent 65%);
+  filter: blur(140px);
+  opacity: 0.30;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Aurora blob bottom-right (polish layer additional accent) */
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  background: var(--aurora-1);
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.20;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter-mobile);
+}
+
+@media (min-width: 768px) { .inner { padding: 0 var(--gutter-tablet); } }
+
+/* ─── Eyebrow with green pulse dot ──────────────────────────────────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--r-pill);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-on-deep-muted);
+  margin: 0;
+}
+
+.eyebrow_dot {
+  width: 8px;
+  height: 8px;
+  background: var(--success-green);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(31, 157, 85, 0.18);
+}
+
+/* ─── Headline ──────────────────────────────────────────────────────────── */
+.headline {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--text-on-deep);
+  margin: var(--s-20) 0 0;
+  max-width: 22ch;
+}
+
+@media (min-width: 768px)  { .headline { font-size: 2.25rem; } }
+@media (min-width: 1024px) { .headline { font-size: 2.75rem; max-width: 18ch; } }
+
+/* ─── Stat centerpiece (glass card) ─────────────────────────────────────── */
+.stat {
+  margin-top: var(--s-40);
+  padding: var(--s-32) var(--s-20);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--r-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  text-align: center;
+  position: relative;
+}
+
+.stat_label {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--aurora-3);
+  margin: 0;
+}
+
+.stat_value {
+  margin: var(--s-12) 0 0;
+}
+
+.stat_number {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--text-on-deep);
+  display: inline-block;
+}
+
+.stat_suffix {
+  font-size: 2rem;
+  font-weight: 700;
+  vertical-align: top;
+  margin-left: 4px;
+  color: var(--aurora-3);
+}
+
+.stat_desc {
+  margin: var(--s-12) auto 0;
+  font-size: 0.9375rem;
+  color: var(--text-on-deep-muted);
+  line-height: 1.5;
+  max-width: 32ch;
+}
+
+/* ─── Tagline (frosted card with italic em) ─────────────────────────────── */
+.tagline {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: var(--s-32) auto 0;
+  max-width: 640px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #FFFFFF;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .tagline {
+    font-size: 1.0625rem;
+    padding: 18px 24px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+.tagline em {
+  font-family: var(--font-accent), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: #FB923C;
+  padding: 0 2px;
+}
+
+.tagline_mark {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--success-green);
+  border-radius: 50%;
+  color: #FFFFFF;
+  margin-top: 1px;
+}
+
+.tagline_mark svg { width: 14px; height: 14px; }
+
+/* ─── Trainer points (4 glass cards) ────────────────────────────────────── */
+.points {
+  list-style: none;
+  margin: var(--s-32) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-16);
+}
+
+@media (min-width: 768px) {
+  .points { grid-template-columns: 1fr 1fr; gap: var(--s-20); }
+}
+
+.point {
+  padding: var(--s-20);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--r-card);
+  display: flex;
+  gap: var(--s-16);
+  align-items: flex-start;
+}
+
+.point_icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: rgba(25, 211, 218, 0.12);
+  color: var(--aurora-3);
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.point_icon svg { width: 20px; height: 20px; }
+
+.point_title {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-on-deep);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.point_body {
+  margin: 4px 0 0;
+  font-size: 0.875rem;
+  color: var(--text-on-deep-muted);
+  line-height: 1.5;
+}
+
+/* ─── Vs comparison box ─────────────────────────────────────────────────── */
+.vs {
+  margin-top: var(--s-32);
+  padding: var(--s-24);
+  background: linear-gradient(135deg, rgba(255, 106, 26, 0.08) 0%, rgba(255, 106, 26, 0.02) 100%);
+  border-left: 3px solid var(--cta-orange);
+  border-radius: 0 var(--r-card) var(--r-card) 0;
+}
+
+.vs_row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-12);
+}
+
+.vs_row + .vs_row { margin-top: var(--s-12); }
+
+.vs_label {
+  flex-shrink: 0;
+  min-width: 92px;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-on-deep-muted);
+}
+
+.vs_row_us .vs_label { color: var(--cta-orange); }
+
+.vs_text {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-on-deep);
+  line-height: 1.4;
+}
+
+.vs_row_them .vs_text {
+  color: var(--text-on-deep-muted);
+  font-weight: 500;
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+}

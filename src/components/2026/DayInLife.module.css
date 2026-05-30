@@ -1,0 +1,165 @@
+/* ============================================================================
+   DayInLife.module.css — BlueTick 2026 Refresh
+
+   Phase 1 source: bluetick-2026-refresh-v3.html lines 3346–3478, 8940–8972.
+
+   Image-led "Inside a BlueTick Tuesday" section. Photo + caption card.
+   Mobile: caption stacks below the photo. Desktop ≥1024px: caption is
+   absolutely positioned overlapping the bottom of the photo.
+   ============================================================================ */
+
+.section {
+  background: var(--bg-base);
+  padding: 56px 0;
+  scroll-margin-top: 80px;
+}
+
+@media (min-width: 1024px) { .section { padding: 96px 0; } }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 768px) { .container { padding: 0 var(--gutter-lg); } }
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+.head { max-width: 760px; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 768px)  { .heading { font-size: 36px; } }
+@media (min-width: 1024px) { .heading { font-size: 44px; } }
+
+/* ─── Photo + caption wrap ──────────────────────────────────────────────── */
+.photo_wrap {
+  position: relative;
+  margin-top: 24px;
+}
+
+@media (min-width: 1024px) {
+  .photo_wrap {
+    margin-top: 40px;
+    padding-bottom: 100px; /* room for absolutely-positioned caption */
+  }
+}
+
+/* ─── Photo box ─────────────────────────────────────────────────────────── */
+.photo {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #EEF2F8 0%, #DDE5F0 100%);
+  box-shadow:
+    0 12px 32px -16px rgba(11, 20, 34, 0.18),
+    0 4px 12px -6px rgba(11, 20, 34, 0.06);
+}
+
+.photo_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Caption card ──────────────────────────────────────────────────────── */
+.caption {
+  background: var(--bg-base);
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 16px -8px rgba(11, 20, 34, 0.10);
+}
+
+@media (min-width: 768px) {
+  .caption { padding: 24px 28px; }
+}
+
+@media (min-width: 1024px) {
+  .caption {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 0;
+    margin-top: 0;
+    padding: 28px 32px;
+    box-shadow: 0 24px 48px -24px rgba(11, 20, 34, 0.30);
+  }
+}
+
+.stats {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand-blue);
+  letter-spacing: -0.005em;
+  margin: 0 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.stats span { white-space: nowrap; }
+
+@media (min-width: 768px) { .stats { font-size: 16px; } }
+
+.time {
+  display: inline-block;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--brand-blue);
+  background: var(--brand-blue-soft);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.body {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+@media (min-width: 768px) { .body { font-size: 16px; } }
+
+/* ─── Closing line ──────────────────────────────────────────────────────── */
+.closing {
+  margin: 32px auto 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.55;
+  font-style: italic;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
+@media (min-width: 768px) { .closing { font-size: 18px; } }
+
+@media (min-width: 1024px) { .closing { margin-top: 48px; } }

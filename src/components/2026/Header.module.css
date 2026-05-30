@@ -1,0 +1,324 @@
+/* ============================================================================
+   Header.module.css — BlueTick 2026 Refresh
+   Ports the canonical Phase 1 header styles (lines 282–386 mobile defaults,
+   lines 1917–1928 desktop overrides ≥1024px, lines 6627–6635 is-scrolled).
+   Adds: drawer panel + backdrop (new — Phase 1 had no drawer markup).
+   ============================================================================ */
+
+/* ─── Shell ─────────────────────────────────────────────────────────────── */
+.site_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h-mobile);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter-mobile);
+  background: transparent;
+  transition: background 200ms ease, box-shadow 200ms ease, backdrop-filter 200ms ease;
+}
+
+.site_header.is_scrolled {
+  background: rgba(10, 14, 39, 0.88);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Sentinel — 1px element placed above the header so an IntersectionObserver
+   can detect when the page has scrolled past 80px. Lives in the DOM as a
+   sibling, but visually invisible. */
+.scroll_sentinel {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* ─── Brand logo ────────────────────────────────────────────────────────── */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand_logo {
+  display: block;
+  width: 110px;
+  height: auto;
+}
+
+@media (min-width: 500px) {
+  .brand_logo { width: 124px; }
+}
+
+@media (min-width: 1024px) {
+  .brand_logo { width: 134px; }
+}
+
+/* ─── Mobile right-side action group (visible <1024px) ──────────────────── */
+.mobile_actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+@media (min-width: 1024px) {
+  .mobile_actions { display: none; }
+}
+
+/* Circular WA / Call icon buttons */
+.icon_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: transform 100ms ease, box-shadow 150ms ease;
+}
+
+.icon_btn:active { transform: translateY(1px); }
+
+.icon_btn .icon { width: 32px; height: 32px; display: block; }
+
+.icon_btn_wa { background: transparent; }
+
+.icon_btn_call {
+  background: linear-gradient(180deg, #FD9055 0%, #FE4855 100%);
+  box-shadow: 0 4px 10px rgba(254, 72, 85, 0.35);
+  padding: 4px;
+}
+
+.icon_btn_call .icon { width: 26px; height: 26px; }
+.icon_btn_call .icon path { fill: #FFFFFF; }
+
+/* Hamburger */
+.hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-on-deep);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger:hover  { background: rgba(255, 255, 255, 0.12); }
+.hamburger:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
+.hamburger svg { width: 20px; height: 20px; }
+
+@media (min-width: 1024px) {
+  .hamburger { display: none; }
+}
+
+/* ─── Desktop nav (≥1024px) ─────────────────────────────────────────────── */
+.nav_desktop { display: none; }
+
+@media (min-width: 1024px) {
+  .site_header {
+    height: var(--header-h-desktop);
+    padding: 0 var(--gutter-tablet);
+  }
+
+  .nav_desktop {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav_list {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav_list a {
+    color: var(--text-on-deep);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    opacity: 0.85;
+    transition: opacity 150ms ease;
+  }
+
+  .nav_list a:hover { opacity: 1; }
+  .nav_list button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--text-on-deep);
+    font-family: inherit;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    opacity: 0.85;
+    transition: opacity 150ms ease;
+  }
+  .nav_list button:hover { opacity: 1; }
+
+  .nav_actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+}
+
+/* Desktop WA / Call pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px 6px 8px;
+  border-radius: 999px;
+  background: #2D2E5A;
+  color: #FFFFFF;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 150ms ease, transform 100ms ease;
+}
+
+.pill:hover  { background: #3A3C70; }
+.pill:active { transform: translateY(1px); }
+
+.pill .icon { width: 28px; height: 28px; flex-shrink: 0; }
+
+.pill .icon_call_inline {
+  padding: 3px;
+  background: transparent;
+  border-radius: 50%;
+}
+.pill .icon_call_inline path { fill: #FFFFFF; }
+
+/* ─── Mobile drawer (NEW — Phase 1 didn't include this markup) ──────────── */
+.drawer_backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 18, 50, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 70;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.drawer_backdrop[data-open='true'] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(84vw, 320px);
+  background: var(--bg-deepest);
+  color: var(--text-on-deep);
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  padding: var(--s-24) var(--s-24) var(--s-32);
+  transform: translateX(100%);
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.35);
+}
+
+.drawer[data-open='true'] { transform: translateX(0); }
+
+.drawer_close {
+  align-self: flex-end;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-on-deep);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: var(--s-16);
+}
+.drawer_close:hover { background: rgba(255, 255, 255, 0.12); }
+.drawer_close svg { width: 20px; height: 20px; }
+
+.drawer_links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drawer_links a,
+.drawer_links button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--s-12) var(--s-16);
+  background: transparent;
+  border: none;
+  border-radius: var(--r-input);
+  color: var(--text-on-deep);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+
+.drawer_links a:hover,
+.drawer_links button:hover { background: rgba(255, 255, 255, 0.06); }
+
+.drawer_links a:focus-visible,
+.drawer_links button:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: -2px;
+}
+
+@media (min-width: 1024px) {
+  /* Drawer is mobile-only; CSS guarantees it can't open at desktop even if
+     state slips. */
+  .drawer,
+  .drawer_backdrop {
+    display: none !important;
+  }
+}
+
+/* ─── Reduced-motion overrides ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .site_header,
+  .drawer,
+  .drawer_backdrop,
+  .icon_btn,
+  .pill,
+  .hamburger {
+    transition: none !important;
+  }
+}

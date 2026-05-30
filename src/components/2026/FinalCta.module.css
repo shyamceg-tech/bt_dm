@@ -1,0 +1,189 @@
+/* ============================================================================
+   FinalCta.module.css — BlueTick 2026 Refresh
+
+   Phase 1 source: bluetick-2026-refresh-v3.html lines 4977–5103, 9476–9517.
+
+   Final conversion beat before the footer. Deep-navy backdrop with two
+   soft radial glows (blue top-right, violet bottom-left). Scarcity-styled
+   headline. White MiniForm card centered. WhatsApp orange CTA below.
+   ============================================================================ */
+
+.section {
+  background: var(--bg-deep);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+
+@media (min-width: 1024px) { .section { padding: 112px 0; } }
+
+/* Subtle radial glow top-right (single hue blue, not aurora) */
+.section::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(26, 95, 255, 0.28) 0%, rgba(26, 95, 255, 0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: -160px;
+  left: -100px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(123, 92, 255, 0.20) 0%, rgba(123, 92, 255, 0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 768px) { .container { padding: 0 var(--gutter-lg); } }
+
+.inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ─── Heading ───────────────────────────────────────────────────────────── */
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: var(--text-on-deep);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 768px)  { .heading { font-size: 36px; } }
+@media (min-width: 1024px) { .heading { font-size: 44px; } }
+
+/* Inline scarcity highlight (matches the same pattern used in CTA Banner #4) */
+.scarcity_hl {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: rgba(252, 211, 77, 0.18);
+  color: #FCD34D;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* ─── Form wrap (centers the MiniForm) ─────────────────────────────────── */
+.form_wrap {
+  margin-top: 32px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+@media (min-width: 1024px) { .form_wrap { margin-top: 40px; } }
+
+/* ─── Secondary stack: WhatsApp anchor + caption ───────────────────────── */
+.stack {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) { .stack { margin-top: 40px; } }
+
+.cta_block {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  min-height: 52px;
+  transition: background-color 120ms ease, transform 120ms ease, border-color 120ms ease;
+  width: 100%;
+  background: var(--cta-orange);
+  color: var(--text-on-deep);
+  border: 2px solid var(--cta-orange);
+}
+
+.cta:hover {
+  background: var(--cta-orange-hover);
+  border-color: var(--cta-orange-hover);
+}
+
+.cta:active { transform: translateY(1px); }
+
+.cta:focus-visible {
+  outline: 3px solid rgba(255, 106, 26, 0.4);
+  outline-offset: 2px;
+}
+
+.cta_arrow {
+  font-size: 18px;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+.cta_icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.cta_sub {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-on-deep-muted);
+  text-align: center;
+}
+
+/* ─── Footer line ──────────────────────────────────────────────────────── */
+.footer_line {
+  margin-top: 40px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-on-deep-muted);
+  text-align: center;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer_line strong {
+  color: var(--text-on-deep);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta { transition: none !important; }
+}

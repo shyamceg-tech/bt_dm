@@ -1,0 +1,237 @@
+/* ============================================================================
+   Salary.module.css — BlueTick 2026 Refresh
+
+   Phase 1 sources:
+     - Mobile defaults:   bluetick-2026-refresh-v3.html lines 820–952
+     - Desktop ≥1024px:   lines 1052–1066
+     - Polish:            lines 5942–5960 (peach grid bg + amber blob)
+   ============================================================================ */
+
+/* ─── Section shell ─────────────────────────────────────────────────────── */
+.section {
+  background:
+    linear-gradient(rgba(251, 146, 60, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251, 146, 60, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, #FFFBEB 0%, #FFF7ED 100%);
+  background-size: 36px 36px, 36px 36px, 100% 100%;
+  padding: var(--s-72) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Amber blob top-right */
+.section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.18), transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .section { padding: var(--s-128) 0; }
+}
+
+.inner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter-mobile);
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .inner { padding: 0 var(--gutter-tablet); }
+}
+
+/* ─── Heading + subline ─────────────────────────────────────────────────── */
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  max-width: 22ch;
+}
+
+@media (min-width: 1024px) {
+  .heading { font-size: 2.75rem; max-width: 18ch; }
+}
+
+.subline {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-top: var(--s-16);
+}
+
+@media (min-width: 1024px) {
+  .subline { font-size: 1.0625rem; }
+}
+
+/* ─── Grid (mobile: stacked; desktop: bars + summary side-by-side) ──────── */
+.grid {
+  margin-top: var(--s-32);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    align-items: start;
+    margin-top: var(--s-48);
+  }
+}
+
+/* ─── Bar chart ─────────────────────────────────────────────────────────── */
+.bars {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-24);
+}
+
+@media (min-width: 1024px) {
+  .bars { gap: var(--s-32); }
+}
+
+.bar_row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.bar_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bar_band {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.005em;
+}
+
+.bar_pct {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.bar_track {
+  width: 100%;
+  height: 28px;
+  background: var(--border-default);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .bar_track { height: 36px; }
+}
+
+.bar_fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 600ms ease;
+}
+
+.bar_role {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Per-band fills (Phase 1 line 53–57 — defined as CSS tokens in globals.css) */
+.bar_fill_1 { background: var(--bar-1-fill); }
+.bar_fill_2 { background: var(--bar-2-fill); }
+.bar_fill_3 { background: var(--bar-3-fill); }
+.bar_fill_4 { background: var(--bar-4-fill); }
+
+/* ─── Summary card ──────────────────────────────────────────────────────── */
+.summary {
+  margin-top: var(--s-32);
+  background: var(--bg-deep);
+  color: var(--text-on-deep);
+  border-radius: var(--r-card);
+  padding: var(--s-24);
+}
+
+@media (min-width: 1024px) {
+  .summary { margin-top: 0; padding: var(--s-32); }
+}
+
+.summary_row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.summary_row:last-child { border-bottom: none; }
+
+.summary_label {
+  font-size: 0.875rem;
+  color: var(--text-on-deep-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.summary_value {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--text-on-deep);
+  letter-spacing: -0.01em;
+  text-align: right;
+}
+
+@media (min-width: 1024px) {
+  .summary_value { font-size: 1.625rem; }
+}
+
+.summary_value_note {
+  display: block;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-on-deep-muted);
+  letter-spacing: 0;
+  text-transform: none;
+  margin-top: 2px;
+}
+
+.closing {
+  margin-top: var(--s-24);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-primary);
+  max-width: 28ch;
+  line-height: 1.45;
+}
+
+@media (min-width: 1024px) {
+  .closing { font-size: 1.125rem; max-width: 32ch; }
+}
+
+/* ─── Reduced motion ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .bar_fill { transition: none; }
+}

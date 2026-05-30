@@ -1,0 +1,377 @@
+/* ============================================================================
+   globals.css — BlueTick 2026 Refresh
+   Single source of truth for design tokens + base reset.
+   Consolidates all five :root blocks from bluetick-2026-refresh-v3.html (Phase 1
+   was stitched from 6 batches, each carrying its own token block — this file
+   merges the unique tokens into one canonical set).
+
+   Font family CSS variables (--font-display / --font-body / --font-accent) are
+   set on <html> by next/font in src/app/layout.js — do NOT redeclare them here.
+   ============================================================================ */
+
+@import "tailwindcss";
+
+:root {
+  /* ─── Surfaces ─────────────────────────────────────────────────────────── */
+  --bg-base:        #FFFFFF;
+  --bg-alt:         #F4F7FB;
+  --bg-deep:        #0A1B3D;
+  --bg-deepest:     #061232;
+
+  /* ─── Brand ────────────────────────────────────────────────────────────── */
+  --brand-blue:        #1A5FFF;
+  --brand-blue-soft:   #E6EEFF;
+  --cta-orange:        #FF6A1A;
+  --cta-orange-hover:  #E55510;
+  --cta-orange-soft:   #FFEBE0;
+
+  /* ─── Status ───────────────────────────────────────────────────────────── */
+  --success-green:  #1F9D55;
+  --danger-red:     #C7374B;
+
+  /* ─── Text ─────────────────────────────────────────────────────────────── */
+  --text-primary:        #0B1422;
+  --text-secondary:      #4A5468;
+  --text-on-deep:        #FFFFFF;
+  --text-on-deep-muted:  #C7D6F2;
+
+  /* ─── Borders ──────────────────────────────────────────────────────────── */
+  --border-default: #E2E7EE;
+  --border-strong:  #C8D2DF;
+
+  /* ─── Aurora (HARD LIMIT 5 places page-wide) ───────────────────────────── */
+  --aurora-1:    #7B5CFF;
+  --aurora-2:    #1A5FFF;
+  --aurora-3:    #19D3DA;
+  --aurora-grad: linear-gradient(90deg, var(--aurora-1) 0%, var(--aurora-2) 50%, var(--aurora-3) 100%);
+
+  /* ─── Program tier accents ─────────────────────────────────────────────── */
+  --pcp-color:      #1A5FFF;   --pcp-soft:      #E6EEFF;
+  --pgcp-color:     #6B4FE0;   --pgcp-soft:     #ECE7FB;
+  --elevate-color:  #0F8086;   --elevate-soft:  #DCF1F2;
+
+  /* ─── Tints (soft section backgrounds) ─────────────────────────────────── */
+  --tint-cream:     #FFF7E8;
+  --tint-mint:      #E8F8F0;
+  --tint-lavender:  #F1ECFF;
+  --tint-peach:     #FFEFE6;
+  --tint-sky:       #E8F2FF;
+  --tint-rose:      #FFE8EE;
+
+  /* ─── Salary bar fills (Phase 1 lines 53–57) ───────────────────────────── */
+  --bar-1-fill: linear-gradient(90deg, #1A5FFF 0%, #3D70FF 100%);
+  --bar-2-fill: linear-gradient(90deg, #4751E0 0%, #6F5CE5 100%);
+  --bar-3-fill: linear-gradient(90deg, #C46060 0%, #E27345 100%);
+  --bar-4-fill: linear-gradient(90deg, #FF6A1A 0%, #FF8847 100%);
+  --bar-5-fill: linear-gradient(90deg, #8B95A7 0%, #A5AEC0 100%);
+
+  /* ─── Accent solids ────────────────────────────────────────────────────── */
+  --accent-yellow:  #FFC744;
+  --accent-pink:    #FF6FA8;
+  --accent-mint:    #2BD4A4;
+
+  /* ─── Extended palette (used in CTA banners, chips, gradients) ─────────── */
+  --c-violet:        #7C3AED;   --c-violet-soft:   #F5F0FF;   --c-violet-deep: #4C1D95;
+  --c-electric:      #3B82F6;   --c-electric-soft: #DBEAFE;
+  --c-cyan:          #06B6D4;   --c-cyan-soft:     #ECFEFF;
+  --c-pink:          #EC4899;   --c-pink-soft:     #FDF2F8;
+  --c-coral:         #FB7185;   --c-coral-soft:    #FFF1F2;
+  --c-mint:          #10B981;   --c-mint-soft:     #ECFDF5;
+  --c-amber:         #F59E0B;   --c-amber-soft:    #FFFBEB;
+  --c-peach:         #FB923C;   --c-peach-soft:    #FFF7ED;
+  --c-lavender:      #A78BFA;
+  --c-sky:           #38BDF8;   --c-sky-soft:      #F0F9FF;
+  --c-indigo:        #6366F1;
+
+  /* ─── Curated gradients ────────────────────────────────────────────────── */
+  --gradient-warm:    linear-gradient(135deg, #FF6A1A 0%, #FFC744 50%, #FF6FA8 100%);
+  --gradient-cool:    linear-gradient(135deg, #1A5FFF 0%, #7B5CFF 50%, #19D3DA 100%);
+  --gradient-mesh:    radial-gradient(circle at 20% 20%, rgba(123, 92, 255, 0.18) 0%, transparent 40%),
+                      radial-gradient(circle at 80% 30%, rgba(25, 211, 218, 0.18) 0%, transparent 40%),
+                      radial-gradient(circle at 50% 90%, rgba(255, 199, 68, 0.20) 0%, transparent 45%);
+  --grad-aurora-26:   linear-gradient(135deg, #7C3AED 0%, #3B82F6 50%, #06B6D4 100%);
+  --grad-sunset-26:   linear-gradient(135deg, #FB7185 0%, #FB923C 50%, #F59E0B 100%);
+  --grad-mint-26:     linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
+  --grad-pink-violet: linear-gradient(135deg, #EC4899 0%, #7C3AED 100%);
+  --grad-electric:    linear-gradient(135deg, #6366F1 0%, #3B82F6 50%, #06B6D4 100%);
+  --grad-warm-26:     linear-gradient(135deg, #FFEDD5 0%, #FCE7F3 50%, #EDE9FE 100%);
+
+  /* ─── Shadows ──────────────────────────────────────────────────────────── */
+  --shadow-soft-lg:    0 10px 40px -10px rgba(124, 58, 237, 0.18);
+  --shadow-colorful:   0 8px 30px -8px rgba(124, 58, 237, 0.25);
+  --shadow-card-hover: 0 20px 50px -15px rgba(11, 20, 34, 0.22);
+
+  /* CTA + card shadows (Phase 1 lines 86–88) */
+  --shadow-card-lift:  0 10px 40px rgba(11, 20, 34, 0.18);
+  --shadow-cta-rest:   0 4px 14px rgba(255, 106, 26, 0.32);
+  --shadow-cta-hover:  0 6px 18px rgba(255, 106, 26, 0.40);
+
+  /* ─── Type stacks ─ next/font sets --font-display/--font-body/--font-accent
+        on <html>; we only declare the mono fallback (no Google font needed). ── */
+  --font-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  /* ─── Spacing scale (Phase 1 lines 64–78) ──────────────────────────────── */
+  --s-4:   0.25rem;
+  --s-8:   0.5rem;
+  --s-12:  0.75rem;
+  --s-16:  1rem;
+  --s-20:  1.25rem;
+  --s-24:  1.5rem;
+  --s-32:  2rem;
+  --s-40:  2.5rem;
+  --s-48:  3rem;
+  --s-56:  3.5rem;
+  --s-64:  4rem;
+  --s-72:  4.5rem;
+  --s-80:  5rem;
+  --s-96:  6rem;
+  --s-128: 8rem;
+
+  /* ─── Radii (Phase 1 lines 80–83) ──────────────────────────────────────── */
+  --r-card:  16px;
+  --r-input: 10px;
+  --r-pill:  999px;
+
+  /* ─── Layout ───────────────────────────────────────────────────────────── */
+  --maxw:               1200px;
+  --max-content-width:  1200px;   /* Phase 1 alias */
+  --gutter:             20px;
+  --gutter-lg:          32px;
+  --gutter-mobile:      20px;     /* Phase 1 alias */
+  --gutter-tablet:      32px;     /* Phase 1 alias */
+
+  /* ─── Header heights (Phase 1 lines 96–97) ─────────────────────────────── */
+  --header-h-mobile:  60px;
+  --header-h-desktop: 72px;
+
+  /* Legacy aliases (preserved for any existing components in (default) routes) */
+  --Primary-color:    #007BFC;
+  --Background-Card:  #2D2E5A;
+}
+
+/* ============================================================================
+   RESET / BASE — mirrors Phase 1 file lines 2617–2640
+   ============================================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Respect users who prefer reduced motion — disable smooth scroll for them */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body), system-ui, -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Roboto, sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-base);
+  line-height: 1.55;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'cv11', 'ss01', 'ss03';
+  letter-spacing: -0.005em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p   { margin: 0; }
+ul  { margin: 0; padding: 0; list-style: none; }
+img,
+svg { display: block; max-width: 100%; }
+
+:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================================================
+   Skip-to-content link — first focusable element on every page.
+   Visually hidden until focused, then animates in from above the viewport.
+   ============================================================================ */
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--brand-blue);
+  color: #FFFFFF;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(11, 20, 34, 0.18);
+  transform: translateY(calc(-100% - 16px));
+  transition: transform 200ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link { transition: none !important; }
+}
+
+/* ============================================================================
+   Shared layout primitives — used by every section component going forward
+   ============================================================================ */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 var(--gutter-lg); }
+}
+
+/* ============================================================================
+   Shared section primitives — used by all 2D+ section components
+   ============================================================================ */
+
+.section-inner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter-mobile);
+}
+
+@media (min-width: 768px) {
+  .section-inner { padding: 0 var(--gutter-tablet); }
+}
+
+.section-heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .section-heading { font-size: 2rem; }
+}
+
+.section-subline {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-top: var(--s-16);
+  max-width: 52ch;
+  line-height: 1.55;
+}
+
+.section-heading--on-deep { color: var(--text-on-deep); }
+.section-subline--on-deep { color: var(--text-on-deep-muted); }
+
+/* ============================================================================
+   Global keyframes used by multiple components (kept here so they survive
+   tree-shaking if a single component is removed; small overhead, large
+   convenience).
+   ============================================================================ */
+
+@keyframes bt-marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes bt-nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(4px); }
+}
+
+@keyframes bt-pulse-ring {
+  0%   { box-shadow: 0 10px 30px rgba(255, 106, 26, 0.45), 0 0 0 0 rgba(255, 106, 26, 0.55); }
+  70%  { box-shadow: 0 10px 30px rgba(255, 106, 26, 0.45), 0 0 0 14px rgba(255, 106, 26, 0); }
+  100% { box-shadow: 0 10px 30px rgba(255, 106, 26, 0.45), 0 0 0 0 rgba(255, 106, 26, 0); }
+}
+
+@keyframes bt-shimmer {
+  0%   { transform: translateX(-120%) skewX(-15deg); }
+  100% { transform: translateX(220%) skewX(-15deg); }
+}
+
+/* ============================================================================
+   Print stylesheet — minimal, ensures the page prints decently if anyone
+   tries (career counselors sometimes print the curriculum to discuss).
+   ============================================================================ */
+@media print {
+  /* Hide everything that doesn't make sense on paper */
+  .skip-link,
+  [class*="StickyBar_"],
+  [class*="Header_"] [class*="drawer"],
+  [aria-hidden="true"] {
+    display: none !important;
+  }
+
+  /* Force black-on-white for legibility */
+  html, body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  /* Stop marquees and any other moving content */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* Open all <details> so FAQs print expanded */
+  details { display: block !important; }
+  details > * { display: block !important; }
+  details > summary::after {
+    content: '';
+    display: none;
+  }
+
+  /* Avoid splitting cards across pages */
+  article, [class*="card"], [class*="testimonial"], [class*="faq"] {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Show the destination of links so people know what they were */
+  a[href^="http"]::after,
+  a[href^="mailto:"]::after,
+  a[href^="tel:"]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: #555555;
+  }
+
+  /* Don't print empty href="#..." anchors */
+  a[href^="#"]::after { content: ''; }
+
+  /* Drop heavy shadows + decorative backgrounds */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}

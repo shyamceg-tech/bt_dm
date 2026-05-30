@@ -1,0 +1,328 @@
+/* ============================================================================
+   ResumeTransformation.module.css — BlueTick 2026 Refresh
+
+   Phase 1 source: bluetick-2026-refresh-v3.html lines 3054–3343.
+   ============================================================================ */
+
+.section {
+  background: var(--bg-alt);
+  padding: 56px 0;
+  scroll-margin-top: 80px;
+}
+
+@media (min-width: 1024px) { .section { padding: 96px 0; } }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 768px) { .container { padding: 0 var(--gutter-lg); } }
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+.head { max-width: 760px; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 768px)  { .heading { font-size: 36px; } }
+@media (min-width: 1024px) { .heading { font-size: 44px; } }
+
+/* ─── Stage: Day 1 → arrow → Day 121 ────────────────────────────────────── */
+.stage {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+  .stage {
+    grid-template-columns: 1fr 56px 1fr;
+    column-gap: 0;
+    margin-top: 56px;
+  }
+}
+
+/* ─── Arrow between resumes ─────────────────────────────────────────────── */
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.arrow svg { display: block; }
+
+.arrow_vert  { display: block; }
+.arrow_horiz { display: none; }
+
+@media (min-width: 1024px) {
+  .arrow { padding: 0; }
+  .arrow_vert  { display: none; }
+  .arrow_horiz { display: block; }
+}
+
+/* ─── Resume document base ──────────────────────────────────────────────── */
+.resume {
+  --resume-pad: 22px;
+  position: relative;
+  border-radius: 12px;
+  padding: var(--resume-pad);
+  font-size: 13.5px;
+  line-height: 1.55;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .resume { --resume-pad: 28px; font-size: 14px; }
+}
+
+.label {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 9px;
+  border-radius: 999px;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.name {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) { .name { font-size: 19px; } }
+
+.tagline {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.key {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.val {
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) { .val { font-size: 14px; } }
+
+.empty {
+  font-style: italic;
+}
+
+.bottom_line {
+  margin-top: auto;
+  padding-top: 16px;
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* ═══ Day 1 (muted, monospaced, dashed border) ════════════════════════════ */
+.day1 {
+  background: #F0F2F5;
+  color: #6B7280;
+  border: 1.5px dashed #C8CFD9;
+  font-family: var(--font-mono);
+  filter: saturate(0.6);
+}
+
+.day1 .label   { background: #E2E5EA; color: #6B7280; }
+.day1 .header  { border-bottom: 1px solid #D8DCE3; }
+.day1 .name    { color: #4A5260; font-family: var(--font-mono); letter-spacing: 0; }
+.day1 .tagline { color: #8A93A1; font-family: var(--font-mono); }
+.day1 .key     { color: #8A93A1; }
+.day1 .val     { color: #6B7280; font-family: var(--font-mono); }
+.day1 .empty   { color: #B7BEC9; }
+.day1 .bottom_line {
+  color: #8A93A1;
+  border-top: 1px dashed #C8CFD9;
+}
+
+/* ═══ Day 121 (bright, structured, brand-blue border) ═════════════════════ */
+.day121 {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  border: 2px solid var(--brand-blue);
+  box-shadow:
+    0 12px 32px -16px rgba(26, 95, 255, 0.28),
+    0 4px 12px -6px rgba(11, 20, 34, 0.06);
+}
+
+.day121::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: var(--brand-blue-soft);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 0;
+}
+
+.day121 > * { position: relative; z-index: 1; }
+
+.day121 .label {
+  background: var(--brand-blue);
+  color: var(--text-on-deep);
+}
+
+.day121 .header {
+  border-bottom: 1.5px solid var(--brand-blue-soft);
+  padding-top: 12px;
+}
+
+.day121 .name    { color: var(--text-primary); }
+.day121 .tagline { color: var(--brand-blue); font-weight: 700; }
+.day121 .key     { color: var(--brand-blue); }
+
+.day121 .bottom_line {
+  color: var(--text-secondary);
+  border-top: 1px solid var(--brand-blue-soft);
+}
+
+/* ─── Numbered project list (Day 121 only) ─────────────────────────────── */
+.list_numbered {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.list_numbered li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .list_numbered li { font-size: 14px; }
+}
+
+.list_num {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(26, 95, 255, 0.10);
+  color: var(--brand-blue);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-top: -1px;
+}
+
+.list_text { flex: 1 1 auto; }
+
+.metric {
+  font-weight: 700;
+  color: var(--brand-blue);
+}
+
+/* ─── Chip rows (Day 121 only) ─────────────────────────────────────────── */
+.chip_row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 6px;
+  margin-top: 5px;
+}
+
+.chip {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--brand-blue-soft);
+  color: var(--brand-blue);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.chip_cert {
+  background: #DCF1F2;
+  color: var(--elevate-color);
+}
+
+.chip_ai {
+  background: #ECE7FB;
+  color: var(--pgcp-color);
+}
+
+/* ─── Closing line ──────────────────────────────────────────────────────── */
+.closing {
+  margin: 40px auto 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.55;
+  font-style: italic;
+  color: var(--text-secondary);
+  max-width: 560px;
+}
+
+@media (min-width: 768px) {
+  .closing { font-size: 18px; }
+}

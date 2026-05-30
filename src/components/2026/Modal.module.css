@@ -1,0 +1,151 @@
+/* ============================================================================
+   Modal.module.css — BlueTick 2026 Refresh
+
+   Native <dialog> element styling. The browser handles focus trap, ESC,
+   and top-layer rendering — we just style the visual surface and the
+   ::backdrop pseudo-element.
+   ============================================================================ */
+
+/* ─── The dialog itself (the card) ─────────────────────────────────────── */
+.dialog {
+  /* Reset native dialog defaults */
+  padding: 0;
+  border: none;
+  background: var(--bg-base);
+
+  /* Sizing */
+  width: calc(100vw - 32px);
+  max-width: 460px;
+  max-height: calc(100dvh - 32px);
+  margin: auto;       /* centered horizontally + vertically when shown via showModal() */
+
+  /* Visual surface */
+  border-radius: 16px;
+  box-shadow:
+    0 24px 64px rgba(11, 20, 34, 0.30),
+    0 4px 16px rgba(11, 20, 34, 0.10);
+  overflow: hidden;
+  color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+  .dialog { width: 100%; }
+}
+
+/* Backdrop is part of the native dialog — we just color it */
+.dialog::backdrop {
+  background: rgba(11, 20, 34, 0.55);
+  /* Slight blur for depth — non-essential, falls back gracefully */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* Open-state entrance animation. <dialog> goes into top-layer via
+   showModal() — top-layer elements receive their own stacking context,
+   so animating them works cleanly. */
+.dialog[open] {
+  animation: bt-modal-enter 200ms ease-out;
+}
+
+.dialog[open]::backdrop {
+  animation: bt-backdrop-enter 200ms ease-out;
+}
+
+@keyframes bt-modal-enter {
+  from {
+    transform: translateY(20px) scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bt-backdrop-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open],
+  .dialog[open]::backdrop {
+    animation: none !important;
+  }
+}
+
+/* ─── Header strip with title + close button ───────────────────────────── */
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 20px 8px;
+}
+
+@media (min-width: 768px) {
+  .head { padding: 24px 24px 8px; }
+}
+
+.title {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .title { font-size: 1.4375rem; }
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ─── Close button ─────────────────────────────────────────────────────── */
+.close {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-alt);
+  border: none;
+  border-radius: 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.close:hover {
+  background: var(--border-default);
+  color: var(--text-primary);
+}
+
+.close:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
+.close svg { width: 18px; height: 18px; }
+
+/* ─── Body padding wrapper for form content ─────────────────────────────── */
+.body {
+  padding: 8px 20px 24px;
+}
+
+@media (min-width: 768px) {
+  .body { padding: 8px 24px 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .close { transition: none !important; }
+}
