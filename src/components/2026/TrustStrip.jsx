@@ -5,26 +5,18 @@
  *
  * Phase 1 source: bluetick-2026-refresh-v3.html lines 7125–7203.
  *
- * Logo strategy (master prompt § 3.1):
- *   - Real WebPs in /img/company/ used wherever available.
- *   - Text wordmarks fall back for brands without uploaded logos
- *     (the master prompt explicitly accepts this).
- *
- * Mobile shows a single mixed marquee (no row labels). Desktop ≥1024px
- * stacks three labeled rows with alternating directions.
- *
- * Each row duplicates its logo list once; the `bt-marquee-scroll` keyframe
- * translates -50% for a seamless loop. The second copy is `aria-hidden="true"`.
+ * All company logos served from /public/img/company/ as .webp files.
+ * Three rows with alternating scroll directions for visual depth.
  */
 
 import Image from 'next/image';
 import styles from './TrustStrip.module.css';
 
 /* ─── Logo data ────────────────────────────────────────────────────────────
-   Tuple shape: [label, optional /img/company/ filename (kebab-case .webp)]
-   Brands without a logo file degrade to text wordmark with no extra work. */
+   Tuple shape: [label, /img/company/ filename]
+   All companies now have logo files from the uploaded Company logos pack. */
 
-const MNCS = [
+const ROW_1 = [
   ['Amazon',      'amazon.webp'],
   ['Google',      'google.webp'],
   ['Microsoft',   'microsoft.webp'],
@@ -33,60 +25,45 @@ const MNCS = [
   ['TCS',         'tcs.webp'],
   ['Cognizant',   'cognizant.webp'],
   ['Salesforce',  'salesforce.webp'],
+  ['Flipkart',    'flipkart.webp'],
 ];
 
-const STARTUPS = [
-  ['Razorpay',    null],              // no upload — text wordmark fallback
+const ROW_2 = [
   ['Swiggy',      'swiggy.webp'],
-  ['Flipkart',    'flipkart.webp'],
   ['Meesho',      'meesho.webp'],
   ['PhonePe',     'phonepe.webp'],
   ['Paytm',       'paytm.webp'],
   ['Nykaa',       'nykaa.webp'],
-  ['Freshworks',  null],              // no upload — text wordmark fallback
+  ['Ola',         'ola.webp'],
+  ['Lenskart',    'lenskart.webp'],
+  ['PharmEasy',   'pharmeasy.webp'],
+  ['Ninjacart',   'ninjacart.webp'],
 ];
 
-/* Agency row — Phase 1 lists Dentsu/WPP/Ogilvy/Madison/FCB/Schbang/Wondrlab/
-   Tonic; none in the uploaded logo pack. All degrade to text wordmarks.
-   Per user direction: don't waste time chasing missing logos; flag and move on. */
-const AGENCIES = [
-  ['Dentsu',    null],
-  ['WPP',       null],
-  ['Ogilvy',    null],
-  ['Madison',   null],
-  ['FCB',       null],
-  ['Schbang',   null],
-  ['Wondrlab',  null],
-  ['Tonic',     null],
+const ROW_3 = [
+  ['Porter',      'porter.webp'],
+  ['Homelane',    'homelane.webp'],
+  ['Fortis',      'fortis.webp'],
+  ['BookMyScans', 'bookmyscans.webp'],
+  ['Decfort',     'decfort.webp'],
+  ['Edumerge',    'edumerge.webp'],
+  ['All Care Dental', 'allcare-dental.webp'],
 ];
 
-/* ─── Logo cell (image where available, text wordmark otherwise) ──────────── */
+/* ─── Logo cell ────────────────────────────────────────────────────────── */
 function LogoCell({ label, file, ariaHidden }) {
-  if (file) {
-    return (
-      <span
-        className={styles.logo}
-        aria-hidden={ariaHidden ? 'true' : undefined}
-      >
-        <Image
-          src={`/img/company/${file}`}
-          alt={ariaHidden ? '' : label}
-          width={120}
-          height={36}
-          className={styles.logo_img}
-          /* Marquee logos are far below the fold and continuously scrolling
-             — non-priority. Native lazy via next/image default. */
-          unoptimized={false}
-        />
-      </span>
-    );
-  }
   return (
     <span
       className={styles.logo}
       aria-hidden={ariaHidden ? 'true' : undefined}
     >
-      {label}
+      <Image
+        src={`/img/company/${file}`}
+        alt={ariaHidden ? '' : label}
+        fill
+        sizes="120px"
+        className={styles.logo_img}
+      />
     </span>
   );
 }
@@ -117,8 +94,6 @@ function MarqueeRow({ label, logos, variantClass }) {
 
 /* ─── TrustStrip ──────────────────────────────────────────────────────────── */
 export default function TrustStrip() {
-  /* Mobile concatenates all 3 sets into a single mixed marquee.
-     Desktop reveals the three labeled rows (CSS controls the variant). */
   return (
     <section className={styles.section} aria-labelledby="trust-heading">
       <div className={styles.inner}>
@@ -130,16 +105,16 @@ export default function TrustStrip() {
         <div className={styles.group}>
           <MarqueeRow
             label="MNCs & MAANG"
-            logos={MNCS}
+            logos={ROW_1}
           />
           <MarqueeRow
             label="Funded Startups"
-            logos={STARTUPS}
+            logos={ROW_2}
             variantClass={styles.marquee_row2}
           />
           <MarqueeRow
-            label="Top Agencies"
-            logos={AGENCIES}
+            label="Hiring Partners"
+            logos={ROW_3}
             variantClass={styles.marquee_row3}
           />
         </div>

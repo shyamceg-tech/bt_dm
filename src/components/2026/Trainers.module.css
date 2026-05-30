@@ -70,7 +70,7 @@
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--r-pill);
   font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -120,7 +120,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--aurora-3);
+  color: rgba(255, 255, 255, 0.80);
   margin: 0;
 }
 
@@ -230,6 +230,13 @@
   display: flex;
   gap: var(--s-16);
   align-items: flex-start;
+  transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+.point:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.20);
+  transform: translateY(-2px);
 }
 
 .point_icon {
@@ -305,4 +312,9 @@
   font-weight: 500;
   text-decoration: line-through;
   text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Reduced motion ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .point { transition: none !important; }
 }

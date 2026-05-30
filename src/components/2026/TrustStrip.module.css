@@ -63,21 +63,21 @@
 
 /* ─── Marquee group ─────────────────────────────────────────────────────── */
 .group {
-  margin-top: var(--s-16);
+  margin-top: var(--s-32);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-32);
 }
 
 @media (min-width: 1024px) {
   .group {
-    margin-top: var(--s-40);
-    display: flex;
-    flex-direction: column;
-    gap: var(--s-24);
+    margin-top: var(--s-48);
+    gap: var(--s-40);
   }
 }
 
 /* ─── Single marquee ────────────────────────────────────────────────────── */
 .marquee {
-  margin-top: var(--s-16);
   overflow: hidden;
   mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
@@ -86,9 +86,14 @@
 .row {
   display: flex;
   width: max-content;
-  gap: 60px;
+  gap: 48px;
   align-items: center;
-  animation: bt-marquee-scroll 20s linear infinite;
+  animation: marquee-fly 20s linear infinite;
+}
+
+@keyframes marquee-fly {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* Row-2 reversed direction + slower; row-3 even slower */
@@ -103,9 +108,9 @@
 @media (min-width: 1024px) {
   .row_label {
     display: inline-block;
-    background: rgba(16, 185, 129, 0.10);
+    background: rgba(16, 185, 129, 0.15);
     color: #047857;
-    border: 1px solid rgba(16, 185, 129, 0.22);
+    border: 1px solid rgba(16, 185, 129, 0.40);
     padding: 4px 12px;
     border-radius: 999px;
     font-family: var(--font-body), system-ui, sans-serif;
@@ -117,36 +122,19 @@
   }
 }
 
-/* ─── Logo cell (image or text wordmark) ────────────────────────────────── */
+/* ─── Logo cell — fixed box so all logos occupy the same space ─────────── */
 .logo {
   flex-shrink: 0;
-  height: 36px;
+  position: relative;
+  width: 120px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 4px;
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-weight: 700;
-  font-size: 1.0625rem;
-  letter-spacing: -0.01em;
-  color: var(--text-primary);
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: filter 200ms ease, opacity 200ms ease;
-  white-space: nowrap;
 }
 
 .logo_img {
-  /* The Image wrapper is span; its inner <img> sizes via height + auto width */
-  height: 36px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-
-@media (min-width: 1024px) {
-  .marquee:hover .logo { opacity: 0.85; filter: grayscale(60%); }
-  .marquee .logo:hover { opacity: 1; filter: grayscale(0%); }
+  object-fit: contain !important;
 }
 
 /* ─── Reduced motion ────────────────────────────────────────────────────── */

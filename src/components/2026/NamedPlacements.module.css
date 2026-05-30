@@ -76,18 +76,9 @@
   line-height: 1.55;
 }
 
-/* ─── Filter pills (hidden on mobile horizontal scroller; show at ≥768) ─── */
+/* ─── Filter pills (hidden unconditionally per reference) ─── */
 .filters {
   display: none;
-}
-
-@media (min-width: 768px) {
-  .filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: var(--s-24);
-  }
 }
 
 .filter_pill {

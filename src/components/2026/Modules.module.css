@@ -40,7 +40,7 @@
 .eyebrow {
   display: inline-block;
   font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 12px;
+  font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -337,7 +337,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 12px;
 }
 
 .card_bullets li {

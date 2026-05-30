@@ -113,7 +113,7 @@
 /* ─── Eyebrow ───────────────────────────────────────────────────────────── */
 .eyebrow {
   font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -172,11 +172,11 @@
 }
 
 @media (min-width: 768px) {
-  .headline { font-size: 5rem; line-height: 0.92; }
+  .headline { font-size: 5rem; line-height: 1.0; }
 }
 
 @media (min-width: 1024px) {
-  .headline { font-size: 7.5rem; line-height: 0.88; }
+  .headline { font-size: 7.5rem; line-height: 0.95; }
 }
 
 /* ─── Subline ───────────────────────────────────────────────────────────── */

@@ -1,13 +1,8 @@
 /* ============================================================================
    AiToolStack.module.css — BlueTick 2026 Refresh
 
-   Phase 1 sources:
-     - Section shell:    bluetick-2026-refresh-v3.html lines 1399–1420
-     - Aurora top-stripe + radial blob: 1406–1418
-     - Section eyebrow on deep:         1487–1498
-     - Gradient "50+" count:            1499–1509
-     - Chip grid + chip styles:         1460–1484, 1510–1537
-     - Polish layer:                    lines 6018–6028 (workflow / toolstack bg)
+   Logo-grid variant: displays tool logos in a responsive grid without text
+   labels, inside the deep navy section with aurora accents.
    ============================================================================ */
 
 /* ─── Section shell ─────────────────────────────────────────────────────── */
@@ -116,90 +111,80 @@
   line-height: 1.55;
 }
 
-/* ─── Chip grid (glass container) ───────────────────────────────────────── */
-.grid {
-  margin-top: var(--s-24);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: var(--s-20);
+/* ─── Logo grid ────────────────────────────────────────────────────────── */
+.logo_grid {
+  margin-top: var(--s-32);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 14px;
+  padding: var(--s-24);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.10);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  justify-content: flex-start;
 }
 
 @media (min-width: 768px) {
-  .grid {
-    margin-top: var(--s-32);
-    gap: 12px;
+  .logo_grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 16px;
     padding: var(--s-32);
-    justify-content: center;
   }
 }
 
-/* ─── Individual tool chip ──────────────────────────────────────────────── */
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px 8px 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: var(--r-pill);
-  font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--text-on-deep-muted);
-  line-height: 1;
-  transition: transform 150ms ease, background 150ms ease;
+@media (min-width: 1024px) {
+  .logo_grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 18px;
+  }
 }
 
-.chip:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.14);
-}
-
-/* Letter-dot (default when no logo is supplied) */
-.chip_dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
-  display: inline-flex;
+/* ─── Individual logo item ─────────────────────────────────────────────── */
+.logo_item {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.625rem;
-  font-weight: 700;
-  color: var(--text-on-deep);
+  aspect-ratio: 1;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px;
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
-/* Logo variant — image instead of letter dot */
-.chip_logo {
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
+.logo_item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.25);
+}
+
+.logo_img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  display: block;
-  background: rgba(255, 255, 255, 0.92); /* helps dark logos read on the dark chip */
-  padding: 2px;
+  border-radius: 6px;
 }
 
-/* "+ N more" trailing chip */
-.more {
-  display: inline-flex;
+/* ─── "+ N more" trailing tile ─────────────────────────────────────────── */
+.more_item {
+  display: flex;
   align-items: center;
-  padding: 8px 14px;
-  background: transparent;
-  border: 1px dashed rgba(255, 255, 255, 0.18);
-  border-radius: var(--r-pill);
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.more_text {
+  font-family: var(--font-body), system-ui, sans-serif;
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-on-deep-muted);
+  text-align: center;
+  line-height: 1.2;
 }
 
 /* ─── Reduced motion ────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .chip { transition: none !important; }
+  .logo_item { transition: none !important; }
 }
