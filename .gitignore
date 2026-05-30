@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# source asset folders (logos + reference HTML)
+AI Tools Logos/
+Company logos/
+src/docs/
