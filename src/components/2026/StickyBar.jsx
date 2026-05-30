@@ -23,16 +23,19 @@ function WhatsAppIcon() {
   );
 }
 
-export default function StickyBar() {
+export default function StickyBar({
+  label = 'Apply for Next Batch',
+  targetHref = '#hero-form',
+} = {}) {
   return (
     <aside
       className={styles.bar}
       role="complementary"
       aria-label="Quick contact"
     >
-      <a href="#hero-form" className={styles.cta}>
+      <a href={targetHref} className={styles.cta}>
         <WhatsAppIcon />
-        <span>Apply for Next Batch</span>
+        <span>{label}</span>
         <span className={styles.chev} aria-hidden="true">›</span>
       </a>
     </aside>

@@ -104,6 +104,7 @@
 .copy {
   display: flex;
   flex-direction: column;
+  gap: var(--s-16);
 }
 
 @media (min-width: 1024px) {

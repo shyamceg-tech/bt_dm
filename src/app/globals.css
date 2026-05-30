@@ -185,6 +185,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'cv11', 'ss01', 'ss03';
   letter-spacing: -0.005em;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {

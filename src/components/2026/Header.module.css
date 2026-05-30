@@ -92,11 +92,13 @@
 .icon_btn .icon { width: 32px; height: 32px; display: block; }
 
 .icon_btn_wa { background: transparent; }
+.icon_btn_wa .icon { width: 34px; height: 34px; }
 
 .icon_btn_call {
   background: linear-gradient(180deg, #FD9055 0%, #FE4855 100%);
   box-shadow: 0 4px 10px rgba(254, 72, 85, 0.35);
   padding: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
 }
 
 .icon_btn_call .icon { width: 26px; height: 26px; }

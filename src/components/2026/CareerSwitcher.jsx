@@ -17,7 +17,7 @@ const STORIES = [
     name: 'Vinay K.',
     meta: 'March 2025 batch · Switched at age 27',
     avatarVariant: null, // default brand-blue
-    from: { line: 'BPO at [COMPANY]',                          salary: '\u20B93.2 LPA' },
+    from: { line: 'BPO at Infosys',                               salary: '\u20B93.2 LPA' },
     to:   { line: 'Performance Marketing Analyst at Razorpay', salary: '\u20B97.8 LPA' },
     quote: 'I was 5 years into a BPO job that was going nowhere. 90 days here, 2.4x salary jump.',
   },
@@ -27,7 +27,7 @@ const STORIES = [
     meta: 'January 2025 batch · Switched at age 25',
     avatarVariant: 'avatar_2', // PGCP violet
     from: { line: 'B.Tech graduate at TCS support', salary: '\u20B94.1 LPA' },
-    to:   { line: 'SEO Specialist at [AGENCY]',     salary: '\u20B96.5 LPA' },
+    to:   { line: 'SEO Specialist at WATConsult',     salary: '\u20B96.5 LPA' },
     quote: 'I never used my engineering degree. Digital marketing was the first work I actually enjoyed.',
   },
   {
@@ -36,7 +36,7 @@ const STORIES = [
     meta: 'November 2024 batch · Switched at age 28',
     avatarVariant: 'avatar_3', // Elevate teal
     from: { line: 'School teacher',                                salary: '\u20B92.8 LPA' },
-    to:   { line: 'Content & Email Marketing at [D2C BRAND]',      salary: '\u20B95.2 LPA' },
+    to:   { line: 'Content & Email Marketing at Mamaearth',      salary: '\u20B95.2 LPA' },
     quote: 'I was the oldest in my batch by 4 years. Nobody made it weird. We were all there for the same reason.',
   },
 ];
@@ -83,18 +83,11 @@ export default function CareerSwitcher() {
 
         <ol className={styles.grid}>
           {STORIES.map((s, i) => {
-            const avatarClass = [
-              styles.avatar,
-              s.avatarVariant ? styles[s.avatarVariant] : '',
-            ].filter(Boolean).join(' ');
             const titleId = `sw-${i}-name`;
 
             return (
               <li key={s.name} className={styles.card} aria-labelledby={titleId}>
                 <div className={styles.head_row}>
-                  <div className={avatarClass} aria-hidden="true">
-                    {s.initials}
-                  </div>
                   <div>
                     <h3 id={titleId} className={styles.id_name}>{s.name}</h3>
                     <p className={styles.id_meta}>{s.meta}</p>

@@ -14,7 +14,7 @@ import styles from './Salary.module.css';
 const BANDS = [
   {
     band: '₹3–5 LPA',
-    pct: 21,
+    pct: 26,
     role: 'Freshers joining agencies as executives',
     fillClass: 'bar_fill_1',
   },
@@ -26,7 +26,7 @@ const BANDS = [
   },
   {
     band: '₹8–12 LPA',
-    pct: 21,
+    pct: 16,
     role: 'Jr Working pros switching careers, top performers',
     fillClass: 'bar_fill_3',
   },

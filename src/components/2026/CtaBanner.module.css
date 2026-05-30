@@ -96,6 +96,17 @@
   padding: 0 4px;
 }
 
+.variant_aurora .title em {
+  -webkit-text-fill-color: #34D399;
+  color: #34D399;
+  font-weight: 700;
+  font-size: 1.1em;
+  text-decoration: underline;
+  text-decoration-color: rgba(52, 211, 153, 0.4);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 3px;
+}
+
 /* ─── Sub line ──────────────────────────────────────────────────────────── */
 .sub {
   font-size: 0.95rem;

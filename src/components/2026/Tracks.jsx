@@ -193,8 +193,6 @@ export default function Tracks() {
               </div>
 
               <div className={styles.cta_wrap}>
-                {/* Currently scrolls to the mini-form-2 band below. Phase 3
-                    will replace with modal open + formPosition routing. */}
                 <a
                   href="#mini-form-2"
                   className={styles.cta}
@@ -205,15 +203,17 @@ export default function Tracks() {
                     →
                   </span>
                 </a>
+                <a
+                  href="#curriculum"
+                  className={styles.cta_secondary}
+                  data-track-curriculum={t.key}
+                >
+                  View curriculum
+                </a>
               </div>
             </article>
           ))}
         </div>
-
-        <p className={styles.scarcity}>
-          [NEXT BATCH DATE] batch: [X] of 24 seats remaining. We cap batch
-          sizes at 24 to maintain the 1:15 trainer ratio.
-        </p>
       </div>
     </section>
   );

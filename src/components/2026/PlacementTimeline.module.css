@@ -206,18 +206,17 @@
 
 @media (min-width: 1024px) {
   .card { grid-row: 2; padding: 20px; margin-top: 20px; }
+  .col_1 { grid-column: 1; }
+  .col_2 { grid-column: 2; }
+  .col_3 { grid-column: 3; }
+  .col_4 { grid-column: 4; }
+  .col_5 { grid-column: 5; }
 }
 
 .card_final {
   border-color: var(--success-green);
   background: linear-gradient(180deg, #F1FBF4 0%, var(--bg-base) 60%);
 }
-
-.col_1 { grid-column: 1; }
-.col_2 { grid-column: 2; }
-.col_3 { grid-column: 3; }
-.col_4 { grid-column: 4; }
-.col_5 { grid-column: 5; }
 
 .month {
   font-family: var(--font-display), system-ui, sans-serif;

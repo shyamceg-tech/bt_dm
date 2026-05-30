@@ -30,13 +30,13 @@ const DAY1_ROWS = [
 
 /* ─── Day 121 numbered live projects ────────────────────────────────────── */
 const DAY121_PROJECTS = [
-  { num: '01', preMetric: 'Reduced CPA from ',           metric: '₹1,200 → ₹380',              postMetric: ' for [CLIENT], 6-week Google Ads campaign' },
-  { num: '02', preMetric: 'Built lead-gen funnel generating ', metric: '312 leads at ₹640 CPL', postMetric: ' for [CLIENT]' },
+  { num: '01', preMetric: 'Reduced CPA from ',           metric: '₹1,200 → ₹380',              postMetric: ' for BookMyScans, 6-week Google Ads campaign' },
+  { num: '02', preMetric: 'Built lead-gen funnel generating ', metric: '312 leads at ₹640 CPL', postMetric: ' for Decfort' },
   { num: '03', preMetric: 'Programmatic SEO build: ',    metric: '400+ pages, 18K organic visits/month', postMetric: '' },
   { num: '04', preMetric: 'Email lifecycle automation in Klaviyo: ', metric: '42% open rate, 8% CTR', postMetric: '' },
   { num: '05', preMetric: 'AI ad creative pipeline (GPT-4 + Midjourney): ', metric: '200+ variants shipped/week', postMetric: '' },
-  { num: '06', preMetric: 'Marketing automation with n8n: ', metric: '12 workflows live',       postMetric: ' for [CLIENT]' },
-  { num: '07', preMetric: 'Live Looker Studio dashboard for [CLIENT] across ', metric: '5 channels', postMetric: '' },
+  { num: '06', preMetric: 'Marketing automation with n8n: ', metric: '12 workflows live',       postMetric: ' for EY' },
+  { num: '07', preMetric: 'Live Looker Studio dashboard for Razorpay across ', metric: '5 channels', postMetric: '' },
   { num: '08', preMetric: 'WhatsApp campaign on Gupshup: ', metric: '28% reply rate, ₹47 CPL', postMetric: '' },
 ];
 
@@ -100,15 +100,6 @@ export default function ResumeTransformation() {
             <svg className={styles.arrow_vert} width="32" height="32" viewBox="0 0 32 32" fill="none">
               <path
                 d="M16 4 V26 M8 19 L16 27 L24 19"
-                stroke="#1A5FFF"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <svg className={styles.arrow_horiz} width="40" height="32" viewBox="0 0 40 32" fill="none">
-              <path
-                d="M4 16 H34 M27 8 L35 16 L27 24"
                 stroke="#1A5FFF"
                 strokeWidth="2.5"
                 strokeLinecap="round"
@@ -189,7 +180,7 @@ export default function ResumeTransformation() {
         </div>
 
         <p className={styles.closing}>
-          This is the difference 90 days makes. Same person &mdash; a portfolio&rsquo;s worth of credibility heavier.
+          This is the difference 120 days makes. Same person &mdash; a portfolio&rsquo;s worth of credibility heavier.
         </p>
       </div>
     </section>

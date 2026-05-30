@@ -55,7 +55,6 @@ import ResumeTransformation from '@/components/2026/ResumeTransformation';
 import DayInLife from '@/components/2026/DayInLife';
 import CareerSwitcher from '@/components/2026/CareerSwitcher';
 import Comparison from '@/components/2026/Comparison';
-import Testimonials from '@/components/2026/Testimonials';
 import Faqs from '@/components/2026/Faqs';
 import MediaAwards from '@/components/2026/MediaAwards';
 import FinalCta from '@/components/2026/FinalCta';
@@ -173,7 +172,7 @@ export default function HomePage() {
           eyebrow={<><IconStar />Your Day-91 resume</>}
           title={
             <>
-              In 90 days, your resume looks <em>completely different.</em>
+              In 120 days, your resume looks <em>completely different.</em>
             </>
           }
           sub="3 live projects. 12 certifications. Recruiter intros. A portfolio that walks into interviews with you."
@@ -185,6 +184,8 @@ export default function HomePage() {
         <DayInLife />
         <CareerSwitcher />
         <Comparison />
+
+        <Faqs />
 
         {/* CTA Banner #4 — mintelectric, scarcity sub + embedded mini-form */}
         <CtaBanner
@@ -218,8 +219,6 @@ export default function HomePage() {
           />
         </CtaBanner>
 
-        <Testimonials />
-        <Faqs />
         <MediaAwards />
         <FinalCta />
       </main>

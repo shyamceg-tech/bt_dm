@@ -140,7 +140,7 @@
 }
 
 .table thead th.col_bt {
-  background: var(--bg-deepest);
+  background: linear-gradient(180deg, #1A1B4F 0%, #312E81 100%);
   position: relative;
 }
 
@@ -151,7 +151,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: var(--aurora-grad);
+  background: linear-gradient(90deg, #06B6D4, #8B5CF6, #EC4899);
 }
 
 .star {
@@ -187,8 +187,10 @@
 }
 
 .table tbody td.col_bt {
-  background: var(--brand-blue-soft);
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.08) 0%, rgba(6, 182, 212, 0.06) 100%);
   font-weight: 600;
+  border-left: 3px solid #8B5CF6;
+  border-right: 3px solid #8B5CF6;
 }
 
 .table tbody tr:nth-child(even) td:not(.col_bt) {
@@ -214,8 +216,8 @@
 }
 
 .mark_yes {
-  background: #E2F4EA;
-  color: var(--success-green);
+  background: rgba(52, 211, 153, 0.15);
+  color: #10B981;
 }
 
 .mark_na {
@@ -224,8 +226,8 @@
 }
 
 .mark_no {
-  background: rgba(220, 38, 38, 0.10);
-  color: var(--danger-red);
+  background: rgba(239, 68, 68, 0.12);
+  color: #EF4444;
 }
 
 /* Sr-only utility */

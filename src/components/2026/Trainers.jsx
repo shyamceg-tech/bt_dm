@@ -92,26 +92,6 @@ export default function Trainers() {
           Learn from trainers who run &#8377;35 Cr+ in live ad spend every year
         </h2>
 
-        <div className={styles.stat}>
-          <p className={styles.stat_label}>Live ad spend managed annually</p>
-          <p className={styles.stat_value}>
-            <span className={styles.stat_number}>&#8377;35</span>
-            <span className={styles.stat_suffix}>Cr+</span>
-          </p>
-          <p className={styles.stat_desc}>
-            Combined across our faculty, our trainers manage &#8377;35 Cr in live
-            ad spend while teaching you real campaigns hands-on.
-          </p>
-        </div>
-
-        <p className={styles.tagline}>
-          <span className={styles.tagline_mark} aria-hidden="true">
-            <IconCheck />
-          </span>
-          We hire people currently running campaigns <em>and</em> building AI
-          automation workflows.
-        </p>
-
         <ol className={styles.points}>
           {POINTS.map((p) => (
             <li key={p.title} className={styles.point}>
