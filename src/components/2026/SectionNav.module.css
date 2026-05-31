@@ -1,0 +1,58 @@
+/* ============================================================================
+   SectionNav.module.css — Sticky horizontal tab bar for section navigation
+   Mobile: visible below the header as a scrollable tab strip
+   Desktop: hidden (navigation handled by the main header links)
+   ============================================================================ */
+
+.nav {
+  position: sticky;
+  top: var(--header-h-mobile);
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border-default);
+  box-shadow: 0 1px 4px rgba(11, 20, 34, 0.04);
+}
+
+@media (min-width: 1024px) {
+  .nav { display: none; }
+}
+
+.track {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 var(--gutter);
+}
+
+.track::-webkit-scrollbar { display: none; }
+
+.tab {
+  flex: 0 0 auto;
+  padding: 12px 16px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.tab:hover {
+  color: var(--text-primary);
+}
+
+.tab_active {
+  color: var(--brand-blue);
+  border-bottom-color: var(--brand-blue);
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab { transition: none; }
+}

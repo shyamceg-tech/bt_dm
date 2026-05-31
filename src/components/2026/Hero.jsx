@@ -23,6 +23,7 @@
 import Image from 'next/image';
 import styles from './Hero.module.css';
 import HeroForm from './HeroForm';
+import TypewriterHeadline from './TypewriterHeadline';
 
 /* ─── Inline icons (one source of truth) ──────────────────────────────────── */
 
@@ -97,8 +98,8 @@ export default function Hero() {
 
           <h1 className={styles.headline} id="hero-heading">
             <span className={styles.headline_master}>MASTER</span>
-            <span className={styles.headline_dm}>DIGITAL MARKETING</span>
-            <span className={styles.headline_ai}>WITH AI</span>
+            <TypewriterHeadline className={styles.headline_dm} text="DIGITAL MARKETING" delay={300} />
+            <TypewriterHeadline className={styles.headline_ai} text="WITH AI" delay={1400} />
           </h1>
 
           <p className={styles.subline}>

@@ -52,7 +52,7 @@ export default function InterviewReadiness() {
       aria-labelledby="interview-readiness-heading"
     >
       <div className={styles.container}>
-        <header className={styles.head}>
+        <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Interview Readiness</span>
           <h2 id="interview-readiness-heading" className={styles.heading}>
             How most freshers walk into a digital marketing interview &mdash;

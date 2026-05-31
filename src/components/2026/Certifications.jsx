@@ -47,7 +47,7 @@ export default function Certifications() {
   return (
     <section className={styles.section} aria-labelledby="certifications-heading">
       <div className={styles.inner}>
-        <h2 className={styles.heading} id="certifications-heading">
+        <h2 className={styles.heading} id="certifications-heading" data-reveal>
           Get Certified by Google &amp; Microsoft
         </h2>
         <p className={styles.subline}>
@@ -60,7 +60,7 @@ export default function Certifications() {
           aria-label="12 industry certifications, swipe horizontally to view all"
         >
           {CERTS.map(({ brand, title }, i) => (
-            <li key={`${brand}-${title}-${i}`} className={styles.tile}>
+            <li key={`${brand}-${title}-${i}`} className={styles.tile} data-reveal data-reveal-delay={i}>
               <span className={styles.tile_check} aria-hidden="true">
                 <CheckIcon />
               </span>

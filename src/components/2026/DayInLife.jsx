@@ -19,7 +19,7 @@ export default function DayInLife() {
       aria-labelledby="day-in-life-heading"
     >
       <div className={styles.container}>
-        <header className={styles.head}>
+        <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Inside a BlueTick Tuesday</span>
           <h2 id="day-in-life-heading" className={styles.heading}>
             What a Tuesday at BlueTick actually looks like

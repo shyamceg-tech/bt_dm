@@ -60,6 +60,7 @@ import MediaAwards from '@/components/2026/MediaAwards';
 import FinalCta from '@/components/2026/FinalCta';
 import Footer from '@/components/2026/Footer';
 import StickyBar from '@/components/2026/StickyBar';
+import SectionNav from '@/components/2026/SectionNav';
 
 /* Inline SVG icons for the CTA banner eyebrows. Single-use, ~5 lines each. */
 function IconCheckCircle() {
@@ -92,6 +93,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
+      <SectionNav />
       <main id="main">
         <Hero />
         <TrustStrip />

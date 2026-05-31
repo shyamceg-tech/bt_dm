@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans, Inter, Instrument_Serif } from 'next/font/google';
 import Script from 'next/script';
 import MetaPixelTracker from '@/components/MetaPixelTracker';
 import ModalRoot from '@/components/2026/ModalRoot';
+import ScrollReveal from '@/components/2026/ScrollReveal';
+import ScrollProgressBar from '@/components/2026/ScrollProgressBar';
 
 /* ===========================================================================
    Typography — self-hosted via next/font (no Google Fonts CDN, no FOUT).
@@ -106,6 +108,7 @@ export default function RootLayout({ children }) {
         {/* Skip-to-content link — visually hidden until keyboard-focused,
             then animates in from above. First focusable element on the page. */}
         <a href="#main" className="skip-link">Skip to main content</a>
+        <ScrollProgressBar />
 
         {/* GTM noscript */}
         <noscript>
@@ -126,6 +129,7 @@ export default function RootLayout({ children }) {
             anywhere in the doc, renders the right modal. Mounted here so
             it's available on every page, not just the home route. */}
         <ModalRoot />
+        <ScrollReveal />
       </body>
     </html>
   );

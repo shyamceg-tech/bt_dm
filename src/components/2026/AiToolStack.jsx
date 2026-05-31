@@ -38,7 +38,7 @@ export default function AiToolStack() {
     <section className={styles.section} aria-labelledby="ai-toolstack-heading">
       <div className={styles.inner}>
         <p className={styles.eyebrow}>The Stack</p>
-        <h2 className={styles.heading} id="ai-toolstack-heading">
+        <h2 className={styles.heading} id="ai-toolstack-heading" data-reveal>
           The <span className={styles.count}>50+</span> AI Tool Stack you&rsquo;ll master
         </h2>
         <p className={styles.subline}>
@@ -52,8 +52,8 @@ export default function AiToolStack() {
           role="list"
           aria-label="50+ AI and marketing tools covered in the curriculum"
         >
-          {LOGOS.map((t) => (
-            <div key={t.name} className={styles.logo_item} role="listitem">
+          {LOGOS.map((t, index) => (
+            <div key={t.name} className={styles.logo_item} role="listitem" data-reveal data-reveal-delay={index}>
               <Image
                 src={`/img/ai-tools/${t.logo}`}
                 alt={t.name}

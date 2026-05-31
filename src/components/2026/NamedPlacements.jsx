@@ -20,7 +20,7 @@ export default function NamedPlacements() {
   return (
     <section className={styles.section} aria-labelledby="placements-heading">
       <div className={styles.inner}>
-        <h2 className={styles.heading} id="placements-heading">
+        <h2 className={styles.heading} id="placements-heading" data-reveal>
           Where our 2025&ndash;26 batches landed &mdash; real names, real
           companies, real packages
         </h2>

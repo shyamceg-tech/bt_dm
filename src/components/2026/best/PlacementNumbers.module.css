@@ -1,0 +1,193 @@
+/* PlacementNumbers.module.css — "The data behind our #1 rank" */
+
+.section {
+  background: var(--bg-alt);
+  padding: 72px 0;
+  scroll-margin-top: 80px;
+}
+
+@media (min-width: 1024px) { .section { padding: 96px 0; } }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 768px) { .container { padding: 0 var(--gutter-lg); } }
+
+.head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 768px)  { .heading { font-size: 36px; } }
+@media (min-width: 1024px) { .heading { font-size: 42px; } }
+
+/* ─── Big stat tiles ─────────────────────────────────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .stats { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+}
+
+.stat {
+  background: var(--bg-base);
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  padding: 20px 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--bar-1-fill);
+}
+
+.stat:nth-child(2)::after { background: var(--bar-2-fill); }
+.stat:nth-child(3)::after { background: linear-gradient(90deg, #1F9D55 0%, #2BD4A4 100%); }
+.stat:nth-child(4)::after { background: var(--bar-4-fill); }
+
+.stat_num {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+@media (min-width: 768px) { .stat_num { font-size: 2.75rem; } }
+@media (max-width: 380px) { .stat_num { font-size: 1.75rem; } }
+
+.stat_label {
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+/* ─── Batch table ────────────────────────────────────────────────────────── */
+.tableWrap {
+  margin-top: 40px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 14px;
+  border: 1px solid var(--border-default);
+  background: var(--bg-base);
+}
+
+.table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-default);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 14px 20px;
+  color: var(--text-primary);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.table tr:last-child td { border-bottom: none; }
+
+.table tr:hover td { background: var(--bg-alt); }
+
+.rate {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.rate_high {
+  background: rgba(31, 157, 85, 0.10);
+  color: var(--success-green);
+}
+
+.table caption {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: right;
+  padding: 8px 20px;
+  font-style: italic;
+}
+
+/* ─── Press row ──────────────────────────────────────────────────────────── */
+.press {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 16px;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.press_label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+}
+
+.press_name {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.press_sep {
+  color: var(--border-strong);
+}

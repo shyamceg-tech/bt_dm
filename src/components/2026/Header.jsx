@@ -129,32 +129,23 @@ export default function Header() {
         {/* Desktop nav (≥1024px) */}
         <nav className={styles.nav_desktop} aria-label="Primary">
           <ul className={styles.nav_list}>
-            <li>
-              <a href="#section-14">Our Courses</a>
-            </li>
-            <li>
-              {/* Hire from us — modal trigger wired in Phase 3 */}
-              <button
-                type="button"
-                data-modal-open="hire"
-                aria-haspopup="dialog"
-              >
-                Hire from us
-              </button>
-            </li>
-            <li>
-              {/* Franchisee Enquiry — modal trigger wired in Phase 3 */}
-              <button
-                type="button"
-                data-modal-open="franchisee"
-                aria-haspopup="dialog"
-              >
-                Franchisee Enquiry
-              </button>
-            </li>
+            <li><a href="#placements">Placements</a></li>
+            <li><a href="#section-14">Courses</a></li>
+            <li><a href="#curriculum">Curriculum</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#trainers">Trainers</a></li>
+            <li><a href="#section-19">FAQs</a></li>
           </ul>
 
           <div className={styles.nav_actions}>
+            <button
+              type="button"
+              className={styles.pill}
+              data-modal-open="hire"
+              aria-haspopup="dialog"
+            >
+              Hire from us
+            </button>
             <a
               className={`${styles.pill} js-wa-cta`}
               href={WHATSAPP_HREF}

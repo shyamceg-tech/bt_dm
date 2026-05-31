@@ -82,7 +82,7 @@ export default function Comparison() {
       aria-labelledby="comparison-heading"
     >
       <div className={styles.container}>
-        <header className={styles.head}>
+        <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Comparison</span>
           <h2 id="comparison-heading" className={styles.heading}>
             How BlueTick compares to your other options

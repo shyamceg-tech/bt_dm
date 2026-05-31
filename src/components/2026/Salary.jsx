@@ -9,6 +9,7 @@
  */
 
 import styles from './Salary.module.css';
+import AnimatedCounter from './AnimatedCounter';
 
 /* ─── Band data ──────────────────────────────────────────────────────────── */
 const BANDS = [
@@ -41,12 +42,12 @@ const BANDS = [
 /* ─── Salary ─────────────────────────────────────────────────────────────── */
 export default function Salary() {
   return (
-    <section className={styles.section} aria-labelledby="salary-heading">
+    <section id="placements" className={styles.section} aria-labelledby="salary-heading">
       <div className={styles.inner}>
-        <h2 className={styles.heading} id="salary-heading">
+        <h2 className={styles.heading} id="salary-heading" data-reveal>
           100% placement. Here&rsquo;s what that actually means — by package band.
         </h2>
-        <p className={styles.subline}>
+        <p className={styles.subline} data-reveal>
           Of our last 4 batches — 312 students total:
         </p>
 
@@ -55,12 +56,15 @@ export default function Salary() {
           <ol
             className={styles.bars}
             aria-label="Placement distribution by package band"
+            data-reveal
           >
             {BANDS.map(({ band, pct, role, fillClass }) => (
               <li key={band} className={styles.bar_row}>
                 <div className={styles.bar_top}>
                   <span className={styles.bar_band}>{band}</span>
-                  <span className={styles.bar_pct}>{pct}%</span>
+                  <span className={styles.bar_pct}>
+                    <AnimatedCounter target={pct} suffix="%" />
+                  </span>
                 </div>
                 <div className={styles.bar_track} aria-hidden="true">
                   <div

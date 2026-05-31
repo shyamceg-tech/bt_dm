@@ -48,7 +48,7 @@ export default function MediaAwards() {
       aria-labelledby="media-awards-heading"
     >
       <div className={styles.container}>
-        <h2 id="media-awards-heading" className={styles.heading}>
+        <h2 id="media-awards-heading" className={styles.heading} data-reveal>
           Media &amp; Awards
         </h2>
 

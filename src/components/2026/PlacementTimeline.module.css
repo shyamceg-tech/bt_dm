@@ -82,6 +82,10 @@
   row-gap: 24px;
 }
 
+@media (max-width: 380px) {
+  .timeline { grid-template-columns: 28px 1fr; column-gap: 10px; }
+}
+
 @media (min-width: 1024px) {
   .timeline {
     grid-template-columns: repeat(5, 1fr);

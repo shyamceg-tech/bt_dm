@@ -12,9 +12,38 @@
 
 /* ─── Section shell ─────────────────────────────────────────────────────── */
 .section {
+  position: relative;
   background: var(--bg-alt);
   padding: 72px 0;
-  scroll-margin-top: 80px; /* hash-link target offset */
+  scroll-margin-top: 80px;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 80px;
+  right: 48px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--aurora-1);
+  opacity: 0.25;
+  animation: bt-float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: 100px;
+  left: 60px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--aurora-3);
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: bt-float-reverse 8s ease-in-out infinite;
+  pointer-events: none;
 }
 
 @media (min-width: 1024px) {
@@ -102,6 +131,13 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 200ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px) rotateX(2deg) rotateY(-1deg);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-strong);
 }
 
 @media (min-width: 768px) { .card { padding: 32px 28px; } }
@@ -182,6 +218,10 @@
   grid-template-columns: 96px 1fr;
   gap: 16px;
   font-size: 14px;
+}
+
+@media (max-width: 400px) {
+  .specs_row { grid-template-columns: 80px 1fr; gap: 10px; font-size: 13px; }
 }
 
 .specs_key {

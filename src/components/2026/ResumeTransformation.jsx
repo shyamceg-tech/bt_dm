@@ -64,7 +64,7 @@ export default function ResumeTransformation() {
       aria-labelledby="resume-transformation-heading"
     >
       <div className={styles.container}>
-        <header className={styles.head}>
+        <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Resume Transformation</span>
           <h2 id="resume-transformation-heading" className={styles.heading}>
             Your resume on Day 1 vs. your resume on Day 121

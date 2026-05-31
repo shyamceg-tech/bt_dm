@@ -35,7 +35,7 @@ export default function Recruiters() {
   return (
     <section className={styles.section} aria-labelledby="recruiters-heading">
       <div className={styles.inner}>
-        <h2 className={styles.heading} id="recruiters-heading">
+        <h2 className={styles.heading} id="recruiters-heading" data-reveal>
           Why 500+ Companies in Bangalore hire from BlueTick first
         </h2>
         <p className={styles.subline}>
@@ -43,8 +43,8 @@ export default function Recruiters() {
         </p>
 
         <ol className={styles.cards}>
-          {REASONS.map((r) => (
-            <li key={r.num} className={styles.card}>
+          {REASONS.map((r, index) => (
+            <li key={r.num} className={styles.card} data-reveal data-reveal-delay={index}>
               <span className={styles.num} aria-hidden="true">
                 {r.num}
               </span>

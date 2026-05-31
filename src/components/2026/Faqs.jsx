@@ -70,7 +70,7 @@ export default function Faqs() {
       aria-labelledby="faqs-heading"
     >
       <div className={styles.container}>
-        <header className={styles.head}>
+        <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>FAQs</span>
           <h2 id="faqs-heading" className={styles.heading}>
             Honest answers to what you&rsquo;re actually wondering

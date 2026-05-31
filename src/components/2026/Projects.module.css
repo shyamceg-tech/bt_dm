@@ -36,6 +36,21 @@
   z-index: 0;
 }
 
+.section::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  bottom: 120px;
+  right: 60px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--aurora-1);
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: bt-float 7s ease-in-out infinite;
+  z-index: 0;
+}
+
 .inner {
   max-width: var(--max-content-width);
   margin: 0 auto;
@@ -104,7 +119,7 @@
 
 /* ─── Card ──────────────────────────────────────────────────────────────── */
 .card {
-  flex: 0 0 300px;
+  flex: 0 0 min(calc(100vw - 48px), 300px);
   scroll-snap-align: start;
   background: var(--bg-base);
   border: 1px solid var(--border-default);
@@ -119,9 +134,9 @@
 @media (min-width: 768px) { .card { flex: initial; } }
 
 .card:hover {
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-card-hover);
-  transform: translateY(-2px);
+  border-color: var(--brand-blue);
+  box-shadow: var(--shadow-colorful);
+  transform: translateY(-6px) scale(1.01);
 }
 
 .tag {

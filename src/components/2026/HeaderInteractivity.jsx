@@ -151,9 +151,22 @@ export default function HeaderInteractivity({
 
         <ul className={styles.drawer_links}>
           <li>
-            <a href="#section-14" onClick={closeDrawer}>
-              Our Courses
-            </a>
+            <a href="#placements" onClick={closeDrawer}>Placements</a>
+          </li>
+          <li>
+            <a href="#section-14" onClick={closeDrawer}>Courses</a>
+          </li>
+          <li>
+            <a href="#curriculum" onClick={closeDrawer}>Curriculum</a>
+          </li>
+          <li>
+            <a href="#projects" onClick={closeDrawer}>Projects</a>
+          </li>
+          <li>
+            <a href="#trainers" onClick={closeDrawer}>Trainers</a>
+          </li>
+          <li>
+            <a href="#section-19" onClick={closeDrawer}>FAQs</a>
           </li>
           <li>
             <button

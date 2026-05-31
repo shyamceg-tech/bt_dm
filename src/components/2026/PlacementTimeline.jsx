@@ -60,7 +60,7 @@ export default function PlacementTimeline() {
       aria-labelledby="placement-timeline-heading"
     >
       <div className={styles.container}>
-        <header className={styles.head}>
+        <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>The Placement System</span>
           <h2 id="placement-timeline-heading" className={styles.heading}>
             The 5-month placement system &mdash; exactly how we get you hired
@@ -89,6 +89,7 @@ export default function PlacementTimeline() {
                 railClass={[styles.rail_col, railColClass(stage.railVariant)]
                   .filter(Boolean)
                   .join(' ')}
+                index={idx}
               />
             );
           })}
@@ -101,7 +102,7 @@ export default function PlacementTimeline() {
 /* Each stage renders as TWO elements: the rail column (always before the
    card) and the card. The CSS Grid arranges them: mobile = 2-col grid
    alternating; desktop = 5 rail cols on row 1, 5 cards on row 2. */
-function Stage({ stage, cardClass, railClass }) {
+function Stage({ stage, cardClass, railClass, index }) {
   return (
     <>
       <div className={railClass} aria-hidden="true">
@@ -109,7 +110,7 @@ function Stage({ stage, cardClass, railClass }) {
           className={`${styles.node} ${stage.isFinal ? styles.node_final : ''}`}
         />
       </div>
-      <article className={cardClass} role="listitem">
+      <article className={cardClass} role="listitem" data-reveal data-reveal-delay={index}>
         {stage.month && <p className={styles.month}>{stage.month}</p>}
         <h3 className={styles.card_title}>{stage.title}</h3>
         <p className={styles.card_body}>{stage.body}</p>

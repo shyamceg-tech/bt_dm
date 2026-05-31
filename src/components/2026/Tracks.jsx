@@ -116,7 +116,7 @@ export default function Tracks() {
       aria-labelledby="tracks-heading"
     >
       <div className={styles.container}>
-        <header className={styles.head}>
+        <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Course Tracks</span>
           <h2 id="tracks-heading" className={styles.heading}>
             Choose your track
@@ -124,13 +124,15 @@ export default function Tracks() {
         </header>
 
         <div className={styles.grid}>
-          {TRACKS.map((t) => (
+          {TRACKS.map((t, index) => (
             <article
               key={t.key}
               className={`${styles.card} ${
                 t.variantClass ? styles[t.variantClass] : ''
               }`}
               aria-labelledby={t.titleId}
+              data-reveal
+              data-reveal-delay={index}
             >
               {t.showSash && (
                 <span className={styles.sash} aria-hidden="true">

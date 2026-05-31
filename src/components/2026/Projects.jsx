@@ -90,9 +90,9 @@ const PROJECTS = [
 
 export default function Projects() {
   return (
-    <section className={styles.section} aria-labelledby="projects-heading">
+    <section id="projects" className={styles.section} aria-labelledby="projects-heading">
       <div className={styles.inner}>
-        <h2 className={styles.heading} id="projects-heading">
+        <h2 className={styles.heading} id="projects-heading" data-reveal>
           Real work our students built &mdash; for real companies
         </h2>
         <p className={styles.subline}>

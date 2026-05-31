@@ -1,0 +1,261 @@
+/* BestPageCta.module.css — Fresh bottom CTA section for the best page */
+
+.section {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(135deg, #0A1B3D 0%, #1A1B4F 50%, #061232 100%);
+  scroll-margin-top: 80px;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, rgba(255, 199, 68, 0.18) 0%, transparent 65%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  text-align: center;
+}
+
+@media (min-width: 768px) { .container { padding: 0 var(--gutter-lg); } }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 199, 68, 0.12);
+  border: 1px solid rgba(255, 199, 68, 0.30);
+  border-radius: var(--r-pill);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFE082;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--text-on-deep);
+  margin: 0;
+}
+
+.heading em {
+  font-family: var(--font-accent), Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: #FB923C;
+}
+
+@media (min-width: 768px)  { .heading { font-size: 36px; } }
+@media (min-width: 1024px) { .heading { font-size: 42px; } }
+
+.subline {
+  margin-top: 16px;
+  font-size: 1rem;
+  color: var(--text-on-deep-muted);
+  line-height: 1.6;
+}
+
+/* ─── Form card ─────────────────────────────────────────────────────────── */
+.formCard {
+  margin-top: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 28px 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (min-width: 768px) { .formCard { padding: 36px 40px; } }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 560px) { .row { grid-template-columns: 1fr 1fr; } }
+
+.field { display: flex; flex-direction: column; gap: 6px; text-align: left; }
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.80);
+}
+
+.input,
+.select {
+  height: 52px;
+  padding: 0 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--r-input);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-on-deep);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1rem;
+  transition: border-color 150ms ease;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+.input::placeholder { color: rgba(255, 255, 255, 0.35); }
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: #FFC744;
+  border-width: 2px;
+}
+
+.select { padding-right: 40px; }
+
+.selectWrap { position: relative; }
+.selectWrap::after {
+  content: '';
+  position: absolute;
+  right: 14px; top: 50%;
+  width: 9px; height: 9px;
+  transform: translateY(-70%) rotate(45deg);
+  border-right: 2px solid rgba(255, 255, 255, 0.50);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.50);
+  pointer-events: none;
+}
+
+.phoneWrap {
+  display: flex;
+  align-items: stretch;
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--r-input);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.07);
+  transition: border-color 150ms ease;
+}
+
+.phoneWrap:focus-within { border-color: #FFC744; border-width: 2px; }
+
+.phonePrefix {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.60);
+  background: rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.phoneInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  height: 50px;
+  padding: 0 14px;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1rem;
+  color: var(--text-on-deep);
+  outline: none;
+}
+
+.phoneInput::placeholder { color: rgba(255, 255, 255, 0.35); }
+
+.btn {
+  width: 100%;
+  min-height: 56px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #FF6A1A 0%, #FF8847 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--r-input);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 0 8px 24px rgba(255, 106, 26, 0.40);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(255, 106, 26, 0.55);
+}
+
+.btn:active { transform: scale(0.98); }
+.btn[disabled] { background: rgba(255, 106, 26, 0.4); box-shadow: none; cursor: not-allowed; transform: none; }
+
+.micro {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.50);
+  text-align: center;
+}
+
+.statusSuccess {
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: rgba(31, 157, 85, 0.14);
+  border: 1px solid rgba(31, 157, 85, 0.30);
+  border-radius: var(--r-input);
+  color: #6EE7B7;
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+.statusError {
+  margin-top: 8px;
+  padding: 12px 16px;
+  background: rgba(199, 55, 75, 0.10);
+  border: 1px solid rgba(199, 55, 75, 0.25);
+  border-radius: var(--r-input);
+  color: #FCA5A5;
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+.retryBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #FCA5A5;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none !important; }
+}

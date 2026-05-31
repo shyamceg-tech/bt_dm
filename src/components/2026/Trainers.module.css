@@ -297,6 +297,10 @@
   color: var(--text-on-deep-muted);
 }
 
+@media (max-width: 380px) {
+  .vs_label { min-width: 64px; font-size: 0.625rem; }
+}
+
 .vs_row_us .vs_label { color: var(--cta-orange); }
 
 .vs_text {

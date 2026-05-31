@@ -81,20 +81,20 @@ const POINTS = [
 
 export default function Trainers() {
   return (
-    <section className={styles.section} aria-labelledby="trainers-heading">
+    <section id="trainers" className={styles.section} aria-labelledby="trainers-heading">
       <div className={styles.inner}>
         <p className={styles.eyebrow}>
           <span className={styles.eyebrow_dot} aria-hidden="true" />
           Trainers, not academicians
         </p>
 
-        <h2 className={styles.headline} id="trainers-heading">
+        <h2 className={styles.headline} id="trainers-heading" data-reveal>
           Learn from trainers who run &#8377;35 Cr+ in live ad spend every year
         </h2>
 
         <ol className={styles.points}>
-          {POINTS.map((p) => (
-            <li key={p.title} className={styles.point}>
+          {POINTS.map((p, index) => (
+            <li key={p.title} className={styles.point} data-reveal data-reveal-delay={index}>
               <span className={styles.point_icon}>{p.icon}</span>
               <div>
                 <h3 className={styles.point_title}>{p.title}</h3>

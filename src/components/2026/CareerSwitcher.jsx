@@ -69,7 +69,7 @@ export default function CareerSwitcher() {
       aria-labelledby="career-switcher-heading"
     >
       <div className={styles.container}>
-        <header className={styles.head}>
+        <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Career Switchers</span>
           <h2 id="career-switcher-heading" className={styles.heading}>
             Switching from a non-marketing job? You&rsquo;re not alone &mdash;{' '}
@@ -86,7 +86,7 @@ export default function CareerSwitcher() {
             const titleId = `sw-${i}-name`;
 
             return (
-              <li key={s.name} className={styles.card} aria-labelledby={titleId}>
+              <li key={s.name} className={styles.card} aria-labelledby={titleId} data-reveal data-reveal-delay={i}>
                 <div className={styles.head_row}>
                   <div>
                     <h3 id={titleId} className={styles.id_name}>{s.name}</h3>

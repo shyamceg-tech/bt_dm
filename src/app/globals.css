@@ -248,6 +248,10 @@ svg { display: block; max-width: 100%; }
   padding: 0 var(--gutter);
 }
 
+@media (max-width: 380px) {
+  .container { padding: 0 14px; }
+}
+
 @media (min-width: 768px) {
   .container { padding: 0 var(--gutter-lg); }
 }
@@ -260,6 +264,10 @@ svg { display: block; max-width: 100%; }
   max-width: var(--max-content-width);
   margin: 0 auto;
   padding: 0 var(--gutter-mobile);
+}
+
+@media (max-width: 380px) {
+  .section-inner { padding: 0 14px; }
 }
 
 @media (min-width: 768px) {
@@ -315,6 +323,43 @@ svg { display: block; max-width: 100%; }
 @keyframes bt-shimmer {
   0%   { transform: translateX(-120%) skewX(-15deg); }
   100% { transform: translateX(220%) skewX(-15deg); }
+}
+
+/* ── ScrollReveal ─────────────────────────────────────────────────────────── */
+@keyframes bt-reveal-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+[data-revealed] {
+  animation: bt-reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--reveal-delay, 0) * 100ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal]    { opacity: 1; transform: none; }
+  [data-revealed]  { animation: none; }
+}
+
+/* ── Floating decorative elements ─────────────────────────────────────────── */
+@keyframes bt-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(3deg); }
+}
+
+@keyframes bt-float-reverse {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(12px) rotate(-3deg); }
+}
+
+@keyframes bt-blink {
+  0%, 50%  { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 /* ============================================================================
