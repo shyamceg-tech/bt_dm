@@ -492,9 +492,10 @@ function ModuleRail({
   modules,
   totalModules,
   ariaLabel,
+  revealDelay,
 }) {
   return (
-    <div className={`${styles.rail_wrap} ${styles[`rail_wrap_${variant}`]}`}>
+    <div className={`${styles.rail_wrap} ${styles[`rail_wrap_${variant}`]}`} data-reveal data-reveal-delay={revealDelay}>
       <div className={styles.rail_head}>
         <div className={styles.rail_head_text}>
           <span className={styles.rail_head_chip}>
@@ -530,7 +531,7 @@ export default function Modules() {
       aria-labelledby="modules-heading"
     >
       <div className={styles.container}>
-        <header className={styles.head}>
+        <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Curriculum</span>
           <h2 id="modules-heading" className={styles.heading}>
             The full 2026 curriculum — every module, every topic
@@ -542,7 +543,7 @@ export default function Modules() {
           </p>
         </header>
 
-        <div className={styles.legend} role="note" aria-label="Course color legend">
+        <div className={styles.legend} data-reveal data-reveal-delay="1" role="note" aria-label="Course color legend">
           <span className={`${styles.legend_pill} ${styles.legend_pill_pcp}`}>
             <span className={styles.legend_dot} />
             Course 1 — PCP (3 months)
@@ -559,6 +560,7 @@ export default function Modules() {
 
         <ModuleRail
           variant="pcp"
+          revealDelay="0"
           chipLabel="Course 1 — PCP"
           title="Professional Certification in Digital Marketing with AI"
           meta="3 Months · 132 Hours · Mon–Fri Weekdays"
@@ -569,6 +571,7 @@ export default function Modules() {
 
         <ModuleRail
           variant="pgcp"
+          revealDelay="1"
           chipLabel="Course 2 — PGCP"
           title="Post Graduate Certification in AI-Driven Digital Marketing"
           meta="5 Months · 220 Hours · All 13 Modules + 3 Specialisations + 5 Industry Deep Dives"
@@ -579,6 +582,7 @@ export default function Modules() {
 
         <ModuleRail
           variant="elevate"
+          revealDelay="2"
           chipLabel="Course 3 — ELEVATE™"
           title="Digital Marketing + AI for Business"
           meta="7 Months · 268 Hours · Months 1–5 same as PGCP; Months 6–7 add the AI for Business track"
