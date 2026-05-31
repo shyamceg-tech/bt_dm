@@ -1,0 +1,1768 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>BlueTick Academy 2026 Brochure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================================
+   BlueTick Academy 2026 — Print Brochure (A4 portrait)
+   ========================================================================= */
+
+:root{
+  --royal:#1E45D6;
+  --deep:#1736B8;
+  --coral:#F7882F;
+  --orange:#F0532F;
+  --red:#ED1C24;
+  --ink:#15171C;
+  --bg:#F4F6F9;
+  --slate:#33414F;
+  --muted:#6B7785;
+  --white:#FFFFFF;
+  --line:#E4E8EE;
+  --pcp:#2563EB;
+  --pgcp:#7C3AED;
+  --elevate:#0D9488;
+}
+
+@page{ size: A4 portrait; margin: 0; }
+
+*{ box-sizing: border-box; }
+html,body{ margin:0; padding:0; background:#888; font-family:'Inter',system-ui,sans-serif; color:var(--ink); -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+.page{
+  width: 210mm;
+  height: 297mm;
+  background: var(--white);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  display: flex;
+  flex-direction: column;
+}
+.page:last-child{ page-break-after: auto; }
+
+/* shared interior page padding */
+.pad{ padding: 14mm 14mm 18mm; flex:1; display:flex; flex-direction:column; }
+
+/* ========== Header motif on interior pages ========== */
+.head_motif{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 6mm 14mm 0;
+  font-family:'Poppins',sans-serif;
+}
+.head_motif .dashes{ display:flex; gap:4px; }
+.head_motif .dashes i{ display:block; width:18px; height:3px; border-radius:2px; background:var(--royal); opacity:.25; }
+.head_motif .dashes i.on{ opacity:1; background:var(--royal); }
+.head_motif .wordmark{ font-weight:800; font-size:11pt; letter-spacing:.02em; color:var(--ink); display:flex; align-items:center; gap:6px; }
+.head_motif .wordmark .tick{ display:inline-flex; width:18px; height:18px; align-items:center; justify-content:center; border-radius:5px; background:linear-gradient(135deg,var(--royal),var(--coral)); color:#fff; font-size:11px; font-weight:800; }
+.head_motif .wordmark .bt{ color:var(--royal); }
+.head_motif .wordmark .ac{ color:var(--ink); }
+
+/* ========== Footer (every page) ========== */
+.footer{
+  margin-top:auto;
+  padding: 4mm 14mm;
+  background: var(--bg);
+  display:flex; align-items:center; justify-content:space-between;
+  font-size: 8.5pt; color: var(--slate); font-weight:500;
+  border-top:1px solid var(--line);
+}
+.footer .left{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+.footer .pg{ color:var(--muted); font-weight:600; }
+.footer.dark{ background:var(--ink); color:#cdd6e0; border-top-color:#222; }
+.footer.dark .pg{ color:#8b95a3; }
+
+/* ========================================================================
+   PAGE 1 — COVER
+   ======================================================================== */
+.cover{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  height:100%;
+  background: linear-gradient(180deg,#fff 0%,#f7f9ff 100%);
+}
+.cover_left{
+  padding: 14mm 12mm 22mm;
+  display:flex; flex-direction:column;
+  position:relative;
+}
+.cover_right{
+  position:relative;
+  background: linear-gradient(135deg, var(--deep) 0%, var(--royal) 60%, #2a5cf0 100%);
+  overflow:hidden;
+}
+.cover_right img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  mix-blend-mode: luminosity;
+  opacity:.85;
+  filter: contrast(1.1) brightness(.95);
+}
+.cover_right::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(135deg, rgba(23,54,184,.45) 0%, rgba(30,69,214,.15) 60%, rgba(30,69,214,.45) 100%);
+  mix-blend-mode: multiply;
+}
+.cover_right::before{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(circle at 80% 20%, rgba(247,136,47,.18) 0%, transparent 50%);
+}
+
+.logo_block{ display:flex; align-items:center; gap:10px; }
+.logo_tick{
+  width:42px; height:42px; border-radius:10px;
+  background: linear-gradient(135deg, var(--royal) 0%, var(--royal) 50%, var(--coral) 50%, var(--coral) 100%);
+  display:flex; align-items:center; justify-content:center; color:#fff; font-weight:900;
+  position:relative;
+}
+.logo_tick::before{
+  content:""; position:absolute; left:8px; top:11px; width:10px; height:5px;
+  border-left:3px solid #fff; border-bottom:3px solid #fff; transform:rotate(-45deg);
+}
+.logo_tick::after{
+  content:""; position:absolute; right:7px; bottom:9px; width:12px; height:6px;
+  border-left:3px solid #fff; border-bottom:3px solid #fff; transform:rotate(-45deg);
+}
+.logo_text{ font-family:'Poppins',sans-serif; font-weight:800; font-size:14pt; letter-spacing:-.01em; line-height:1.1; }
+.logo_text .b{ color:var(--royal); }
+.logo_text .a{ color:var(--ink); }
+.logo_text small{ display:block; font-size:8pt; font-weight:600; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
+
+.cover_eyebrow{
+  margin-top: 14mm;
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:9.5pt;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--coral);
+}
+.cover_h1{
+  font-family:'Poppins',sans-serif; font-weight:900;
+  font-size:28pt; line-height:1.05; letter-spacing:-.02em;
+  color:var(--ink); margin: 5mm 0 4mm;
+}
+.cover_h1 .ai{ color:var(--orange); }
+.cover_tag{
+  font-size:10.5pt; color:var(--slate); line-height:1.55;
+  max-width: 78mm;
+}
+.cover_tag b{ color:var(--ink); font-weight:700; }
+
+.cover_stats{
+  display:grid; grid-template-columns: repeat(2,1fr); gap:3mm;
+  margin-top: 8mm;
+}
+.stat_pill{
+  background:#fff; border:1px solid var(--line); border-radius:10px;
+  padding: 3mm 4mm; box-shadow: 0 2px 6px rgba(11,20,34,.04);
+}
+.stat_pill .num{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:16pt; color:var(--royal);
+  line-height:1;
+}
+.stat_pill .lbl{ font-size:8pt; color:var(--slate); margin-top:1.5mm; font-weight:600; }
+
+.cover_badges{
+  margin-top: 5mm; display:flex; flex-wrap:wrap; gap:2mm;
+}
+.badge_pill{
+  background: linear-gradient(135deg, rgba(247,136,47,.10), rgba(240,83,47,.10));
+  color: var(--orange); font-weight:700; font-size:7.5pt;
+  padding: 2mm 3mm; border-radius:999px;
+  border: 1px solid rgba(240,83,47,.25);
+  letter-spacing:.02em;
+}
+
+.alumni_strip{
+  margin-top:auto; padding-top: 6mm;
+  border-top: 1px dashed var(--line);
+}
+.alumni_strip .label{
+  font-size:7.5pt; color:var(--muted); font-weight:700;
+  letter-spacing:.16em; text-transform:uppercase; margin-bottom:2mm;
+}
+.alumni_strip .logos{
+  display:flex; gap: 4mm; align-items:center; flex-wrap:wrap;
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:10pt; color:var(--slate);
+}
+.alumni_strip .logos span{ opacity:.85; }
+
+.cover_footer{
+  position:absolute; left:0; right:0; bottom:0;
+  background: var(--ink); color:#cdd6e0;
+  padding: 4mm 14mm; font-size:8.5pt; font-weight:500;
+  display:flex; gap:14px; flex-wrap:wrap;
+  z-index:5;
+}
+.cover_footer span{ display:inline-flex; align-items:center; gap:5px; }
+
+/* ========================================================================
+   PAGE 2 — THE HOOK
+   ======================================================================== */
+.hook{
+  display:grid; grid-template-columns: 1fr 78mm;
+  gap: 10mm; padding: 6mm 14mm 6mm; flex:1;
+}
+.hook_text{ display:flex; flex-direction:column; justify-content:center; }
+.section_eyebrow{
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:9pt;
+  letter-spacing:.2em; text-transform:uppercase;
+  background: linear-gradient(135deg, var(--royal), var(--coral));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  margin-bottom: 4mm;
+}
+.h1_big{
+  font-family:'Poppins',sans-serif; font-weight:900;
+  font-size:32pt; line-height:1.08; letter-spacing:-.02em; color:var(--ink);
+  margin: 0 0 6mm;
+}
+.h1_big .accent{ color:var(--orange); }
+.hook_body{ font-size:11pt; line-height:1.6; color:var(--slate); margin: 0 0 4mm; }
+.hook_body em{ font-style:italic; color:var(--ink); }
+.footnote{
+  font-size:8pt; line-height:1.5; color:var(--muted); margin-top: 4mm;
+  border-left: 3px solid var(--coral); padding: 2mm 0 2mm 3mm; font-style:italic;
+}
+.hook_image{
+  position:relative; border-radius:14px; overflow:hidden;
+  box-shadow: 0 10px 28px rgba(11,20,34,.16);
+  background: linear-gradient(180deg, var(--deep), var(--royal));
+}
+.hook_image img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+
+/* ========================================================================
+   PAGE 3 — GLOBAL PRESENCE
+   ======================================================================== */
+.global{ padding: 6mm 14mm 6mm; flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.global .h1_big{ margin-top: 4mm; }
+.global .h1_big .accent{ color: var(--red); font-size:48pt; }
+.global .lede{ max-width: 150mm; color:var(--slate); font-size:11pt; line-height:1.55; }
+.global .map_wrap{
+  margin-top: 8mm; width:100%; max-width:175mm; border-radius:14px; overflow:hidden;
+  box-shadow: 0 6px 18px rgba(11,20,34,.08); border:1px solid var(--line);
+}
+.global .map_wrap img{ width:100%; display:block; }
+
+/* ========================================================================
+   PAGE 4 — WHOEVER YOU ARE
+   ======================================================================== */
+.audience{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:4mm; margin-top:5mm; }
+.aud_card{
+  border:1px solid var(--line); border-radius:10px;
+  padding: 4mm; background:#fff;
+  position:relative;
+}
+.aud_card .ic{
+  width:32px; height:32px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:13pt; color:#fff;
+  margin-bottom: 3mm;
+}
+.aud_card.c1 .ic{ background:linear-gradient(135deg,var(--royal),var(--deep)); }
+.aud_card.c2 .ic{ background:linear-gradient(135deg,var(--coral),var(--orange)); }
+.aud_card.c3 .ic{ background:linear-gradient(135deg,#0D9488,#0f766e); }
+.aud_card.c4 .ic{ background:linear-gradient(135deg,#7C3AED,#5b21b6); }
+.aud_card.c5 .ic{ background:linear-gradient(135deg,var(--red),#b1141a); }
+.aud_card h4{
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:11pt;
+  color:var(--ink); margin: 0 0 2mm; line-height:1.2;
+}
+.aud_card p{ margin:0; font-size:8.5pt; line-height:1.5; color:var(--slate); }
+.audience .span2{ grid-column: span 1; }
+
+.aud_highlight{
+  margin-top: 5mm; padding: 5mm 6mm; border-radius: 12px;
+  background: linear-gradient(135deg, #15171C 0%, #1a2030 100%);
+  color:#fff; position:relative; overflow:hidden;
+}
+.aud_highlight::before{
+  content:""; position:absolute; right:-30px; top:-30px; width:140px; height:140px; border-radius:50%;
+  background: radial-gradient(circle, rgba(247,136,47,.25) 0%, transparent 70%);
+}
+.aud_highlight .lbl{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:9pt;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--coral); margin-bottom:2mm;
+}
+.aud_highlight p{ margin:0; font-size:10.5pt; line-height:1.5; color:#e9eef7; }
+
+/* ========================================================================
+   PAGE 5 — THREE COURSES
+   ======================================================================== */
+.courses{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:4mm; margin-top:5mm; }
+.course_card{
+  border-radius:12px; padding: 5mm; background:#fff;
+  border:1px solid var(--line); position:relative; overflow:hidden;
+  display:flex; flex-direction:column;
+}
+.course_card .strip{ position:absolute; left:0; right:0; top:0; height:5px; }
+.course_card.c1 .strip{ background:linear-gradient(90deg,var(--royal),var(--deep)); }
+.course_card.c2 .strip{ background:linear-gradient(90deg,#7C3AED,#5b21b6); }
+.course_card.c3 .strip{ background:linear-gradient(90deg,#0D9488,#0f766e); }
+.course_card .num{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:9pt; letter-spacing:.12em;
+  margin-top:3mm; text-transform:uppercase;
+}
+.course_card.c1 .num{ color:var(--royal); }
+.course_card.c2 .num{ color:#7C3AED; }
+.course_card.c3 .num{ color:#0D9488; }
+.course_card h4{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:11pt;
+  color:var(--ink); margin: 2mm 0 3mm; line-height:1.25;
+}
+.course_card .meta{
+  font-size:8.5pt; color:var(--slate); font-weight:600;
+  padding: 2mm 0; border-top:1px dashed var(--line); border-bottom:1px dashed var(--line);
+  margin-bottom:3mm;
+}
+.course_card .meta b{ color:var(--ink); }
+.course_card .salary{
+  background: linear-gradient(135deg, rgba(247,136,47,.10), rgba(240,83,47,.10));
+  color:var(--orange); padding: 2mm 3mm; border-radius:8px;
+  font-size:9.5pt; font-weight:800; text-align:center; margin-bottom:3mm;
+}
+.course_card .for{ font-size:8.5pt; line-height:1.5; color:var(--slate); flex:1; }
+.course_card .for b{ color:var(--ink); }
+
+.courses_note{
+  margin: 3mm 0 0; font-size:9pt; color:var(--slate); font-style:italic;
+  text-align:center;
+}
+.courses_fine{
+  margin-top: 3mm; font-size:7.5pt; color:var(--muted); text-align:center; font-style:italic;
+}
+
+/* ========================================================================
+   PAGE 6 — WHAT YOU WILL BECOME
+   ======================================================================== */
+.roles{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap:4mm; margin-top:5mm; }
+.role_col{
+  border:1px solid var(--line); border-radius:12px; padding: 5mm 4mm; background:#fff;
+  border-top:5px solid var(--royal);
+}
+.role_col.c2{ border-top-color:#7C3AED; }
+.role_col.c3{ border-top-color:#0D9488; }
+.role_col h4{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:10pt;
+  color:var(--ink); margin:0 0 3mm; line-height:1.25;
+}
+.role_col ul{ list-style:none; margin:0; padding:0; }
+.role_col li{
+  font-size:9pt; line-height:1.5; padding: 2mm 0 2mm 5mm; position:relative;
+  border-bottom:1px dashed var(--line); color:var(--slate);
+}
+.role_col li:last-child{ border-bottom:0; }
+.role_col li::before{
+  content:""; position:absolute; left:0; top:3.6mm; width:6px; height:6px; border-radius:50%;
+  background: var(--royal);
+}
+.role_col.c2 li::before{ background:#7C3AED; }
+.role_col.c3 li::before{ background:#0D9488; }
+.alumni_line{
+  margin-top: 5mm; padding: 4mm 5mm; border-radius:10px;
+  background: var(--bg); border-left: 4px solid var(--coral);
+  font-size:9pt; line-height:1.55; color:var(--slate); font-style:italic;
+}
+.alumni_line b{ color:var(--ink); font-style:normal; }
+
+/* ========================================================================
+   PAGE 7 — PLACEMENT ARCHITECTURE
+   ======================================================================== */
+.steps{ display:grid; grid-template-columns: 1fr 1fr; gap:4mm; margin-top:5mm; }
+.step{
+  border:1px solid var(--line); border-radius:10px; padding: 4mm; background:#fff;
+  display:grid; grid-template-columns: 12mm 1fr; gap: 3mm;
+  position:relative;
+}
+.step .n{
+  width:10mm; height:10mm; border-radius:8px;
+  background: linear-gradient(135deg, var(--royal), var(--deep));
+  color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:13pt;
+  display:flex; align-items:center; justify-content:center;
+}
+.step h5{
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:10pt;
+  margin:0 0 1.5mm; color:var(--ink); line-height:1.25;
+}
+.step p{ margin:0; font-size:8.5pt; line-height:1.5; color:var(--slate); }
+
+.placement_banner{
+  margin-top: 5mm; padding: 5mm 6mm; border-radius:12px;
+  background: linear-gradient(135deg, var(--orange) 0%, var(--coral) 100%);
+  color:#fff; text-align:center;
+}
+.placement_banner b{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:13pt;
+  display:block; line-height:1.3;
+}
+
+/* ========================================================================
+   PAGE 8 — PLACEMENT JOURNEY
+   ======================================================================== */
+.jblock{
+  border:1px solid var(--line); border-radius:10px; padding: 4mm 5mm; background:#fff;
+  margin-bottom: 3.5mm;
+}
+.jblock h4{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:10.5pt;
+  color:var(--royal); margin: 0 0 2mm; line-height:1.25;
+}
+.jblock p{ margin:0; font-size:9pt; line-height:1.55; color:var(--slate); }
+.jblock p em{ font-style:italic; color:var(--ink); }
+.jblock ul.compact{
+  list-style:none; padding:0; margin: 2mm 0 0;
+  display:grid; grid-template-columns: 1fr 1fr; gap: 1.5mm 4mm;
+}
+.jblock ul.compact li{
+  position:relative; padding-left:5mm; font-size:8.5pt; line-height:1.45; color:var(--slate);
+}
+.jblock ul.compact li::before{
+  content:""; position:absolute; left:0; top:2mm; width:6px; height:6px;
+  background:var(--coral); border-radius:2px;
+}
+
+.ba_grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-top:2mm; }
+.ba_col{
+  border-radius:8px; padding: 3mm 4mm; font-size:8.5pt; line-height:1.5;
+}
+.ba_col.before{ background:#fbecec; border:1px solid #f4d4d6; color:#7a1f24; }
+.ba_col.after{ background:#e7f5ee; border:1px solid #c8e6d6; color:#0f5132; }
+.ba_col .ttl{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:8.5pt;
+  text-transform:uppercase; letter-spacing:.1em; margin-bottom: 2mm;
+}
+.ba_col ul{ list-style: disc; padding-left: 4mm; margin: 0; }
+.ba_col li{ margin: 1mm 0; }
+
+/* ========================================================================
+   CURRICULUM — Module cards (color-coded by family)
+   ======================================================================== */
+.curr_intro{ max-width: 165mm; margin: 0 auto 4mm; text-align:center; }
+.curr_intro p{ font-size:10pt; line-height:1.6; color:var(--slate); margin:2mm 0 0; }
+
+.course_banner{
+  border-radius:12px; padding: 4mm 5mm; margin: 2mm 0 4mm;
+  color:#fff; display:flex; align-items:center; justify-content:space-between;
+  font-family:'Poppins',sans-serif; gap:6mm; flex-wrap:wrap;
+}
+.course_banner.c1{ background: linear-gradient(135deg,var(--royal),var(--deep)); }
+.course_banner.c2{ background: linear-gradient(135deg,#7C3AED,#5b21b6); }
+.course_banner.c3{ background: linear-gradient(135deg,#0D9488,#0f766e); }
+.course_banner .ttl{ font-weight:800; font-size:11pt; line-height:1.25; }
+.course_banner .ttl b{ display:block; font-size:9pt; opacity:.85; font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:1mm; }
+.course_banner .meta_tags{ display:flex; gap:2mm; flex-wrap:wrap; }
+.course_banner .mtag{ background:rgba(255,255,255,.16); padding:1.5mm 3mm; border-radius:999px; font-size:8.5pt; font-weight:600; }
+
+.module_grid{ display:grid; grid-template-columns: 1fr 1fr; gap:2.5mm; }
+.module_grid.cols1{ grid-template-columns: 1fr; }
+
+.mod{
+  border:1px solid var(--line); border-radius:10px; background:#fff;
+  overflow:hidden; display:flex; flex-direction:column;
+  break-inside:avoid;
+}
+.mod .head{
+  padding: 2.5mm 3mm; color:#fff;
+  display:flex; align-items:center; gap:2.5mm;
+}
+.mod .head .code{
+  background: rgba(255,255,255,.22); border-radius:6px;
+  padding: 1mm 2mm; font-family:'Poppins',sans-serif; font-weight:800; font-size:8.5pt;
+  letter-spacing:.04em;
+}
+.mod .head .ttl{
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:9pt;
+  line-height:1.2; flex:1;
+}
+.mod .head .meta{
+  background: rgba(0,0,0,.18); border-radius:999px;
+  padding: 1mm 2.5mm; font-size:7.5pt; font-weight:700; white-space:nowrap;
+}
+.mod .body{ padding: 2mm 3mm 2.5mm; font-size:7.5pt; line-height:1.4; color:var(--slate); }
+.mod .body ul{ list-style:none; padding:0; margin:0; columns: 1; }
+.mod .body li{
+  position:relative; padding-left: 4mm; margin: 0.7mm 0;
+}
+.mod .body li::before{
+  content:""; position:absolute; left:0; top:1.5mm; width:5px; height:5px; border-radius:50%;
+}
+
+/* color families */
+.mod.fam-blue   .head{ background: linear-gradient(135deg,#2563EB,#1d4fc7); } .mod.fam-blue   .body li::before{ background:#2563EB; }
+.mod.fam-teal   .head{ background: linear-gradient(135deg,#0D9488,#0f766e); } .mod.fam-teal   .body li::before{ background:#0D9488; }
+.mod.fam-coral  .head{ background: linear-gradient(135deg,#F0532F,#d3411f); } .mod.fam-coral  .body li::before{ background:#F0532F; }
+.mod.fam-purple .head{ background: linear-gradient(135deg,#7C3AED,#5b21b6); } .mod.fam-purple .body li::before{ background:#7C3AED; }
+.mod.fam-indigo .head{ background: linear-gradient(135deg,#4F46E5,#3730a3); } .mod.fam-indigo .body li::before{ background:#4F46E5; }
+.mod.fam-amber  .head{ background: linear-gradient(135deg,#D97706,#b45309); } .mod.fam-amber  .body li::before{ background:#D97706; }
+.mod.fam-pink   .head{ background: linear-gradient(135deg,#DB2777,#9d174d); } .mod.fam-pink   .body li::before{ background:#DB2777; }
+.mod.fam-cyan   .head{ background: linear-gradient(135deg,#0891B2,#075985); } .mod.fam-cyan   .body li::before{ background:#0891B2; }
+.mod.fam-orange .head{ background: linear-gradient(135deg,#EA580C,#9a3412); } .mod.fam-orange .body li::before{ background:#EA580C; }
+.mod.fam-red    .head{ background: linear-gradient(135deg,#DC2626,#991B1B); } .mod.fam-red    .body li::before{ background:#DC2626; }
+.mod.fam-slate  .head{ background: linear-gradient(135deg,#475569,#1f2937); } .mod.fam-slate  .body li::before{ background:#475569; }
+.mod.fam-grad   .head{ background: linear-gradient(135deg,#7C3AED 0%,#F0532F 100%); } .mod.fam-grad   .body li::before{ background:#7C3AED; }
+.mod.fam-royal  .head{ background: linear-gradient(135deg,var(--royal),var(--deep)); } .mod.fam-royal  .body li::before{ background:var(--royal); }
+
+/* small added-content callout for Course 2 expansions */
+.add_strip{
+  background: linear-gradient(135deg, rgba(124,58,237,.07), rgba(247,136,47,.05));
+  border:1px dashed #c9b8f3; border-radius:10px; padding: 3mm 4mm;
+  font-size:8.5pt; line-height:1.5; color:var(--slate); margin-bottom: 3mm;
+}
+.add_strip b{ color:#5b21b6; }
+.add_strip h5{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:9pt;
+  margin:0 0 2mm; color:#5b21b6; letter-spacing:.04em; text-transform:uppercase;
+}
+.add_strip ul{ list-style:none; margin:0; padding:0; }
+.add_strip li{ padding-left:5mm; position:relative; margin:1mm 0; }
+.add_strip li::before{ content:"+"; position:absolute; left:0; top:0; color:var(--coral); font-weight:800; }
+
+/* specialization & capstone */
+.spec_card{
+  border-radius:10px; padding:3mm 4mm; margin-bottom:2mm;
+  background:#fff; border:1px solid var(--line);
+  border-left: 5px solid #7C3AED;
+}
+.spec_card h5{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:10pt;
+  color:#5b21b6; margin:0 0 1mm;
+}
+.spec_card .meta{ font-size:7.5pt; color:var(--muted); font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom: 1.5mm; }
+.spec_card ul{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns: 1fr 1fr; gap:1mm 5mm; }
+.spec_card li{ position:relative; padding-left:4mm; font-size:7.5pt; line-height:1.4; color:var(--slate); }
+.spec_card li::before{ content:""; position:absolute; left:0; top:1.8mm; width:5px; height:5px; border-radius:50%; background:#7C3AED; }
+
+.domain_card{
+  border-radius:10px; padding:3.5mm 4mm; margin-bottom:2.5mm;
+  background:linear-gradient(135deg, #fff7f1, #fff);
+  border:1px solid #f7d6c4; border-left: 5px solid var(--orange);
+}
+.domain_card h5{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:9.5pt;
+  color:var(--orange); margin:0 0 1mm;
+}
+.domain_card p{ margin:0; font-size:8.5pt; line-height:1.5; color:var(--slate); }
+
+.capstone{
+  background: linear-gradient(135deg, var(--ink), #1a2030);
+  color:#fff; padding:5mm 6mm; border-radius:12px; margin-top: 3mm;
+  position:relative; overflow:hidden;
+}
+.capstone::before{
+  content:""; position:absolute; right:-30px; top:-30px; width:120px; height:120px; border-radius:50%;
+  background: radial-gradient(circle, rgba(124,58,237,.4) 0%, transparent 70%);
+}
+.capstone .tag{
+  display:inline-block; background: rgba(255,255,255,.14); padding:1.5mm 3mm; border-radius:999px;
+  font-size:8pt; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:2mm;
+}
+.capstone h4{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:12pt;
+  margin:0 0 2mm; line-height:1.25;
+}
+.capstone p{ margin:0; font-size:9pt; line-height:1.55; color:#e9eef7; }
+
+/* Course 3 — who-it-is-for chips */
+.who_box{
+  border-radius:10px; padding: 3.5mm 5mm; background: #f7f5ff;
+  border:1px solid #ddd3f5; margin-bottom:3mm;
+}
+.who_box h4{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:10pt; color:#5b21b6;
+  margin:0 0 2mm;
+}
+.who_box ul{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns: 1fr 1fr; gap:1.5mm 5mm; }
+.who_box li{ position:relative; padding-left:5mm; font-size:8.5pt; line-height:1.45; color:var(--slate); }
+.who_box li::before{ content:"✓"; position:absolute; left:0; top:0; color:#7C3AED; font-weight:800; }
+
+/* B-module card (compact, used in ELEVATE) */
+.b_grid{ display:grid; grid-template-columns: 1fr 1fr; gap:2.5mm; }
+.b_card{
+  background:#fff; border:1px solid var(--line); border-radius:8px;
+  padding: 3mm 3.5mm; border-left:4px solid var(--royal);
+}
+.b_card .code{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:8pt;
+  color:var(--royal); letter-spacing:.08em;
+}
+.b_card h5{
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:9pt;
+  color:var(--ink); margin:1mm 0 1.5mm; line-height:1.25;
+}
+.b_card p{ margin:0; font-size:7.5pt; line-height:1.45; color:var(--slate); }
+
+.elevate_banner{
+  margin-top:3mm; padding: 4mm 5mm; border-radius:10px;
+  background: linear-gradient(135deg, var(--royal), var(--deep));
+  color:#fff; text-align:center;
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:10.5pt; line-height:1.4;
+}
+
+/* ========================================================================
+   PAGES 17–22 — CASES, HANDS-ON, COMPANIES, CERTS, TOOLS, FINAL CTA
+   ======================================================================== */
+
+/* Case studies grid */
+.cases{ display:grid; grid-template-columns: repeat(3,1fr); gap:3mm; margin-top:4mm; }
+.case_card{
+  background:#fff; border:1px solid var(--line); border-radius:10px;
+  padding: 3mm 3.5mm; border-top: 4px solid var(--royal);
+  break-inside:avoid;
+}
+.case_card .brand{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:11pt;
+  color:var(--ink); margin-bottom: 1.5mm;
+}
+.case_card p{ font-size:7.5pt; line-height:1.45; color:var(--slate); margin:0; }
+.case_card.b1{ border-top-color:#FF9900; } /* Amazon orange */
+.case_card.b2{ border-top-color:#FF3F6C; } /* Myntra */
+.case_card.b3{ border-top-color:#E50914; } /* Netflix */
+.case_card.b4{ border-top-color:#CB202D; } /* Zomato */
+.case_card.b5{ border-top-color:#0085C9; } /* Lenskart */
+.case_card.b6{ border-top-color:#3B82F6; } /* PW */
+.case_card.b7{ border-top-color:#1F1F1F; } /* boAt */
+.case_card.b8{ border-top-color:#4CAF50; } /* Mamaearth */
+.case_card.b9{ border-top-color:#FC8019; } /* Swiggy */
+.case_card.b10{ border-top-color:#000; } /* Nykaa */
+.case_card.b11{ border-top-color:#7B2CBF; } /* Zepto */
+.case_card.b12{ border-top-color:#0E0E0E; } /* CRED */
+
+.cases_extra{
+  margin-top: 4mm; text-align:center; font-size:8.5pt; color:var(--muted); font-style:italic;
+  padding-top:3mm; border-top:1px dashed var(--line);
+}
+
+/* Hands-on list */
+.hands_list{ list-style:none; padding:0; margin: 5mm 0 0; display:flex; flex-direction:column; gap: 3mm; }
+.hands_list li{
+  display:grid; grid-template-columns: 11mm 1fr; gap: 3mm; align-items:flex-start;
+  background:#fff; border:1px solid var(--line); border-radius:10px; padding: 3.5mm 4mm;
+}
+.hands_list li .n{
+  width:9mm; height:9mm; border-radius:8px;
+  background: linear-gradient(135deg, var(--coral), var(--orange));
+  color:#fff; font-family:'Poppins',sans-serif; font-weight:800; font-size:11pt;
+  display:flex; align-items:center; justify-content:center;
+}
+.hands_list li p{ margin:0; font-size:9.5pt; line-height:1.5; color:var(--slate); }
+.hands_list li b{ color:var(--ink); }
+
+/* Companies grouped lists */
+.cmp_group{
+  background:#fff; border:1px solid var(--line); border-radius:10px;
+  padding: 3.5mm 4mm; margin-bottom: 2.5mm;
+}
+.cmp_group h5{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:9.5pt;
+  margin: 0 0 2mm; color:var(--royal); letter-spacing:.02em;
+}
+.cmp_group .row{ display:flex; flex-wrap:wrap; gap: 2mm; }
+.cmp_group .chip{
+  background: var(--bg); padding: 1.5mm 3mm; border-radius:999px;
+  font-size:8pt; font-weight:600; color:var(--slate); border:1px solid var(--line);
+}
+
+.strip_band{
+  margin-top: 4mm; padding: 4mm 5mm; border-radius:10px;
+  background: linear-gradient(135deg, var(--royal), var(--deep));
+  color:#fff; display:flex; justify-content:space-around; flex-wrap:wrap; gap:3mm;
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:11pt; text-align:center;
+}
+
+/* Certifications */
+.cert_grid{ display:grid; grid-template-columns: 1fr 1fr; gap:3mm; margin-top:4mm; }
+.cert_card{
+  background:#fff; border:1px solid var(--line); border-radius:10px;
+  padding: 4mm; border-left: 5px solid var(--royal);
+}
+.cert_card.iss_google{ border-left-color:#4285F4; }
+.cert_card.iss_hubspot{ border-left-color:#FF7A59; }
+.cert_card.iss_ms{ border-left-color:#00A4EF; }
+.cert_card.iss_meta{ border-left-color:#0866FF; }
+.cert_card.iss_li{ border-left-color:#0A66C2; }
+.cert_card.iss_bt{ border-left-color:var(--coral); }
+.cert_card h5{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:10pt;
+  margin: 0 0 2mm; color:var(--ink);
+}
+.cert_card ul{ list-style:none; padding:0; margin:0; }
+.cert_card li{
+  font-size:8pt; line-height:1.5; padding-left: 4mm; position:relative; color:var(--slate);
+  margin: 0.8mm 0;
+}
+.cert_card li::before{ content:""; position:absolute; left:0; top:1.8mm; width:5px; height:5px; border-radius:50%; background: currentColor; opacity:.4; }
+
+.cert_split{
+  display:grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin: 4mm 0 0;
+}
+.cert_pill{
+  border-radius:10px; padding: 3mm 4mm; color:#fff;
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:9.5pt; line-height:1.35;
+}
+.cert_pill.pcp{ background: linear-gradient(135deg, var(--royal), var(--deep)); }
+.cert_pill.pgcp{ background: linear-gradient(135deg, #7C3AED, #5b21b6); }
+.cert_pill b{ font-size:8pt; font-weight:600; opacity:.85; letter-spacing:.08em; text-transform:uppercase; display:block; margin-bottom:1mm; }
+
+/* Tools grid */
+.tools_intro{ font-size:9pt; color:var(--slate); line-height:1.55; margin: 3mm 0 4mm; }
+.tools_grid{ display:flex; flex-wrap:wrap; gap: 2mm; }
+.tool_chip{
+  background:#fff; border:1px solid var(--line); border-radius:999px;
+  padding: 2mm 4mm; font-size:8.5pt; color:var(--ink); font-weight:600;
+}
+.tool_chip.ai{
+  background: linear-gradient(135deg, rgba(247,136,47,.15), rgba(124,58,237,.15));
+  border-color: transparent; color:var(--ink);
+}
+.tools_footer{
+  margin-top: 5mm; padding: 3.5mm 5mm; border-radius:10px;
+  background: var(--bg); color:var(--slate); font-size:9pt; font-style:italic; text-align:center;
+}
+
+/* Final CTA */
+.cta_hero{
+  background: linear-gradient(135deg, var(--ink) 0%, #1a2030 100%);
+  color:#fff; padding: 14mm 12mm; border-radius:0; flex:1;
+  display:flex; flex-direction:column; position:relative; overflow:hidden;
+}
+.cta_hero::before{
+  content:""; position:absolute; right:-40px; top:-40px; width:200px; height:200px; border-radius:50%;
+  background: radial-gradient(circle, rgba(247,136,47,.25) 0%, transparent 70%);
+}
+.cta_hero::after{
+  content:""; position:absolute; left:-40px; bottom:120px; width:180px; height:180px; border-radius:50%;
+  background: radial-gradient(circle, rgba(30,69,214,.30) 0%, transparent 70%);
+}
+.cta_hero .eyebrow{
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:10pt;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--coral); margin-bottom: 3mm;
+}
+.cta_hero h1{
+  font-family:'Poppins',sans-serif; font-weight:900; font-size:46pt;
+  line-height:1; letter-spacing:-.02em; margin: 0;
+}
+.cta_hero h1 .accent{ color: var(--coral); }
+.cta_hero .sub{
+  font-family:'Poppins',sans-serif; font-weight:700; font-size:14pt;
+  margin: 5mm 0 6mm; line-height:1.3; color:#fff;
+}
+.cta_hero .body{ font-size:9.5pt; line-height:1.6; color:#cdd6e0; max-width: 165mm; }
+
+.cta_courses{
+  display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 2mm; margin-top: 6mm;
+}
+.cta_course{
+  background: rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
+  border-radius:8px; padding: 3mm 3.5mm;
+}
+.cta_course .lbl{
+  font-family:'Poppins',sans-serif; font-weight:800; font-size:7.5pt; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--coral); margin-bottom: 1.5mm;
+}
+.cta_course .ttl{ font-family:'Poppins',sans-serif; font-weight:700; font-size:9pt; line-height:1.3; color:#fff; margin-bottom: 2mm; }
+.cta_course .row{ display:flex; justify-content:space-between; font-size:8pt; color:#cdd6e0; font-weight:600; }
+
+.contact_block{
+  margin-top: 7mm; display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm;
+}
+.contact_pill{
+  background: linear-gradient(135deg, var(--royal), var(--deep));
+  padding: 4mm 5mm; border-radius:10px; color:#fff;
+}
+.contact_pill .l{ font-family:'Poppins',sans-serif; font-weight:700; font-size:8pt; opacity:.85; letter-spacing:.1em; text-transform:uppercase; margin-bottom: 1mm; }
+.contact_pill .v{ font-family:'Poppins',sans-serif; font-weight:800; font-size:11pt; }
+
+.cta_fine{
+  font-size:7.5pt; color:#8b95a3; font-style:italic; margin-top: 5mm;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============== PAGE 1 — COVER ============== -->
+<section class="page">
+  <div class="cover">
+    <div class="cover_left">
+      <div class="logo_block">
+        <div class="logo_tick"></div>
+        <div class="logo_text"><span class="b">BlueTick</span> <span class="a">Academy</span><small>AI · Marketing · Careers</small></div>
+      </div>
+
+      <div class="cover_eyebrow">2026 PROGRAMME BROCHURE</div>
+      <h1 class="cover_h1">MASTER DIGITAL MARKETING <span class="ai">WITH AI</span></h1>
+      <p class="cover_tag"><b>The #1 AI-Powered Digital Marketing Career Programme in India</b> — Just a Clear Path to Your First — or Next — AI powered Job.</p>
+
+      <div class="cover_stats">
+        <div class="stat_pill"><div class="num">10,000+</div><div class="lbl">Students Placed</div></div>
+        <div class="stat_pill"><div class="num">97%</div><div class="lbl">Placement Rate</div></div>
+        <div class="stat_pill"><div class="num">500+</div><div class="lbl">Hiring Partners</div></div>
+        <div class="stat_pill"><div class="num">9+ Yrs</div><div class="lbl">Training Excellence</div></div>
+      </div>
+
+      <div class="cover_badges">
+        <span class="badge_pill">No Experience Needed</span>
+        <span class="badge_pill">No Coding Involved</span>
+        <span class="badge_pill">*100% Job-Assured Programmes</span>
+      </div>
+
+      <div class="alumni_strip">
+        <div class="label">Our Alumni Work In</div>
+        <div class="logos"><span>Google</span><span>·</span><span>TATA</span><span>·</span><span>Amazon</span><span>·</span><span>Salesforce</span></div>
+      </div>
+    </div>
+    <div class="cover_right">
+      <img src="Pg 1.png" alt="" />
+    </div>
+  </div>
+  <div class="cover_footer">
+    <span>info@bluetickacademy.com</span>
+    <span>+91-9606 9955 25</span>
+    <span>www.bluetickacademy.com</span>
+  </div>
+</section>
+
+<!-- ============== PAGE 2 — THE HOOK ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i></i><i></i><i></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="hook">
+    <div class="hook_text">
+      <div class="section_eyebrow">Why Now</div>
+      <h1 class="h1_big">Your Degree Got You Here. Our Programme Gets You <span class="accent">Hired.</span></h1>
+      <p class="hook_body"><em>Every company in India — from a neighbourhood brand to Amazon — is urgently hiring people who can run AI-powered marketing. That's exactly who you will be, 5 to 7 months from now. Guaranteed.</em></p>
+      <p class="footnote">100% Job Assurance is based on eligibility criteria. Check eligibility with the academic advisor before admission.</p>
+    </div>
+    <div class="hook_image">
+      <img src="Page 4.png" alt="" />
+    </div>
+  </div>
+  <div class="footer">
+    <div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div>
+    <div class="pg">02</div>
+  </div>
+</section>
+
+<!-- ============== PAGE 3 — GLOBAL PRESENCE ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="global">
+    <div class="section_eyebrow">Global Presence</div>
+    <h1 class="h1_big">Learners From <span class="accent">30+</span> Countries</h1>
+    <p class="lede">From Bengaluru to Dubai, Singapore to Toronto — BlueTick alumni are running AI-powered marketing teams in over 30 countries across the globe.</p>
+    <div class="map_wrap"><img src="Pg 3 map.png" alt="World map of BlueTick learners across 30+ countries" /></div>
+  </div>
+  <div class="footer">
+    <div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div>
+    <div class="pg">03</div>
+  </div>
+</section>
+
+<!-- ============== PAGE 4 — WHOEVER YOU ARE ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Who This Is For</div>
+    <h1 class="h1_big" style="font-size:24pt; margin-bottom:3mm;">Whoever You Are — There Is a Clear Path Here for <span class="accent">You.</span></h1>
+
+    <div class="audience">
+      <div class="aud_card c1"><div class="ic">G</div><h4>Graduate Fresher</h4><p>You will get your first job. Guaranteed. BBA, B.Com, BA, B.Sc, B.E, B.Tech, MBA — any degree. In 5–7 months, you will have real campaigns in your portfolio, global certifications on your resume, and job offers in your hand.</p></div>
+      <div class="aud_card c2"><div class="ic">S</div><h4>Career Switcher</h4><p>Done with your current job? AI-powered Digital Marketing is one of the fastest ways to restart with better pay — with our 100% placement and your resume with AI skillsets, you are more secure than ever.</p></div>
+      <div class="aud_card c3"><div class="ic">E</div><h4>Entrepreneurs &amp; Consultants</h4><p>With AI driven customer acquisition and workflow automation, You will be able to hit your revenue targets with 1/10th cost and 10x speed.</p></div>
+      <div class="aud_card c4"><div class="ic">W</div><h4>Women Returning to Work</h4><p>Your break does not define your comeback — your skills do. Whether you've been away 2 years or 10, we will help you rebuild with the most in-demand skills in the job market today. Hundreds of women have restarted through BlueTick — confidently and successfully.</p></div>
+      <div class="aud_card c5"><div class="ic">A</div><h4>Applies for All</h4><p>While you learn, you earn. Become a freelancer and build a client base, launch your agency, or earn from anywhere — this programme gives you the complete toolkit to make it happen. Learn to price your services and run campaigns that deliver results. Our ELEVATE™ track even covers AI business strategy for those who want to think bigger.</p></div>
+    </div>
+
+    <div class="aud_highlight">
+      <div class="lbl">One Thing We Look For in Every Student</div>
+      <p>The drive to show up and focus on learning. That's it. What you need is not prior tech knowledge or experience. Just ambition — and we'll handle the rest.</p>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div>
+    <div class="pg">04</div>
+  </div>
+</section>
+
+<!-- ============== PAGE 5 — THREE COURSES ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Programmes</div>
+    <h1 class="h1_big" style="font-size:24pt; margin-bottom:3mm;">Three Courses : One Direction: <span class="accent">Your Dream Job.</span></h1>
+    <p class="courses_note">Every hour you spend in Course 1 counts toward Course 2. Every hour in Course 2 counts toward Course 3. Nothing is repeated. Everything builds.</p>
+
+    <div class="courses">
+      <div class="course_card c1">
+        <div class="strip"></div>
+        <div class="num">Course 1 · PCP</div>
+        <h4>Professional Certification in Digital Marketing with AI</h4>
+        <div class="meta"><b>3 Months</b> · <b>132 Hours</b></div>
+        <div class="salary">Fresher Salary ₹3 – 4 LPA</div>
+        <div class="for"><b>For:</b> For those who want to upskill in digital marketing quickly, with a strong foundation in all core skills and a job-ready portfolio. <br><br><b>You will graduate as:</b> A certified Digital Marketing Professional — ready to apply for executive and analyst roles immediately.</div>
+      </div>
+      <div class="course_card c2">
+        <div class="strip"></div>
+        <div class="num">Course 2 · PGCP</div>
+        <h4>Post Graduate Certification in AI-Driven Digital Marketing</h4>
+        <div class="meta"><b>5 Months</b> · <b>220 Hours</b></div>
+        <div class="salary">Fresher Salary ₹4 – 7 LPA</div>
+        <div class="for"><b>For:</b> Students who want the complete, deepest AI powered digital marketing skillset — all 13 modules, 3 specializations, industry domain deep dives, and a live ₹5,000 ad budget campaign sprint. <br><br><b>You will graduate as:</b> An experienced–level digital marketing specialist with hands-on proof of running real campaigns with real money.</div>
+      </div>
+      <div class="course_card c3">
+        <div class="strip"></div>
+        <div class="num">Course 3 · ELEVATE™</div>
+        <h4>Digital Marketing + AI for Business</h4>
+        <div class="meta"><b>7 Months</b> · <b>268 Hours</b></div>
+        <div class="salary">Salary ₹5 – 10 LPA*</div>
+        <div class="for"><b>For:</b> Ambitious professionals, fresher graduates, and business owners who want to lead digital transformation — not just execute it. <br><br><b>You will graduate as:</b> A strategic marketing and AI expert — able to build, run, and scale businesses using the most advanced tools available today.</div>
+      </div>
+    </div>
+
+    <p class="courses_fine">*Indicative salary ranges. Actual compensation depends on individual skill, portfolio, and the hiring organisation.</p>
+  </div>
+  <div class="footer">
+    <div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div>
+    <div class="pg">05</div>
+  </div>
+</section>
+
+<!-- ============== PAGE 6 — WHAT YOU WILL BECOME ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Outcomes</div>
+    <h1 class="h1_big" style="font-size:24pt; margin-bottom:3mm;">What You Will Become <span class="accent">After This Programme</span></h1>
+    <p style="font-size:10pt; color:var(--slate); line-height:1.55; margin:0 0 3mm;"><em>The question in your mind is: 'Will I definitely get a job?' The answer is yes — if you show up, focus on learning and complete the projects. Here's what that job looks like, by course:</em></p>
+
+    <div class="roles">
+      <div class="role_col c1">
+        <h4>After Course 1 — PCP (3 Months)</h4>
+        <ul>
+          <li>SEO Executive / SEO Analyst</li>
+          <li>Social Media Executive</li>
+          <li>Google Ads / PPC Executive</li>
+          <li>Content Marketing Executive</li>
+          <li>Email Marketing Executive</li>
+          <li>Digital Marketing Coordinator</li>
+        </ul>
+      </div>
+      <div class="role_col c2">
+        <h4>After Course 2 — PGCP (5 Months)</h4>
+        <ul>
+          <li>Performance Marketer</li>
+          <li>Digital Marketing Executive</li>
+          <li>Performance Marketing Executive</li>
+          <li>GEO/AEO Specialist</li>
+          <li>Social Media Marketing Executive</li>
+          <li>Content Strategist</li>
+          <li>CRM &amp; Marketing AI Automation Specialist</li>
+          <li>Growth Marketer</li>
+          <li>Performance Marketing Expert</li>
+        </ul>
+      </div>
+      <div class="role_col c3">
+        <h4>After Course 3 — ELEVATE™ (7 Months)</h4>
+        <ul>
+          <li>AI Operations Executive</li>
+          <li>AI &amp; Marketing Strategist</li>
+          <li>Business Growth Executive</li>
+          <li>MarTech Executive</li>
+          <li>Growth &amp; Revenue Specialist</li>
+          <li>AI Business Transformation Consultant</li>
+          <li>AI Agency Founder</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alumni_line"><b>Companies where our alumni work:</b> Accenture, Flipkart, Amazon, Google, EY, Infosys, ITC, Swiggy, Zomato, Oracle, Yahoo, SAP, Bosch, Philips, Lakme, MakeMyTrip, UpGrad, Adobe, Reddit, and 480+ more.</div>
+  </div>
+  <div class="footer">
+    <div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div>
+    <div class="pg">06</div>
+  </div>
+</section>
+
+<!-- ============== PAGE 7 — PLACEMENT ARCHITECTURE ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">100% Placement</div>
+    <h1 class="h1_big" style="font-size:24pt; margin-bottom:3mm;">100% Placement — <span class="accent">How We Actually Do It</span></h1>
+    <p style="font-size:10pt; color:var(--slate); line-height:1.55; margin:0 0 3mm;"><em>Most institutes call it placement support. We have built an 8-step placement architecture that starts from Day 1 of the course — not after you graduate.</em></p>
+
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div><h5>Portfolio Building from Week 1</h5><p>Your portfolio starts on Day 1 — not after graduation. Every project = a portfolio piece.</p></div></div>
+      <div class="step"><div class="n">2</div><div><h5>Resume Workshop (Month 3 &amp; Month 5)</h5><p>Every resume bullet is rewritten with real numbers from your actual projects. Results that recruiters can't ignore.</p></div></div>
+      <div class="step"><div class="n">3</div><div><h5>LinkedIn Optimization Sprint</h5><p>Your LinkedIn becomes a recruiter magnet — with a headline, About, and live case study that gets you noticed before you even apply.</p></div></div>
+      <div class="step"><div class="n">4</div><div><h5>Mock Interviews — 1-on-1 with Industry Mentors</h5><p>1-on-1 with a real industry mentor. Recorded. Reviewed. Repeated — until you walk into every interview with full confidence.</p></div></div>
+      <div class="step"><div class="n">5</div><div><h5>The Interview Playbook</h5><p>30 top interview questions with model answers, STAR frameworks, and a salary negotiation script you can use from Day 1.</p></div></div>
+      <div class="step"><div class="n">6</div><div><h5>30-60-90 Day New Joiner Blueprint</h5><p>A full 90-day plan for your first job — so you don't just get hired, you thrive from Week 1.</p></div></div>
+      <div class="step"><div class="n">7</div><div><h5>Referrals to Our 500+ Hiring Partner Network</h5><p>Your profile is personally shared with 500+ verified hiring partners — agencies, brands, SaaS companies, and e-commerce teams actively looking to hire.</p></div></div>
+      <div class="step"><div class="n">8</div><div><h5>Continued Support Until Placed</h5><p>We don't close your file when the course ends. We stay with you — reviewing, referring, and supporting — until you are placed.</p></div></div>
+    </div>
+
+    <div class="placement_banner"><b>97% of our students are placed within 30-45 days of completing the programme.</b></div>
+  </div>
+  <div class="footer">
+    <div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div>
+    <div class="pg">07</div>
+  </div>
+</section>
+
+<!-- ============== PAGE 8 — PLACEMENT JOURNEY ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Placement Journey</div>
+    <h1 class="h1_big" style="font-size:22pt; margin-bottom:4mm;">What Your Placement Journey Looks Like — <span class="accent">In Detail</span></h1>
+
+    <div class="jblock">
+      <h4>Your Portfolio — Built While You Study</h4>
+      <p><em>By the time you graduate, you will have 4–6 documented case studies — real projects with real numbers, published on your own website or Notion page. These are not assignments. They are proof that you can do the job.</em></p>
+      <ul class="compact">
+        <li>Website you built on WordPress — live on the internet, with your name on it</li>
+        <li>SEO campaign — showing keyword rankings you improved, with screenshots</li>
+        <li>Social media campaign — actual content you created and posted for a real business</li>
+        <li>Google or Meta Ads — if you're on the 5 or 7-month track, a live campaign you ran with real money</li>
+        <li>Email marketing campaign — with open rate and click-through data</li>
+        <li>Content marketing — a published blog post ranking on Google</li>
+      </ul>
+    </div>
+
+    <div class="jblock">
+      <h4>Resume Workshop — Your Results in Their Language</h4>
+      <p><em>Recruiters spend 7 seconds on a resume. Our workshop teaches you to write results that stop the scroll. Every bullet becomes a number. Every project becomes a proof point.</em></p>
+      <div class="ba_grid">
+        <div class="ba_col before">
+          <div class="ttl">Before BlueTick Resume</div>
+          <ul>
+            <li>Managed social media pages</li>
+            <li>Worked on SEO projects</li>
+            <li>Assisted in Google Ads campaigns</li>
+          </ul>
+        </div>
+        <div class="ba_col after">
+          <div class="ttl">After BlueTick Resume</div>
+          <ul>
+            <li>Grew Instagram following from 800 to 3,200 in 8 weeks using Reels strategy</li>
+            <li>Improved page 1 keyword rankings from 3 to 11 in 10 weeks (Semrush data attached)</li>
+            <li>Ran Google Ads campaign with ₹4,800 spend, generating 62 leads at ₹77 CPL</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="jblock">
+      <h4>Mock Interviews — Until You're Confident</h4>
+      <p><em>Every student gets at least one full 1-on-1 mock interview before placement begins. Recorded. Reviewed together. You practice salary negotiation, tough questions, and portfolio presentation — until you're genuinely confident.</em></p>
+    </div>
+
+    <div class="jblock">
+      <h4>Our Hiring Partner Network — 500+ Verified Companies</h4>
+      <p><em>500+ verified companies actively hire our graduates — digital agencies, e-commerce brands, SaaS, FMCG, and startups across India. When you complete the programme, our placement team personally reaches out to the right contacts for your profile.</em></p>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div>
+    <div class="pg">08</div>
+  </div>
+</section>
+
+<!-- ============== PAGE 9 — CURRICULUM OPENER + COURSE 1 (M1–M2) ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="curr_intro">
+      <div class="section_eyebrow">Course Curriculum</div>
+      <h1 class="h1_big" style="font-size:24pt; margin:2mm 0;">Course Curriculum — <span class="accent">Deep Dive</span></h1>
+      <p><em>Everything you need to upskill yourself in digital marketing — SEO, social media, Google Ads, analytics, content marketing, email automation, and more. Built with AI tools woven into every module.</em></p>
+    </div>
+
+    <div class="course_banner c1">
+      <div class="ttl"><b>Course 1</b>Professional Certification in Digital Marketing with AI</div>
+      <div class="meta_tags"><span class="mtag">3 Months</span><span class="mtag">132 Hours</span><span class="mtag">Mon–Fri Weekdays</span></div>
+    </div>
+
+    <div class="module_grid cols1">
+      <div class="mod fam-blue">
+        <div class="head"><span class="code">M1</span><span class="ttl">Digital Marketing Foundation &amp; Business Thinking</span><span class="meta">2 Sessions · 4 Hrs</span></div>
+        <div class="body"><ul>
+          <li>Introduction to marketing, DM evolution, and the digital marketing ecosystem</li>
+          <li>Principles of marketing, ATL/BTL/TTL funnels, and integrated strategy</li>
+          <li>Market research and competitor analysis frameworks</li>
+          <li>Customer persona building and buyer journey mapping</li>
+          <li>AI model framework — how to choose between ChatGPT, Claude, and Gemini</li>
+          <li>Branding fundamentals, colour theory, and brand visual identity</li>
+          <li>North Star Metric, A3R3 funnel, and measuring what actually matters</li>
+          <li>Social media account creation and platform orientation</li>
+        </ul></div>
+      </div>
+      <div class="mod fam-blue">
+        <div class="head"><span class="code">M2</span><span class="ttl">Website Design &amp; Development with AI — WordPress</span><span class="meta">2 Sessions · 4 Hrs</span></div>
+        <div class="body"><ul>
+          <li>WordPress website setup — domain, hosting, and site structure</li>
+          <li>Elementor page builder — designing professional pages without code</li>
+          <li>10Web AI builder — generating websites from a text prompt</li>
+          <li>SEO-optimized website structure from the ground up</li>
+          <li>Designing high-converting landing pages</li>
+          <li>Website speed optimization and Core Web Vitals</li>
+          <li>Introduction to CRO principles — why your website design affects revenue</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">09</div></div>
+</section>
+
+<!-- ============== PAGE 10 — COURSE 1 (M3–M5) ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Course 1 — Continued</div>
+    <h2 style="font-family:'Poppins',sans-serif; font-weight:800; font-size:14pt; color:var(--ink); margin:2mm 0 4mm;">Core Channels — SEO, Social, &amp; Search Ads</h2>
+
+    <div class="module_grid cols1">
+      <div class="mod fam-teal">
+        <div class="head"><span class="code">M3</span><span class="ttl">SEO with AI — Classic + Next-Gen Search</span><span class="meta">12 Sessions · 24 Hrs</span></div>
+        <div class="body"><ul>
+          <li>Keyword research and strategic topic planning</li>
+          <li>On-page SEO — content, headings, image optimization, anchor tags</li>
+          <li>Technical SEO — sitemap, robots.txt, schema markup, error codes</li>
+          <li>Google Search Console (GSC) setup and mastery</li>
+          <li>GBP local SEO — NAP, attributes, hyperlocal ranking</li>
+          <li>AI-powered SEO tools — Surfer SEO, SEM Rush</li>
+          <li>Next-generation SEO — GEO (Generative Engine Optimization for ChatGPT/Gemini)</li>
+          <li>AEO (Answer Engine Optimization), AIO (Google AI Overviews), SXO</li>
+          <li>Off-page SEO — backlink creation, contextual links, internal linking</li>
+          <li>SEO content writing using AI — hybrid human + AI workflow</li>
+          <li>Algorithm updates tracker — how to respond when Google changes the rules</li>
+        </ul></div>
+      </div>
+      <div class="mod fam-coral">
+        <div class="head"><span class="code">M4</span><span class="ttl">Social Media Marketing &amp; Brand Intelligence</span><span class="meta">11 Sessions · 22 Hrs</span></div>
+        <div class="body"><ul>
+          <li>Instagram — Business profile, UPABC optimization, Reels strategy, hashtag research</li>
+          <li>Facebook — Business page, Meta Ads Manager, audience targeting, ad objectives</li>
+          <li>LinkedIn — Profile optimization, business page, B2B lead generation</li>
+          <li>YouTube — Channel creation, SEO, Studio analytics, Shorts strategy</li>
+          <li>X (Twitter) — Account growth, intent-based targeting, Grok AI</li>
+          <li>Short-form video science — the Hook/Retain/Reward loop that drives virality</li>
+          <li>Influencer marketing — types, outreach, agreements, and ROI measurement</li>
+          <li>Social listening and sentiment analysis — Brand24, Google Alerts</li>
+          <li>AI video tools — HeyGen avatars, Veo 3 overview</li>
+          <li>ManyChat — comment-to-DM funnels and WhatsApp automation basics</li>
+          <li>WhatsApp Business marketing and broadcast lists</li>
+        </ul></div>
+      </div>
+      <div class="mod fam-purple">
+        <div class="head"><span class="code">M5</span><span class="ttl">Google Ads, Bing Ads &amp; Search Engine Marketing</span><span class="meta">9 Sessions · 18 Hrs</span></div>
+        <div class="body"><ul>
+          <li>Google Ads account setup — expert-level structure and campaign types</li>
+          <li>Keyword research, match types, and negative keyword strategy</li>
+          <li>Search ads — ad copy, extensions, and Quality Score optimization</li>
+          <li>Display Network (GDN) and Responsive Display Ads</li>
+          <li>Video ads and YouTube ad campaigns</li>
+          <li>Shopping Ads and Google Merchant Center</li>
+          <li>Performance Max — asset groups, audience signals, and AI optimization</li>
+          <li>Smart bidding strategies and advanced targeting</li>
+          <li>Bing Ads — campaign setup, UET, UTM parameters, conversion tracking</li>
+          <li>Attribution models — from first-click to data-driven</li>
+          <li>Google Ads optimization, metrics, and reporting</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">10</div></div>
+</section>
+
+<!-- ============== PAGE 11 — COURSE 1 (M6–M8) ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Course 1 — Continued</div>
+    <h2 style="font-family:'Poppins',sans-serif; font-weight:800; font-size:14pt; color:var(--ink); margin:2mm 0 4mm;">Analytics, Content &amp; Conversion</h2>
+
+    <div class="module_grid cols1">
+      <div class="mod fam-indigo">
+        <div class="head"><span class="code">M6</span><span class="ttl">Analytics, Tracking &amp; Data Storytelling</span><span class="meta">5 Sessions · 10 Hrs</span></div>
+        <div class="body"><ul>
+          <li>Google Analytics 4 (GA4) — setup, interface, key reports, and exploration</li>
+          <li>Event tracking and custom conversion setup</li>
+          <li>Google Tag Manager (GTM) — container setup, triggers, variables, preview mode</li>
+          <li>Looker Studio — connecting GA4, Ads, and GSC into one live dashboard</li>
+          <li>Microsoft Clarity — heatmaps, scroll maps, and session recordings</li>
+          <li>UTM governance and tracking taxonomy</li>
+          <li>Data storytelling — turning numbers into board-ready narratives</li>
+          <li>Attribution and multi-touch traffic analysis</li>
+        </ul></div>
+      </div>
+      <div class="mod fam-amber">
+        <div class="head"><span class="code">M7</span><span class="ttl">Content Marketing Strategy &amp; AI-Powered Production</span><span class="meta">4 Sessions · 8 Hrs</span></div>
+        <div class="body"><ul>
+          <li>Content funnel strategy — TOFU, MOFU, BOFU content types and purpose</li>
+          <li>Keyword-led content planning and topic clustering</li>
+          <li>Long-form blog writing — structure, SEO hooks, and reader engagement</li>
+          <li>AI-assisted content production workflows — ChatGPT + Claude + human editing</li>
+          <li>Ad copy writing frameworks — hooks, angles, proof, CTA</li>
+          <li>Content repurposing — Blog → Reels → Email → LinkedIn in one workflow</li>
+          <li>Editorial calendar building and scheduling with Buffer</li>
+        </ul></div>
+      </div>
+      <div class="mod fam-pink">
+        <div class="head"><span class="code">M8</span><span class="ttl">Conversion Rate Optimisation (CRO) Lab</span><span class="meta">3 Sessions · 6 Hrs</span></div>
+        <div class="body"><ul>
+          <li>Funnel analysis — identifying leaks in the customer journey</li>
+          <li>Landing page anatomy — what high-converting pages have in common</li>
+          <li>A/B testing framework — hypothesis, setup, and reading statistical significance</li>
+          <li>Heatmaps and session recordings with Microsoft Clarity</li>
+          <li>Page speed as a conversion factor — measuring and fixing</li>
+          <li>Form optimization and lead capture best practices</li>
+          <li>CRO reporting — presenting findings to a client</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">11</div></div>
+</section>
+
+<!-- ============== PAGE 12 — COURSE 1 (M9, M10, D1-D2) ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Course 1 — Continued</div>
+    <h2 style="font-family:'Poppins',sans-serif; font-weight:800; font-size:14pt; color:var(--ink); margin:2mm 0 4mm;">Automation, Email &amp; Industry Domain Dives</h2>
+
+    <div class="module_grid cols1">
+      <div class="mod fam-cyan">
+        <div class="head"><span class="code">M9</span><span class="ttl">Marketing Automation &amp; CRM — Essentials</span><span class="meta">3 Sessions · 6 Hrs</span></div>
+        <div class="body"><ul>
+          <li>HubSpot CRM — setup, contacts, pipelines, and deal management</li>
+          <li>HubSpot email sequences and lead nurturing basics</li>
+          <li>Zapier — building end-to-end automation workflows without code</li>
+          <li>Automated lead scoring and qualification</li>
+          <li>Scheduling and automating social media posts</li>
+          <li>AI-powered email sequences — from welcome to re-engagement</li>
+        </ul></div>
+      </div>
+      <div class="mod fam-cyan">
+        <div class="head"><span class="code">M10</span><span class="ttl">Email Marketing &amp; Automation Deep-Dive</span><span class="meta">3 Sessions · 6 Hrs</span></div>
+        <div class="body"><ul>
+          <li>Business email setup and list building strategies</li>
+          <li>Email campaign design — copy, layout, and calls to action</li>
+          <li>Bulk email campaigns and deliverability best practices</li>
+          <li>DKIM, SPF, DMARC — email authentication explained simply</li>
+          <li>A/B testing subject lines and email content</li>
+          <li>Segmentation, personalization, and drip campaign logic</li>
+          <li>Email analytics — open rate, CTR, bounce, and conversion metrics</li>
+        </ul></div>
+      </div>
+      <div class="mod fam-slate">
+        <div class="head"><span class="code">D1–D2</span><span class="ttl">Industry Domain Deep Dives</span><span class="meta">2 Sessions · 6 Hrs</span></div>
+        <div class="body"><ul>
+          <li><b>E-Commerce &amp; D2C:</b> How an E-commerce company grew to ₹1,500 Cr Revenue using Instagram and Meta Ads — unit economics, D2C vs marketplace, festive campaigns, quick commerce</li>
+          <li><b>Digital Marketing Agencies:</b> How agencies thrives in — client servicing, media planning, multi-account management. Live media plan simulation.</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">12</div></div>
+</section>
+
+<!-- ============== PAGE 13 — COURSE 2 OVERVIEW + M11 ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="course_banner c2">
+      <div class="ttl"><b>Course 2</b>Post Graduate Certification in AI-Driven Digital Marketing</div>
+      <div class="meta_tags"><span class="mtag">5 Months</span><span class="mtag">220 Hours</span><span class="mtag">All 13 Modules</span><span class="mtag">3 Specialisations</span><span class="mtag">5 Industry Deep Dives</span></div>
+    </div>
+    <p style="font-size:9.5pt; color:var(--slate); line-height:1.55; margin: 0 0 3mm;"><em>The complete, deepest digital marketing education. Course 2 includes every module from Course 1 — expanded and deeper — plus additional advanced modules, 3 specializations, 5 industry deep dives, and a real marketing spend on a live local business. Your resume will speak a different language when you complete this programme.</em></p>
+
+    <div class="add_strip">
+      <h5>Modules 1–10: Same as Course 1, but Deeper</h5>
+      <p style="margin:0 0 2mm;"><em>All 10 core modules are included in Course 2 with expanded content, more live projects, and greater depth in each topic. Key additions vs Course 1:</em></p>
+      <ul>
+        <li><b>Module 3 SEO:</b> covering programmatic SEO, parasite SEO, international SEO, and App Store SEO (ASO)</li>
+        <li><b>Module 4 Social Media:</b> adding HeyGen AI video, Veo 3, and advanced influencer agreement frameworks</li>
+        <li><b>Module 7 Content:</b> covering UGC scripts, content audit frameworks, and landing page copy optimization</li>
+        <li><b>Module 9 Automation:</b> Expanded to full scope — WhatsApp bots and Vibe coding</li>
+      </ul>
+    </div>
+
+    <div class="module_grid cols1">
+      <div class="mod fam-orange">
+        <div class="head"><span class="code">M11</span><span class="ttl">Performance Marketing &amp; E-Commerce Growth</span><span class="meta">9 Sessions · 18 Hrs</span></div>
+        <div class="body"><ul>
+          <li>Performance marketing strategy — audience targeting, segmentation, and persona building with AI</li>
+          <li>D2C vs Marketplace strategy — trade-offs in data ownership, margins, and brand control</li>
+          <li>Amazon Advertising — Sponsored Products, Sponsored Brands, Sponsored Display</li>
+          <li>Flipkart Advertising and marketplace ad ecosystems</li>
+          <li>Shopify — store setup, product listing, categories, coupons, analytics, and Shopify Payments</li>
+          <li>Dynamic remarketing — product catalog ads and cross-sell automation</li>
+          <li>E-Commerce SEO — product pages, collections, and site structure</li>
+          <li>Retail media networks — Blinkit, Swiggy Instamart, quick commerce ads</li>
+          <li>Advanced reporting — ROAS, CAC, LTV, and budget planning</li>
+          <li>Customer retention strategies and LTV maximization</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">13</div></div>
+</section>
+
+<!-- ============== PAGE 14 — COURSE 2 (M12, M13 + Specializations) ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Course 2 — Advanced Modules</div>
+
+    <div class="module_grid">
+      <div class="mod fam-red">
+        <div class="head"><span class="code">M12</span><span class="ttl">Online Reputation Management &amp; Brand Protection</span><span class="meta">3 S · 6 Hrs</span></div>
+        <div class="body"><ul>
+          <li>ORM fundamentals — why your online reputation is your most valuable marketing asset</li>
+          <li>Social listening with AI — Brand24, Mention, Google Alerts</li>
+          <li>Monitoring brand mentions across platforms in real time</li>
+          <li>Managing negative reviews — the exact response framework that converts critics to customers</li>
+          <li>Crisis management — response templates and escalation protocols</li>
+          <li>Building a proactive review generation system</li>
+        </ul></div>
+      </div>
+      <div class="mod fam-slate">
+        <div class="head"><span class="code">M13</span><span class="ttl">Freelancing, Agency Operations &amp; Business of Marketing</span><span class="meta">4 S · 8 Hrs</span></div>
+        <div class="body"><ul>
+          <li>Agency structure — how client servicing, strategy, creative, and media teams work together</li>
+          <li>Client lifecycle — pitching, onboarding, first 30 days, monthly reporting, renewal, upsell</li>
+          <li>How to write a media plan and present it to a client — the exact document used in agencies</li>
+          <li>Agency pricing models — retainer vs project vs performance vs hybrid</li>
+          <li>Fiverr and Upwork profile setup and optimization — Freelance Sprint</li>
+          <li>How to handle a client escalation when results are bad</li>
+          <li>CAC, LTV, ROAS — understanding the business metrics of marketing</li>
+          <li>Service packaging and pricing your services as a freelancer</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Poppins',sans-serif; font-weight:800; font-size:13pt; color:#5b21b6; margin: 5mm 0 2mm;">3 Specializations — AI-Driven Modules &amp; Beyond</h3>
+
+    <div class="spec_card">
+      <div class="meta">S1 · 6 Sessions · 12 Hrs</div>
+      <h5>SEO &amp; AI Search Specialist</h5>
+      <ul>
+        <li>Technical SEO deep-dive and crawl budget management</li>
+        <li>Advanced backlinking — digital PR and link acquisition at scale</li>
+        <li>AEO, GEO, AIO, SXO — the complete AI search stack for 2026</li>
+        <li>Competitor backlink analysis and gap strategy</li>
+        <li>SEO audit lab — full site teardown and roadmap building</li>
+        <li>SEO ROI calculation and client reporting</li>
+      </ul>
+    </div>
+    <div class="spec_card">
+      <div class="meta">S2 · 6 Sessions · 12 Hrs</div>
+      <h5>Performance Marketing &amp; AI Ad Copywriting</h5>
+      <ul>
+        <li>Advanced Google Ads optimization techniques beyond the basics</li>
+        <li>Meta Advantage+ and Performance Max deep-dive</li>
+        <li>UGC script writing and creator brief templates</li>
+        <li>Live ₹5,000 campaign sprint — you manage a real budget</li>
+        <li>Types of attribution models — practical application in campaigns</li>
+        <li>Advanced Looker Studio reporting for clients</li>
+      </ul>
+    </div>
+    <div class="spec_card">
+      <div class="meta">S3 · 6 Sessions · 12 Hrs</div>
+      <h5>AI-Powered E-Commerce &amp; Data-Driven Sales</h5>
+      <ul>
+        <li>Shopify advanced — beyond basics to analytics, automation, and scaling</li>
+        <li>Amazon PPC — Sponsored Products campaign architecture</li>
+        <li>D2C strategy — when to go direct vs when to go marketplace</li>
+        <li>Cart abandonment recovery — ads + email + WhatsApp sequence</li>
+        <li>Customer retention strategies and LTV maximization</li>
+        <li>E-Commerce P&amp;L basics — CAC, AOV, LTV, and contribution margin</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">14</div></div>
+</section>
+
+<!-- ============== PAGE 15 — COURSE 2 (5 Domain Deep Dives + Capstone) ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">5 Industry Domain Deep Dives</div>
+    <h2 style="font-family:'Poppins',sans-serif; font-weight:800; font-size:14pt; color:var(--ink); margin:2mm 0 3mm;">Speak the Recruiter's Language — From <span style="color:var(--orange);">Day One</span></h2>
+    <p style="font-size:9pt; color:var(--slate); line-height:1.55; margin: 0 0 4mm;"><em>Visualize this – You walk into an interview and you speak the language of the recruiting company. You tell them the metrics that they have been thinking of improvise in their marketing campaigns. You suggest them the AI workflow automations they can implement in their teams – Now you can see them becoming serious in listening to you – For all this, you need domain knowledge. We build that in you!</em></p>
+
+    <div class="domain_card"><h5>E-Commerce &amp; D2C</h5><p>Mamaearth's journey to ₹1,500 Cr: unit economics, festive campaigns, D2C vs marketplace, quick commerce.</p></div>
+    <div class="domain_card"><h5>HealthTech &amp; EdTech</h5><p>PhysicsWallah's scale using YouTube and community: CPL optimization, lead funnels, EdTech webinar marketing.</p></div>
+    <div class="domain_card"><h5>SaaS &amp; Tech</h5><p>Zoho vs Salesforce: B2B SaaS marketing, PLG, Account-Based Marketing, inbound marketing at scale.</p></div>
+    <div class="domain_card"><h5>Retail, FMCG &amp; Consumer Brands</h5><p>Amul's social media playbook: omni-channel, influencer at scale, festive/IPL campaigns.</p></div>
+    <div class="domain_card"><h5>Digital Marketing Agencies</h5><p>Live simulation: receive a real brief, build a full media plan, present to an agency founder.</p></div>
+
+    <div class="capstone">
+      <span class="tag">PGCP Capstone Project</span>
+      <h4>Real-Budget Agency Sprint — Month 5 · 4 Weeks</h4>
+      <p>Your team of 3–4 manages a live ₹5,000 ad campaign for a real local business or BlueTick partner brand — across Meta Ads and Google Ads. Deliverables: full campaign strategy, weekly reports, a final client presentation, and a published portfolio case study with actual spend and results.</p>
+    </div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">15</div></div>
+</section>
+
+<!-- ============== PAGE 16 — COURSE 3 ELEVATE™ (B1–B16) ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="course_banner c3">
+      <div class="ttl"><b>Course 3 · ELEVATE™</b>Digital Marketing + AI for Business</div>
+      <div class="meta_tags"><span class="mtag">7 Months</span><span class="mtag">268 Hours</span><span class="mtag">Most Advanced in India</span></div>
+    </div>
+    <p style="font-size:9pt; color:var(--slate); line-height:1.55; margin: 0 0 3mm;"><em>ELEVATE™ is not just a digital marketing with AI programme. It is a strategic qualification for people who want to drive decisions — not just execute campaigns. Months 1–5 are identical to PGCP Course. Months 6 and 7 add a dedicated AI for Business Teams track: covering AI automations, AI native Analytics, Application creating with AI non-coding tools with an enterprise-ready AI integration capstone.</em></p>
+
+    <div class="who_box">
+      <h4>Who is ELEVATE™ for?</h4>
+      <ul>
+        <li>Graduates who want to combine AI digital skills with business thinking</li>
+        <li>Working professionals and managers who want to lead AI transformation in their organisation</li>
+        <li>Business owners who want to use AI to automate workflows along with marketing</li>
+        <li>Ambitious freshers who want to fast-track to a senior or leadership role</li>
+        <li>Founders and Consultants who want to offer AI strategy as a premium service</li>
+      </ul>
+    </div>
+
+    <h3 style="font-family:'Poppins',sans-serif; font-weight:800; font-size:11pt; color:var(--ink); margin: 2mm 0 2mm;">Months 6–7 · AI for Business Programme (B1–B16)</h3>
+    <p style="font-size:8.5pt; color:var(--slate); line-height:1.5; margin: 0 0 3mm; font-style:italic;">These sessions cover content that genuinely goes beyond any other programme in the country — to create professionals that organizations will hunt. Truly for the highly motivated!</p>
+
+    <div class="b_grid">
+      <div class="b_card"><div class="code">B1</div><h5>AI Business Strategy Overview &amp; Maturity Model</h5><p>AI transformation lifecycle, top 20 AI business patterns, AI maturity assessment.</p></div>
+      <div class="b_card"><div class="code">B2</div><h5>AI-Native Analytics &amp; Business Insight Generation</h5><p>Conversational analytics, Text-to-SQL, multi-source synthesis, Julius AI, Power BI Copilot.</p></div>
+      <div class="b_card"><div class="code">B3</div><h5>AI Evaluation &amp; Metrics for AI Products</h5><p>Model performance metrics, business metrics, trust metrics, user correction feedback loops.</p></div>
+      <div class="b_card"><div class="code">B4</div><h5>AI-Powered Project &amp; Operations Management</h5><p>Meeting intelligence, AI project planning, risk mapping, SOP writing, Claude Cowork.</p></div>
+      <div class="b_card"><div class="code">B5</div><h5>UI Mockup &amp; Rapid Prototyping with AI</h5><p>No-code builders (Lovable, v0.dev), describe a tool → get a working UI → deploy live.</p></div>
+      <div class="b_card"><div class="code">B6</div><h5>Design Thinking for AI Products</h5><p>Designing for ambiguity, explainability, responsible AI, bias &amp; privacy, annotated wireframes.</p></div>
+      <div class="b_card"><div class="code">B7</div><h5>Identifying High-Impact AI Use Cases</h5><p>AI use case archetypes, value quantification formula, data readiness assessment, ROI model.</p></div>
+      <div class="b_card"><div class="code">B8</div><h5>AI for Finance</h5><p>Expense auditing, invoice extraction, forecast narrative generation, Finance AI privacy rules.</p></div>
+    </div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">16</div></div>
+</section>
+
+<!-- ============== PAGE 17 — ELEVATE™ (B9–B16) + Banner ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Course 3 · ELEVATE™ — Continued</div>
+    <h2 style="font-family:'Poppins',sans-serif; font-weight:800; font-size:14pt; color:var(--ink); margin:2mm 0 4mm;">AI for Business Programme · B9–B16</h2>
+
+    <div class="b_grid">
+      <div class="b_card"><div class="code">B9</div><h5>AI for Human Resources</h5><p>JD writer, AI resume screener, interview question generation, policy Q&amp;A, HR data privacy.</p></div>
+      <div class="b_card"><div class="code">B10</div><h5>AI for Operations &amp; Supply Chain</h5><p>Demand planning, supplier email automation, SOP drafting, ops AI playbook.</p></div>
+      <div class="b_card"><div class="code">B11</div><h5>Enterprise AI Adoption &amp; Change Management</h5><p>Automation spectrum, automation bias, vendor risk, managing AI-resistant teams.</p></div>
+      <div class="b_card"><div class="code">B12</div><h5>AI Strategy &amp; Governance</h5><p>Build vs Buy vs Partner, AI economics, AI org design, risk communication.</p></div>
+      <div class="b_card"><div class="code">B13</div><h5>AI Ethics, Responsible AI &amp; Regulatory Landscape</h5><p>Bias in decisions, DPDP Act, GDPR, AI auditability, responsible AI principles.</p></div>
+      <div class="b_card"><div class="code">B14</div><h5>AI Literacy &amp; Team Enablement</h5><p>Developing AI confidence across teams, AI champions programme, avoiding deskilling.</p></div>
+      <div class="b_card"><div class="code">B15</div><h5>AI Readiness &amp; 12-Month Roadmap</h5><p>Org readiness assessment, 12-month AI roadmap with milestones and governance gates.</p></div>
+      <div class="b_card"><div class="code">B16</div><h5>Capstone: Business-Ready AI Integration Proposal</h5><p>Team presentation: business problem → AI-augmented workflow → tools → ROI → governance plan.</p></div>
+    </div>
+
+    <div class="elevate_banner" style="margin-top:6mm;">ELEVATE™ Graduates earn the AI for Business Certificate from BlueTick Academy — a standalone qualification.</div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">17</div></div>
+</section>
+
+<!-- ============== PAGE 17 — 50+ CASE STUDIES ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Sneak Peek Into Successful Businesses</div>
+    <h1 class="h1_big" style="font-size:24pt; margin-bottom:3mm;"><span class="accent">50+</span> Case Studies</h1>
+    <p style="font-size:10pt; color:var(--slate); line-height:1.55; margin: 0 0 2mm;"><em>You don't just learn digital marketing. You study how the world's most successful brands actually use it.</em></p>
+
+    <div class="cases">
+      <div class="case_card b1"><div class="brand">Amazon</div><p>How Amazon uses hyper-personalisation, sponsored product ads, and Prime loyalty marketing to convert 300M+ customers — and what every marketer can steal from their playbook.</p></div>
+      <div class="case_card b2"><div class="brand">Myntra</div><p>Fashion retail at scale: how Myntra uses influencer content, live shopping, and search intent ads to own every step of the fashion discovery journey.</p></div>
+      <div class="case_card b3"><div class="brand">Netflix India</div><p>Content marketing as a growth engine: how Netflix India uses social media, meme marketing, and release campaigns to drive subscriptions without discounting.</p></div>
+      <div class="case_card b4"><div class="brand">Zomato</div><p>How Zomato turned email, push notifications, and Twitter/X into their most powerful retention tools — and why their social media team is feared by every brand manager.</p></div>
+      <div class="case_card b5"><div class="brand">Lenskart</div><p>D2C disruption: how Lenskart used Google Ads, virtual try-on technology, and a tight remarketing funnel to beat traditional optical chains at their own game.</p></div>
+      <div class="case_card b6"><div class="brand">PhysicsWallah</div><p>India's most cost-effective education brand: how PW scaled to ₹1,500 Cr valuation using YouTube, Telegram, and community-first marketing — with almost no paid ads.</p></div>
+      <div class="case_card b7"><div class="brand">boAt</div><p>How a ₹700 Cr electronics brand was built on Instagram, influencer seeding, and a community strategy that made customers feel like founders.</p></div>
+      <div class="case_card b8"><div class="brand">Mamaearth</div><p>Clean beauty at scale: how Mamaearth used D2C Facebook Ads, influencer marketing, and Amazon marketplace together to build a ₹1,000+ Cr brand from scratch.</p></div>
+      <div class="case_card b9"><div class="brand">Swiggy</div><p>Hyper-local performance marketing: how Swiggy uses AI-powered push notifications, geo-targeted ads, and loyalty loops to drive repeat orders every 3.2 days per user.</p></div>
+      <div class="case_card b10"><div class="brand">Nykaa</div><p>How Nykaa owns the beauty category through SEO-first content, a video-led influencer strategy, and a loyalty programme that turns customers into brand ambassadors.</p></div>
+      <div class="case_card b11"><div class="brand">Zepto</div><p>Quick commerce marketing in the age of 10-minute delivery: how Zepto uses urgency-driven ad creatives and impulse-buy psychology to win the quick commerce wars.</p></div>
+      <div class="case_card b12"><div class="brand">CRED</div><p>A masterclass in brand-first marketing: how CRED built aspiration, exclusivity, and cult-like loyalty without a single hard-sell — and what that means for your marketing strategy.</p></div>
+    </div>
+
+    <div class="cases_extra">+ 38 more case studies including Airbnb, Dunzo, OYO, Byju's, Meesho, Cult.fit, Sugar Cosmetics, Flipkart, Tata Neu, Rapido, and more.</div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">18</div></div>
+</section>
+
+<!-- ============== PAGE 18 — HANDS-ON LEARNING ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Hands-On Learning</div>
+    <h1 class="h1_big" style="font-size:24pt; margin-bottom:3mm;">This Is What Learning at BlueTick <span class="accent">Really Feels Like.</span></h1>
+    <h2 style="font-family:'Poppins',sans-serif; font-weight:700; font-size:13pt; color:var(--slate); margin: 2mm 0 0;">What 'Hands-On Learning' Actually Means Here</h2>
+
+    <ul class="hands_list">
+      <li><div class="n">1</div><p>You <b>build a real website in Module 2</b> — it goes live on the internet with your name.</p></li>
+      <li><div class="n">2</div><p>You do <b>keyword research on real brands</b> and compare your work to live rankings.</p></li>
+      <li><div class="n">3</div><p>You <b>create social media content for real pages</b>.</p></li>
+      <li><div class="n">4</div><p>You set up a <b>real Google Analytics account</b> and connect it to a real website.</p></li>
+      <li><div class="n">5</div><p>You <b>run a real Google Ads or Meta Ads campaign — with real money</b>.</p></li>
+      <li><div class="n">6</div><p>Every project ends with a <b>portfolio case study</b> — numbers, screenshots, and published results – each elevating the value of your resume.</p></li>
+    </ul>
+
+    <div class="aud_highlight" style="margin-top:6mm;">
+      <div class="lbl">Life @ BlueTick</div>
+      <p>Real classrooms in Bengaluru, live online batches across India, mentor-led project reviews, weekly placement clinics, and a community of 10,000+ working alumni — that's what every cohort plugs into from day one.</p>
+    </div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">19</div></div>
+</section>
+
+<!-- ============== PAGE 19 — TOP COMPANIES ALUMNI ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Our Alumni Network</div>
+    <h1 class="h1_big" style="font-size:24pt; margin-bottom:3mm;">Top Companies Our Alumni <span class="accent">Work With</span></h1>
+    <p style="font-size:10pt; color:var(--slate); line-height:1.55; margin: 0 0 4mm;"><em>10,000+ graduates. 500+ hiring partners. These are some of the companies where our alumni work:</em></p>
+
+    <div class="cmp_group"><h5>Global Tech &amp; Consulting</h5><div class="row">
+      <span class="chip">Accenture</span><span class="chip">Google</span><span class="chip">Oracle</span><span class="chip">AT&amp;T</span><span class="chip">SAP</span><span class="chip">Adobe</span><span class="chip">EY</span><span class="chip">Infosys</span><span class="chip">Yahoo</span>
+    </div></div>
+    <div class="cmp_group"><h5>E-Commerce &amp; Retail</h5><div class="row">
+      <span class="chip">Amazon</span><span class="chip">Flipkart</span><span class="chip">Myntra</span><span class="chip">Nykaa</span><span class="chip">Lenskart</span><span class="chip">Lakme</span>
+    </div></div>
+    <div class="cmp_group"><h5>Food &amp; Delivery</h5><div class="row">
+      <span class="chip">Swiggy</span><span class="chip">Zomato</span><span class="chip">MakeMyTrip</span><span class="chip">Zoomcar</span>
+    </div></div>
+    <div class="cmp_group"><h5>EdTech &amp; FinTech</h5><div class="row">
+      <span class="chip">Unacademy</span><span class="chip">UpGrad</span><span class="chip">simplilearn</span><span class="chip">ICICI Bank</span>
+    </div></div>
+    <div class="cmp_group"><h5>Industrial &amp; Consumer</h5><div class="row">
+      <span class="chip">TATA</span><span class="chip">Bosch</span><span class="chip">Philips</span><span class="chip">KTM</span><span class="chip">ITC Limited</span>
+    </div></div>
+    <div class="cmp_group"><h5>Startups &amp; Digital Agencies</h5><div class="row">
+      <span class="chip">Reddit</span><span class="chip">uplers</span><span class="chip">socialpanga</span><span class="chip">SellerCircle</span><span class="chip">OneWrk</span><span class="chip">Moshi Moshi</span><span class="chip">eka</span><span class="chip">Langoor</span><span class="chip">TOYAMA</span>
+    </div></div>
+
+    <div class="strip_band">
+      <span>97% Placement Rate</span>
+      <span>·</span>
+      <span>500+ Hiring Partners</span>
+      <span>·</span>
+      <span>10,000+ Careers Built</span>
+    </div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">20</div></div>
+</section>
+
+<!-- ============== PAGE 20 — CERTIFICATIONS ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Globally Recognised</div>
+    <h1 class="h1_big" style="font-size:24pt; margin-bottom:3mm;"><span class="accent">Certifications</span> You Will Earn</h1>
+    <p style="font-size:9.5pt; color:var(--slate); line-height:1.55; margin: 0 0 3mm;"><em>Our curriculum is specifically structured so that every certification prep is embedded in the learning — you're exam-ready by the time each module ends.</em></p>
+
+    <div class="cert_grid">
+      <div class="cert_card iss_google">
+        <h5>Google</h5>
+        <ul>
+          <li>Google Ads Search</li>
+          <li>Google Ads Display</li>
+          <li>Google Ads Video</li>
+          <li>AI-Powered Performance Ads</li>
+          <li>Google Analytics (GA4)</li>
+          <li>Digital Marketing Fundamentals</li>
+          <li>Google Tag Manager Fundamentals</li>
+        </ul>
+      </div>
+      <div class="cert_card iss_hubspot">
+        <h5>HubSpot Academy</h5>
+        <ul>
+          <li>Inbound Marketing</li>
+          <li>Email Marketing</li>
+          <li>Content Marketing</li>
+          <li>Social Media Marketing</li>
+          <li>Digital Advertising</li>
+          <li>HubSpot CRM</li>
+        </ul>
+      </div>
+      <div class="cert_card iss_ms">
+        <h5>Microsoft / Bing Ads</h5>
+        <ul>
+          <li>Bing Ads Search Advertising Certification</li>
+        </ul>
+      </div>
+      <div class="cert_card iss_meta">
+        <h5>Meta Blueprint</h5>
+        <ul>
+          <li>Digital Marketing Associate Certification</li>
+        </ul>
+      </div>
+      <div class="cert_card iss_li">
+        <h5>LinkedIn Marketing Labs</h5>
+        <ul>
+          <li>LinkedIn Marketing Fundamentals</li>
+          <li>Content Marketing Certification</li>
+        </ul>
+      </div>
+      <div class="cert_card iss_bt">
+        <h5>BlueTick Academy</h5>
+        <ul>
+          <li>BlueTick Course Completion Certificate (all 3 courses)</li>
+          <li>AI for Business Certificate (Course 3 — ELEVATE™ only)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cert_split">
+      <div class="cert_pill pcp"><b>PCP Course</b>Google Ads (Search/Display/Video/Performance AI) · Google Analytics (GA4) · Digital Marketing Fundamentals by Google · HubSpot (Inbound, Email, Content, Social, Digital Advertising) · Bing Ads Search · BlueTick Course Completion</div>
+      <div class="cert_pill pgcp"><b>PGCP Course — Additional</b>Meta Blueprint — Digital Marketing Associate · Google Tag Manager Fundamentals · LinkedIn Marketing Labs · HubSpot CRM Certification</div>
+    </div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">21</div></div>
+</section>
+
+<!-- ============== PAGE 21 — 50+ TOOLS ============== -->
+<section class="page">
+  <div class="head_motif">
+    <div class="dashes"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+    <div class="wordmark"><span class="tick">✓</span><span><span class="bt">BlueTick</span> <span class="ac">Academy</span></span></div>
+  </div>
+  <div class="pad">
+    <div class="section_eyebrow">Your Toolbox</div>
+    <h2 style="font-family:'Poppins',sans-serif; font-weight:900; font-size:26pt; color:var(--ink); letter-spacing:-.02em; margin: 2mm 0;"><span style="color:var(--orange);">50+</span> Tools &amp; Technologies — You Use All of Them</h2>
+    <p class="tools_intro"><em>The same tools used by hiring teams at agencies, brands, and SaaS companies. You don't just learn names — you build campaigns on every single one.</em></p>
+
+    <div class="tools_grid">
+      <span class="tool_chip">10Web</span><span class="tool_chip">Elementor</span><span class="tool_chip">WordPress</span>
+      <span class="tool_chip">Semrush</span><span class="tool_chip">Ahrefs</span><span class="tool_chip">Screaming Frog</span>
+      <span class="tool_chip">SEOptimer</span><span class="tool_chip">Google Search Console</span><span class="tool_chip">Bing Webmaster Tools</span>
+      <span class="tool_chip">Google Ads</span><span class="tool_chip">Meta Ads Manager</span><span class="tool_chip">Microsoft Ads</span>
+      <span class="tool_chip">LinkedIn Campaign Manager</span><span class="tool_chip">Google Analytics 4</span><span class="tool_chip">Google Tag Manager</span>
+      <span class="tool_chip">Looker Studio</span><span class="tool_chip">Microsoft Clarity</span><span class="tool_chip">Hotjar</span>
+      <span class="tool_chip">HubSpot CRM</span><span class="tool_chip">Zapier</span><span class="tool_chip">n8n</span>
+      <span class="tool_chip">Make (Integromat)</span><span class="tool_chip">ManyChat</span><span class="tool_chip">Gupshup</span>
+      <span class="tool_chip">Canva</span><span class="tool_chip">Adobe Firefly</span><span class="tool_chip">VEED</span>
+      <span class="tool_chip ai">HeyGen</span><span class="tool_chip">Looka</span><span class="tool_chip">Buffer</span>
+      <span class="tool_chip">YouTube Studio</span><span class="tool_chip">Mailchimp</span><span class="tool_chip">Brevo</span>
+      <span class="tool_chip ai">ChatGPT</span><span class="tool_chip ai">Claude</span><span class="tool_chip ai">Gemini</span>
+      <span class="tool_chip ai">Grok</span><span class="tool_chip ai">AIPRM</span><span class="tool_chip ai">Perplexity</span>
+      <span class="tool_chip ai">Julius AI</span><span class="tool_chip ai">Lovable</span><span class="tool_chip ai">v0.dev</span>
+      <span class="tool_chip ai">Notion AI</span><span class="tool_chip">Miro</span><span class="tool_chip">Google Sheets</span>
+      <span class="tool_chip">Shopify</span><span class="tool_chip">Ninja Forms</span><span class="tool_chip">Merchant Center</span>
+      <span class="tool_chip">Dux-Soup</span><span class="tool_chip">GT Metrix</span><span class="tool_chip">SimilarWeb</span>
+      <span class="tool_chip">Meta Ad Library</span><span class="tool_chip">+ more</span>
+    </div>
+
+    <div class="tools_footer">BlueTick Academy, Bengaluru &nbsp;|&nbsp; Classrooms available · Online batches available · Learners from 30+ countries</div>
+  </div>
+  <div class="footer"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">22</div></div>
+</section>
+
+<!-- ============== PAGE 22 — FINAL CTA ============== -->
+<section class="page">
+  <div class="cta_hero">
+    <div class="eyebrow">Your Move</div>
+    <h1>Your Career <span class="accent">Starts.</span></h1>
+    <div class="sub">One Move. One Decision. A Completely Different Career.</div>
+    <p class="body">You've been thinking about this for a while. You've wondered if now is the right time. It is. Every month you wait is a salary you didn't earn, a promotion someone else got, a future that's sitting there — waiting for you to reach for it. BlueTick has placed 10,000+ students. 97% of them were hired within 30-45 days of finishing. A year from now, you will either wish you had started — or be glad you did. <b>Call us today.</b></p>
+
+    <div class="cta_courses">
+      <div class="cta_course">
+        <div class="lbl">Course 1</div>
+        <div class="ttl">Professional Certification in Digital Marketing with AI</div>
+        <div class="row"><span>3 Months</span><span>₹3–5 LPA</span></div>
+      </div>
+      <div class="cta_course">
+        <div class="lbl">Course 2</div>
+        <div class="ttl">Post Graduate Certification in AI-Driven Digital Marketing</div>
+        <div class="row"><span>5 Months</span><span>₹4–7 LPA</span></div>
+      </div>
+      <div class="cta_course">
+        <div class="lbl">Course 3 · ELEVATE™</div>
+        <div class="ttl">Digital Marketing + AI for Business</div>
+        <div class="row"><span>7 Months</span><span>₹5–10 LPA*</span></div>
+      </div>
+    </div>
+
+    <div class="contact_block">
+      <div class="contact_pill"><div class="l">Call Us Now</div><div class="v">+91 9606 9955 25</div></div>
+      <div class="contact_pill"><div class="l">Email Us</div><div class="v">info@bluetickacademy.com</div></div>
+      <div class="contact_pill"><div class="l">Visit Us Online</div><div class="v">www.bluetickacademy.com</div></div>
+    </div>
+
+    <p class="cta_fine">*Salary ranges are indicative. Actual compensation depends on individual skill, portfolio, and the hiring organization.</p>
+  </div>
+  <div class="footer dark"><div class="left"><span>info@bluetickacademy.com</span><span>·</span><span>+91-9606 9955 25</span><span>·</span><span>www.bluetickacademy.com</span></div><div class="pg">23</div></div>
+</section>
+
+</body>
+</html>

@@ -44,3 +44,9 @@ next-env.d.ts
 AI Tools Logos/
 Company logos/
 src/docs/
+
+# brochure build — heavy reference assets & generated previews
+promptandattachmentsbrochuredesign/*.png
+promptandattachmentsbrochuredesign/*.docx
+promptandattachmentsbrochuredesign/*Brochure*Advanced*.pdf
+promptandattachmentsbrochuredesign/_pages/
