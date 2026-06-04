@@ -34,7 +34,7 @@ export default function Header({ formType, setFormType }) {
     return (
         <>
             <div
-                className={`bg-[#2D2E5A] md:bg-[#101445] z-50 sticky max-[768px]:top-5 top-0 mx-4 md:mx-0 max-[768px]:rounded-[50px]`}
+                className={`bg-[#2D2E5A] md:bg-[#101445] z-50 sticky top-0 mx-4 md:mx-0 max-[768px]:rounded-[50px]`}
             >
                 <div className="w-full h-[60px] md:h-[80px] flex justify-between items-center min-[1280px]:container min-[1440px]:max-w-[1440px] mx-auto px-4 md:px-6">
 
@@ -112,14 +112,14 @@ export default function Header({ formType, setFormType }) {
                         {/* Mobile WhatsApp */}
                         <div className="mr-1 md:hidden block">
                             <Link href="https://wa.me/9606995525" target="_blank" className="js-wa-cta">
-                                <Image src={WhatsappIcon} width={36} height={36} alt="WhatsApp" />
+                                <Image src={WhatsappIcon} width={48} height={48} alt="WhatsApp" />
                             </Link>
                         </div>
 
                         {/* Mobile Call */}
-                        <div className="mr-1 md:hidden block">
-                            <Link href="tel:+919606995525" className="js-call-cta">
-                                <Image src={PhoneIcon} width={36} height={36} alt="Call" />
+                        <div className="mr-1 md:hidden block p-2 bg-gradient-to-br from-[#FB923C] to-[#EC4899] rounded-full">
+                            <Link href="tel:+919606995525" className="js-call-cta" title="Call us">
+                                <Image src={PhoneIcon} width={32} height={32} alt="Call" className="filter brightness-0 invert" />
                             </Link>
                         </div>
 

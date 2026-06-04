@@ -28,6 +28,33 @@ const ALUMNI = [
     pkg: '₹18–19 LPA range',
   },
   {
+    photo: '/img/photo/1.jpg',
+    name: 'Jeevan',
+    batch: "Feb'26",
+    batchKey: 'feb-26',
+    role: 'Performance Marketing Analyst',
+    company: 'Flipkart',
+    pkg: '₹7–9 LPA range',
+  },
+  {
+    photo: '/img/photo/2.jpg',
+    name: 'Keerthi Vasan',
+    batch: "Mar'26",
+    batchKey: 'mar-26',
+    role: 'Marketing Automation Specialist',
+    company: 'Ernst & Young',
+    pkg: '₹6–8 LPA range',
+  },
+  {
+    photo: '/img/photo/3.jpg',
+    name: 'Harini P',
+    batch: "Jan'26",
+    batchKey: 'jan-26',
+    role: 'Performance Marketing Specialist',
+    company: 'Amazon',
+    pkg: '₹7–9 LPA range',
+  },
+  {
     photo: '/img/photo/krishna.webp',
     name: 'Krishna',
     batch: "Feb'26",
@@ -80,6 +107,51 @@ const ALUMNI = [
     role: 'Digital Marketing Expert',
     company: 'Decode',
     pkg: '₹7–9 LPA range',
+  },
+  {
+    photo: '/img/photo/8.jpg',
+    name: 'Akash',
+    batch: "May'26",
+    batchKey: 'may-26',
+    role: 'Growth Marketer',
+    company: 'Adsreverb',
+    pkg: '₹9–10 LPA range',
+  },
+  {
+    photo: '/img/photo/7.jpg',
+    name: 'Atul',
+    batch: "Apr'26",
+    batchKey: 'apr-26',
+    role: 'Google Ads Specialist',
+    company: 'HCG',
+    pkg: '₹6–8 LPA range',
+  },
+  {
+    photo: '/img/photo/9.jpg',
+    name: 'Girish',
+    batch: "Jan'26",
+    batchKey: 'jan-26',
+    role: 'Email & Lifecycle Marketing Specialist',
+    company: 'Edumerge',
+    pkg: '₹6–8 LPA range',
+  },
+  {
+    photo: '/img/photo/12.jpg',
+    name: 'Edwin',
+    batch: "Mar'26",
+    batchKey: 'mar-26',
+    role: 'Social Media Marketing Specialist',
+    company: 'Foxpro',
+    pkg: '₹6–8 LPA range',
+  },
+  {
+    photo: '/img/photo/11.jpg',
+    name: 'Shyam',
+    batch: "Feb'26",
+    batchKey: 'feb-26',
+    role: 'Digital Marketing Executive',
+    company: 'Presidency College',
+    pkg: '₹6–8 LPA range',
   },
   {
     photo: '/img/photo/hirok.webp',
@@ -203,6 +275,16 @@ export default function NamedPlacementsBoard() {
             <span className={styles.package_pill}>{a.pkg}</span>
           </li>
         ))}
+
+        {/* Closing summary card — total placement proof (no photo) */}
+        <li className={`${styles.card} ${styles.card_summary}`}>
+          <span className={styles.summary_plus}>+10,000</span>
+          <span className={styles.summary_more}>more placed</span>
+          <p className={styles.summary_sub}>
+            10,000+ students placed over the last 9 years &mdash; and 400+ in
+            just the last 3 months.
+          </p>
+        </li>
       </ol>
 
       {/* Mobile-only scroll hint */}

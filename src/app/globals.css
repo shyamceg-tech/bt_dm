@@ -161,6 +161,9 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  /* Matches the dark hero/header so over-scroll (rubber-band) at the very top
+     never flashes the white body background. */
+  background: #0A0E27;
 }
 
 /* Respect users who prefer reduced motion — disable smooth scroll for them */

@@ -55,8 +55,13 @@ export default function TypewriterHeadline({ text, className, delay = 0 }) {
   const clipPercent = done ? 100 : progress * 100;
 
   return (
-    <span className={className} ref={spanRef} style={{ position: 'relative' }}>
+    <span ref={spanRef} style={{ position: 'relative' }}>
+      {/* The styling class (incl. the gradient + background-clip:text for
+          "WITH AI") must live on the element that DIRECTLY contains the text,
+          otherwise background-clip:text clips to an empty box and the text
+          renders fully transparent. */}
       <span
+        className={className}
         style={{
           clipPath: `inset(0 ${100 - clipPercent}% 0 0)`,
           display: 'inline-block',

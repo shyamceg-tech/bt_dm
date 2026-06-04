@@ -91,20 +91,16 @@ export default function Hero() {
       <div className={styles.inner}>
         {/* ── Left column: copy ─────────────────────────────────────────── */}
         <div className={styles.copy}>
-          <p className={styles.eyebrow}>
+          <h1 className={styles.eyebrow} id="hero-heading">
             #1 Digital Marketing Course in Bangalore — placement-first,
             ai-native.
-          </p>
+          </h1>
 
-          <h1 className={styles.headline} id="hero-heading">
+          <div className={styles.headline} aria-label="Course title">
             <span className={styles.headline_master}>MASTER</span>
             <TypewriterHeadline className={styles.headline_dm} text="DIGITAL MARKETING" delay={300} />
             <TypewriterHeadline className={styles.headline_ai} text="WITH AI" delay={1400} />
-          </h1>
-
-          <p className={styles.subline}>
-            the way 2026 companies actually hire!
-          </p>
+          </div>
 
           <ul className={styles.chips} aria-label="Program highlights">
             {CHIPS.map((label) => (
