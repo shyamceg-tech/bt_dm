@@ -19,7 +19,7 @@ import styles from './NamedPlacements.module.css';
 /* ─── Alumni data (Excel + retained students) ─────────────────────────── */
 const ALUMNI = [
   {
-    photo: '/img/photo/5.jpg',
+    photo: '/img/photo/5.webp',
     name: 'Bright Prabahar',
     batch: "Mar'26",
     batchKey: 'mar-26',
@@ -28,7 +28,7 @@ const ALUMNI = [
     pkg: '₹18–19 LPA range',
   },
   {
-    photo: '/img/photo/1.jpg',
+    photo: '/img/photo/1.webp',
     name: 'Jeevan',
     batch: "Feb'26",
     batchKey: 'feb-26',
@@ -37,7 +37,7 @@ const ALUMNI = [
     pkg: '₹7–9 LPA range',
   },
   {
-    photo: '/img/photo/2.jpg',
+    photo: '/img/photo/2.webp',
     name: 'Keerthi Vasan',
     batch: "Mar'26",
     batchKey: 'mar-26',
@@ -46,7 +46,7 @@ const ALUMNI = [
     pkg: '₹6–8 LPA range',
   },
   {
-    photo: '/img/photo/3.jpg',
+    photo: '/img/photo/3.webp',
     name: 'Harini P',
     batch: "Jan'26",
     batchKey: 'jan-26',
@@ -73,7 +73,7 @@ const ALUMNI = [
     pkg: '₹5–6 LPA range',
   },
   {
-    photo: '/img/photo/4.jpg',
+    photo: '/img/photo/4.webp',
     name: 'Lekha',
     batch: "Apr'26",
     batchKey: 'apr-26',
@@ -100,7 +100,7 @@ const ALUMNI = [
     pkg: '₹4–5 LPA range',
   },
   {
-    photo: '/img/photo/6.jpg',
+    photo: '/img/photo/6.webp',
     name: 'Priyal Bather',
     batch: "May'26",
     batchKey: 'may-26',
@@ -109,7 +109,7 @@ const ALUMNI = [
     pkg: '₹7–9 LPA range',
   },
   {
-    photo: '/img/photo/8.jpg',
+    photo: '/img/photo/8.webp',
     name: 'Akash',
     batch: "May'26",
     batchKey: 'may-26',
@@ -254,9 +254,14 @@ export default function NamedPlacementsBoard() {
       </div>
 
       {/* Alumni grid */}
-      <ol className={styles.grid}>
-        {visible.map((a) => (
-          <li key={a.name} className={styles.card}>
+      <ol className={styles.grid} data-autoscroll-loop>
+        {visible.map((a, index) => (
+          <li
+            key={a.name}
+            className={styles.card}
+            data-reveal
+            data-reveal-delay={index % 6}
+          >
             <div className={styles.photo}>
               <Image
                 src={a.photo}
@@ -277,11 +282,11 @@ export default function NamedPlacementsBoard() {
         ))}
 
         {/* Closing summary card — total placement proof (no photo) */}
-        <li className={`${styles.card} ${styles.card_summary}`}>
+        <li className={`${styles.card} ${styles.card_summary}`} data-reveal>
           <span className={styles.summary_plus}>+10,000</span>
           <span className={styles.summary_more}>more placed</span>
           <p className={styles.summary_sub}>
-            10,000+ students placed over the last 9 years &mdash; and 400+ in
+            10,000+ students placed over the last 9 years - and 400+ in
             just the last 3 months.
           </p>
         </li>

@@ -8,6 +8,7 @@
  * Phase 1 source: bluetick-2026-refresh-v3.html lines 8574–8644.
  */
 
+import Image from 'next/image';
 import styles from './Trainers.module.css';
 
 /* ─── Inline SVG icons (4 trainer points + tagline check) ─────────────────── */
@@ -70,12 +71,12 @@ const POINTS = [
   {
     icon: <IconUsers />,
     title: '1:15 trainer-to-student ratio',
-    body: "Small enough that we know each student's strengths — and recruiters trust our shortlists.",
+    body: "Small enough that we know each student's strengths - and recruiters trust our shortlists.",
   },
   {
     icon: <IconChat />,
     title: 'Real-feedback culture',
-    body: 'When you bomb a media plan in class, you hear what an agency founder would say — not a polite grade.',
+    body: 'When you bomb a media plan in class, you hear what an agency founder would say - not a polite grade.',
   },
 ];
 
@@ -89,8 +90,20 @@ export default function Trainers() {
         </p>
 
         <h2 className={styles.headline} id="trainers-heading" data-reveal>
-          Learn from trainers who run &#8377;35 Cr+ in live ad spend every year
+          Learn from trainers who run{' '}
+          <span className={styles.headline_hl}>&#8377;35 Cr+</span> in live ad
+          spend every year
         </h2>
+
+        <div className={styles.media} data-reveal>
+          <Image
+            src="/img/2026/trainer_portrait_01.webp"
+            alt="A BlueTick trainer monitoring live ad-campaign dashboards across dual screens"
+            fill
+            sizes="(min-width: 1024px) 1100px, 100vw"
+            className={styles.media_img}
+          />
+        </div>
 
         <ol className={styles.points}>
           {POINTS.map((p, index) => (

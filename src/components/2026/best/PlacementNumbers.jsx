@@ -6,9 +6,9 @@
 import styles from './PlacementNumbers.module.css';
 
 const STATS = [
-  { num: '97%',    label: 'Placement rate — last 4 batches verified' },
+  { num: '97%',    label: 'Placement rate - last 4 batches verified' },
   { num: '₹6.8L',  label: 'Average package across 2024–25 placed alumni' },
-  { num: '10,000+', label: 'Alumni placed since 2016 — 9 years of data' },
+  { num: '10,000+', label: 'Alumni placed since 2016 - 9 years of data' },
   { num: '312',    label: 'Students placed in the most recent 4 batches' },
 ];
 
@@ -32,7 +32,7 @@ export default function PlacementNumbers() {
         <header className={styles.head}>
           <span className={styles.eyebrow}>The data behind our #1 rank</span>
           <h2 id="placement-numbers-heading" className={styles.heading}>
-            97% placement &mdash; batch after batch, name after name.
+            97% placement - batch after batch, name after name.
           </h2>
         </header>
 
@@ -47,7 +47,7 @@ export default function PlacementNumbers() {
 
         <div className={styles.tableWrap}>
           <table className={styles.table}>
-            <caption>Last 4 completed batches — Indiranagar, Bangalore campus</caption>
+            <caption>Last 4 completed batches - Indiranagar, Bangalore campus</caption>
             <thead>
               <tr>
                 <th scope="col">Batch</th>

@@ -52,6 +52,9 @@
 @media (min-width: 768px)  { .heading { font-size: 36px; } }
 @media (min-width: 1024px) { .heading { font-size: 44px; } }
 
+/* Keyword phrase highlighted in the brand accent within the headline. */
+.kw { color: var(--brand-blue); font-weight: 800; }
+
 /* ─── Table wrap (horizontal swipe at mobile, full container at desktop) ─ */
 .table_wrap {
   margin-top: var(--s-32);
@@ -109,6 +112,11 @@
   color: var(--text-secondary);
 }
 
+/* Local copy of the global keyframe (CSS Modules scopes keyframe names). */
+@keyframes bt-nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(4px); }
+}
 .swipe_hint svg {
   width: 14px;
   height: 14px;

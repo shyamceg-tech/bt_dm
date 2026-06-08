@@ -60,6 +60,32 @@
 
 @media (min-width: 768px) { .inner { padding: 0 var(--gutter-tablet); } }
 
+/* ─── Section photo (duotone — melts into the deep-navy section) ────────── */
+.media {
+  position: relative;
+  margin-top: var(--s-32);
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+@media (min-width: 768px) {
+  .media { aspect-ratio: 24 / 9; }
+}
+
+.media_img { object-fit: cover; object-position: center 30%; }
+
+.media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10, 27, 61, 0.78) 0%, rgba(10, 27, 61, 0.18) 45%, transparent 72%),
+    linear-gradient(180deg, transparent 55%, rgba(10, 27, 61, 0.88) 100%);
+  pointer-events: none;
+}
+
 /* ─── Eyebrow with green pulse dot ──────────────────────────────────────── */
 .eyebrow {
   display: inline-flex;
@@ -100,6 +126,12 @@
 
 @media (min-width: 768px)  { .headline { font-size: 2.25rem; } }
 @media (min-width: 1024px) { .headline { font-size: 2.75rem; max-width: 18ch; } }
+
+/* "₹35 Cr+" lifted to a light/sky blue so it pops against the deep-navy bg. */
+.headline_hl {
+  color: #5BB3FF;
+  white-space: nowrap;
+}
 
 /* ─── Stat centerpiece (glass card) ─────────────────────────────────────── */
 .stat {

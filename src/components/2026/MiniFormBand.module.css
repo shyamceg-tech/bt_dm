@@ -14,7 +14,8 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  padding-top: var(--s-40);
+  /* Reduced top padding to tighten the gap with the Tracks section above. */
+  padding-top: var(--s-16);
   padding-bottom: var(--s-40);
 }
 
@@ -45,13 +46,13 @@
   z-index: 1;
   max-width: 640px;
   margin: 0 auto;
-  padding: var(--s-32) var(--gutter-mobile);
+  padding: var(--s-16) var(--gutter-mobile) var(--s-32);
   text-align: center;
 }
 
 @media (min-width: 768px) {
   .inner {
-    padding-top: var(--s-48);
+    padding-top: var(--s-32);
     padding-bottom: var(--s-48);
     padding-left: var(--gutter-tablet);
     padding-right: var(--gutter-tablet);

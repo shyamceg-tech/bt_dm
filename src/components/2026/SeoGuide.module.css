@@ -1,0 +1,152 @@
+/* ============================================================================
+   SeoGuide.module.css — long-form SEO/AEO/GEO content block above the footer.
+
+   Reuses the design system + the native <details>/<summary> accordion pattern
+   from Faqs (zero JS, pure-CSS plus→x toggle). Single column, with prose bodies
+   that support multiple paragraphs and lists. Content sits in the HTML whether
+   open or closed, so search and answer engines index it regardless of state.
+   ============================================================================ */
+
+.section {
+  background: var(--bg-subtle, var(--bg-base));
+  /* Trimmed top padding to bridge the gap with the section above. */
+  padding: 32px 0 56px;
+  scroll-margin-top: 80px;
+}
+
+@media (min-width: 1024px) { .section { padding: 52px 0 88px; } }
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media (min-width: 768px) { .container { padding: 0 var(--gutter-lg); } }
+
+.head { max-width: 820px; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 768px)  { .heading { font-size: 34px; } }
+@media (min-width: 1024px) { .heading { font-size: 40px; } }
+
+.intro {
+  margin: 18px 0 0;
+  max-width: 820px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.intro strong { color: var(--text-primary); font-weight: 600; }
+
+/* ─── List ──────────────────────────────────────────────────────────────── */
+.list { margin-top: 28px; }
+
+@media (min-width: 1024px) { .list { margin-top: 40px; } }
+
+.item {
+  border-top: 1px solid var(--border-default);
+  margin: 0;
+}
+
+.list .item:last-child { border-bottom: 1px solid var(--border-default); }
+
+.item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 0;
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  gap: 16px;
+  align-items: flex-start;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.item summary::-webkit-details-marker { display: none; }
+.item summary::marker { content: ''; }
+
+/* The visible question/keyword title is a real heading for hierarchy. */
+.q {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+@media (min-width: 768px) { .q { font-size: 19px; } }
+
+/* ─── Plus → X toggle (pure CSS, ported from Faqs) ──────────────────────── */
+.toggle {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: color 150ms ease, transform 200ms ease;
+  margin-top: 2px;
+}
+
+.item summary:hover .toggle { color: var(--brand-blue); }
+.item[open] .toggle { color: var(--brand-blue); transform: rotate(45deg); }
+
+.toggle::before,
+.toggle::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.toggle::before { left: 4px; right: 4px; top: 50%; height: 2px; transform: translateY(-50%); }
+.toggle::after { top: 4px; bottom: 4px; left: 50%; width: 2px; transform: translateX(-50%); }
+
+/* ─── Body prose ────────────────────────────────────────────────────────── */
+.body {
+  padding: 0 24px 24px 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 768px) { .body { font-size: 15.5px; } }
+
+.body p { margin: 0 0 14px; }
+.body p:last-child { margin-bottom: 0; }
+.body strong { color: var(--text-primary); font-weight: 600; }
+
+.body ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.body li { margin: 0 0 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle { transition: none !important; }
+}

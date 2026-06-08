@@ -45,10 +45,12 @@ export default function Salary() {
     <section id="placements" className={styles.section} aria-labelledby="salary-heading">
       <div className={styles.inner}>
         <h2 className={styles.heading} id="salary-heading" data-reveal>
-          100% placement. Here&rsquo;s what that actually means — by package band.
+          <span className={styles.kw}>Digital Marketing Course in Bangalore</span>
+          with <span className={styles.hl}>100% placement</span> - here&rsquo;s
+          the package band
         </h2>
         <p className={styles.subline} data-reveal>
-          Of our last 4 batches — 312 students total:
+          Of our last 4 batches - 312 students total:
         </p>
 
         <div className={styles.grid}>

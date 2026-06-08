@@ -167,3 +167,23 @@
 }
 
 .legal a:hover { color: var(--text-on-deep); }
+
+/* Low-emphasis social cluster: small, muted icons grouped tightly so they read
+   as a quiet footnote rather than a prominent social row. */
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.social a {
+  display: inline-flex;
+  color: var(--text-on-deep-muted);
+  opacity: 0.7;
+  transition: opacity 150ms ease, color 150ms ease;
+}
+
+.social a:hover {
+  opacity: 1;
+  color: var(--text-on-deep);
+}

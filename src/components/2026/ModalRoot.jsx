@@ -59,7 +59,7 @@ export default function ModalRoot() {
         open={openModal === 'hire'}
         onClose={close}
         title="Hire from BlueTick"
-        subtitle="Tell us what role you're hiring for — we'll send a shortlist."
+        subtitle="Tell us what role you're hiring for - we'll send a shortlist."
         titleId="modal-hire-title"
       >
         {openModal === 'hire' && <HireForm onClose={close} />}

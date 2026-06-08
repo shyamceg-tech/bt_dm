@@ -12,10 +12,12 @@
 /* ─── Section shell ─────────────────────────────────────────────────────── */
 .section {
   background:
-    linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
-    linear-gradient(180deg, #F0F9FF 0%, #ECFEFF 100%);
-  background-size: 40px 40px, 40px 40px, 100% 100%;
+    radial-gradient(circle at 100% 0%, rgba(124, 58, 237, 0.16), transparent 45%),
+    radial-gradient(circle at 0% 100%, rgba(6, 182, 212, 0.18), transparent 45%),
+    linear-gradient(rgba(56, 189, 248, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.09) 1px, transparent 1px),
+    linear-gradient(180deg, #E6F2FF 0%, #E0FBFF 100%);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px, 100% 100%;
   padding: var(--s-56) 0;
   position: relative;
   overflow: hidden;
@@ -36,6 +38,23 @@
 @media (min-width: 1024px) {
   .section { padding: var(--s-96) 0; }
 }
+
+/* ─── Merged variant (flows into the CTA banner below) ──────────────────────
+   Drops the bottom-left cyan radial + blur blob so the bottom edge is a
+   uniform #E0FBFF (no left-side shade step against the banner), and trims the
+   bottom padding so the join reads as one section. Placed AFTER the desktop
+   `.section` rule above so its padding-bottom wins the cascade at all widths. */
+.section_merged {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(124, 58, 237, 0.16), transparent 45%),
+    linear-gradient(rgba(56, 189, 248, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.09) 1px, transparent 1px),
+    linear-gradient(180deg, #E6F2FF 0%, #E0FBFF 100%);
+  background-size: 100% 100%, 40px 40px, 40px 40px, 100% 100%;
+  padding-bottom: var(--s-12);
+}
+
+.section_merged::before { display: none; }
 
 .inner {
   max-width: var(--max-content-width);
@@ -115,7 +134,13 @@
   display: flex;
   gap: 16px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  /* `proximity` (not `mandatory`) so a vertical page scroll started over the
+     carousel is never "eaten" by horizontal snap re-alignment — the bug where
+     the first downward scroll did nothing and only the second one moved the
+     page. `overscroll-behavior` keeps the gesture from chaining oddly. */
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   margin: var(--s-32) calc(var(--gutter-mobile) * -1) 0;
@@ -148,6 +173,8 @@
 
 /* ─── Alumni card ───────────────────────────────────────────────────────── */
 .card {
+  /* Mobile: wider cards (one prominent card + a peek of the next). Desktop
+     keeps the grid (flex reset below at >=768px). */
   flex: 0 0 min(calc(100vw - 48px), 280px);
   scroll-snap-align: start;
   background: var(--bg-base);
@@ -321,6 +348,13 @@
   border-radius: 999px;
 }
 
+/* Local copy of the global keyframe (CSS Modules scopes keyframe names used in
+   this file; the global reference would never resolve). */
+@keyframes bt-nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(4px); }
+}
+
 .scroll_hint_arrow {
   display: inline-flex;
   align-items: center;
@@ -330,6 +364,5 @@
 
 /* ─── Reduced motion ────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .scroll_hint_arrow { animation: none !important; }
   .card { transition: none !important; }
 }

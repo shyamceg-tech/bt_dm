@@ -48,7 +48,16 @@ export default function Certifications() {
     <section className={styles.section} aria-labelledby="certifications-heading">
       <div className={styles.inner}>
         <h2 className={styles.heading} id="certifications-heading" data-reveal>
-          Get Certified by Google &amp; Microsoft
+          Get Certified by{' '}
+          <span className={styles.brand_google}>
+            <span style={{ color: '#4285F4' }}>G</span>
+            <span style={{ color: '#EA4335' }}>o</span>
+            <span style={{ color: '#F4B400' }}>o</span>
+            <span style={{ color: '#4285F4' }}>g</span>
+            <span style={{ color: '#34A853' }}>l</span>
+            <span style={{ color: '#EA4335' }}>e</span>
+          </span>{' '}
+          &amp; <span style={{ color: '#0078D4' }}>Microsoft</span>
         </h2>
         <p className={styles.subline}>
           Industry certifications for Google Ads &amp; Bing Ads + 12 more
@@ -82,7 +91,7 @@ export default function Certifications() {
 
         <div className={styles.callout}>
           <strong>12 certifications.</strong> All recognized by recruiters and
-          listable on LinkedIn. We don&rsquo;t charge extra &mdash; they&rsquo;re
+          listable on LinkedIn. We don&rsquo;t charge extra - they&rsquo;re
           part of the program.
         </div>
 
@@ -94,7 +103,7 @@ export default function Certifications() {
             </svg>
           </span>
           <p className={styles.confidence_text}>
-            We&rsquo;re so confident &mdash; with our training and your focus,
+            We&rsquo;re so confident - with our training and your focus,
             you&rsquo;ll clear the certification in your <em>1st attempt!</em>
           </p>
         </div>

@@ -45,11 +45,15 @@ export default function HeaderInteractivity({
       ([entry]) => {
         // Sentinel is at y=80px. When it leaves the viewport (scrolled past),
         // the header becomes "scrolled". When it re-enters, header becomes
-        // transparent again.
+        // transparent again. We also mirror the state onto <html> as a
+        // `data-scrolled` attribute so the mobile section-nav strip can collapse
+        // itself via CSS (no second scroll listener needed).
         if (entry.isIntersecting) {
           header.classList.remove(styles.is_scrolled);
+          document.documentElement.removeAttribute('data-scrolled');
         } else {
           header.classList.add(styles.is_scrolled);
+          document.documentElement.setAttribute('data-scrolled', '');
         }
       },
       { threshold: 0 }
@@ -98,16 +102,14 @@ export default function HeaderInteractivity({
       >
         <svg
           viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          fill="currentColor"
           aria-hidden="true"
         >
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="18" x2="21" y2="18" />
+          {/* Four rounded square dots (2×2 grid) — a more stylish menu mark */}
+          <rect x="4" y="4" width="6.5" height="6.5" rx="2" />
+          <rect x="13.5" y="4" width="6.5" height="6.5" rx="2" />
+          <rect x="4" y="13.5" width="6.5" height="6.5" rx="2" />
+          <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="2" />
         </svg>
       </button>
 

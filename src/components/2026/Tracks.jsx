@@ -79,7 +79,7 @@ const TRACKS = [
     key: 'elevate',
     variantClass: 'card_elevate',
     eyebrow: '7-Month Track',
-    title: 'ELEVATE™ — Digital Marketing + AI for Business',
+    title: 'ELEVATE™ - Digital Marketing + AI for Business Teams',
     specs: [
       ['Duration', '7 Months'],
       ['Format', 'Classroom + Online available'],
@@ -103,6 +103,7 @@ const TRACKS = [
     nextBatch: '12 Days',
     seatChip: null,
     showSash: false,
+    flagship: true,
     titleId: 'elevate-title',
   },
 ];
@@ -119,7 +120,9 @@ export default function Tracks() {
         <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Course Tracks</span>
           <h2 id="tracks-heading" className={styles.heading}>
-            Choose your track
+            Choose your track -{' '}
+            <span className={styles.kw}>digital marketing courses in Bangalore</span>{' '}
+            for every goal
           </h2>
         </header>
 
@@ -135,8 +138,16 @@ export default function Tracks() {
               data-reveal-delay={index}
             >
               {t.showSash && (
-                <span className={styles.sash} aria-hidden="true">
-                  Recommended
+                <span className={styles.popular}>
+                  <span className={styles.popular_star} aria-hidden="true">★</span>
+                  Most Popular
+                </span>
+              )}
+
+              {t.flagship && (
+                <span className={styles.flagship}>
+                  <span className={styles.flagship_star} aria-hidden="true">★</span>
+                  Flagship Program
                 </span>
               )}
 

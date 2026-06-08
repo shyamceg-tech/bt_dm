@@ -16,12 +16,17 @@
 import styles from './NamedPlacements.module.css';
 import NamedPlacementsBoard from './NamedPlacementsBoard';
 
-export default function NamedPlacements() {
+export default function NamedPlacements({ merged = false }) {
+  // `merged` = this section flows straight into the CTA banner below it
+  // (home page). It drops the bottom-left cyan accents + the blur blob and
+  // tightens the bottom padding so the two read as one continuous section.
+  const sectionClass = `${styles.section}${merged ? ` ${styles.section_merged}` : ''}`;
+
   return (
-    <section className={styles.section} aria-labelledby="placements-heading">
+    <section className={sectionClass} aria-labelledby="placements-heading">
       <div className={styles.inner}>
         <h2 className={styles.heading} id="placements-heading" data-reveal>
-          Where our 2025&ndash;26 batches landed &mdash; real names, real
+          Where our 2025&ndash;26 batches landed - real names, real
           companies, real packages
         </h2>
         <p className={styles.subline}>

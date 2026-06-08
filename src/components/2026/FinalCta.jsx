@@ -53,7 +53,7 @@ export default function FinalCta() {
               id="final-cta-form"
               formPosition="final-cta"
               theme="light"
-              ariaLabel="Apply for the next batch — final closing form"
+              ariaLabel="Apply for the next batch - final closing form"
             />
           </div>
 

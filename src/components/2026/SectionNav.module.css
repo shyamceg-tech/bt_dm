@@ -13,6 +13,17 @@
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--border-default);
   box-shadow: 0 1px 4px rgba(11, 20, 34, 0.04);
+  transition: opacity 220ms ease, visibility 220ms ease;
+}
+
+/* Once scrolled past the header, collapse this strip — its job moves into the
+   header (the live section label). `visibility`/`opacity` are used (not
+   display) so the element keeps its box: no reflow, no scroll jump. The signal
+   is the `data-scrolled` attribute HeaderInteractivity sets on <html>. */
+:global(html[data-scrolled]) .nav {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 @media (min-width: 1024px) {
@@ -55,4 +66,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .tab { transition: none; }
+  .nav { transition: none; }
 }

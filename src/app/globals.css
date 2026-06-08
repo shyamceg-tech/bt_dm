@@ -19,7 +19,12 @@
   --bg-deepest:     #061232;
 
   /* ─── Brand ────────────────────────────────────────────────────────────── */
-  --brand-blue:        #1A5FFF;
+  /* Deep, vivid royal blue — the most-repeated text/accent colour on the site.
+     Close to the original ink blue (#1A5FFF) but more refined (that one read a
+     bit "school/college"); strong contrast on white (~5.2:1) without going
+     navy. (#1976D2 / #2196F3 read dull.) Drives all the brand-blue keyword
+     highlights, eyebrows, accents site-wide. */
+  --brand-blue:        #2563EB;
   --brand-blue-soft:   #E6EEFF;
   --cta-orange:        #FF6A1A;
   --cta-orange-hover:  #E55510;
@@ -46,7 +51,7 @@
   --aurora-grad: linear-gradient(90deg, var(--aurora-1) 0%, var(--aurora-2) 50%, var(--aurora-3) 100%);
 
   /* ─── Program tier accents ─────────────────────────────────────────────── */
-  --pcp-color:      #1A5FFF;   --pcp-soft:      #E6EEFF;
+  --pcp-color:      #2563EB;   --pcp-soft:      #E6EEFF;
   --pgcp-color:     #6B4FE0;   --pgcp-soft:     #ECE7FB;
   --elevate-color:  #0F8086;   --elevate-soft:  #DCF1F2;
 
@@ -166,14 +171,14 @@ html {
   background: #0A0E27;
 }
 
-/* Respect users who prefer reduced motion — disable smooth scroll for them */
+/* Reduced motion: disable smooth scroll only. We intentionally do NOT blanket
+   force-disable every animation/transition here, because several deliberately
+   light-touch effects (marquees, gentle gradient sweeps, staggered reveals)
+   were specifically requested and must remain visible regardless of this OS
+   setting. The previous universal `* { animation-duration: 0.001ms !important }`
+   was overriding every per-component rule and freezing those effects. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
 }
 
 body {
@@ -363,6 +368,17 @@ svg { display: block; max-width: 100%; }
 @keyframes bt-blink {
   0%, 50%  { opacity: 1; }
   51%, 100% { opacity: 0; }
+}
+
+/* ── Bold / tech accents (GPU-friendly: only background-position + opacity) ── */
+@keyframes bt-gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+@keyframes bt-glow-pulse {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 0.85; }
 }
 
 /* ============================================================================

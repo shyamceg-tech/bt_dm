@@ -43,9 +43,19 @@ export default function AiToolStack() {
         </h2>
         <p className={styles.subline}>
           Hands-on practice on the exact tools agencies are hiring for this
-          quarter &mdash; not the ones your college taught two years ago.
+          quarter - not the ones your college taught two years ago.
           Curriculum refreshes every quarter.
         </p>
+
+        <div className={styles.media} data-reveal>
+          <Image
+            src="/img/2026/ai_tools_ecosystem.webp"
+            alt="A marketer working with generative-AI tools and live data dashboards"
+            fill
+            sizes="(min-width: 1024px) 1100px, 100vw"
+            className={styles.media_img}
+          />
+        </div>
 
         <div
           className={styles.logo_grid}
@@ -53,7 +63,7 @@ export default function AiToolStack() {
           aria-label="50+ AI and marketing tools covered in the curriculum"
         >
           {LOGOS.map((t, index) => (
-            <div key={t.name} className={styles.logo_item} role="listitem" data-reveal data-reveal-delay={index}>
+            <div key={t.name} className={styles.logo_item} role="listitem" data-reveal data-reveal-delay={index % 8}>
               <Image
                 src={`/img/ai-tools/${t.logo}`}
                 alt={t.name}

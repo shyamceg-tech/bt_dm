@@ -23,7 +23,6 @@
 import Image from 'next/image';
 import styles from './Hero.module.css';
 import HeroForm from './HeroForm';
-import TypewriterHeadline from './TypewriterHeadline';
 
 /* ─── Inline icons (one source of truth) ──────────────────────────────────── */
 
@@ -81,7 +80,7 @@ const CHIPS = [
   '100% Placement Record',
   'AI-Native 2026 Curriculum',
   'Trainers with 5-10 yrs Exp',
-  'Next Batch Starts in 12 Days',
+  'Indiranagar, Next to Metro Station',
 ];
 
 /* ─── Hero ────────────────────────────────────────────────────────────────── */
@@ -98,8 +97,11 @@ export default function Hero() {
 
           <div className={styles.headline} aria-label="Course title">
             <span className={styles.headline_master}>MASTER</span>
-            <TypewriterHeadline className={styles.headline_dm} text="DIGITAL MARKETING" delay={300} />
-            <TypewriterHeadline className={styles.headline_ai} text="WITH AI" delay={1400} />
+            <span className={styles.headline_dm}>DIGITAL MARKETING</span>
+            {/* Gradient color-sweep animation lives on .headline_ai; the old
+                typewriter reveal (with its line-jump + blinking cursor) was
+                removed so the headline paints in its final position instantly. */}
+            <span className={styles.headline_ai}>WITH AI</span>
           </div>
 
           <ul className={styles.chips} aria-label="Program highlights">
@@ -110,26 +112,30 @@ export default function Hero() {
               </li>
             ))}
           </ul>
+        </div>
 
-          <div className={styles.badges} aria-label="Recognitions">
-            <div
-              className={`${styles.badge} ${styles.badge_gold}`}
-              role="img"
-              aria-label="Top 10 Digital Marketing Academies in India"
-            >
-              <Image
-                src="/img/top.svg"
-                alt=""
-                width={161}
-                height={111}
-                className={styles.badge_top_svg}
-                priority
-              />
-            </div>
-            <div className={`${styles.badge} ${styles.badge_cyan}`}>
-              <p>Rated Based On Best Trained Faculty and Latest Curriculum</p>
-              <CyanBadgeStars />
-            </div>
+        {/* ── Recognition badges ───────────────────────────────────────────
+            Kept as a sibling between the copy and the form so the MOBILE order
+            is unchanged (copy → badges → form, exactly as before). On desktop
+            the grid relocates this block to sit directly below the form. */}
+        <div className={styles.badges} aria-label="Recognitions">
+          <div
+            className={`${styles.badge} ${styles.badge_gold}`}
+            role="img"
+            aria-label="Top 10 Digital Marketing Academies in India"
+          >
+            <Image
+              src="/img/top.svg"
+              alt=""
+              width={161}
+              height={111}
+              className={styles.badge_top_svg}
+              priority
+            />
+          </div>
+          <div className={`${styles.badge} ${styles.badge_cyan}`}>
+            <p>Rated Based On Best Trained Faculty and Latest Curriculum</p>
+            <CyanBadgeStars />
           </div>
         </div>
 

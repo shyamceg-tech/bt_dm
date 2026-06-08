@@ -14,8 +14,45 @@
 .section {
   position: relative;
   background: var(--bg-alt);
-  padding: 72px 0;
+  /* Trimmed top padding to reduce the gap with the section above. */
+  padding: 44px 0 72px;
   scroll-margin-top: 80px;
+
+  /* Phase 3B refined tier palette (scoped locally — does NOT touch the shared
+     --pcp/--pgcp/--elevate global tokens used by other sections). Cards stay
+     clean & light; colour lives in small accents + an animated gradient border.
+       PCP     = brand blue
+       PGCP    = deep indigo (Most Popular) — richer than flat purple
+       Elevate = champagne gold on ivory (premium flagship) */
+  --t-blue:         #2563EB;  --t-blue-soft:   #E6EEFF;  --t-blue-bright: #5BA8FF;
+  --t-indigo:       #4338CA;  --t-indigo-soft: #E9EAFD;  --t-indigo-bright: #7C8BFF;
+  --t-gold:         #8A5E12;  --t-gold-soft:   #FBF1D8;  --t-gold-bright: #E9C46A;
+  --t-gold-mid:     #C8901C;
+  --t-ink:          #0B1422;
+}
+
+/* Animated gradient border ("sweeping colour"): only the gradient's position
+   moves, so it stays on the GPU compositor path — no layout, no repaint, no JS,
+   no impact on load speed. */
+@keyframes bt_track_sweep {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Local copies of global keyframes: CSS Modules scopes any keyframe name used
+   in this file, so referencing the globals (globals.css) would point at a
+   renamed, non-existent name and silently never animate. */
+@keyframes bt-gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+@keyframes bt-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(3deg); }
+}
+@keyframes bt-float-reverse {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(12px) rotate(-3deg); }
 }
 
 .section::before {
@@ -47,7 +84,7 @@
 }
 
 @media (min-width: 1024px) {
-  .section { padding: 96px 0; }
+  .section { padding: 60px 0 96px; }
 }
 
 .container {
@@ -91,6 +128,9 @@
 @media (min-width: 768px) { .heading { font-size: 36px; } }
 @media (min-width: 1024px) { .heading { font-size: 44px; } }
 
+/* Keyword phrase highlighted in the brand accent within the headline. */
+.kw { color: var(--brand-blue); font-weight: 800; }
+
 /* ─── Grid ──────────────────────────────────────────────────────────────── */
 .grid {
   margin-top: 32px;
@@ -122,9 +162,13 @@
 }
 
 /* ─── Card shell ────────────────────────────────────────────────────────── */
+/* Phase 3B (v2): clean, premium light cards. Colour is NOT washed across the
+   card — it lives in (a) a slow animated gradient border that sweeps round the
+   edge, and (b) small accents (track chip, price, ticks, next-batch). Titles
+   are dark ink for readability. Base .card = PCP; variants override below. */
 .card {
   position: relative;
-  background: var(--bg-base);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FBFCFE 100%);
   border: 1px solid var(--border-default);
   border-radius: 16px;
   padding: 24px 20px;
@@ -132,12 +176,47 @@
   display: flex;
   flex-direction: column;
   transition: transform 300ms ease, box-shadow 300ms ease, border-color 200ms ease;
+  /* Per-card sweep colours (overridden by variants). */
+  --sweep: linear-gradient(110deg,
+            var(--t-blue) 0%, var(--t-blue-bright) 25%, #19D3DA 50%,
+            var(--t-blue-bright) 75%, var(--t-blue) 100%);
+  --sweep-speed: 7s;
+}
+
+/* The animated gradient border ring. Implemented as a masked pseudo so only a
+   2px ring is painted. Wrapped in @supports: browsers without mask-compositing
+   simply keep the plain 1px border above — no broken full-card overlay. */
+@supports ((-webkit-mask-composite: xor) or (mask-composite: exclude)) {
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;                 /* = ring thickness */
+    background: var(--sweep);
+    background-size: 300% 100%;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+  /* Mild colour-sweep around the border that runs when the card scrolls into
+     view and repeats twice, then settles into a static gradient ring. Only the
+     gradient position moves (GPU compositor) — no layout/paint, no load cost. */
+  .card[data-revealed]::before {
+    animation: bt_track_sweep var(--sweep-speed) linear 2;
+  }
+  /* The ring is the visible border now, so drop the static one underneath
+     (border:none keeps the ring flush to the card's visual edge). */
+  .card { border: none; }
 }
 
 .card:hover {
   transform: translateY(-4px) rotateX(2deg) rotateY(-1deg);
   box-shadow: var(--shadow-card-hover);
-  border-color: var(--border-strong);
 }
 
 @media (min-width: 768px) { .card { padding: 32px 28px; } }
@@ -145,18 +224,36 @@
 @media (min-width: 1024px) { .card { padding: 28px 22px; } }
 @media (min-width: 1280px) { .card { padding: 32px 26px; } }
 
-/* PGCP variant (recommended, violet border + glow) */
+/* PGCP — Most Popular: still a clean white card, but the brightest indigo
+   sweep + a soft indigo glow + a slightly thicker, faster ring make it the
+   obvious hero. */
 .card_pgcp {
-  border: 2px solid var(--pgcp-color);
-  box-shadow: 0 12px 32px -20px rgba(107, 79, 224, 0.35),
-              0 4px 16px -8px rgba(11, 20, 34, 0.06);
+  --sweep: linear-gradient(110deg,
+            var(--t-indigo) 0%, var(--t-indigo-bright) 22%, #19D3DA 45%,
+            var(--t-indigo-bright) 70%, var(--t-indigo) 100%);
+  --sweep-speed: 5s;
+  box-shadow: 0 16px 40px -20px rgba(67, 56, 202, 0.40),
+              0 4px 16px -8px rgba(11, 20, 34, 0.08);
 }
 
-/* Elevate variant (teal border + glow) */
+@supports ((-webkit-mask-composite: xor) or (mask-composite: exclude)) {
+  .card_pgcp::before { padding: 2.25px; }
+}
+
+/* Elevate — premium flagship (light): warm ivory/champagne background + a gold
+   sweep + a soft gold glow. Reads luxe without going dark. */
 .card_elevate {
-  border: 2px solid var(--elevate-color);
-  box-shadow: 0 12px 32px -20px rgba(15, 128, 134, 0.30),
-              0 4px 16px -8px rgba(11, 20, 34, 0.06);
+  background: linear-gradient(180deg, #FFFDF8 0%, #FBF3E3 100%);
+  --sweep: linear-gradient(110deg,
+            var(--t-gold-mid) 0%, var(--t-gold-bright) 25%, #F6E3B0 50%,
+            var(--t-gold-bright) 75%, var(--t-gold-mid) 100%);
+  --sweep-speed: 6.5s;
+  box-shadow: 0 16px 40px -20px rgba(176, 125, 24, 0.38),
+              0 4px 16px -8px rgba(11, 20, 34, 0.10);
+}
+
+@supports ((-webkit-mask-composite: xor) or (mask-composite: exclude)) {
+  .card_elevate::before { padding: 2px; }
 }
 
 /* ─── Track eyebrow chip (3-Month Track / 5-Month / 7-Month) ────────────── */
@@ -171,18 +268,18 @@
   margin-bottom: 14px;
   align-self: flex-start;
   /* Default = PCP (blue) */
-  background: var(--pcp-soft);
-  color: var(--pcp-color);
+  background: var(--t-blue-soft);
+  color: var(--t-blue);
 }
 
 .card_pgcp .track_eyebrow {
-  background: var(--pgcp-soft);
-  color: var(--pgcp-color);
+  background: var(--t-indigo-soft);
+  color: var(--t-indigo);
 }
 
 .card_elevate .track_eyebrow {
-  background: var(--elevate-soft);
-  color: var(--elevate-color);
+  background: var(--t-gold-soft);
+  color: var(--t-gold);
 }
 
 /* ─── Title ─────────────────────────────────────────────────────────────── */
@@ -191,7 +288,7 @@
   font-size: 22px;
   line-height: 1.22;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--t-ink);              /* dark ink on every card — best readability */
   margin: 0 0 16px;
 }
 
@@ -204,6 +301,12 @@
   height: 1px;
   background: var(--border-default);
   margin: 16px 0;
+}
+
+/* Premium Elevate: thin gold accent rules instead of plain grey dividers. */
+.card_elevate .divider {
+  height: 2px;
+  background: linear-gradient(90deg, var(--t-gold-mid) 0%, var(--t-gold-bright) 40%, transparent 100%);
 }
 
 /* ─── Specs (Duration / Format / Schedule) ──────────────────────────────── */
@@ -276,11 +379,11 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--pcp-color);
+  background: var(--t-blue);
 }
 
-.card_pgcp .hireable li::before { background: var(--pgcp-color); }
-.card_elevate .hireable li::before { background: var(--elevate-color); }
+.card_pgcp .hireable li::before { background: var(--t-indigo); }
+.card_elevate .hireable li::before { background: var(--t-gold-mid); }
 
 /* ─── Tickrow ("15+ live projects · 20+ tools…") ────────────────────────── */
 .tickrow {
@@ -308,25 +411,29 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #E2F4EA;
-  color: var(--success-green);
+  /* PCP = blue tint (tier-cohesive highlight) */
+  background: var(--t-blue-soft);
+  color: var(--t-blue);
   font-size: 13px;
   font-weight: 800;
 }
+
+.card_pgcp .tickrow_mark { background: var(--t-indigo-soft); color: var(--t-indigo); }
+.card_elevate .tickrow_mark { background: var(--t-gold-soft); color: var(--t-gold); }
 
 /* ─── Fee block ─────────────────────────────────────────────────────────── */
 .fee_block {
   margin-top: 16px;
   padding: 16px;
   border-radius: 12px;
-  background: var(--bg-alt);
+  background: var(--t-blue-soft);   /* PCP = blue-soft (tier-cohesive) */
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
 }
 
-.card_pgcp .fee_block { background: var(--pgcp-soft); }
-.card_elevate .fee_block { background: var(--elevate-soft); }
+.card_pgcp .fee_block { background: var(--t-indigo-soft); }
+.card_elevate .fee_block { background: var(--t-gold-soft); }
 
 .fee_cell {
   display: flex;
@@ -348,13 +455,13 @@
   font-family: var(--font-display), system-ui, sans-serif;
   font-size: 22px;
   font-weight: 800;
-  color: var(--pcp-color);
+  color: var(--t-blue);
   letter-spacing: -0.01em;
   line-height: 1.1;
 }
 
-.card_pgcp .fee_value { color: var(--pgcp-color); }
-.card_elevate .fee_value { color: var(--elevate-color); }
+.card_pgcp .fee_value { color: var(--t-indigo); }
+.card_elevate .fee_value { color: var(--t-gold); }
 
 .fee_suffix {
   font-size: 13px;
@@ -375,8 +482,8 @@
   gap: 2px;
 }
 
-.card_pgcp .batch_block { background: var(--pgcp-soft); gap: 8px; }
-.card_elevate .batch_block { background: var(--elevate-soft); }
+.card_pgcp .batch_block { background: var(--t-indigo-soft); gap: 8px; }
+.card_elevate .batch_block { background: var(--t-gold-soft); }
 
 .batch_label {
   font-family: var(--font-display), system-ui, sans-serif;
@@ -390,11 +497,11 @@
 .batch_date {
   font-size: 14px;
   font-weight: 700;
-  color: var(--brand-blue);
+  color: var(--t-blue);
 }
 
-.card_pgcp .batch_date { color: var(--pgcp-color); }
-.card_elevate .batch_date { color: var(--elevate-color); }
+.card_pgcp .batch_date { color: var(--t-indigo); }
+.card_elevate .batch_date { color: var(--t-gold); }
 
 .seat_chip {
   display: inline-flex;
@@ -420,24 +527,67 @@
   box-shadow: 0 0 0 2px rgba(31, 157, 85, 0.18);
 }
 
-/* ─── PGCP recommended sash ─────────────────────────────────────────────── */
-.sash {
-  position: absolute;
-  top: 20px;
-  right: -36px;
-  background: var(--pgcp-color);
-  color: var(--text-on-deep);
-  padding: 6px 46px 6px 54px;
+/* ─── PGCP "Most Popular" pill ──────────────────────────────────────────────
+   In-flow pill at the very top of the card (above the track chip) — replaces
+   the old diagonal corner ribbon, which was overlapping the course title and
+   clipping the word "Digital". Indigo gradient with a gentle shimmer. */
+.popular {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(110deg, var(--t-indigo) 0%, #6366F1 50%, var(--t-indigo) 100%);
+  background-size: 200% 100%;
+  animation: bt-gradient-pan 4s ease infinite;
+  color: #FFFFFF;
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  transform: rotate(45deg);
-  transform-origin: center center;
-  box-shadow: 0 4px 12px -4px rgba(107, 79, 224, 0.5);
+  box-shadow: 0 6px 16px -6px rgba(67, 56, 202, 0.55);
+  position: relative;
   z-index: 2;
-  text-align: center;
+}
+
+.popular_star {
+  font-size: 12px;
+  line-height: 1;
+  color: var(--t-gold-bright);   /* gold star for a premium touch */
+}
+
+/* ─── Elevate "Flagship Program" pill ───────────────────────────────────────
+   Same in-flow placement + gentle gradient pan as the PGCP "Most Popular" pill,
+   in the Elevate gold palette. Dark ink for contrast on the lighter gold. */
+.flagship {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(110deg, var(--t-gold-mid) 0%, var(--t-gold-bright) 50%, var(--t-gold-mid) 100%);
+  background-size: 200% 100%;
+  animation: bt-gradient-pan 4s ease infinite;
+  color: #3A2A06;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px -6px rgba(176, 125, 24, 0.55);
+  position: relative;
+  z-index: 2;
+}
+
+.flagship_star {
+  font-size: 12px;
+  line-height: 1;
+  color: #FFFFFF;   /* white star pops on the gold pill */
 }
 
 /* ─── CTA button (orange primary) ───────────────────────────────────────── */
@@ -507,6 +657,40 @@
   outline-offset: 2px;
 }
 
+/* ─── Per-tier CTA treatments ────────────────────────────────────────────── */
+/* PCP + PGCP keep the proven orange primary (PGCP is the Most Popular pick we
+   want clicked). Only the secondary "View curriculum" link is tinted to match
+   the card. Elevate gets a premium gold-gradient primary as the flagship tier. */
+.card_pgcp .cta_secondary {
+  border-color: var(--t-indigo);
+  color: var(--t-indigo);
+}
+.card_pgcp .cta_secondary:hover {
+  background: var(--t-indigo);
+  color: var(--text-on-deep);
+}
+
+.card_elevate .cta {
+  background: linear-gradient(135deg, #C8901C 0%, #9A6B12 100%);
+  box-shadow: 0 8px 20px -8px rgba(154, 107, 18, 0.55),
+              inset 0 1px 0 rgba(246, 227, 176, 0.45);
+}
+.card_elevate .cta:hover {
+  background: linear-gradient(135deg, #B5810F 0%, #845A0C 100%);
+}
+.card_elevate .cta:focus-visible {
+  outline: 3px solid rgba(176, 125, 24, 0.45);
+}
+
+.card_elevate .cta_secondary {
+  border-color: var(--t-gold-mid);
+  color: var(--t-gold);
+}
+.card_elevate .cta_secondary:hover {
+  background: var(--t-gold-mid);
+  color: var(--text-on-deep);
+}
+
 /* ─── Scarcity footer line ──────────────────────────────────────────────── */
 .scarcity {
   margin: 28px auto 0;
@@ -521,4 +705,7 @@
 /* ─── Reduced motion ────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .cta { transition: none !important; }
+  /* The border colour-sweep, the "Most Popular" and the "Flagship Program"
+     shimmers are explicitly-requested effects, so they keep running even under
+     reduce-motion (they're gentle, GPU-only gradient pans). */
 }

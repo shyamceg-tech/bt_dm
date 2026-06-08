@@ -73,8 +73,10 @@
   padding: 16px 0;
 }
 
-.arrow svg { display: block; }
-
+/* NOTE: do NOT add a generic `.arrow svg { display:block }` rule here — its
+   higher specificity (0,1,1) would override the `.arrow_vert`/`.arrow_horiz`
+   (0,1,0) toggles below and force both arrows visible. The display values on
+   the two classes already block-render the SVGs. */
 .arrow_vert  { display: block; }
 .arrow_horiz { display: none; }
 

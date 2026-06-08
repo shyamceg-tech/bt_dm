@@ -13,6 +13,8 @@
 
 import { useCallback, useId, useState } from 'react';
 import { submitToBigin } from '@/lib/submitToBigin';
+import { openLeadFunnel } from '@/lib/leadFunnel';
+import { preloadRecaptcha } from '@/lib/recaptcha';
 import styles from './MiniForm.module.css';
 
 const PHONE_PATTERN = '[0-9]{10}';
@@ -65,6 +67,12 @@ export default function MiniForm({
       setSubmitting(false);
       if (result.ok) {
         setStatus('success');
+        openLeadFunnel({
+          leadId: result.id,
+          name: name.trim(),
+          mobile: phone,
+          formPosition,
+        });
       } else {
         setStatus('error');
         setErrorMsg(result.message || FALLBACK_ERROR);
@@ -89,6 +97,7 @@ export default function MiniForm({
       method="POST"
       noValidate
       onSubmit={onSubmit}
+      onFocus={preloadRecaptcha}
       aria-label={ariaLabel}
     >
       <input type="hidden" name="formType" value="default" />

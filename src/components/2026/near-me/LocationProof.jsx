@@ -48,7 +48,7 @@ export default function LocationProof() {
         <header className={styles.head}>
           <span className={styles.eyebrow}>Visit the campus</span>
           <h2 id="location-heading" className={styles.heading}>
-            A real classroom you can walk into —{' '}
+            A real classroom you can walk into -{' '}
             <span className={styles.heading_accent}>not a Zoom-only course</span>
           </h2>
           <p className={styles.lede}>
@@ -82,7 +82,7 @@ export default function LocationProof() {
               <div className={styles.row_text}>
                 <p className={styles.row_label}>Campus hours</p>
                 <p className={styles.row_value}>{CAMPUS.hours}</p>
-                <p className={styles.row_note}>Walk in any time — no appointment needed.</p>
+                <p className={styles.row_note}>Walk in any time - no appointment needed.</p>
               </div>
             </div>
 
@@ -120,7 +120,7 @@ export default function LocationProof() {
               src={CAMPUS.mapEmbedUrl}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="BlueTick Academy — Indiranagar campus map"
+              title="BlueTick Academy - Indiranagar campus map"
               allowFullScreen
             />
           </div>

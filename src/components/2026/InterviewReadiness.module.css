@@ -48,6 +48,35 @@
 @media (min-width: 768px)  { .heading { font-size: 36px; } }
 @media (min-width: 1024px) { .heading { font-size: 44px; } }
 
+/* The positive "...how BlueTick students walk in" half of the headline, lifted
+   to the brand blue to contrast the neutral "most freshers" framing. */
+.heading_hl { color: var(--brand-blue); }
+
+/* ─── Section photo (blends into the white background) ──────────────────── */
+.media {
+  position: relative;
+  margin-top: 32px;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  box-shadow: 0 16px 36px -20px rgba(26, 95, 255, 0.20);
+}
+
+@media (min-width: 768px) {
+  .media { aspect-ratio: 24 / 9; }
+}
+
+.media_img { object-fit: cover; object-position: center 35%; }
+
+.media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 62%, rgba(255, 255, 255, 0.5) 100%);
+  pointer-events: none;
+}
+
 /* ─── Grid: mobile horizontal swipe rail → desktop 2-col grid ──────────── */
 .grid {
   margin-top: 40px;
@@ -88,6 +117,11 @@
   color: var(--text-secondary);
 }
 
+/* Local copy of the global keyframe (CSS Modules scopes keyframe names). */
+@keyframes bt-nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(4px); }
+}
 .swipe_hint svg {
   width: 14px;
   height: 14px;

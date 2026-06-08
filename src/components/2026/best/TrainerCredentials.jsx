@@ -9,7 +9,7 @@ import styles from './TrainerCredentials.module.css';
 const TRAINERS = [
   {
     initials: 'AK',
-    color: '#1A5FFF',
+    color: '#2563EB',
     name: 'Aditya Kumar',
     experience: '11 yrs industry experience',
     specialization: 'Paid Media & Performance Marketing',
@@ -51,7 +51,7 @@ export default function TrainerCredentials() {
           </h2>
           <p className={styles.subline}>
             The case study you study on Monday was their campaign debrief on Friday.
-            Not a classroom exercise &mdash; a real brief, a real budget, a real result.
+            Not a classroom exercise - a real brief, a real budget, a real result.
           </p>
         </header>
 

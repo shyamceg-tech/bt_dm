@@ -89,7 +89,11 @@
   display: flex;
   gap: 16px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  /* proximity (not mandatory) so a vertical page-scroll started over the rail
+     isn't swallowed by horizontal snap; contain keeps the gesture local. */
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   margin: var(--s-32) calc(var(--gutter-mobile) * -1) 0;
@@ -119,7 +123,9 @@
 
 /* ─── Card ──────────────────────────────────────────────────────────────── */
 .card {
-  flex: 0 0 min(calc(100vw - 48px), 300px);
+  /* Mobile: narrower than viewport so the next card clearly peeks in and the
+     row reads as a swipeable carousel. Desktop resets to grid (below). */
+  flex: 0 0 min(74vw, 264px);
   scroll-snap-align: start;
   background: var(--bg-base);
   border: 1px solid var(--border-default);
@@ -249,6 +255,17 @@
   border-radius: 999px;
 }
 
+/* Local copies of the global keyframes used in this file (CSS Modules scopes
+   keyframe names, so the global references would never resolve). */
+@keyframes bt-nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(4px); }
+}
+@keyframes bt-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-12px) rotate(3deg); }
+}
+
 .scroll_hint_arrow {
   display: inline-flex;
   align-items: center;
@@ -257,6 +274,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scroll_hint_arrow { animation: none !important; }
   .card { transition: none !important; }
 }

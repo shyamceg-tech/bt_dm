@@ -12,10 +12,17 @@
 
 /* ─── Section shell ─────────────────────────────────────────────────────── */
 .section {
+  position: relative;
+  overflow: hidden;
+  /* Light cool gradient (soft violet → sky-blue) that bridges nicely between
+     the two dark-navy sections that sandwich this strip (Hero above, Salary
+     below). Replaces the old flat green which clashed with the navy. */
   background:
-    radial-gradient(circle at 1px 1px, rgba(16, 185, 129, 0.10) 1px, transparent 1px),
-    linear-gradient(180deg, #ECFDF5 0%, #F0FDFA 100%);
-  background-size: 22px 22px, 100% 100%;
+    radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.12), transparent 45%),
+    radial-gradient(circle at 100% 25%, rgba(56, 189, 248, 0.14), transparent 45%),
+    radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.10) 1px, transparent 1px),
+    linear-gradient(180deg, #F4F3FF 0%, #EAF3FF 100%);
+  background-size: 100% 100%, 100% 100%, 22px 22px, 100% 100%;
   padding: var(--s-56) 0;
 }
 
@@ -56,7 +63,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--c-mint);
+  color: #6366F1;
   text-align: center;
   margin-top: var(--s-24);
 }
@@ -108,9 +115,9 @@
 @media (min-width: 1024px) {
   .row_label {
     display: inline-block;
-    background: rgba(16, 185, 129, 0.15);
-    color: #047857;
-    border: 1px solid rgba(16, 185, 129, 0.40);
+    background: rgba(99, 102, 241, 0.12);
+    color: #4338CA;
+    border: 1px solid rgba(99, 102, 241, 0.35);
     padding: 4px 12px;
     border-radius: 999px;
     font-family: var(--font-body), system-ui, sans-serif;
@@ -119,6 +126,10 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: 8px;
+    /* The marquee row has a left-edge mask fade (transparent → opaque over the
+       first 8%). Nudge the label in past that band so its left side is no
+       longer clipped/faded. (Labels are desktop-only — hidden on mobile.) */
+    margin-left: 12%;
   }
 }
 

@@ -7,6 +7,8 @@
 
 import { useId, useState } from 'react';
 import { submitToBigin } from '@/lib/submitToBigin';
+import { openLeadFunnel } from '@/lib/leadFunnel';
+import { preloadRecaptcha } from '@/lib/recaptcha';
 import { HERO } from '@/data/best-bangalore.config';
 import styles from './HeroBest.module.css';
 
@@ -47,8 +49,15 @@ export default function HeroBestForm() {
     });
 
     setSubmitting(false);
-    if (result.ok) setStatus('success');
-    else {
+    if (result.ok) {
+      setStatus('success');
+      openLeadFunnel({
+        leadId: result.id,
+        name: name.trim(),
+        mobile: phone,
+        formPosition: 'hero-best',
+      });
+    } else {
       setStatus('error');
       setErrorMsg(result.message || FALLBACK_ERROR);
     }
@@ -64,6 +73,7 @@ export default function HeroBestForm() {
       method="POST"
       noValidate
       onSubmit={onSubmit}
+      onFocus={preloadRecaptcha}
       aria-labelledby="best-form-heading"
     >
       <input type="hidden" name="formType" value="default" />
@@ -142,7 +152,7 @@ export default function HeroBestForm() {
 
       {status === 'success' && (
         <p className={`${styles.form_status} ${styles.form_status_success}`} role="status">
-          Got it! A placement counsellor will WhatsApp you within 12 mins with the ranking comparison sheet.
+          Got it! A placement counsellor will WhatsApp you within 15 mins with the ranking comparison sheet.
         </p>
       )}
       {status === 'error' && (

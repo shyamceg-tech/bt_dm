@@ -6,7 +6,7 @@
 import styles from './AlumniProof.module.css';
 
 const ALUMNI = [
-  { initials: 'PS', color: '#1A5FFF', name: 'Priya Sharma',   batch: 'Apr 2025',  role: 'Digital Marketing Lead',    company: 'Swiggy',     lpa: '₹9.2 LPA' },
+  { initials: 'PS', color: '#2563EB', name: 'Priya Sharma',   batch: 'Apr 2025',  role: 'Digital Marketing Lead',    company: 'Swiggy',     lpa: '₹9.2 LPA' },
   { initials: 'RV', color: '#6B4FE0', name: 'Rahul Verma',    batch: 'Jan 2025',  role: 'SEO Manager',               company: 'Razorpay',   lpa: '₹8.5 LPA' },
   { initials: 'SN', color: '#0F8086', name: 'Sneha Nair',     batch: 'Jul 2025',  role: 'Performance Marketing',     company: 'Zomato',     lpa: '₹7.8 LPA' },
   { initials: 'AP', color: '#EC4899', name: 'Arjun Patel',    batch: 'Oct 2024',  role: 'Growth Marketer',           company: 'CRED',       lpa: '₹10.1 LPA' },
@@ -36,7 +36,7 @@ export default function AlumniProof() {
             Real people. Real companies. Real LinkedIn profiles.
           </h2>
           <p className={styles.subline}>
-            On a counsellor call we share all 312 — with name, company, batch month, and LinkedIn URL.
+            On a counsellor call we share all 312 - with name, company, batch month, and LinkedIn URL.
             No stock photos. No anonymous quotes.
           </p>
         </header>
@@ -76,7 +76,7 @@ export default function AlumniProof() {
         </ul>
 
         <p className={styles.foot}>
-          <strong>This is 6 of 312.</strong> During the counsellor call we share the complete list —
+          <strong>This is 6 of 312.</strong> During the counsellor call we share the complete list - 
           batch month, current employer, and a direct LinkedIn link for every name.
           If you can&rsquo;t verify it, it shouldn&rsquo;t earn your trust.
         </p>

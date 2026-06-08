@@ -9,12 +9,14 @@
  * Phase 1 source: bluetick-2026-refresh-v3.html lines 8986–9093.
  */
 
+import Image from 'next/image';
 import styles from './CareerSwitcher.module.css';
 
 const STORIES = [
   {
     initials: 'VK',
     name: 'Vinay K.',
+    photo: 'Vinay.webp',
     meta: 'March 2025 batch · Switched at age 27',
     avatarVariant: null, // default brand-blue
     from: { line: 'BPO at Infosys',                               salary: '\u20B93.2 LPA' },
@@ -23,7 +25,8 @@ const STORIES = [
   },
   {
     initials: 'MR',
-    name: 'Megha R.',
+    name: 'Megha Raghupathy',
+    photo: 'Megha.webp',
     meta: 'January 2025 batch · Switched at age 25',
     avatarVariant: 'avatar_2', // PGCP violet
     from: { line: 'B.Tech graduate at TCS support', salary: '\u20B94.1 LPA' },
@@ -31,8 +34,9 @@ const STORIES = [
     quote: 'I never used my engineering degree. Digital marketing was the first work I actually enjoyed.',
   },
   {
-    initials: 'SP',
-    name: 'Suresh P.',
+    initials: 'FM',
+    name: 'Fazil MD',
+    photo: 'Fazil.webp',
     meta: 'November 2024 batch · Switched at age 28',
     avatarVariant: 'avatar_3', // Elevate teal
     from: { line: 'School teacher',                                salary: '\u20B92.8 LPA' },
@@ -72,12 +76,12 @@ export default function CareerSwitcher() {
         <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Career Switchers</span>
           <h2 id="career-switcher-heading" className={styles.heading}>
-            Switching from a non-marketing job? You&rsquo;re not alone &mdash;{' '}
+            Switching from a non-marketing job? You&rsquo;re not alone -{' '}
             <span className={styles.stat_inline}>41%</span> of our students are.
           </h2>
           <p className={styles.sub}>
             In our last 4 batches, 41% of students came from non-marketing
-            backgrounds &mdash; IT, BPO, sales, finance, even teaching.
+            backgrounds - IT, BPO, sales, finance, even teaching.
           </p>
         </header>
 
@@ -88,6 +92,22 @@ export default function CareerSwitcher() {
             return (
               <li key={s.name} className={styles.card} aria-labelledby={titleId} data-reveal data-reveal-delay={i}>
                 <div className={styles.head_row}>
+                  <div
+                    className={`${styles.avatar} ${s.avatarVariant ? styles[s.avatarVariant] : ''} ${s.photo ? styles.avatar_photo : ''}`}
+                    aria-hidden={s.photo ? undefined : 'true'}
+                  >
+                    {s.photo ? (
+                      <Image
+                        src={`/img/photo/${s.photo}`}
+                        alt={s.name}
+                        fill
+                        sizes="64px"
+                        className={styles.avatar_img}
+                      />
+                    ) : (
+                      s.initials
+                    )}
+                  </div>
                   <div>
                     <h3 id={titleId} className={styles.id_name}>{s.name}</h3>
                     <p className={styles.id_meta}>{s.meta}</p>

@@ -70,7 +70,7 @@ export default function ComparisonBest() {
 
         <p className={styles.foot}>
           We&rsquo;ll send the full comparison sheet on WhatsApp with{' '}
-          <strong>named alumni, fee breakdowns, and trainer profiles</strong> — so you can audit it yourself.
+          <strong>named alumni, fee breakdowns, and trainer profiles</strong> - so you can audit it yourself.
         </p>
       </div>
     </section>

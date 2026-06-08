@@ -51,7 +51,7 @@ export default function BatchSchedule() {
         </ul>
 
         <p className={styles.foot}>
-          Can&rsquo;t find a date that works? <a href="#near-me-hero-form">Tell us what suits you</a> — we run new batches monthly.
+          Can&rsquo;t find a date that works? <a href="#near-me-hero-form">Tell us what suits you</a> - we run new batches monthly.
         </p>
       </div>
     </section>

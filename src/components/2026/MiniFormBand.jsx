@@ -23,7 +23,7 @@ export default function MiniFormBand() {
       <div className={styles.inner}>
         <p className={styles.eyebrow}>Ready to lock your seat?</p>
         <h2 id="mini-form-band-h" className={styles.title}>
-          Apply for the next batch &mdash; 7 seats left
+          Apply for the next batch - 7 seats left
         </h2>
 
         <MiniForm
@@ -34,7 +34,7 @@ export default function MiniFormBand() {
         />
 
         <p className={styles.micro}>
-          Advisor calls back within 12 minutes &middot; Mon&ndash;Sat, 10am&ndash;7pm
+          Advisor calls back within 15 minutes &middot; Mon&ndash;Sat, 10am&ndash;7pm
         </p>
       </div>
     </section>

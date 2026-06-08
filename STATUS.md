@@ -1,10 +1,100 @@
 # BlueTick 2026 Refresh — Build Status
 
-**Last updated:** 2026-05-29
-**Last batch:** Phase 4A-fix — restored 2 components broken by overzealous cleanup
+**Last updated:** 2026-06-05
+**Last batch:** Phase 4B — performance investigation + third-party script deferral
 **Phase 2 status:** COMPLETE ✓
 **Phase 3 status:** COMPLETE ✓ (3A + 3B)
-**Phase 4 status:** 4A done (corrected) — 4B pending (browser measurement)
+**Phase 4 status:** 4A done (corrected) — 4B done (this batch)
+
+---
+
+## ⚡ Phase 4B — performance investigation + fix
+
+### The alarming Lighthouse report was run against `next dev`
+
+A Lighthouse report showed **Perf 44, FCP 2.6s, LCP 4.9s, TBT 8,310ms, SI 5.4s**
+on `http://localhost:3000`. That port was the **dev server** (`next dev
+--turbopack`). Dev-mode numbers are meaningless for perf: unminified React dev
+build, HMR runtime, on-demand route compilation, no tree-shaking. An 8.3s TBT
+is *impossible* for this page in production (First Load JS for `/` is 120 kB).
+
+### Verified by building and measuring production (`next build && next start`)
+
+| Metric | Dev (`next dev`) | **Production desktop** |
+|---|---|---|
+| Perf | 44 | **98–99** |
+| FCP | 2.6 s | **0.4–0.6 s** |
+| LCP | 4.9 s | **0.7–0.9 s** |
+| TBT | 8,310 ms | **30–80 ms** |
+| Speed Index | 5.4 s | **1.1–1.4 s** |
+
+Desktop already **beats both goals** (≥90 perf, SI <2s) with high stability.
+
+### The one real code issue: third-party marketing scripts
+
+On throttled **mobile**, the only remaining cost was third-party JS, loaded
+eagerly via `<Script strategy="afterInteractive">` in `layout.js`:
+GTM + the Google Ads gtag it injects + Meta Pixel ≈ **570 kB / ~1.7s of
+main-thread scripting** — 100% of Lighthouse's "unused JS" and most of TBT.
+
+**Fix:** `src/components/DeferredScripts.jsx` — boots GTM + Meta Pixel on the
+**first user interaction** (scroll / pointer / key / touch) or after a 4.5s idle
+fallback, off the critical path. Removed the two eager `<Script>` tags from
+`layout.js`. Result on mobile (when host CPU not contended): **Perf 41 → ~90,
+LCP 9.6s → ~3.1s, TBT 2,030ms → ~200ms.** Tracking verified intact — after
+interaction all 10 endpoints fire (GTM, GA4, Google Ads conversion +
+remarketing, Meta Pixel `fbq` + queued PageView, `gtm.start` in dataLayer).
+
+### Second code fix: hero LCP element was a background image
+
+A CDP probe (PerformanceObserver, throttled mobile emulation) revealed the
+mobile **LCP element was the hero `<section>` itself** — its
+`hero_atmospheric.webp` CSS background made it a ~310,000-px contentful paint
+that resolved *after* the headline text, so the image (not the text) defined
+LCP. This contradicted `Hero.jsx`'s own doc comment ("the hero is CSS-only…
+the image is NOT referenced here") — the webp in `Hero.module.css` was a
+leftover.
+
+**Fix:** removed the `url('/img/2026/hero_atmospheric.webp')` background layer
+from `Hero.module.css`, replaced with a solid deep-navy base + slightly more
+opaque gradient (the aurora blobs already supply the bottom-right colour).
+Re-probe confirms there is now a **single LCP candidate — the headline text —
+painting at FCP.** So real-device LCP ≈ FCP (verified). Hero visual unchanged
+(screenshot-checked); the webp was barely visible under the gradient anyway.
+
+Note: Lighthouse's *lantern* simulation still estimates lab LCP ~1.4s after FCP
+because the display web font (Plus Jakarta 800) sits on the simulated critical
+path and the HTML emits **no font preload** (next/font doesn't auto-preload
+when fonts are wired via CSS `variable` rather than `className`). This is a
+lab-only effect — with `display:swap`, real Chrome paints the headline at FCP
+in the fallback font and records LCP there. Optional future lab lever: preload
+the headline font weight (deferred — would mean hardcoding build-hashed font
+filenames, which is fragile; validate need on PSI post-deploy first).
+
+### What was tried and reverted
+
+`content-visibility: auto` on below-the-fold sections **regressed FCP by
+~750ms** (consistent 1.5s → 2.26s) — the page is already light (TBT ~200ms) and
+the cost is HTML-parse + hero paint, not off-screen layout. Reverted.
+
+### Measurement caveat (important)
+
+Local **throttled-mobile** Lighthouse on this dev laptop is unreliable: identical
+code swung Perf 45 ↔ 90 purely from host-CPU contention (stray Chrome procs, the
+dev server, thermal throttle) — Lighthouse multiplies any host slowdown by 4×.
+Desktop is stable because its throttle is light. **Definitive mobile numbers must
+come from PageSpeed Insights on the deployed Vercel URL** (Google's fixed
+hardware), where the site also gains HTTP/2, Brotli, edge CDN, and the
+next/image AVIF/WebP optimizer — all absent on localhost.
+
+### Images > 300 KB (flagged for the user to replace)
+
+- `public/img/google.svg` — **441 KB**, **referenced nowhere in `src/`** → safe to delete.
+- `public/img/banner.jpg` — **429 KB**, used only on legacy pages (`/contact_us`,
+  `/privacypolicy`, `/termsandcondition`) as a CSS background; **not on the home page.**
+
+(Note: I stopped the dev server that was on port 3000 for clean measurement —
+restart it with `npm run dev` whenever you need it.)
 
 ---
 

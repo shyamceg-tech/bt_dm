@@ -15,6 +15,7 @@
 
 import { useId, useState } from 'react';
 import { submitToBigin } from '@/lib/submitToBigin';
+import { preloadRecaptcha } from '@/lib/recaptcha';
 import styles from './ModalForm.module.css';
 
 const PHONE_PATTERN = '[0-9]{10}';
@@ -117,6 +118,7 @@ export default function FranchiseeForm({ onClose }) {
       method="POST"
       noValidate
       onSubmit={onSubmit}
+      onFocus={preloadRecaptcha}
     >
       <input type="hidden" name="formType" value="franchisee" />
       <input type="hidden" name="formPosition" value="header-modal" />

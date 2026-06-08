@@ -8,6 +8,8 @@
 
 import { useId, useState } from 'react';
 import { submitToBigin } from '@/lib/submitToBigin';
+import { openLeadFunnel } from '@/lib/leadFunnel';
+import { preloadRecaptcha } from '@/lib/recaptcha';
 import styles from './HeroNearMe.module.css';
 
 const PHONE_PATTERN = '[0-9]{10}';
@@ -47,8 +49,15 @@ export default function HeroNearMeForm() {
     });
 
     setSubmitting(false);
-    if (result.ok) setStatus('success');
-    else {
+    if (result.ok) {
+      setStatus('success');
+      openLeadFunnel({
+        leadId: result.id,
+        name: name.trim(),
+        mobile: phone,
+        formPosition: 'hero-near-me',
+      });
+    } else {
       setStatus('error');
       setErrorMsg(result.message || FALLBACK_ERROR);
     }
@@ -64,6 +73,7 @@ export default function HeroNearMeForm() {
       method="POST"
       noValidate
       onSubmit={onSubmit}
+      onFocus={preloadRecaptcha}
       aria-labelledby="near-me-form-heading"
     >
       <input type="hidden" name="formType" value="default" />

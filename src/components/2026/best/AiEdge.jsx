@@ -7,11 +7,11 @@ import styles from './AiEdge.module.css';
 
 const OLD_CURRICULUM = [
   'Generic SEO keyword research (no AI tools)',
-  'Canva for graphics — no AI generation',
+  'Canva for graphics - no AI generation',
   'Manual competitor audits via browser',
   'Copy-paste ad copy from templates',
   'Static annual content calendar',
-  'GA4 dashboards — no predictive analysis',
+  'GA4 dashboards - no predictive analysis',
   'Email campaigns without segmentation AI',
 ];
 
@@ -73,7 +73,7 @@ export default function AiEdge() {
 
         <div className={styles.badge}>
           <strong>50+</strong>
-          <span>AI tools across 25 modules &mdash; integrated, not optional add-ons.</span>
+          <span>AI tools across 25 modules - integrated, not optional add-ons.</span>
         </div>
       </div>
     </section>

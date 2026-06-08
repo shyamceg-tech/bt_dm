@@ -6,15 +6,15 @@
  */
 
 export const CAMPUS = {
-  name: 'BlueTick Academy — Indiranagar Campus',
+  name: 'BlueTick Academy - Indiranagar Campus',
   addressLine1: '12th Main Road, HAL 2nd Stage',
   addressLine2: 'Indiranagar, Bangalore 560 008',
   city: 'Bangalore',
   state: 'Karnataka',
   pincode: '560008',
   country: 'IN',
-  phone: '+91-90000-00000',
-  whatsapp: 'https://wa.me/919000000000',
+  phone: '+91 9606 9955 25',
+  whatsapp: 'https://wa.me/919606995525',
   email: 'admissions@bluetickacademy.com',
   hours: 'Mon–Sat · 10:00 AM – 7:00 PM',
   landmarks: [
@@ -48,7 +48,7 @@ export const BATCHES = [
     startDate: '17 Aug 2026',
     schedule: 'Sat–Sun · 10:00 AM – 2:00 PM',
     mode: 'Offline · Indiranagar campus',
-    track: 'PG Program (PGCP) — for working professionals',
+    track: 'PG Program (PGCP) - for working professionals',
     seatsLeft: 9,
     durationWeeks: 24,
   },
@@ -67,26 +67,26 @@ export const BATCHES = [
 export const FAQS = [
   {
     q: 'Where exactly is your Indiranagar campus?',
-    a: '12th Main Road, HAL 2nd Stage, Indiranagar — a 10-minute walk from Indiranagar Metro station. Free parking on campus. You can walk in Mon–Sat between 10 AM and 7 PM; no appointment needed.',
+    a: '12th Main Road, HAL 2nd Stage, Indiranagar - a 10-minute walk from Indiranagar Metro station. Free parking on campus. You can walk in Mon–Sat between 10 AM and 7 PM; no appointment needed.',
   },
   {
     q: 'Can I visit before paying?',
-    a: 'Yes — and we recommend it. Book a campus visit and we&rsquo;ll show you a live class, introduce you to current students, and walk you through the curriculum. Zero sales pressure.',
+    a: 'Yes - and we recommend it. Book a campus visit and we&rsquo;ll show you a live class, introduce you to current students, and walk you through the curriculum. Zero sales pressure.',
   },
   {
     q: 'Is this classroom-only or can I attend online too?',
-    a: 'Offline classroom is the default, because placement-readiness needs in-person practice, peer projects, and trainer feedback. Hybrid attendance is allowed if you miss a session — recordings + makeup classes are free.',
+    a: 'Offline classroom is the default, because placement-readiness needs in-person practice, peer projects, and trainer feedback. Hybrid attendance is allowed if you miss a session - recordings + makeup classes are free.',
   },
   {
     q: 'What are the fees and is there an EMI?',
-    a: 'Fees vary by track (PCP / PGCP / Elevate). Full fee + EMI options are shared on the campus visit so you see the same number our students see — no inflated price followed by &ldquo;today only&rdquo; discounts.',
+    a: 'Fees vary by track (PCP / PGCP / Elevate). Full fee + EMI options are shared on the campus visit so you see the same number our students see - no inflated price followed by &ldquo;today only&rdquo; discounts.',
   },
   {
     q: 'How real is the 100% placement record?',
     a: 'Verified across our last 4 batches (312 students). We publish named alumni with their LinkedIn profiles and current employers. Ask on your campus visit and we&rsquo;ll show you the full list.',
   },
   {
-    q: 'I&rsquo;m a working professional — will I be able to keep up?',
+    q: 'I&rsquo;m a working professional - will I be able to keep up?',
     a: 'The weekend PGCP batch is built for working professionals. Sat–Sun classes, recorded sessions, weekday office-hours with trainers over WhatsApp, and project deadlines that respect your work calendar.',
   },
   {
@@ -95,13 +95,13 @@ export const FAQS = [
   },
   {
     q: 'How is BlueTick different from other Bangalore institutes?',
-    a: 'Three things: (1) Our trainers are currently running live ad campaigns, not full-time career trainers. (2) We publish named alumni outcomes — most don&rsquo;t. (3) We&rsquo;re Bangalore-rooted with a 300+ local hiring partner network.',
+    a: 'Three things: (1) Our trainers are currently running live ad campaigns, not full-time career trainers. (2) We publish named alumni outcomes - most don&rsquo;t. (3) We&rsquo;re Bangalore-rooted with a 300+ local hiring partner network.',
   },
 ];
 
 export const META = {
   title:
-    'Digital Marketing Course Near Me — Indiranagar, Bangalore | BlueTick Academy',
+    'Digital Marketing Course Near Me - Indiranagar, Bangalore | BlueTick Academy',
   description:
     'Looking for a digital marketing course near you in Bangalore? BlueTick Academy&rsquo;s Indiranagar campus runs placement-first, AI-powered batches. Walk in Mon–Sat or book a campus visit.',
   canonical:

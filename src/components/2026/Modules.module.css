@@ -8,12 +8,26 @@
      - Per-variant tint: lines 5588–5590 (subtle bg gradient inside rail)
    ============================================================================ */
 
+/* Local copy of the global keyframe (CSS Modules scopes keyframe names used in
+   this file; referencing the global one would never resolve). */
+@keyframes bt-nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(4px); }
+}
+
 /* ─── Section shell ─────────────────────────────────────────────────────── */
 .section {
   background: var(--bg-base);
-  padding: 64px 0 56px;
+  /* Trimmed top padding to reduce the gap with the section above. */
+  padding: 36px 0 56px;
   position: relative;
   overflow: hidden;
+
+  /* Elevate tier recoloured to the same champagne-gold used in the Course
+     Tracks section (scoped locally — does NOT touch the global --elevate
+     tokens other sections rely on). Mid-gold for accents, soft-gold for fills. */
+  --elevate-color: #C8901C;
+  --elevate-soft:  #FBF1D8;
 }
 
 .section::before {
@@ -39,7 +53,7 @@
 }
 
 @media (min-width: 1024px) {
-  .section { padding: 96px 0 80px; }
+  .section { padding: 56px 0 80px; }
 }
 
 .container {
@@ -88,7 +102,10 @@
 }
 
 @media (min-width: 768px)  { .heading { font-size: 36px; } }
-@media (min-width: 1024px) { .heading { font-size: 44px; max-width: 22ch; margin-inline: auto; } }
+@media (min-width: 1024px) { .heading { font-size: 44px; max-width: 40ch; margin-inline: auto; } }
+
+/* Keyword phrase highlighted in the brand accent within the headline. */
+.kw { color: var(--brand-blue); font-weight: 800; }
 
 .lede {
   margin: 14px 0 0;
@@ -127,7 +144,7 @@
 
 .legend_pill_pcp     .legend_dot { background: var(--pcp-color); box-shadow: 0 0 6px rgba(37, 99, 235, 0.4); }
 .legend_pill_pgcp    .legend_dot { background: var(--pgcp-color); box-shadow: 0 0 6px rgba(124, 58, 237, 0.4); }
-.legend_pill_elevate .legend_dot { background: var(--elevate-color); box-shadow: 0 0 6px rgba(13, 148, 136, 0.4); }
+.legend_pill_elevate .legend_dot { background: var(--elevate-color); box-shadow: 0 0 6px rgba(200, 144, 28, 0.4); }
 
 /* ─── Rail wrap (one per course) ────────────────────────────────────────── */
 .rail_wrap {
@@ -173,7 +190,7 @@
 
 .rail_wrap_pcp     .rail_head_chip { background: linear-gradient(135deg, var(--pcp-soft), rgba(37, 99, 235, 0.15));     color: var(--pcp-color); }
 .rail_wrap_pgcp    .rail_head_chip { background: linear-gradient(135deg, var(--pgcp-soft), rgba(124, 58, 237, 0.15));    color: var(--pgcp-color); }
-.rail_wrap_elevate .rail_head_chip { background: linear-gradient(135deg, var(--elevate-soft), rgba(13, 148, 136, 0.15)); color: var(--elevate-color); }
+.rail_wrap_elevate .rail_head_chip { background: linear-gradient(135deg, var(--elevate-soft), rgba(200, 144, 28, 0.15)); color: var(--elevate-color); }
 
 .rail_head_chip_dot {
   width: 6px;
@@ -194,6 +211,22 @@
 
 @media (min-width: 640px)  { .rail_head_title { font-size: 1.25rem; } }
 @media (min-width: 1024px) { .rail_head_title { font-size: 1.5rem; } }
+
+/* Elevate is the flagship tier — give its rail title real prominence:
+   heavier weight, a larger size, and the champagne-gold gradient fill so it no
+   longer reads as small/plain next to the PCP and PGCP rails. */
+.rail_wrap_elevate .rail_head_title {
+  font-weight: 800;
+  font-size: 1.25rem;
+  background: linear-gradient(100deg, #8A5E12 0%, #C8901C 45%, #E9C46A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #8A5E12; /* fallback where background-clip:text is unsupported */
+}
+
+@media (min-width: 640px)  { .rail_wrap_elevate .rail_head_title { font-size: 1.5rem; } }
+@media (min-width: 1024px) { .rail_wrap_elevate .rail_head_title { font-size: 1.85rem; } }
 
 .rail_head_meta {
   font-size: 0.8125rem;
@@ -230,12 +263,22 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 0.6875rem;
-  opacity: 0.8;
+  font-weight: 800;
+  /* Made obvious: a coloured action pill (not faint grey text) so it clearly
+     reads as "there's more to swipe →". */
+  color: #fff;
+  background: var(--cta-orange);
+  padding: 5px 12px;
+  border-radius: var(--r-pill);
+  box-shadow: 0 4px 12px -4px rgba(255, 106, 26, 0.55);
 }
 
 .swipe_arrow {
   display: inline-block;
-  animation: bt-nudge 1.8s ease-in-out infinite;
+  font-size: 0.95rem;
+  /* Mild repeating right-nudge to signal the horizontal scroll direction.
+     transform-only — stays on the GPU compositor, no load-speed impact. */
+  animation: bt-nudge 1.4s ease-in-out infinite;
 }
 
 /* ─── The rail itself (horizontal scroller) ─────────────────────────────── */
@@ -264,7 +307,7 @@
 /* Per-variant subtle bg-gradient inside rail (Phase 1 polish line 5588–5590) */
 .rail_wrap_pcp     .rail { background: linear-gradient(135deg, transparent 0%, var(--pcp-soft) 60%, rgba(37, 99, 235, 0.06) 100%); }
 .rail_wrap_pgcp    .rail { background: linear-gradient(135deg, transparent 0%, var(--pgcp-soft) 60%, rgba(124, 58, 237, 0.06) 100%); }
-.rail_wrap_elevate .rail { background: linear-gradient(135deg, transparent 0%, var(--elevate-soft) 60%, rgba(13, 148, 136, 0.06) 100%); }
+.rail_wrap_elevate .rail { background: linear-gradient(135deg, transparent 0%, var(--elevate-soft) 60%, rgba(200, 144, 28, 0.06) 100%); }
 
 @media (min-width: 1024px) {
   .rail {
@@ -309,7 +352,7 @@
 
 .card_pcp:hover     { box-shadow: 0 12px 32px rgba(37, 99, 235, 0.10), 0 4px 12px rgba(11, 20, 34, 0.04); }
 .card_pgcp:hover    { box-shadow: 0 12px 32px rgba(124, 58, 237, 0.10), 0 4px 12px rgba(11, 20, 34, 0.04); }
-.card_elevate:hover { box-shadow: 0 12px 32px rgba(13, 148, 136, 0.10), 0 4px 12px rgba(11, 20, 34, 0.04); }
+.card_elevate:hover { box-shadow: 0 12px 32px rgba(200, 144, 28, 0.10), 0 4px 12px rgba(11, 20, 34, 0.04); }
 
 .card_head {
   display: flex;
@@ -335,7 +378,7 @@
 
 .card_pcp     .card_code { background: linear-gradient(135deg, var(--pcp-soft), rgba(37, 99, 235, 0.15));     color: var(--pcp-color); border: 1px solid rgba(37, 99, 235, 0.12); }
 .card_pgcp    .card_code { background: linear-gradient(135deg, var(--pgcp-soft), rgba(124, 58, 237, 0.15));    color: var(--pgcp-color); border: 1px solid rgba(124, 58, 237, 0.12); }
-.card_elevate .card_code { background: linear-gradient(135deg, var(--elevate-soft), rgba(13, 148, 136, 0.15)); color: var(--elevate-color); border: 1px solid rgba(13, 148, 136, 0.12); }
+.card_elevate .card_code { background: linear-gradient(135deg, var(--elevate-soft), rgba(200, 144, 28, 0.15)); color: var(--elevate-color); border: 1px solid rgba(200, 144, 28, 0.12); }
 
 .card_num {
   font-size: 0.7rem;
@@ -397,6 +440,27 @@
 .card_pgcp    .card_bullets li::before { background: var(--pgcp-color); }
 .card_elevate .card_bullets li::before { background: var(--elevate-color); }
 
+/* ─── Subtopic learning-type tag (Theory / Practical / Hands-on Project) ──── */
+.bullet_text { display: block; }
+
+.tag {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 1px 9px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 0.625rem;          /* 10px */
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+/* Distinct colour codes per learning type. */
+.tag_theory    { background: #E6EEFF; color: #2563EB; }   /* blue  */
+.tag_practical { background: #E3F6EC; color: #1F9D55; }   /* green */
+.tag_project   { background: #FFF0E6; color: #C2410C; }   /* amber */
+
 /* ─── Placeholder card (shown in 2F-1 when full data not yet populated) ── */
 .card_placeholder {
   flex: 0 0 88%;
@@ -423,5 +487,6 @@
 /* ─── Reduced motion ────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .card { transition: none !important; }
-  .swipe_arrow { animation: none !important; }
+  /* The swipe-hint arrow nudge is an explicitly-requested affordance, so it
+     keeps its gentle right-nudge even under reduce-motion. */
 }

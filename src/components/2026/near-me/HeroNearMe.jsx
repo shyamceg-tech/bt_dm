@@ -32,8 +32,8 @@ function CheckIcon() {
 const PROOFS = [
   'Walk into our Indiranagar campus, Mon–Sat',
   '312 alumni placed in the last 4 batches',
-  'Trainers running live campaigns — not full-time teachers',
-  'Next batch starts 12 Aug — limited seats',
+  'Trainers running live campaigns - not full-time teachers',
+  'Next batch starts 12 Aug - limited seats',
 ];
 
 export default function HeroNearMe() {
@@ -53,7 +53,7 @@ export default function HeroNearMe() {
           </h1>
 
           <p className={styles.subline}>
-            Walk into our <em>Indiranagar campus</em> this week — see the
+            Walk into our <em>Indiranagar campus</em> this week - see the
             classroom, meet the trainers, and decide for yourself.
           </p>
 

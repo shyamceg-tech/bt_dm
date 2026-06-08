@@ -85,14 +85,14 @@ export default function Comparison() {
         <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Comparison</span>
           <h2 id="comparison-heading" className={styles.heading}>
-            How BlueTick compares to your other options
+            How our <span className={styles.kw}>digital marketing institute in Bangalore</span> compares to your other options
           </h2>
         </header>
 
         <div
           className={styles.table_wrap}
           role="region"
-          aria-label="Comparison table — swipe horizontally to see all columns"
+          aria-label="Comparison table - swipe horizontally to see all columns"
           tabIndex={0}
         >
           <table className={styles.table}>

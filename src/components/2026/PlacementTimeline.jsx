@@ -63,7 +63,7 @@ export default function PlacementTimeline() {
         <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>The Placement System</span>
           <h2 id="placement-timeline-heading" className={styles.heading}>
-            The 5-month placement system &mdash; exactly how we get you hired
+            The 5-month placement system - exactly how we get you hired
           </h2>
           <p className={styles.sub}>
             Not a promise. A process. Here&rsquo;s the system that placed 100%

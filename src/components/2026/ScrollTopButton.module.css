@@ -1,0 +1,73 @@
+/* ============================================================================
+   ScrollTopButton.module.css — BlueTick 2026 Refresh
+
+   Fixed circular "back to top" button, bottom-right. Hidden until the page is
+   scrolled past 50% (toggled via the `data-visible` attribute from the JS
+   island). Sits above the mobile StickyBar so they never overlap; on desktop
+   (where the StickyBar is gone) it drops to the normal bottom gutter.
+   ============================================================================ */
+
+.btn {
+  position: fixed;
+  right: 16px;
+  /* Clear the mobile sticky CTA bar (≈64px + safe-area) that sits at bottom:0. */
+  bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+  z-index: 80;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: var(--brand-blue);
+  color: #ffffff;
+  box-shadow: 0 8px 22px -6px rgba(11, 20, 34, 0.45);
+  cursor: pointer;
+
+  /* Hidden state: faded out, nudged down, and click-through disabled. */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.92);
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease, visibility 200ms ease,
+              background-color 150ms ease;
+}
+
+.btn[data-visible] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.btn:hover { background: #1d4fd0; }
+.btn:active { transform: translateY(0) scale(0.95); }
+
+.btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Desktop: no StickyBar, so the button can use the normal bottom gutter. */
+@media (min-width: 1024px) {
+  .btn {
+    right: 24px;
+    bottom: 24px;
+    width: 48px;
+    height: 48px;
+  }
+  .btn svg { width: 24px; height: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: opacity 120ms ease, visibility 120ms ease; transform: none; }
+  .btn[data-visible] { transform: none; }
+}

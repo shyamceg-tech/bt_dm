@@ -28,6 +28,7 @@ const VARIANT_CLASS = {
   sunset:       'variant_sunset',
   cosmic:       'variant_cosmic',
   mintelectric: 'variant_mintelectric',
+  placements:   'variant_placements',
 };
 
 export default function CtaBanner({

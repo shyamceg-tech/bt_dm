@@ -31,6 +31,8 @@
  * left intentionally undefined here for forward compat.
  */
 
+import { getRecaptchaToken } from './recaptcha';
+
 const ENDPOINT = '/api/bigin';
 const DEFAULT_TIMEOUT_MS = 15000;
 
@@ -43,10 +45,28 @@ const DEFAULT_TIMEOUT_MS = 15000;
  * @param {AbortSignal} [opts.signal]     - Optional external abort signal,
  *                                          merged with the internal timeout
  *                                          via AbortController.
- * @returns {Promise<{ok: true} | {ok: false, kind: string, message: string}>}
+ * @param {string} [opts.recaptchaAction='lead_submit'] - Action label for the
+ *                                          reCAPTCHA v3 token minted before the
+ *                                          POST. All forms route through here,
+ *                                          so captcha protection is automatic.
+ * @returns {Promise<{ok: true, id?: string} | {ok: false, kind: string, message: string}>}
+ *          On success, `id` is the Zoho Bigin record id (when the server
+ *          returns one) so callers can later UPDATE the same record.
  */
 export async function submitToBigin(payload, opts = {}) {
-  const { timeoutMs = DEFAULT_TIMEOUT_MS, signal: externalSignal } = opts;
+  const {
+    timeoutMs = DEFAULT_TIMEOUT_MS,
+    signal: externalSignal,
+    recaptchaAction = 'lead_submit',
+  } = opts;
+
+  /* Mint a reCAPTCHA v3 token (invisible, no user friction). Resolves to null
+     when captcha isn't configured — the server then treats it as "not
+     verified, allow", so forms keep working without keys. */
+  const recaptchaToken = await getRecaptchaToken(recaptchaAction);
+  if (recaptchaToken) {
+    payload = { ...payload, recaptchaToken, recaptchaAction };
+  }
 
   /* Pre-flight: if the browser already knows it's offline, fail fast — no
      point starting a fetch that will throw. */
@@ -95,7 +115,7 @@ export async function submitToBigin(payload, opts = {}) {
     }
 
     if (res.ok && data && data.success === true) {
-      return { ok: true };
+      return { ok: true, id: data.id || null };
     }
 
     if (res.status >= 500) {

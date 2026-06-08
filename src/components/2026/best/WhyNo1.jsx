@@ -57,7 +57,7 @@ export default function WhyNo1() {
         <header className={styles.head}>
           <span className={styles.eyebrow}>Why we're ranked #1</span>
           <h2 id="why-no-1-heading" className={styles.heading}>
-            Six defensible reasons — <em>not adjectives</em>.
+            Six defensible reasons - <em>not adjectives</em>.
           </h2>
           <p className={styles.subline}>
             Every &ldquo;Top 10&rdquo; institute claims to be the best. We&rsquo;re happy to show our working.

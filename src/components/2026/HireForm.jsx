@@ -16,6 +16,7 @@
 
 import { useId, useState } from 'react';
 import { submitToBigin } from '@/lib/submitToBigin';
+import { preloadRecaptcha } from '@/lib/recaptcha';
 import styles from './ModalForm.module.css';
 
 const PHONE_PATTERN = '[0-9]{10}';
@@ -96,7 +97,7 @@ export default function HireForm({ onClose }) {
         <span className={styles.success_icon} aria-hidden="true">
           <CheckCircle />
         </span>
-        <h3 className={styles.success_heading}>Got it &mdash; we&rsquo;ll be in touch.</h3>
+        <h3 className={styles.success_heading}>Got it - we&rsquo;ll be in touch.</h3>
         <p className={styles.success_body}>
           Our placements team will reach out within one business day with a
           shortlist of recent alumni who match your role.
@@ -121,6 +122,7 @@ export default function HireForm({ onClose }) {
       method="POST"
       noValidate
       onSubmit={onSubmit}
+      onFocus={preloadRecaptcha}
     >
       <input type="hidden" name="formType" value="hire" />
       <input type="hidden" name="formPosition" value="header-modal" />

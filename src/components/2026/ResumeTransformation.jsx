@@ -21,9 +21,9 @@ const DAY1_ROWS = [
     key: 'Skills',
     val: 'MS Office, Communication, Teamwork, Hard Working, Quick Learner, Time Management',
   },
-  { key: 'Internships',    val: '—', empty: true },
-  { key: 'Projects',       val: '—', empty: true },
-  { key: 'Certifications', val: '—', empty: true },
+  { key: 'Internships',    val: '-', empty: true },
+  { key: 'Projects',       val: '-', empty: true },
+  { key: 'Certifications', val: '-', empty: true },
   { key: 'Languages',      val: 'English, Hindi, Kannada' },
   { key: 'Hobbies',        val: 'Reading, Listening to Music, Travelling, Cricket' },
 ];
@@ -95,12 +95,22 @@ export default function ResumeTransformation() {
             <p className={styles.bottom_line}>References available on request.</p>
           </article>
 
-          {/* ─── Arrow ─── */}
+          {/* ─── Arrow ─── (vertical/down on mobile, horizontal/right on desktop;
+               toggled purely via CSS so the mobile arrow is never affected) */}
           <div className={styles.arrow} aria-hidden="true">
             <svg className={styles.arrow_vert} width="32" height="32" viewBox="0 0 32 32" fill="none">
               <path
                 d="M16 4 V26 M8 19 L16 27 L24 19"
-                stroke="#1A5FFF"
+                stroke="#2563EB"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <svg className={styles.arrow_horiz} width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path
+                d="M4 16 H27 M19 8 L27 16 L19 24"
+                stroke="#2563EB"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -180,7 +190,7 @@ export default function ResumeTransformation() {
         </div>
 
         <p className={styles.closing}>
-          This is the difference 120 days makes. Same person &mdash; a portfolio&rsquo;s worth of credibility heavier.
+          This is the difference 120 days makes. Same person - a portfolio&rsquo;s worth of credibility heavier.
         </p>
       </div>
     </section>

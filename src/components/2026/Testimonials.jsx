@@ -84,7 +84,7 @@ export default function Testimonials() {
         <header className={styles.head}>
           <span className={styles.eyebrow}>Alumni Voices</span>
           <h2 id="testimonials-heading" className={styles.heading}>
-            Hear from BlueTickers &mdash; in their own words
+            Hear from BlueTickers - in their own words
           </h2>
         </header>
 

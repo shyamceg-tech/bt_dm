@@ -8,6 +8,7 @@
  * Phase 1 source: bluetick-2026-refresh-v3.html lines 7623–7654.
  */
 
+import Image from 'next/image';
 import styles from './Recruiters.module.css';
 
 const REASONS = [
@@ -15,7 +16,7 @@ const REASONS = [
     num: '01',
     quote: '"Your students can run a campaign on Day 1."',
     body:
-      "Every BlueTick graduate has run real campaigns with real budgets during the course — not dummy websites. They don't need 2 months of onboarding.",
+      "Every BlueTick graduate has run real campaigns with real budgets during the course - not dummy websites. They don't need 2 months of onboarding.",
   },
   {
     num: '02',
@@ -27,7 +28,7 @@ const REASONS = [
     num: '03',
     quote: '"We filter candidates here better than placement portals."',
     body:
-      "The 1:15 trainer ratio means we know each student's strengths. We don't send 50 resumes to fill 5 roles — we send the right 7.",
+      "The 1:15 trainer ratio means we know each student's strengths. We don't send 50 resumes to fill 5 roles - we send the right 7.",
   },
 ];
 
@@ -36,11 +37,22 @@ export default function Recruiters() {
     <section className={styles.section} aria-labelledby="recruiters-heading">
       <div className={styles.inner}>
         <h2 className={styles.heading} id="recruiters-heading" data-reveal>
-          Why 500+ Companies in Bangalore hire from BlueTick first
+          Why <span className={styles.hl}>500+</span> Bangalore companies hire our{' '}
+          <span className={styles.kw}>digital marketing</span> graduates first
         </h2>
         <p className={styles.subline}>
           Three reasons hiring managers told us they keep coming back:
         </p>
+
+        <div className={styles.media} data-reveal>
+          <Image
+            src="/img/2026/recruiters_hiring.webp"
+            alt="A BlueTick graduate welcomed into a Bangalore agency, with the team working on laptops behind"
+            fill
+            sizes="(min-width: 1024px) 1100px, 100vw"
+            className={styles.media_img}
+          />
+        </div>
 
         <ol className={styles.cards}>
           {REASONS.map((r, index) => (

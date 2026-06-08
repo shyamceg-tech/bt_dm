@@ -123,6 +123,18 @@
   flex-shrink: 0;
 }
 
+/* Photo variant — image fills the circle instead of initials */
+.avatar_photo {
+  position: relative;
+  overflow: hidden;
+  background: none;
+  padding: 0;
+}
+
+.avatar_img {
+  object-fit: cover;
+}
+
 .avatar_2 {
   background: linear-gradient(135deg, var(--pgcp-soft) 0%, #DDD2F5 100%);
   color: var(--pgcp-color);

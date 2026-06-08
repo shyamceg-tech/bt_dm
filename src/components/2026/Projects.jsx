@@ -93,14 +93,14 @@ export default function Projects() {
     <section id="projects" className={styles.section} aria-labelledby="projects-heading">
       <div className={styles.inner}>
         <h2 className={styles.heading} id="projects-heading" data-reveal>
-          Real work our students built &mdash; for real companies
+          Real work our students built - for real companies
         </h2>
         <p className={styles.subline}>
           Every project below was deployed, used, and measured by Companies.
           Not just a simulation. Your project list will look like this in 90 days.
         </p>
 
-        <ol className={styles.grid}>
+        <ol className={styles.grid} data-autoscroll-loop>
           {PROJECTS.map((p) => (
             <li key={p.title} className={styles.card}>
               <span className={styles.tag}>

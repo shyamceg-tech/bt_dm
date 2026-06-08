@@ -196,6 +196,18 @@
   margin: 0 auto;
 }
 
+/* Local copies of the global keyframes used by this button (CSS Modules scopes
+   keyframe names referenced in this file, so the global ones never resolve). */
+@keyframes bt-pulse-ring {
+  0%   { box-shadow: 0 10px 30px rgba(255, 106, 26, 0.45), 0 0 0 0 rgba(255, 106, 26, 0.55); }
+  70%  { box-shadow: 0 10px 30px rgba(255, 106, 26, 0.45), 0 0 0 14px rgba(255, 106, 26, 0); }
+  100% { box-shadow: 0 10px 30px rgba(255, 106, 26, 0.45), 0 0 0 0 rgba(255, 106, 26, 0); }
+}
+@keyframes bt-shimmer {
+  0%   { transform: translateX(-120%) skewX(-15deg); }
+  100% { transform: translateX(220%) skewX(-15deg); }
+}
+
 .cta_btn::after {
   content: '';
   position: absolute;
@@ -248,9 +260,11 @@
 }
 
 .variant_sunset .title em {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 800;
   -webkit-text-fill-color: #06B6D4;
   color: #06B6D4;
-  font-weight: 600;
 }
 
 /* ─── Variant C: Cosmic (deep violet + cyan glow) ───────────────────────── */
@@ -290,6 +304,61 @@
   letter-spacing: -0.01em;
   padding: 0 2px;
 }
+
+/* ─── Variant E: Placements (light) ─────────────────────────────────────────
+   Seamlessly continues the NamedPlacements section above it: same sky-blue
+   gradient (starts on NamedPlacements' bottom stop #E0FBFF so the join is
+   invisible) + matching blue grid + soft cyan/violet glows. Text flips to the
+   dark palette since the backdrop is now light. The top padding is trimmed so
+   the banner reads as part of the placements block, not a separate section. */
+.variant_placements {
+  /* Top edge is a uniform #E0FBFF + grid — exactly NamedPlacements' merged
+     bottom — so the join is invisible. The only colour accent (violet) sits at
+     the bottom-right, well away from the seam. */
+  background:
+    radial-gradient(circle at 100% 100%, rgba(124, 58, 237, 0.12), transparent 50%),
+    linear-gradient(rgba(56, 189, 248, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.09) 1px, transparent 1px),
+    linear-gradient(180deg, #E0FBFF 0%, #EAF3FF 100%);
+  background-size: 100% 100%, 40px 40px, 40px 40px, 100% 100%;
+  /* Tightened top padding so the "These names could be yours" headline sits
+     closer to the alumni cards above it (smaller gap). */
+  padding-top: var(--s-8);
+}
+
+@media (min-width: 768px) {
+  .variant_placements { padding-top: var(--s-12); }
+}
+
+/* Light backdrop → dark dots in the shared overlay */
+.variant_placements.banner::before {
+  background-image: radial-gradient(circle, rgba(56, 189, 248, 0.10) 1px, transparent 1px);
+}
+
+.variant_placements .title { color: var(--text-primary); }
+
+.variant_placements .title em {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  /* Violet stands out strongly against the light sky-blue backdrop (the cyan
+     it replaced read too close to the background). */
+  -webkit-text-fill-color: #7C3AED;
+  color: #7C3AED;
+  text-decoration: underline;
+  text-decoration-color: rgba(124, 58, 237, 0.35);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 3px;
+}
+
+.variant_placements .sub { color: var(--text-secondary); }
+
+/* "312 placed alumni…" — highlighted in emerald to stand out as a proof stat */
+.variant_placements .placed { color: #059669; }
+.variant_placements .placed::before { color: #059669; }
+
+.variant_placements .meta { color: var(--text-secondary); }
+.variant_placements .meta strong { color: var(--brand-blue); }
 
 /* ─── Reduced motion ────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {

@@ -67,7 +67,7 @@ export default function BestPageCta() {
 
         <p className={styles.subline}>
           15-minute call with a placement counsellor. We share named alumni, fee breakdown,
-          trainer profiles, and answer every hard question &mdash; no pressure, no script.
+          trainer profiles, and answer every hard question - no pressure, no script.
         </p>
 
         <div className={styles.formCard}>
@@ -139,12 +139,12 @@ export default function BestPageCta() {
             </button>
 
             <p className={styles.micro}>
-              No spam. WhatsApp confirmation within 12 mins.
+              No spam. WhatsApp confirmation within 15 mins.
             </p>
 
             {status === 'success' && (
               <p className={styles.statusSuccess} role="status">
-                You&rsquo;re booked. A counsellor will WhatsApp you within 12 mins with a call slot.
+                You&rsquo;re booked. A counsellor will WhatsApp you within 15 mins with a call slot.
               </p>
             )}
             {status === 'error' && (

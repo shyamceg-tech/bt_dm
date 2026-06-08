@@ -2,7 +2,7 @@
 
 export const accardiancontent = [
     {
-        title: "1. Digital Marketing Courses in Bangalore – All You Need to Know before you Join!",
+        title: "1. Digital Marketing Courses in Bangalore - All You Need to Know before you Join!",
         content: `The digital revolution has transformed the way businesses reach their audiences, and this shift has
 created an incredible demand for expertise in online promotion. In this comprehensive article, we
 explore all about Digital Marketing Courses in Bangalore. Whether you are an aspiring professional, a
@@ -19,7 +19,7 @@ trusted name like BlueTick Academy.`
         content: (
           <>
             <p>
-              Digital marketing is more than just a buzzword—it’s a powerful tool that drives business growth in
+              Digital marketing is more than just a buzzword - it’s a powerful tool that drives business growth in
               today’s competitive market. Here are some compelling reasons to invest your time and effort in a Digital
               Marketing Course:
               <br /><br />
@@ -62,7 +62,7 @@ trusted name like BlueTick Academy.`
               <br /><br />
         
               By enrolling in a Digital Marketing Course in Bangalore, you not only boost your career prospects but
-              also gain lifelong skills that keep you ahead in the dynamic world of digital marketing—with the
+              also gain lifelong skills that keep you ahead in the dynamic world of digital marketing - with the
               supportive framework of BlueTick Academy enhancing your learning journey.
             </p>
           </>
@@ -112,7 +112,7 @@ trusted name like BlueTick Academy.`
           <>
             <p>
               With so many options available, selecting the best digital marketing training in Bangalore requires a
-              methodical approach. Here’s how you can choose the right institute—with BlueTick Academy setting a
+              methodical approach. Here’s how you can choose the right institute - with BlueTick Academy setting a
               benchmark in quality:
               <br /><br />
         
@@ -170,7 +170,7 @@ trusted name like BlueTick Academy.`
         
     },
     {
-        title: "5. Best Digital Marketing Course in Bangalore – What Sets It Apart?",
+        title: "5. Best Digital Marketing Course in Bangalore - What Sets It Apart?",
         content: (
           <>
             <p>
@@ -254,7 +254,7 @@ trusted name like BlueTick Academy.`
         
               <strong>3. Flexible Options for Busy Professionals :</strong> <br />
               For working professionals, balancing work and study is essential. Many local institutes provide flexible
-              scheduling options—such as weekend classes or evening sessions—so you can pursue online marketing
+              scheduling options, such as weekend classes or evening sessions, so you can pursue online marketing
               courses in Bangalore without sacrificing your day job. BlueTick Academy offers such flexible models,
               ensuring that quality education is always within reach.
               <br /><br />
@@ -265,13 +265,13 @@ trusted name like BlueTick Academy.`
               <br /><br />
         
               By considering these factors, you can find the “Digital Marketing Course Near Me” that meets your
-              expectations and supports your career growth—all while enjoying the added benefits of studying with
+              expectations and supports your career growth - all while enjoying the added benefits of studying with
               BlueTick Academy.
               <br /><br />
         
               <strong>5. Industry Trends and the Future of Digital Marketing in Bangalore :</strong> <br />
               Digital marketing is not static; it continuously evolves with emerging technologies and strategies. Here
-              are some of the major trends shaping the future—and how BlueTick Academy is keeping pace:
+              are some of the major trends shaping the future - and how BlueTick Academy is keeping pace:
               <br /><br />
         
               <strong>( I ) Integration of Artificial Intelligence :</strong> <br />
@@ -373,7 +373,7 @@ trusted name like BlueTick Academy.`
               <br /><br />
         
               <strong>1. Assessing Your Career Goals :</strong> <br />
-              Begin by clearly defining what you hope to achieve—whether it’s acquiring a new skill set, switching
+              Begin by clearly defining what you hope to achieve - whether it’s acquiring a new skill set, switching
               careers, or boosting your business’s online presence. For those looking for professional development, a
               Digital Marketing Course that offers both strategic insights and hands-on training is ideal. BlueTick
               Academy designs its programs to meet these diverse needs, ensuring that each student’s goals are
@@ -420,7 +420,7 @@ trusted name like BlueTick Academy.`
         
               <strong>
                 By evaluating these factors, you can narrow down your options to find the best digital marketing
-                training institute in Bangalore that aligns with your goals—and BlueTick Academy consistently stands
+                training institute in Bangalore that aligns with your goals - and BlueTick Academy consistently stands
                 out as a trusted choice.
               </strong>
             </p>
@@ -458,8 +458,8 @@ trusted name like BlueTick Academy.`
               <strong>
                 Embrace the digital future by enrolling in the best digital marketing training institute in Bangalore.
               </strong> With
-              a mix of expert training, practical projects, and industry connections—along with the supportive
-              community at BlueTick Academy—your journey into digital marketing will be both enriching and
+              a mix of expert training, practical projects, and industry connections, along with the supportive
+              community at BlueTick Academy, your journey into digital marketing will be both enriching and
               rewarding.
             </p>
           </>
@@ -491,7 +491,7 @@ export const accardiancontentfaq = [
               
               <strong>Phase 1: The Fundamentals (Web & SEO)</strong><br />
               * Search Engine Optimization (SEO): Moving beyond keywords to intent-based optimization.<br />
-              * Local SEO: How to rank for "near me" searches—essential for any business.<br />
+              * Local SEO: How to rank for "near me" searches - essential for any business.<br />
               * Technical SEO: Site speed, Core Web Vitals, and Schema Markup.<br />
               <br /><br />
         
@@ -521,7 +521,7 @@ export const accardiancontentfaq = [
               <br /><br />
         
               By enrolling in a Digital Marketing Course in Bangalore, you not only boost your career prospects but
-              also gain lifelong skills that keep you ahead in the dynamic world of digital marketing—with the
+              also gain lifelong skills that keep you ahead in the dynamic world of digital marketing - with the
               supportive framework of BlueTick Academy enhancing your learning journey. */}
             </p>
           </>
@@ -702,7 +702,7 @@ export const accardiancontentfaq = [
         
               <strong>3. Flexible Options for Busy Professionals :</strong> <br />
               For working professionals, balancing work and study is essential. Many local institutes provide flexible
-              scheduling options—such as weekend classes or evening sessions—so you can pursue online marketing
+              scheduling options, such as weekend classes or evening sessions, so you can pursue online marketing
               courses in Bangalore without sacrificing your day job. BlueTick Academy offers such flexible models,
               ensuring that quality education is always within reach.
               <br /><br />
@@ -713,13 +713,13 @@ export const accardiancontentfaq = [
               <br /><br />
         
               By considering these factors, you can find the “Digital Marketing Course Near Me” that meets your
-              expectations and supports your career growth—all while enjoying the added benefits of studying with
+              expectations and supports your career growth - all while enjoying the added benefits of studying with
               BlueTick Academy.
               <br /><br />
         
               <strong>5. Industry Trends and the Future of Digital Marketing in Bangalore :</strong> <br />
               Digital marketing is not static; it continuously evolves with emerging technologies and strategies. Here
-              are some of the major trends shaping the future—and how BlueTick Academy is keeping pace:
+              are some of the major trends shaping the future - and how BlueTick Academy is keeping pace:
               <br /><br />
         
               <strong>( I ) Integration of Artificial Intelligence :</strong> <br />
@@ -818,7 +818,7 @@ export const accardiancontentfaq = [
               <br /><br />
         
               {/* <strong>1. Assessing Your Career Goals :</strong> <br />
-              Begin by clearly defining what you hope to achieve—whether it’s acquiring a new skill set, switching
+              Begin by clearly defining what you hope to achieve - whether it’s acquiring a new skill set, switching
               careers, or boosting your business’s online presence. For those looking for professional development, a
               Digital Marketing Course that offers both strategic insights and hands-on training is ideal. BlueTick
               Academy designs its programs to meet these diverse needs, ensuring that each student’s goals are
@@ -865,7 +865,7 @@ export const accardiancontentfaq = [
         
               <strong>
                 By evaluating these factors, you can narrow down your options to find the best digital marketing
-                training institute in Bangalore that aligns with your goals—and BlueTick Academy consistently stands
+                training institute in Bangalore that aligns with your goals - and BlueTick Academy consistently stands
                 out as a trusted choice.
               </strong> */}
             </p>
@@ -901,8 +901,8 @@ export const accardiancontentfaq = [
               <strong>
                 Embrace the digital future by enrolling in the best digital marketing training institute in Bangalore.
               </strong> With
-              a mix of expert training, practical projects, and industry connections—along with the supportive
-              community at BlueTick Academy—your journey into digital marketing will be both enriching and
+              a mix of expert training, practical projects, and industry connections, along with the supportive
+              community at BlueTick Academy, your journey into digital marketing will be both enriching and
               rewarding. */}
             </p>
           </>

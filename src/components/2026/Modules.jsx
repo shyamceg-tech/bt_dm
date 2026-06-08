@@ -13,6 +13,44 @@
  */
 
 import styles from './Modules.module.css';
+import ModulesAutoplay from './ModulesAutoplay';
+
+/* ─── Subtopic learning-type tag ─────────────────────────────────────────────
+   Each subtopic is auto-tagged Theory / Practical / Hands-on Project so the
+   curriculum shows the mix at a glance. Keyword lists are tuned so Theory stays
+   the minority (~27%) and Practical + Hands-on make up the ~70% balance — edit a
+   keyword list if a specific bullet should read differently. Pure string work,
+   computed at render with zero runtime cost. */
+const TAG_LABELS = {
+  theory: 'Theory',
+  practical: 'Practical',
+  project: 'Hands-on Project',
+};
+
+function classifyTopic(text) {
+  const s = text.toLowerCase();
+
+  const PROJECT = [
+    'capstone', 'sprint', 'you manage', 'manages a live', 'live ₹', '₹5,000 campaign',
+    'portfolio', 'simulation', 'present to an agency', 'client presentation',
+    'presentation prep', 'team presentation', 'deploy', 'working ui', 'published',
+    'real brief', 'roadmap with milestones', '12-month ai roadmap', 'team of',
+    'final client', 'case study', 'audit lab',
+  ];
+  if (PROJECT.some((k) => s.includes(k))) return 'project';
+
+  const THEORY = [
+    'introduction', 'principles', 'fundamentals', 'overview', 'evolution',
+    'business thinking', 'design thinking', 'why ', 'types of', 'understanding',
+    'ethics', 'responsible ai', 'maturity', 'archetypes', 'spectrum', 'literacy',
+    'governance', 'economics', 'science', 'anatomy', 'explained', 'best practices',
+    'what ', 'patterns', 'metrics', 'framework', 'lifecycle', 'assessment',
+    'model', 'mapping', 'how to choose', 'planning', 'thinking', 'vs ',
+  ];
+  if (THEORY.some((k) => s.includes(k))) return 'theory';
+
+  return 'practical';
+}
 
 /* ─── PCP modules — 11 total ────────────────────────────────────────────── */
 const PCP_MODULES = [
@@ -25,7 +63,7 @@ const PCP_MODULES = [
       'Principles of marketing, ATL/BTL/TTL funnels, and integrated strategy',
       'Market research and competitor analysis frameworks',
       'Customer persona building and buyer journey mapping',
-      'AI model framework — how to choose between ChatGPT, Claude, and Gemini',
+      'AI model framework - how to choose between ChatGPT, Claude, and Gemini',
       'Branding fundamentals, colour theory, and brand visual identity',
       'North Star Metric, A3R3 funnel, and measuring what actually matters',
       'Social media account creation and platform orientation',
@@ -33,34 +71,34 @@ const PCP_MODULES = [
   },
   {
     code: 'M2', num: '2 / 11',
-    title: 'Website Design & Development with AI — WordPress',
+    title: 'Website Design & Development with AI - WordPress',
     hours: '2 Sessions · 4 Hours',
     bullets: [
-      'WordPress website setup — domain, hosting, and site structure',
-      'Elementor page builder — designing professional pages without code',
-      '10Web AI builder — generating websites from a text prompt',
+      'WordPress website setup - domain, hosting, and site structure',
+      'Elementor page builder - designing professional pages without code',
+      '10Web AI builder - generating websites from a text prompt',
       'SEO-optimized website structure from the ground up',
       'Designing high-converting landing pages',
       'Website speed optimization and Core Web Vitals',
-      'Introduction to CRO principles — why your website design affects revenue',
+      'Introduction to CRO principles - why your website design affects revenue',
     ],
   },
   {
     code: 'M3', num: '3 / 11',
-    title: 'SEO with AI — Classic + Next-Gen Search',
+    title: 'SEO with AI - Classic + Next-Gen Search',
     hours: '12 Sessions · 24 Hours',
     bullets: [
       'Keyword research and strategic topic planning',
-      'On-page SEO — content, headings, image optimization, anchor tags',
-      'Technical SEO — sitemap, robots.txt, schema markup, error codes',
+      'On-page SEO - content, headings, image optimization, anchor tags',
+      'Technical SEO - sitemap, robots.txt, schema markup, error codes',
       'Google Search Console (GSC) setup and mastery',
-      'GBP local SEO — NAP, attributes, hyperlocal ranking',
-      'AI-powered SEO tools — Surfer SEO, SEM Rush',
-      'Next-generation SEO — GEO (Generative Engine Optimization for ChatGPT/Gemini)',
+      'GBP local SEO - NAP, attributes, hyperlocal ranking',
+      'AI-powered SEO tools - Surfer SEO, SEM Rush',
+      'Next-generation SEO - GEO (Generative Engine Optimization for ChatGPT/Gemini)',
       'AEO (Answer Engine Optimization), AIO (Google AI Overviews), SXO',
-      'Off-page SEO — backlink creation, contextual links, internal linking',
-      'SEO content writing using AI — hybrid human + AI workflow',
-      'Algorithm updates tracker — how to respond when Google changes the rules',
+      'Off-page SEO - backlink creation, contextual links, internal linking',
+      'SEO content writing using AI - hybrid human + AI workflow',
+      'Algorithm updates tracker - how to respond when Google changes the rules',
     ],
   },
   {
@@ -68,16 +106,16 @@ const PCP_MODULES = [
     title: 'Social Media Marketing & Brand Intelligence',
     hours: '11 Sessions · 22 Hours',
     bullets: [
-      'Instagram — Business profile, UPABC optimization, Reels strategy, hashtag research',
-      'Facebook — Business page, Meta Ads Manager, audience targeting, ad objectives',
-      'LinkedIn — Profile optimization, business page, B2B lead generation',
-      'YouTube — Channel creation, SEO, Studio analytics, Shorts strategy',
-      'X (Twitter) — Account growth, intent-based targeting, Grok AI',
-      'Short-form video science — the Hook/Retain/Reward loop that drives virality',
-      'Influencer marketing — types, outreach, agreements, and ROI measurement',
-      'Social listening and sentiment analysis — Brand24, Google Alerts',
-      'AI video tools — HeyGen avatars, Veo 3 overview',
-      'ManyChat — comment-to-DM funnels and WhatsApp automation basics',
+      'Instagram - Business profile, UPABC optimization, Reels strategy, hashtag research',
+      'Facebook - Business page, Meta Ads Manager, audience targeting, ad objectives',
+      'LinkedIn - Profile optimization, business page, B2B lead generation',
+      'YouTube - Channel creation, SEO, Studio analytics, Shorts strategy',
+      'X (Twitter) - Account growth, intent-based targeting, Grok AI',
+      'Short-form video science - the Hook/Retain/Reward loop that drives virality',
+      'Influencer marketing - types, outreach, agreements, and ROI measurement',
+      'Social listening and sentiment analysis - Brand24, Google Alerts',
+      'AI video tools - HeyGen avatars, Veo 3 overview',
+      'ManyChat - comment-to-DM funnels and WhatsApp automation basics',
       'WhatsApp Business marketing and broadcast lists',
     ],
   },
@@ -86,16 +124,16 @@ const PCP_MODULES = [
     title: 'Google Ads, Bing Ads & Search Engine Marketing',
     hours: '9 Sessions · 18 Hours',
     bullets: [
-      'Google Ads account setup — expert-level structure and campaign types',
+      'Google Ads account setup - expert-level structure and campaign types',
       'Keyword research, match types, and negative keyword strategy',
-      'Search ads — ad copy, extensions, and Quality Score optimization',
+      'Search ads - ad copy, extensions, and Quality Score optimization',
       'Display Network (GDN) and Responsive Display Ads',
       'Video ads and YouTube ad campaigns',
       'Shopping Ads and Google Merchant Center',
-      'Performance Max — asset groups, audience signals, and AI optimization',
+      'Performance Max - asset groups, audience signals, and AI optimization',
       'Smart bidding strategies and advanced targeting',
-      'Bing Ads — campaign setup, UET, UTM parameters, conversion tracking',
-      'Attribution models — from first-click to data-driven',
+      'Bing Ads - campaign setup, UET, UTM parameters, conversion tracking',
+      'Attribution models - from first-click to data-driven',
       'Google Ads optimization, metrics, and reporting',
     ],
   },
@@ -104,13 +142,13 @@ const PCP_MODULES = [
     title: 'Analytics, Tracking & Data Storytelling',
     hours: '5 Sessions · 10 Hours',
     bullets: [
-      'Google Analytics 4 (GA4) — setup, interface, key reports, and exploration',
+      'Google Analytics 4 (GA4) - setup, interface, key reports, and exploration',
       'Event tracking and custom conversion setup',
-      'Google Tag Manager (GTM) — container setup, triggers, variables, preview mode',
-      'Looker Studio — connecting GA4, Ads, and GSC into one live dashboard',
-      'Microsoft Clarity — heatmaps, scroll maps, and session recordings',
+      'Google Tag Manager (GTM) - container setup, triggers, variables, preview mode',
+      'Looker Studio - connecting GA4, Ads, and GSC into one live dashboard',
+      'Microsoft Clarity - heatmaps, scroll maps, and session recordings',
       'UTM governance and tracking taxonomy',
-      'Data storytelling — turning numbers into board-ready narratives',
+      'Data storytelling - turning numbers into board-ready narratives',
       'Attribution and multi-touch traffic analysis',
     ],
   },
@@ -119,12 +157,12 @@ const PCP_MODULES = [
     title: 'Content Marketing Strategy & AI-Powered Production',
     hours: '4 Sessions · 8 Hours',
     bullets: [
-      'Content funnel strategy — TOFU, MOFU, BOFU content types and purpose',
+      'Content funnel strategy - TOFU, MOFU, BOFU content types and purpose',
       'Keyword-led content planning and topic clustering',
-      'Long-form blog writing — structure, SEO hooks, and reader engagement',
-      'AI-assisted content production workflows — ChatGPT + Claude + human editing',
-      'Ad copy writing frameworks — hooks, angles, proof, CTA',
-      'Content repurposing — Blog → Reels → Email → LinkedIn in one workflow',
+      'Long-form blog writing - structure, SEO hooks, and reader engagement',
+      'AI-assisted content production workflows - ChatGPT + Claude + human editing',
+      'Ad copy writing frameworks - hooks, angles, proof, CTA',
+      'Content repurposing - Blog → Reels → Email → LinkedIn in one workflow',
       'Editorial calendar building and scheduling with Buffer',
     ],
   },
@@ -133,26 +171,26 @@ const PCP_MODULES = [
     title: 'Conversion Rate Optimisation (CRO) Lab',
     hours: '3 Sessions · 6 Hours',
     bullets: [
-      'Funnel analysis — identifying leaks in the customer journey',
-      'Landing page anatomy — what high-converting pages have in common',
-      'A/B testing framework — hypothesis, setup, and reading statistical significance',
+      'Funnel analysis - identifying leaks in the customer journey',
+      'Landing page anatomy - what high-converting pages have in common',
+      'A/B testing framework - hypothesis, setup, and reading statistical significance',
       'Heatmaps and session recordings with Microsoft Clarity',
-      'Page speed as a conversion factor — measuring and fixing',
+      'Page speed as a conversion factor - measuring and fixing',
       'Form optimization and lead capture best practices',
-      'CRO reporting — presenting findings to a client',
+      'CRO reporting - presenting findings to a client',
     ],
   },
   {
     code: 'M9', num: '9 / 11',
-    title: 'Marketing Automation & CRM — Essentials',
+    title: 'Marketing Automation & CRM - Essentials',
     hours: '3 Sessions · 6 Hours',
     bullets: [
-      'HubSpot CRM — setup, contacts, pipelines, and deal management',
+      'HubSpot CRM - setup, contacts, pipelines, and deal management',
       'HubSpot email sequences and lead nurturing basics',
-      'Zapier — building end-to-end automation workflows without code',
+      'Zapier - building end-to-end automation workflows without code',
       'Automated lead scoring and qualification',
       'Scheduling and automating social media posts',
-      'AI-powered email sequences — from welcome to re-engagement',
+      'AI-powered email sequences - from welcome to re-engagement',
     ],
   },
   {
@@ -161,12 +199,12 @@ const PCP_MODULES = [
     hours: '3 Sessions · 6 Hours',
     bullets: [
       'Business email setup and list building strategies',
-      'Email campaign design — copy, layout, and calls to action',
+      'Email campaign design - copy, layout, and calls to action',
       'Bulk email campaigns and deliverability best practices',
-      'DKIM, SPF, DMARC — email authentication explained simply',
+      'DKIM, SPF, DMARC - email authentication explained simply',
       'A/B testing subject lines and email content',
       'Segmentation, personalization, and drip campaign logic',
-      'Email analytics — open rate, CTR, bounce, and conversion metrics',
+      'Email analytics - open rate, CTR, bounce, and conversion metrics',
     ],
   },
   {
@@ -174,7 +212,7 @@ const PCP_MODULES = [
     title: 'Industry Domain Deep Dives',
     hours: '2 Sessions · 4 Hours',
     bullets: [
-      'Vertical-specific playbooks — D2C, SaaS, EdTech, real estate, healthcare',
+      'Vertical-specific playbooks - D2C, SaaS, EdTech, real estate, healthcare',
       'How agencies pitch and price retainers in each vertical',
       'Capstone presentation prep + portfolio finalisation',
     ],
@@ -185,13 +223,13 @@ const PCP_MODULES = [
 const PGCP_MODULES = [
   {
     code: 'Note', num: '1 / 9',
-    title: 'Modules 1–10 — Same as Course 1, But Deeper',
+    title: 'Modules 1–10 - Same as Course 1, But Deeper',
     hours: 'Expanded content, more live projects',
     bullets: [
       'Module 3 SEO: + programmatic SEO, parasite SEO, international SEO, and App Store SEO (ASO)',
       'Module 4 Social Media: + HeyGen AI video, Veo 3, and advanced influencer agreement frameworks',
       'Module 7 Content: + UGC scripts, content audit frameworks, and landing page copy optimization',
-      'Module 9 Automation: Expanded to full scope — WhatsApp bots and Vibe coding',
+      'Module 9 Automation: Expanded to full scope - WhatsApp bots and Vibe coding',
     ],
   },
   {
@@ -199,15 +237,15 @@ const PGCP_MODULES = [
     title: 'Performance Marketing & E-Commerce Growth',
     hours: '9 Sessions · 18 Hours',
     bullets: [
-      'Performance marketing strategy — audience targeting, segmentation, and persona building with AI',
-      'D2C vs Marketplace strategy — trade-offs in data ownership, margins, and brand control',
-      'Amazon Advertising — Sponsored Products, Sponsored Brands, Sponsored Display',
+      'Performance marketing strategy - audience targeting, segmentation, and persona building with AI',
+      'D2C vs Marketplace strategy - trade-offs in data ownership, margins, and brand control',
+      'Amazon Advertising - Sponsored Products, Sponsored Brands, Sponsored Display',
       'Flipkart Advertising and marketplace ad ecosystems',
-      'Shopify — store setup, product listing, categories, coupons, analytics, and Shopify Payments',
-      'Dynamic remarketing — product catalog ads and cross-sell automation',
-      'E-Commerce SEO — product pages, collections, and site structure',
-      'Retail media networks — Blinkit, Swiggy Instamart, quick commerce ads',
-      'Advanced reporting — ROAS, CAC, LTV, and budget planning',
+      'Shopify - store setup, product listing, categories, coupons, analytics, and Shopify Payments',
+      'Dynamic remarketing - product catalog ads and cross-sell automation',
+      'E-Commerce SEO - product pages, collections, and site structure',
+      'Retail media networks - Blinkit, Swiggy Instamart, quick commerce ads',
+      'Advanced reporting - ROAS, CAC, LTV, and budget planning',
       'Customer retention strategies and LTV maximization',
     ],
   },
@@ -216,11 +254,11 @@ const PGCP_MODULES = [
     title: 'Online Reputation Management & Brand Protection',
     hours: '3 Sessions · 6 Hours',
     bullets: [
-      'ORM fundamentals — why your online reputation is your most valuable marketing asset',
-      'Social listening with AI — Brand24, Mention, Google Alerts',
+      'ORM fundamentals - why your online reputation is your most valuable marketing asset',
+      'Social listening with AI - Brand24, Mention, Google Alerts',
       'Monitoring brand mentions across platforms in real time',
-      'Managing negative reviews — the exact response framework that converts critics to customers',
-      'Crisis management — response templates and escalation protocols',
+      'Managing negative reviews - the exact response framework that converts critics to customers',
+      'Crisis management - response templates and escalation protocols',
       'Building a proactive review generation system',
     ],
   },
@@ -229,53 +267,53 @@ const PGCP_MODULES = [
     title: 'Freelancing, Agency Operations & Business of Marketing',
     hours: '4 Sessions · 8 Hours',
     bullets: [
-      'Agency structure — how client servicing, strategy, creative, and media teams work together',
-      'Client lifecycle — pitching, onboarding, first 30 days, monthly reporting, renewal, upsell',
-      'How to write a media plan and present it to a client — the exact document used in agencies',
-      'Agency pricing models — retainer vs project vs performance vs hybrid',
-      'Fiverr and Upwork profile setup and optimization — Freelance Sprint',
+      'Agency structure - how client servicing, strategy, creative, and media teams work together',
+      'Client lifecycle - pitching, onboarding, first 30 days, monthly reporting, renewal, upsell',
+      'How to write a media plan and present it to a client - the exact document used in agencies',
+      'Agency pricing models - retainer vs project vs performance vs hybrid',
+      'Fiverr and Upwork profile setup and optimization - Freelance Sprint',
       'How to handle a client escalation when results are bad',
-      'CAC, LTV, ROAS — understanding the business metrics of marketing',
+      'CAC, LTV, ROAS - understanding the business metrics of marketing',
       'Service packaging and pricing your services as a freelancer',
     ],
   },
   {
     code: 'S1', num: '5 / 9',
-    title: 'Specialisation 1 — SEO & AI Search Specialist',
+    title: 'Specialisation 1 - SEO & AI Search Specialist',
     hours: '6 Sessions · 12 Hours',
     bullets: [
       'Technical SEO deep-dive and crawl budget management',
-      'Advanced backlinking — digital PR and link acquisition at scale',
-      'AEO, GEO, AIO, SXO — the complete AI search stack for 2026',
+      'Advanced backlinking - digital PR and link acquisition at scale',
+      'AEO, GEO, AIO, SXO - the complete AI search stack for 2026',
       'Competitor backlink analysis and gap strategy',
-      'SEO audit lab — full site teardown and roadmap building',
+      'SEO audit lab - full site teardown and roadmap building',
       'SEO ROI calculation and client reporting',
     ],
   },
   {
     code: 'S2', num: '6 / 9',
-    title: 'Specialisation 2 — Performance Marketing & AI Ad Copywriting',
+    title: 'Specialisation 2 - Performance Marketing & AI Ad Copywriting',
     hours: '6 Sessions · 12 Hours',
     bullets: [
       'Advanced Google Ads optimization techniques beyond the basics',
       'Meta Advantage+ and Performance Max deep-dive',
       'UGC script writing and creator brief templates',
-      'Live ₹5,000 campaign sprint — you manage a real budget',
-      'Types of attribution models — practical application in campaigns',
+      'Live ₹5,000 campaign sprint - you manage a real budget',
+      'Types of attribution models - practical application in campaigns',
       'Advanced Looker Studio reporting for clients',
     ],
   },
   {
     code: 'S3', num: '7 / 9',
-    title: 'Specialisation 3 — AI-Powered E-Commerce & Data-Driven Sales',
+    title: 'Specialisation 3 - AI-Powered E-Commerce & Data-Driven Sales',
     hours: '6 Sessions · 12 Hours',
     bullets: [
-      'Shopify advanced — beyond basics to analytics, automation, and scaling',
-      'Amazon PPC — Sponsored Products campaign architecture',
-      'D2C strategy — when to go direct vs when to go marketplace',
-      'Cart abandonment recovery — ads + email + WhatsApp sequence',
+      'Shopify advanced - beyond basics to analytics, automation, and scaling',
+      'Amazon PPC - Sponsored Products campaign architecture',
+      'D2C strategy - when to go direct vs when to go marketplace',
+      'Cart abandonment recovery - ads + email + WhatsApp sequence',
       'Customer retention strategies and LTV maximization',
-      'E-Commerce P&L basics — CAC, AOV, LTV, and contribution margin',
+      'E-Commerce P&L basics - CAC, AOV, LTV, and contribution margin',
     ],
   },
   {
@@ -283,16 +321,16 @@ const PGCP_MODULES = [
     title: '5 Industry Domain Deep Dives',
     hours: 'Industry-specific playbooks',
     bullets: [
-      "E-Commerce & D2C — Mamaearth's journey to ₹1,500 Cr: unit economics, festive campaigns, D2C vs marketplace, quick commerce",
-      "HealthTech & EdTech — PhysicsWallah's scale using YouTube and community: CPL optimization, lead funnels, EdTech webinar marketing",
-      'SaaS & Tech — Zoho vs Salesforce: B2B SaaS marketing, PLG, Account-Based Marketing, inbound marketing at scale',
-      "Retail, FMCG & Consumer Brands — Amul's social media playbook: omni-channel, influencer at scale, festive/IPL campaigns",
-      'Digital Marketing Agencies — Live simulation: receive a real brief, build a full media plan, present to an agency founder',
+      "E-Commerce & D2C - Mamaearth's journey to ₹1,500 Cr: unit economics, festive campaigns, D2C vs marketplace, quick commerce",
+      "HealthTech & EdTech - PhysicsWallah's scale using YouTube and community: CPL optimization, lead funnels, EdTech webinar marketing",
+      'SaaS & Tech - Zoho vs Salesforce: B2B SaaS marketing, PLG, Account-Based Marketing, inbound marketing at scale',
+      "Retail, FMCG & Consumer Brands - Amul's social media playbook: omni-channel, influencer at scale, festive/IPL campaigns",
+      'Digital Marketing Agencies - Live simulation: receive a real brief, build a full media plan, present to an agency founder',
     ],
   },
   {
     code: 'CAP', num: '9 / 9',
-    title: 'PGCP Capstone — Real-Budget Agency Sprint',
+    title: 'PGCP Capstone - Real-Budget Agency Sprint',
     hours: 'Month 5 · 4 Weeks',
     bullets: [
       'Your team of 3–4 manages a live ₹5,000 ad campaign for a real local business or BlueTick partner brand',
@@ -305,6 +343,18 @@ const PGCP_MODULES = [
 
 /* ─── Elevate modules — 16 total (hours omitted in Phase 1 source) ──────── */
 const ELEVATE_MODULES = [
+  {
+    code: '★', num: 'Included',
+    cardVariant: 'pgcp',
+    title: 'Everything in PGCP - fully included',
+    hours: 'All 5 months of PGCP, then 2 more',
+    bullets: [
+      'All 13 PGCP modules + 3 specialisations (SEO & AI Search, Performance Marketing, AI E-Commerce)',
+      '5 industry domain deep dives + the real-budget agency capstone',
+      '220 hours · 25+ live projects · 60+ AI tools · 12 industry certifications',
+      'Then Months 6–7 layer on the 16 AI-for-Business modules below',
+    ],
+  },
   {
     code: 'B1', num: '1 / 16',
     title: 'AI Business Strategy Overview & Maturity Model',
@@ -453,7 +503,7 @@ const ELEVATE_MODULES = [
   },
   {
     code: 'B16', num: '16 / 16',
-    title: 'Capstone — Business-Ready AI Integration Proposal',
+    title: 'Capstone - Business-Ready AI Integration Proposal',
     bullets: [
       'Team presentation: business problem → AI-augmented workflow → tools → ROI → governance plan',
     ],
@@ -461,10 +511,13 @@ const ELEVATE_MODULES = [
 ];
 
 /* ─── Single module card ────────────────────────────────────────────────── */
-function ModuleCard({ variant, code, num, title, hours, bullets }) {
+function ModuleCard({ variant, cardVariant, code, num, title, hours, bullets }) {
+  /* `cardVariant` lets a single card adopt another track's colour code (e.g. the
+     first Elevate card, which is "Everything in PGCP", uses the PGCP palette). */
+  const colorVariant = cardVariant || variant;
   return (
     <article
-      className={`${styles.card} ${styles[`card_${variant}`]}`}
+      className={`${styles.card} ${styles[`card_${colorVariant}`]}`}
       aria-label={`Module ${num}: ${title}`}
     >
       <div className={styles.card_head}>
@@ -475,9 +528,17 @@ function ModuleCard({ variant, code, num, title, hours, bullets }) {
       {/* `hours` is optional — Elevate modules in the Phase 1 source omit it. */}
       {hours && <p className={styles.card_hours}>{hours}</p>}
       <ul className={styles.card_bullets}>
-        {bullets.map((b) => (
-          <li key={b}>{b}</li>
-        ))}
+        {bullets.map((b) => {
+          const tag = classifyTopic(b);
+          return (
+            <li key={b}>
+              <span className={styles.bullet_text}>{b}</span>
+              <span className={`${styles.tag} ${styles[`tag_${tag}`]}`}>
+                {TAG_LABELS[tag]}
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </article>
   );
@@ -513,7 +574,13 @@ function ModuleRail({
         </p>
       </div>
 
-      <div className={styles.rail} role="region" aria-label={ariaLabel} tabIndex={0}>
+      <div
+        className={styles.rail}
+        role="region"
+        aria-label={ariaLabel}
+        tabIndex={0}
+        data-autoplay-rail
+      >
         {modules.map((m) => (
           <ModuleCard key={m.code} variant={variant} {...m} />
         ))}
@@ -534,7 +601,7 @@ export default function Modules() {
         <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Curriculum</span>
           <h2 id="modules-heading" className={styles.heading}>
-            The full 2026 curriculum — every module, every topic
+            What our <span className={styles.kw}>digital marketing training in Bangalore</span> covers - every module, every topic
           </h2>
           <p className={styles.lede}>
             3 courses. One direction: your dream job. Every hour in Course 1
@@ -546,51 +613,54 @@ export default function Modules() {
         <div className={styles.legend} data-reveal data-reveal-delay="1" role="note" aria-label="Course color legend">
           <span className={`${styles.legend_pill} ${styles.legend_pill_pcp}`}>
             <span className={styles.legend_dot} />
-            Course 1 — PCP (3 months)
+            Course 1 - PCP (3 months)
           </span>
           <span className={`${styles.legend_pill} ${styles.legend_pill_pgcp}`}>
             <span className={styles.legend_dot} />
-            Course 2 — PGCP (5 months)
+            Course 2 - PGCP (5 months)
           </span>
           <span className={`${styles.legend_pill} ${styles.legend_pill_elevate}`}>
             <span className={styles.legend_dot} />
-            Course 3 — ELEVATE™ (7 months)
+            Course 3 - ELEVATE™ (7 months)
           </span>
         </div>
 
         <ModuleRail
           variant="pcp"
           revealDelay="0"
-          chipLabel="Course 1 — PCP"
+          chipLabel="Course 1 - PCP"
           title="Professional Certification in Digital Marketing with AI"
           meta="3 Months · 132 Hours · Mon–Fri Weekdays"
           modules={PCP_MODULES}
           totalModules={11}
-          ariaLabel="Course 1 — PCP module cards"
+          ariaLabel="Course 1 - PCP module cards"
         />
 
         <ModuleRail
           variant="pgcp"
           revealDelay="1"
-          chipLabel="Course 2 — PGCP"
+          chipLabel="Course 2 - PGCP"
           title="Post Graduate Certification in AI-Driven Digital Marketing"
           meta="5 Months · 220 Hours · All 13 Modules + 3 Specialisations + 5 Industry Deep Dives"
           modules={PGCP_MODULES}
           totalModules={9}
-          ariaLabel="Course 2 — PGCP module cards"
+          ariaLabel="Course 2 - PGCP module cards"
         />
 
         <ModuleRail
           variant="elevate"
           revealDelay="2"
-          chipLabel="Course 3 — ELEVATE™"
-          title="Digital Marketing + AI for Business"
-          meta="7 Months · 268 Hours · Months 1–5 same as PGCP; Months 6–7 add the AI for Business track"
+          chipLabel="Course 3 - ELEVATE™"
+          title="Digital Marketing + AI for Business Teams"
+          meta="7 Months · 268 Hours · Months 1–5 same as PGCP; Months 6–7 add the AI for Business Teams track"
           modules={ELEVATE_MODULES}
           totalModules={16}
-          ariaLabel="Course 3 — ELEVATE module cards"
+          ariaLabel="Course 3 - ELEVATE module cards"
         />
       </div>
+
+      {/* Gently auto-advances each rail until the user scrolls (client island). */}
+      <ModulesAutoplay />
     </section>
   );
 }

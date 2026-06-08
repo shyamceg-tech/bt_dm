@@ -9,6 +9,7 @@
  * Phase 1 source: bluetick-2026-refresh-v3.html lines 8722–8766.
  */
 
+import Image from 'next/image';
 import styles from './InterviewReadiness.module.css';
 
 const FRESHER_ITEMS = [
@@ -17,7 +18,7 @@ const FRESHER_ITEMS = [
   { quote: false, text: "Can name the tools, can't operate them." },
   { quote: false, text: 'Asked "show me a campaign you\'ve run" \u2192 silence.' },
   { quote: false, text: 'Asked "what\'s your CTR benchmark?" \u2192 guesses.' },
-  { quote: false, text: 'Talks about "wanting to learn" — sounds like a beginner.' },
+  { quote: false, text: 'Talks about "wanting to learn" - sounds like a beginner.' },
 ];
 
 const BLUETICK_ITEMS = [
@@ -25,7 +26,7 @@ const BLUETICK_ITEMS = [
   { quote: false, text: 'Resume opens with project metrics: "Reduced CPA from \u20B91,200 to \u20B9380."' },
   { quote: false, text: 'Pulls out the phone and walks through a live Looker Studio dashboard.' },
   { quote: false, text: 'Asked "what\'s your CTR benchmark?" \u2192 "Search 4–6%, display 0.5–1%, depending on industry."' },
-  { quote: false, text: "Discusses what they've already shipped — sounds like a junior practitioner, not a student." },
+  { quote: false, text: "Discusses what they've already shipped - sounds like a junior practitioner, not a student." },
   { quote: false, text: 'Walks out with the offer the same week.' },
 ];
 
@@ -55,10 +56,22 @@ export default function InterviewReadiness() {
         <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Interview Readiness</span>
           <h2 id="interview-readiness-heading" className={styles.heading}>
-            How most freshers walk into a digital marketing interview &mdash;
-            and how BlueTick students walk in
+            How most freshers walk into a digital marketing interview -{' '}
+            <span className={styles.heading_hl}>
+              and how BlueTick students walk in
+            </span>
           </h2>
         </header>
+
+        <div className={styles.media} data-reveal>
+          <Image
+            src="/img/2026/interview_split_frame.webp"
+            alt="A BlueTick student confidently presenting a live marketing dashboard across the table in an interview"
+            fill
+            sizes="(min-width: 1024px) 1100px, 100vw"
+            className={styles.media_img}
+          />
+        </div>
 
         <div className={styles.grid}>
           <article

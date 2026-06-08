@@ -56,21 +56,46 @@
   }
 }
 
-/* ─── Mobile marquee ────────────────────────────────────────────────────── */
+/* ─── Continuous marquee (all viewports) ────────────────────────────────── */
 .marquee {
   display: block;
   overflow: hidden;
   position: relative;
+  padding: var(--s-8) 0;
   mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+@media (min-width: 768px) {
+  .marquee { margin-top: var(--s-16); }
+}
+
+/* Local copy of the global keyframe (see note on .track animation below). */
+@keyframes bt-marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 .track {
   display: flex;
   align-items: center;
-  gap: 48px;
   width: max-content;
-  animation: bt-marquee-scroll 20s linear infinite;
+  /* Slow, continuous, seamless loop. Spacing is applied as a per-logo
+     margin-right (not flex `gap`) so each half of the duplicated track has a
+     trailing space too — that makes the -50% translate land exactly on the
+     start of the second copy with no half-gap jump. Pure CSS transform, no
+     heavy animation. */
+  /* Keyframe defined locally (below) so CSS Modules scopes the @keyframes name
+     and this reference identically — referencing the global one gets renamed
+     and silently never animates. */
+  animation: bt-marquee-scroll 38s linear infinite;
+  will-change: transform;
+}
+
+.track .logo { margin-right: 48px; }
+
+@media (min-width: 768px) {
+  .track .logo { margin-right: 72px; }
 }
 
 .marquee:hover .track,
@@ -78,40 +103,10 @@
   animation-play-state: paused;
 }
 
-@media (min-width: 768px) {
-  .marquee { display: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .track { animation: none !important; }
-}
-
-/* ─── Desktop grid ──────────────────────────────────────────────────────── */
-.grid { display: none; }
-
-@media (min-width: 768px) {
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--s-24);
-    align-items: center;
-    justify-items: center;
-    max-width: 1440px;
-    margin: var(--s-32) auto 0;
-    padding: 0 var(--s-16);
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-.cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 80px;
-}
+/* NOTE: this marquee intentionally keeps scrolling even under
+   prefers-reduced-motion. It was previously frozen by that guard, which is why
+   the logos appeared static on systems with "reduce motion" / "show animations
+   off" enabled. It's a slow, gentle, hover-pausable logo strip. */
 
 /* ─── Logo ─────────────────────────────────────────────────────────────── */
 .logo {
@@ -132,11 +127,11 @@
   .logo {
     height: 60px;
     max-width: 150px;
-    width: 100%;
+    width: auto;
   }
 }
 
-.cell .logo:hover {
+.logo:hover {
   filter: none;
   opacity: 1;
 }

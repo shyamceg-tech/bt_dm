@@ -39,6 +39,10 @@
   line-height: 1.55;
 }
 
+/* Keep the per-letter brand-coloured "Google" wordmark from breaking across
+   lines. (Letter colours are set inline to the Google logo palette.) */
+.brand_google { white-space: nowrap; }
+
 /* ─── Carousel: mobile horizontal scroll → tablet 3-col → desktop 4-col ── */
 .carousel {
   list-style: none;
@@ -160,6 +164,11 @@
 
 @media (min-width: 768px) { .hint { display: none; } }
 
+/* Local copy of the global keyframe (CSS Modules scopes keyframe names). */
+@keyframes bt-nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(4px); }
+}
 .hint svg { animation: bt-nudge 1.8s ease-in-out infinite; }
 
 /* ─── Callout + confidence ──────────────────────────────────────────────── */

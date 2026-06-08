@@ -17,9 +17,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--gutter-mobile);
-  /* Solid dark by default (blends with the hero) so the white sticky
-     SectionNav behind it no longer shows through at scroll-top. */
-  background: #0A0E27;
+  /* Matches the hero's deep-navy → indigo gradient (same stops as
+     Hero.module.css `.hero`, at full opacity) so the header blends straight
+     into the hero section instead of reading as a flat black bar. Opaque so
+     the white sticky SectionNav behind it never shows through at scroll-top. */
+  background: linear-gradient(135deg, #0A0E27 0%, #1A1B4F 55%, #131A4C 100%);
   transition: background 200ms ease, box-shadow 200ms ease, backdrop-filter 200ms ease;
 }
 
@@ -63,6 +65,31 @@
 
 @media (min-width: 1024px) {
   .brand_logo { width: 134px; }
+}
+
+/* ─── Mobile "current section" label (replaces the logo when scrolled) ──────
+   On small screens, once the page is scrolled past the header AND a section is
+   in view, the logo is swapped for the active section name. Together with the
+   section-nav strip collapsing (SectionNav.module.css) this turns two stacked
+   sticky bars into a single compact row. Hidden entirely on desktop. */
+.section_label {
+  display: none;            /* shown only on mobile + scrolled + has_section */
+  flex: 1;
+  min-width: 0;
+  margin-right: 12px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-on-deep);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1023px) {
+  .site_header.is_scrolled.has_section .brand { display: none; }
+  .site_header.is_scrolled.has_section .section_label { display: block; }
 }
 
 /* ─── Mobile right-side action group (visible <1024px) ──────────────────── */

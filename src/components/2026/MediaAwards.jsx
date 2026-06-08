@@ -42,6 +42,12 @@ function Logo({ alt, file, dup }) {
 }
 
 export default function MediaAwards() {
+  // The 4 logos repeated 3× form one "half" wide enough to cover even wide
+  // desktops; the half is rendered twice so the -50% loop is seamless. The
+  // first occurrence of each logo keeps its real alt for accessibility; every
+  // repeat is decorative (alt="" + aria-hidden).
+  const half = [...LOGOS, ...LOGOS, ...LOGOS];
+
   return (
     <section
       className={styles.section}
@@ -52,29 +58,16 @@ export default function MediaAwards() {
           Media &amp; Awards
         </h2>
 
-        {/* Mobile marquee */}
-        <div className={styles.marquee} aria-hidden="true">
+        {/* Continuous slow marquee — runs on every viewport */}
+        <div className={styles.marquee}>
           <div className={styles.track}>
-            {LOGOS.map((l) => (
-              <Logo key={l.file} {...l} />
+            {half.map((l, i) => (
+              <Logo key={`a-${i}`} {...l} dup={i >= LOGOS.length} />
             ))}
-            {LOGOS.map((l) => (
-              <Logo key={`dup-${l.file}`} {...l} dup />
+            {half.map((l, i) => (
+              <Logo key={`b-${i}`} {...l} dup />
             ))}
           </div>
-        </div>
-
-        {/* Desktop grid */}
-        <div
-          className={styles.grid}
-          role="list"
-          aria-label="Press and media coverage"
-        >
-          {LOGOS.map((l) => (
-            <div key={l.file} className={styles.cell} role="listitem">
-              <Logo {...l} />
-            </div>
-          ))}
         </div>
       </div>
     </section>

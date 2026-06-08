@@ -39,7 +39,10 @@
 }
 
 @media (min-width: 768px) { .heading { font-size: 2rem; } }
-@media (min-width: 1024px) { .heading { font-size: 2.5rem; max-width: 18ch; } }
+@media (min-width: 1024px) { .heading { font-size: 2.5rem; max-width: 24ch; } }
+
+/* Keyword + stat highlighted in the section's violet accent. */
+.kw, .hl { color: #7C3AED; font-weight: 800; }
 
 .subline {
   font-size: 1rem;
@@ -126,6 +129,33 @@
   font-size: 0.9375rem;
   color: var(--text-secondary);
   line-height: 1.55;
+}
+
+/* ─── Section photo (blends into the pink/violet background) ────────────── */
+.media {
+  position: relative;
+  margin-top: var(--s-32);
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-card-lift);
+}
+
+@media (min-width: 768px) {
+  .media { aspect-ratio: 24 / 9; }
+}
+
+.media_img { object-fit: cover; object-position: center 35%; }
+
+.media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 58%, rgba(245, 240, 255, 0.55) 100%),
+    linear-gradient(115deg, rgba(236, 72, 153, 0.10), transparent 42%);
+  pointer-events: none;
 }
 
 /* ─── Reduced motion ────────────────────────────────────────────────────── */

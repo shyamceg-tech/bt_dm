@@ -18,6 +18,8 @@
 
 import { useId, useState } from 'react';
 import { submitToBigin } from '@/lib/submitToBigin';
+import { openLeadFunnel } from '@/lib/leadFunnel';
+import { preloadRecaptcha } from '@/lib/recaptcha';
 import styles from './Hero.module.css';
 
 const PHONE_PATTERN = '[0-9]{10}';
@@ -73,6 +75,14 @@ export default function HeroForm() {
 
     if (result.ok) {
       setStatus('success');
+      /* Name + phone are now saved to Zoho. Open the details pop-up
+         (Online/Offline, centre, preferred call time) → Thank-You funnel. */
+      openLeadFunnel({
+        leadId: result.id,
+        name: name.trim(),
+        mobile: phone,
+        formPosition: 'hero',
+      });
     } else {
       setStatus('error');
       setErrorMsg(result.message || FALLBACK_ERROR);
@@ -94,6 +104,7 @@ export default function HeroForm() {
       method="POST"
       noValidate
       onSubmit={onSubmit}
+      onFocus={preloadRecaptcha}
       aria-labelledby="hero-form-heading"
     >
       <input type="hidden" name="formType" value="default" />
@@ -187,7 +198,7 @@ export default function HeroForm() {
         {submitting ? 'SUBMITTING…' : 'START YOUR DM CAREER'}
       </button>
 
-      <p className={styles.form_micro_trust}>No spam calls – ever.</p>
+      <p className={styles.form_micro_trust}>No spam calls - ever.</p>
 
       {status === 'success' && (
         <p

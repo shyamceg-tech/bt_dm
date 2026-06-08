@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 const centers = [
   {
-    name: "BlueTick Academy – Indiranagar",
+    name: "BlueTick Academy - Indiranagar",
     address:
       "2nd floor, 545, Chinmaya Mission Hospital Rd, Indiranagar, Bengaluru, Karnataka 560038.",
     mapLink: "https://maps.app.goo.gl/yANDkYno1aacDy7j9",
@@ -14,7 +14,7 @@ const centers = [
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2961.4849772733655!2d77.64194487358917!3d12.978360814733026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16afaed3e29b%3A0x1cebb35d47157387!2s545%2C%20Chinmaya%20Mission%20Hospital%20Rd%2C%20Indira%20Nagar%201st%20Stage%2C%20Hoysala%20Nagar%2C%20Indiranagar%2C%20Bengaluru%2C%20Karnataka%20560038!5e1!3m2!1sen!2sin!4v1742717548956!5m2!1sen!2sin",
   },
   {
-    name: "BlueTick Academy – Hoodi",
+    name: "BlueTick Academy - Hoodi",
     address:
       "104, 2nd floor, ITPL Road, Hoodi Village, Mahadevapura Division, Bengaluru, Karnataka 560048.",
     mapLink: "https://maps.app.goo.gl/QLzGe6foP7Lc8r5E9",
@@ -22,7 +22,7 @@ const centers = [
       "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2961.0665422402703!2d77.661998!3d13.013440000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDAwJzQ4LjQiTiA3N8KwMzknNDMuMiJF!5e1!3m2!1sen!2sin!4v1742717832593!5m2!1sen!2sin",
   },
   {
-    name: "BlueTick Academy – Bannerghatta Road",
+    name: "BlueTick Academy - Bannerghatta Road",
     address:
       "66A, Nobel Residency Road, Hobli, Road, near Nandi Citadel, Begur, Bengaluru, Karnataka 560076.",
     mapLink: "https://maps.app.goo.gl/GTWoCM4B3FEy2Jsb6",
