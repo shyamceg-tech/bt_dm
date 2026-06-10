@@ -10,6 +10,13 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   trailingSlash: true,
+  /* Inline route CSS into the HTML <head> instead of shipping separate
+     render-blocking <link> stylesheets — removes the CSS request chain that
+     was delaying mobile FCP/LCP. Same CSS, just delivered inline. Experimental,
+     so we validate on staging before go-live. */
+  experimental: {
+    inlineCss: true,
+  },
 };
 
 export default nextConfig;
