@@ -73,6 +73,12 @@ function buildDescription(body) {
   if (body.preferredDate) parts.push(`Preferred date: ${body.preferredDate}`);
   if (body.preferredTime) parts.push(`Preferred time: ${body.preferredTime}`);
   if (body.role) parts.push(`Intent: ${body.role}`);
+  if (body.pageSource) parts.push(`Page: ${body.pageSource}`);
+  if (body.gAdsCampaign) parts.push(`Campaign: ${body.gAdsCampaign}`);
+  if (body.gAdsAdGroup) parts.push(`Ad group: ${body.gAdsAdGroup}`);
+  if (body.gAdsKeyword) parts.push(`Keyword: ${body.gAdsKeyword}`);
+  if (body.matchType) parts.push(`Match: ${body.matchType}`);
+  if (body.gclid) parts.push(`GCLID: ${body.gclid}`);
   if (body.meetScheduled && body.meetDateTime) {
     parts.push(`Google Meet booked: ${body.meetDateTime}`);
     if (body.meetLink) parts.push(`Meet link: ${body.meetLink}`);
@@ -168,6 +174,18 @@ export async function POST(req) {
       body.name = (body.email && body.email.split("@")[0]) || "Subscriber";
     }
 
+    /* Paid-search attribution: a lead that arrived via a Google Ads click
+       (gclid / utm) is sourced as "Google Ads". We only override the generic
+       learning-form source — Hire / Franchisee / Newsletter keep their own
+       source so those funnels stay distinct in Bigin. The page the visitor
+       came from (Near Me, Online, …) is carried separately in Page_Source. */
+    if (body.isGoogleAds && (formType === "default" || !formType)) {
+      leadSource = "Google Ads";
+      leadSourceDetail = body.pageSource
+        ? `Google Ads — ${body.pageSource}`
+        : "Google Ads";
+    }
+
     let description = buildDescription(body);
     if (formType === "hire") {
       description = `Hire enquiry from ${body.name} - ${body.company || ""}`;
@@ -177,23 +195,37 @@ export async function POST(req) {
       description = `Newsletter signup from ${body.email}`;
     }
 
-    const payload = {
-      data: [
-        {
-          Last_Name: body.name || "Lead",
-          Email: body.email || "",
-          Phone: body.mobile || "",
-          Center: body.center || "",
-          Learning_Mode: body.learningMode || "",
-          Company_Name: body.company || "",
-          Location: body.location || "",
-          Form_Type: formType,
-          Lead_Source: leadSource,
-          Lead_Source_Detail: leadSourceDetail,
-          Description: description,
-        },
-      ],
+    const record = {
+      Last_Name: body.name || "Lead",
+      Email: body.email || "",
+      Phone: body.mobile || "",
+      Center: body.center || "",
+      Learning_Mode: body.learningMode || "",
+      Company_Name: body.company || "",
+      Location: body.location || "",
+      Form_Type: formType,
+      Lead_Source: leadSource,
+      Lead_Source_Detail: leadSourceDetail,
+      Description: description,
     };
+
+    /* Page + Google Ads attribution as dedicated custom fields.
+       IMPORTANT: Zoho REJECTS the whole record if you send an api_name that
+       doesn't exist in the module. So these structured keys are OFF by default
+       — the same data already rides along in `Description` (see buildDescription),
+       which always works. Once the team creates the custom fields in Bigin (see
+       setup steps) and sets BIGIN_ATTRIBUTION_FIELDS=1, the structured columns
+       light up with no code change. Adjust the api_names below if Bigin
+       generated different ones (e.g. a numeric suffix). */
+    if (process.env.BIGIN_ATTRIBUTION_FIELDS === "1") {
+      record.Page_Source = body.pageSource || "";
+      record.Campaign_Name = body.gAdsCampaign || "";
+      record.Ad_Group_Name = body.gAdsAdGroup || "";
+      record.Keyword = body.gAdsKeyword || "";
+      record.GCLID = body.gclid || "";
+    }
+
+    const payload = { data: [record] };
 
     console.log("📦 Payload to Zoho:", JSON.stringify(payload, null, 2));
 

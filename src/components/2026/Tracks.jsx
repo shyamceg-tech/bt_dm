@@ -109,7 +109,9 @@ const TRACKS = [
 ];
 
 /* ─── Tracks ─────────────────────────────────────────────────────────────── */
-export default function Tracks() {
+/* `keyword` lets a landing page swap the highlighted heading keyword without
+   touching the homepage (which renders the default). Everything else is shared. */
+export default function Tracks({ keyword = 'digital marketing courses in Bangalore' }) {
   return (
     <section
       id="section-14"
@@ -121,7 +123,7 @@ export default function Tracks() {
           <span className={styles.eyebrow}>Course Tracks</span>
           <h2 id="tracks-heading" className={styles.heading}>
             Choose your track -{' '}
-            <span className={styles.kw}>digital marketing courses in Bangalore</span>{' '}
+            <span className={styles.kw}>{keyword}</span>{' '}
             for every goal
           </h2>
         </header>

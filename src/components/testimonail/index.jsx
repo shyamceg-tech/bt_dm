@@ -5,7 +5,7 @@ const testimonials = [
     img: "/img/JobSecure.jpeg",
     title: "100% Job Guaranteed Program",
     stats: [
-      { label: "Avg CTC", value: "4.5 LPA" },
+      { label: "Avg CTC", value: "5.6 LPA" },
       { label: "Highest CTC offered", value: "22 LPA" },
     ],
     note: "Placement support until you get the job",

@@ -32,6 +32,16 @@
     align-items: end;
     padding: var(--s-24);
   }
+
+  /* One-line (Name | Phone | CTA) layout: pin all three controls to the exact
+     same height so they line up top AND bottom as one clean row. Without this
+     the phone wrapper renders 1px taller than the text input (its border + the
+     inner 50px field), leaving a hairline misalignment. Desktop/tablet only —
+     the stacked phone (<768px) layout is untouched. */
+  .input,
+  .phone_wrap,
+  .submit { height: 52px; min-height: 52px; }
+  .phone_input { height: 100%; }
 }
 
 /* ─── Dark theme (CTA banner #1 context — frosted glass on aurora) ──────── */

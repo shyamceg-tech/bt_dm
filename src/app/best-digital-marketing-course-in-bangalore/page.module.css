@@ -1,0 +1,26 @@
+/* ============================================================================
+   page.module.css — vertical-rhythm tightening, scoped to THIS landing page.
+
+   The shared section components ship a 96–128px desktop padding tuned for the
+   homepage. This landing page stacks far more sections, so that padding doubles
+   up at every boundary into oversized empty gaps. We tighten it to a denser
+   rhythm here only — applied via a class on this page's <main>, so the homepage
+   and the other landing pages are completely unaffected.
+
+   Excluded from the override:
+     • the hero (:first-child) — keeps its space under the fixed header,
+     • the CTA banners — they are <aside>, not <section>, so untouched,
+     • MiniFormBand — it ships with zero outer padding by design.
+   ============================================================================ */
+
+.tight > section:not(:first-child):not([aria-labelledby='mini-form-band-h']) {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 1024px) {
+  .tight > section:not(:first-child):not([aria-labelledby='mini-form-band-h']) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}

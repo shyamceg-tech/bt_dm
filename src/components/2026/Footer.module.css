@@ -187,3 +187,19 @@
   opacity: 1;
   color: var(--text-on-deep);
 }
+
+/* Ghost internal link — intentionally below the casual-visitor visibility
+   threshold. Not display:none, so search crawlers read it cleanly and crawl
+   equity flows to the online landing page. */
+.ghostLink {
+  opacity: 0.08;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.625rem;
+  padding: 0 2px;
+  cursor: default;
+  user-select: none;
+  line-height: 1;
+}
+
+.ghostLink:hover { opacity: 0.08; }

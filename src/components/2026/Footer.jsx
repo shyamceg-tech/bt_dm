@@ -148,6 +148,12 @@ export default function Footer() {
             <a href="/privacypolicy">Privacy Policy</a>
             <a href="/termsandcondition">Terms &amp; Conditions</a>
             <a href="/contact_us">Contact</a>
+            <a href="/digital-marketing-course-near-me">Digital Marketing Course Near Me</a>
+            <a href="/best-digital-marketing-course-in-bangalore">Best Digital Marketing Course in Bangalore</a>
+           <a href="/digital-marketing-course-online">Digital Marketing Course Online</a>
+           <a href="/digital-marketing-course-fees-bangalore">Course Fees</a>
+           <a href="/digital-marketing-course-with-placement-bangalore">Course with Placement</a>
+           <a href="/digital-marketing-training-in-bangalore">Digital Marketing Training in Bangalore</a>
             <span className={styles.social}>
               {SOCIAL_LINKS.map((s) => (
                 <a
@@ -160,7 +166,7 @@ export default function Footer() {
                   <SocialIcon name={s.name} />
                 </a>
               ))}
-            </span>
+             </span>
           </div>
         </div>
       </div>

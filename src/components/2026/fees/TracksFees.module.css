@@ -1,0 +1,38 @@
+/* ============================================================================
+   TracksFees.module.css — small additions layered on top of Tracks.module.css
+   and FeeBreakdown.module.css for the fees-page Course Tracks variant. Only the
+   in-card total-fee text + a little spacing live here; all card design comes
+   from the shared Tracks module so the cards look identical to the homepage.
+   ============================================================================ */
+
+/* "incl. 18% GST" note directly under the total price. */
+.gst {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+/* base + GST split line. */
+.split {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+/* Divider between the total-fee cell and the EMI cell, inside the fee block. */
+.emiCell {
+  border-top: 1px solid rgba(11, 20, 34, 0.10);
+  padding-top: 12px;
+}
+
+/* Promise band sits between the header and the cards. */
+.promise {
+  margin-top: 28px;
+}
+
+/* Assurances band spacing under the cards. */
+.assurances {
+  margin-top: 32px;
+}

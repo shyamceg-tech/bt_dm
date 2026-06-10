@@ -590,7 +590,12 @@ function ModuleRail({
 }
 
 /* ─── Modules section ───────────────────────────────────────────────────── */
-export default function Modules() {
+/* `headingLead` + `headingKeyword` let a landing page swap the curriculum
+   heading keyword without touching the homepage (which renders the defaults). */
+export default function Modules({
+  headingLead = 'our',
+  headingKeyword = 'digital marketing training in Bangalore',
+}) {
   return (
     <section
       className={styles.section}
@@ -601,7 +606,7 @@ export default function Modules() {
         <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Curriculum</span>
           <h2 id="modules-heading" className={styles.heading}>
-            What our <span className={styles.kw}>digital marketing training in Bangalore</span> covers - every module, every topic
+            What {headingLead} <span className={styles.kw}>{headingKeyword}</span> covers - every module, every topic
           </h2>
           <p className={styles.lede}>
             3 courses. One direction: your dream job. Every hour in Course 1

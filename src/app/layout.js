@@ -1,6 +1,7 @@
 import './globals.css';
 import { Plus_Jakarta_Sans, Inter, Instrument_Serif } from 'next/font/google';
 import MetaPixelTracker from '@/components/MetaPixelTracker';
+import AttributionCapture from '@/components/AttributionCapture';
 import DeferredScripts from '@/components/DeferredScripts';
 import ModalRoot from '@/components/2026/ModalRoot';
 import LeadFunnel from '@/components/2026/lead/LeadFunnel';
@@ -100,6 +101,10 @@ export default function RootLayout({ children }) {
 
         {/* Meta Pixel click tracking — small client component */}
         <MetaPixelTracker />
+
+        {/* Page + Google Ads attribution capture (Page Source / Campaign /
+            Ad group / Keyword → Bigin). Renders nothing; off the critical path. */}
+        <AttributionCapture />
 
         {children}
 

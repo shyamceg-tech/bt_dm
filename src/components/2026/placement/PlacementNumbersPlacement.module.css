@@ -1,0 +1,214 @@
+/* ============================================================================
+   PlacementNumbersPlacement.module.css
+   Dedicated styles for the placement page's "batch-by-batch" outcome table.
+   A modern, card-framed table: gradient header, alternating rows, an accent
+   "placed" pill, and a highlighted current cohort. Collapses to stacked cards
+   on mobile (no horizontal scroll). All motion is GPU-only (transform/opacity)
+   and CSS-only — zero JS, no load-speed cost. Scroll reveal uses the global
+   [data-reveal] observer mounted in the root layout.
+   ============================================================================ */
+
+.section {
+  position: relative;
+  padding: var(--s-64) var(--gutter-mobile);
+  background:
+    radial-gradient(120% 120% at 100% 0%, rgba(124, 58, 237, 0.06) 0%, transparent 55%),
+    linear-gradient(180deg, #FFFFFF 0%, #F7F5FF 100%);
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .section { padding: var(--s-80) var(--gutter-tablet); }
+}
+
+.container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.head {
+  text-align: center;
+  max-width: 50rem;
+  margin: 0 auto var(--s-40);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-blue, #4F46E5);
+  margin-bottom: var(--s-8);
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary, #0B1422);
+}
+
+/* ─── Table card ─────────────────────────────────────────────────────────── */
+.tableWrap {
+  border-radius: 20px;
+  background: #FFFFFF;
+  box-shadow:
+    0 24px 60px -28px rgba(31, 27, 79, 0.35),
+    0 0 0 1px rgba(124, 58, 237, 0.08);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.caption {
+  caption-side: bottom;
+  padding: var(--s-16) var(--s-20);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text-secondary, #56607A);
+  text-align: left;
+  background: #FBFAFF;
+  border-top: 1px solid rgba(124, 58, 237, 0.10);
+}
+
+.caption strong { color: var(--text-primary, #0B1422); font-weight: 700; }
+
+/* Header row — aurora gradient */
+.table thead th {
+  background: linear-gradient(135deg, #1F1B4F 0%, #4F46E5 60%, #7C3AED 100%);
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+  padding: var(--s-16) var(--s-12);
+  white-space: nowrap;
+}
+
+.table thead th:first-child { text-align: left; padding-left: var(--s-20); }
+
+.table tbody td {
+  padding: var(--s-16) var(--s-12);
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--text-primary, #0B1422);
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.table tbody td:first-child {
+  text-align: left;
+  padding-left: var(--s-20);
+  font-weight: 600;
+}
+
+.table tbody tr:nth-child(even) { background: #FAF9FF; }
+
+/* Accent pill for the "placed" count */
+.placed {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--r-pill, 999px);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #0F6B3A;
+  background: rgba(31, 157, 85, 0.12);
+  border: 1px solid rgba(31, 157, 85, 0.25);
+}
+
+.placed svg { width: 13px; height: 13px; }
+
+.inProcess {
+  color: var(--text-secondary, #56607A);
+  font-weight: 600;
+}
+
+.dash { color: #C0C6D4; }
+
+/* Current cohort row — softly highlighted + a "current" tag */
+.current {
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.07), rgba(79, 70, 229, 0.04)) !important;
+}
+
+.tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: var(--r-pill, 999px);
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7C3AED;
+  background: rgba(124, 58, 237, 0.12);
+  vertical-align: middle;
+}
+
+/* ─── Mobile: collapse to stacked cards (no horizontal scroll) ───────────── */
+.mobileList { display: none; }
+
+@media (max-width: 640px) {
+  .tableWrap { background: transparent; box-shadow: none; overflow: visible; }
+  .table { display: none; }
+
+  .mobileList {
+    display: grid;
+    gap: var(--s-16);
+  }
+
+  .mCard {
+    position: relative;
+    border-radius: 16px;
+    background: #FFFFFF;
+    padding: var(--s-16) var(--s-20);
+    box-shadow: 0 12px 30px -18px rgba(31, 27, 79, 0.35), 0 0 0 1px rgba(124, 58, 237, 0.08);
+  }
+
+  .mCard_current {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(79, 70, 229, 0.03));
+    box-shadow: 0 12px 30px -18px rgba(124, 58, 237, 0.45), 0 0 0 1px rgba(124, 58, 237, 0.22);
+  }
+
+  .mCard_batch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 1.0625rem;
+    color: var(--text-primary, #0B1422);
+    margin-bottom: var(--s-12);
+  }
+
+  .mCard_rows { display: grid; gap: 8px; }
+
+  .mRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+  }
+
+  .mRow_label { color: var(--text-secondary, #56607A); }
+  .mRow_val   { font-weight: 700; color: var(--text-primary, #0B1422); }
+
+  .mCaption {
+    margin-top: var(--s-8);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--text-secondary, #56607A);
+  }
+  .mCaption strong { color: var(--text-primary, #0B1422); }
+}
+
+/* Reveal handled globally; nothing page-specific needed here. */

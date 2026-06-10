@@ -32,12 +32,16 @@ const REASONS = [
   },
 ];
 
-export default function Recruiters() {
+/* `scope` lets a landing page reframe the hiring-network claim without touching
+   the homepage (which renders the default "Bangalore companies"). The online
+   page is pan-India, so it passes scope="online". */
+export default function Recruiters({ scope = 'bangalore' }) {
+  const companiesLabel = scope === 'online' ? 'companies across India' : 'Bangalore companies';
   return (
     <section className={styles.section} aria-labelledby="recruiters-heading">
       <div className={styles.inner}>
         <h2 className={styles.heading} id="recruiters-heading" data-reveal>
-          Why <span className={styles.hl}>500+</span> Bangalore companies hire our{' '}
+          Why <span className={styles.hl}>500+</span> {companiesLabel} hire our{' '}
           <span className={styles.kw}>digital marketing</span> graduates first
         </h2>
         <p className={styles.subline}>

@@ -1,0 +1,247 @@
+/* ============================================================================
+   FeeValueCompare.module.css — NEW section (fees page)
+
+   Mobile-first three-column comparison. Stacked cards on phones, side-by-side
+   on desktop. Middle (BlueTick) column is elevated. Tokens from globals.css.
+   ============================================================================ */
+
+.section {
+  background: var(--bg-alt);
+  padding: var(--s-72) 0;
+}
+
+@media (min-width: 1024px) {
+  .section { padding: var(--s-96) 0; }
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter-mobile);
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────── */
+.head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto var(--s-40);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: var(--s-12);
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 var(--s-16);
+}
+
+.kw { color: var(--brand-blue); }
+
+@media (min-width: 1024px) {
+  .heading { font-size: 34px; }
+}
+
+.sub {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ─── Columns ─────────────────────────────────────────────────────────── */
+.cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-20);
+  align-items: start;
+}
+
+@media (min-width: 880px) {
+  .cols { grid-template-columns: repeat(3, 1fr); }
+}
+
+.col {
+  position: relative;
+  background: var(--bg-base);
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  padding: var(--s-24);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.col:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-lift);
+}
+
+/* Soft per-column gradients */
+.col_cheap {
+  background: linear-gradient(160deg, rgba(100, 116, 139, 0.07) 0%, rgba(100, 116, 139, 0.01) 72%);
+}
+.col_bluetick {
+  background: linear-gradient(160deg, rgba(37, 99, 235, 0.10) 0%, rgba(37, 99, 235, 0.015) 72%);
+}
+.col_premium {
+  background: linear-gradient(160deg, rgba(124, 58, 237, 0.08) 0%, rgba(124, 58, 237, 0.015) 72%);
+}
+
+.col_hl {
+  border: 2px solid var(--brand-blue);
+  box-shadow: var(--shadow-card-lift);
+}
+
+@media (min-width: 880px) {
+  .col_hl { transform: translateY(-8px); }
+  .col_hl:hover { transform: translateY(-12px); }
+}
+
+/* ─── Column icon ─────────────────────────────────────────────────────── */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  margin-bottom: var(--s-16);
+  color: #fff;
+}
+.icon svg { width: 24px; height: 24px; }
+
+.icon_cheap { background: #64748b; }
+.icon_bluetick { background: var(--brand-blue, #2563eb); }
+.icon_premium { background: #7c3aed; }
+
+@media (prefers-reduced-motion: reduce) {
+  .col,
+  .col:hover,
+  .col_hl:hover { transition: none; transform: none; }
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--brand-blue);
+  color: #fff;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.col_head {
+  text-align: center;
+  padding-bottom: var(--s-16);
+  border-bottom: 1px solid var(--border-default);
+  margin-bottom: var(--s-16);
+}
+
+.col_title {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 6px;
+  min-height: 2.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col_price {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--brand-blue);
+  margin: 0;
+}
+
+.col_hl .col_price { color: var(--brand-blue); }
+
+/* ─── Rows ────────────────────────────────────────────────────────────── */
+.rows {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-16);
+}
+
+.row { margin: 0; }
+
+.row_label {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0 0 3px;
+}
+
+.row_value {
+  margin: 0;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+.col_hl .row_value { font-weight: 600; }
+
+/* ─── Highlighted column CTA ──────────────────────────────────────────── */
+.col_cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-8);
+  width: 100%;
+  margin-top: var(--s-24);
+  background: var(--cta-orange);
+  color: #fff;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: var(--s-12) var(--s-16);
+  border-radius: 10px;
+  box-shadow: var(--shadow-cta-rest);
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.col_cta:hover {
+  background: var(--cta-orange-hover);
+  transform: translateY(-1px);
+}
+
+/* ─── Footer line ─────────────────────────────────────────────────────── */
+.foot {
+  max-width: 760px;
+  margin: var(--s-40) auto 0;
+  text-align: center;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.foot strong { color: var(--text-primary); }

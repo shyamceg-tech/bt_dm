@@ -84,15 +84,18 @@ const CHIPS = [
 ];
 
 /* ─── Hero ────────────────────────────────────────────────────────────────── */
-export default function Hero() {
+/* `eyebrow` lets a landing page swap the H1 head term (the page's single most
+   important keyword) without touching the homepage, which renders the default. */
+export default function Hero({
+  eyebrow = '#1 Digital Marketing Course in Bangalore — placement-first, ai-native.',
+}) {
   return (
     <section className={styles.hero} aria-labelledby="hero-heading">
       <div className={styles.inner}>
         {/* ── Left column: copy ─────────────────────────────────────────── */}
         <div className={styles.copy}>
           <h1 className={styles.eyebrow} id="hero-heading">
-            #1 Digital Marketing Course in Bangalore — placement-first,
-            ai-native.
+            {eyebrow}
           </h1>
 
           <div className={styles.headline} aria-label="Course title">

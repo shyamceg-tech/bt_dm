@@ -40,12 +40,14 @@ const BANDS = [
 ];
 
 /* ─── Salary ─────────────────────────────────────────────────────────────── */
-export default function Salary() {
+/* `keyword` lets a landing page swap the highlighted heading keyword without
+   touching the homepage (which renders the default). Everything else is shared. */
+export default function Salary({ keyword = 'Digital Marketing Course in Bangalore' }) {
   return (
     <section id="placements" className={styles.section} aria-labelledby="salary-heading">
       <div className={styles.inner}>
         <h2 className={styles.heading} id="salary-heading" data-reveal>
-          <span className={styles.kw}>Digital Marketing Course in Bangalore</span>
+          <span className={styles.kw}>{keyword}</span>
           with <span className={styles.hl}>100% placement</span> - here&rsquo;s
           the package band
         </h2>

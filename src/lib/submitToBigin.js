@@ -32,6 +32,7 @@
  */
 
 import { getRecaptchaToken } from './recaptcha';
+import { getAttribution } from './attribution';
 
 const ENDPOINT = '/api/bigin';
 const DEFAULT_TIMEOUT_MS = 15000;
@@ -67,6 +68,13 @@ export async function submitToBigin(payload, opts = {}) {
   if (recaptchaToken) {
     payload = { ...payload, recaptchaToken, recaptchaAction };
   }
+
+  /* Fold in page + Google Ads attribution (first-touch, from sessionStorage)
+     so EVERY form carries Page Source / Campaign / Ad group / Keyword without
+     each form component having to know about it. Attribution keys don't collide
+     with form fields, and the form payload is spread last so it always wins. */
+  const attribution = getAttribution();
+  payload = { ...attribution, ...payload };
 
   /* Pre-flight: if the browser already knows it's offline, fail fast — no
      point starting a fetch that will throw. */

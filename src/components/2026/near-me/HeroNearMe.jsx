@@ -1,16 +1,32 @@
 /**
  * HeroNearMe.jsx — Near-Me intent landing page hero
  *
- * Mirrors Hero.jsx's split-column layout (copy left, form right on desktop;
- * stacked on mobile) but rewires copy + CTAs for location-first intent.
+ * Replicates the homepage Hero layout 1:1 (imports Hero.module.css so the
+ * grid, headline, chips and recognition badges render identically), swapping
+ * only the copy for near-me intent:
+ *   - H1 (small eyebrow): "Digital Marketing Course Near You"
+ *   - Course title (big): "DIGITAL MARKETING / WITH AI"
+ *   - A location chip ("Indiranagar, Bangalore · 1 min from the Metro") sits
+ *     directly below the course title (local .locationChip class).
  *
- * Server component for the copy column; HeroNearMeForm is a client island
- * that posts to /api/bigin via the shared submitToBigin helper.
+ * The right column is HeroNearMeForm (its own client island, posts to
+ * /api/bigin with formPosition "hero-near-me"). The recognition badges reuse
+ * the homepage gold "Top 10" + cyan "Rated" pair verbatim.
  */
 
-import { CAMPUS } from '@/data/near-me.config';
+import Image from 'next/image';
+import styles from '../Hero.module.css';
+import local from './HeroNearMe.module.css';
 import HeroNearMeForm from './HeroNearMeForm';
-import styles from './HeroNearMe.module.css';
+
+/* ─── Inline icons (copied from Hero.jsx so the chips/badges match) ────────── */
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
 
 function PinIcon() {
   return (
@@ -21,62 +37,91 @@ function PinIcon() {
   );
 }
 
-function CheckIcon() {
+function CyanBadgeStars() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <polyline points="20 6 9 17 4 12" />
+    <svg className={styles.badge_star_svg} width="78" height="27" viewBox="0 0 78 27" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M38.1231 18.3181L29.582 22.8435L32.042 14.5915L24.3037 9.13514L34.3658 8.5594L38.1231 0.662659L41.8803 8.5594L51.9424 9.13514L44.2042 14.5915L46.6641 22.8435L38.1231 18.3181Z" fill="white" />
+      <mask id="bt-star-l" style={{ maskType: 'luminance' }} maskUnits="userSpaceOnUse" x="0" y="11" width="19" height="16">
+        <path d="M11.2691 22.8989L6.70591 26.8724L6.74503 21.3394L0.856445 18.9057L7.10496 17.2273L8.02826 11.7511L11.8497 16.2448L18.3094 15.294L14.4239 19.7495L17.491 24.6394L11.2691 22.8989Z" fill="white" />
+      </mask>
+      <g mask="url(#bt-star-l)">
+        <path d="M11.2691 22.8989L6.70591 26.8724L6.74503 21.3394L0.856445 18.9057L7.10496 17.2273L8.02826 11.7511L11.8497 16.2448L18.3094 15.294L14.4239 19.7495L17.491 24.6394L11.2691 22.8989Z" fill="white" />
+      </g>
+      <mask id="bt-star-r" style={{ maskType: 'luminance' }} maskUnits="userSpaceOnUse" x="59" y="11" width="19" height="16">
+        <path d="M66.7919 22.8989L71.3535 26.8724L71.3144 21.3394L77.203 18.9057L70.9545 17.2273L70.0312 11.7511L66.2082 16.2448L59.75 15.294L63.6356 19.7495L60.5685 24.6394L66.7919 22.8989Z" fill="white" />
+      </mask>
+      <g mask="url(#bt-star-r)">
+        <path d="M66.7919 22.8989L71.3535 26.8724L71.3144 21.3394L77.203 18.9057L70.9545 17.2273L70.0312 11.7511L66.2082 16.2448L59.75 15.294L63.6356 19.7495L60.5685 24.6394L66.7919 22.8989Z" fill="white" />
+      </g>
     </svg>
   );
 }
 
-const PROOFS = [
-  'Walk into our Indiranagar campus, Mon–Sat',
-  '312 alumni placed in the last 4 batches',
-  'Trainers running live campaigns - not full-time teachers',
-  'Next batch starts 12 Aug - limited seats',
+/* Four short highlight chips — near-me / offline flavoured, kept terse so each
+   fits one line inside its pill (matches the homepage chip grid). */
+const CHIPS = [
+  '100% Placement Record',
+  'AI-Native 2026 Curriculum',
+  'Rated 4.9 / 345+ honest reviews',
+  'Practitioner Trainers, Small Batches',
 ];
 
 export default function HeroNearMe() {
   return (
-    <section className={styles.hero} aria-labelledby="near-me-hero-heading">
+    <section
+      className={styles.hero}
+      aria-labelledby="near-me-hero-heading"
+      /* --hero-form-lift: shorter copy column here would pull the form almost to
+         the fixed header if fully bottom-aligned, so the lift is capped to keep a
+         comfortable gap below the header. Desktop-only var. */
+      style={{ '--hero-form-lift': '-64px' }}
+    >
       <div className={styles.inner}>
+        {/* ── Left column: copy ─────────────────────────────────────────── */}
         <div className={styles.copy}>
-          <p className={styles.locationChip}>
-            <PinIcon />
-            <span>Indiranagar, Bangalore · 10-min walk from Metro</span>
-          </p>
-
-          <h1 className={styles.headline} id="near-me-hero-heading">
-            <span className={styles.headline_lead}>Digital Marketing Course</span>
-            <span className={styles.headline_near}>Near You</span>
-            <span className={styles.headline_loc}>In Bangalore</span>
+          <h1 className={styles.eyebrow} id="near-me-hero-heading">
+            #1 Digital Marketing Course Near You — placement-first, ai-native.
           </h1>
 
-          <p className={styles.subline}>
-            Walk into our <em>Indiranagar campus</em> this week - see the
-            classroom, meet the trainers, and decide for yourself.
+          <div className={styles.headline} aria-label="Course title">
+            <span className={styles.headline_master}>MASTER</span>
+            <span className={styles.headline_dm}>DIGITAL MARKETING</span>
+            <span className={styles.headline_ai}>WITH AI</span>
+          </div>
+
+          {/* Location chip sits directly below the course title (same green
+              pill design as before, just relocated). */}
+          <p className={local.locationChip}>
+            <PinIcon />
+            <span>Indiranagar, Bangalore · 1 min from the Metro</span>
           </p>
 
-          <ul className={styles.proofs} aria-label="Why students choose us">
-            {PROOFS.map((label) => (
-              <li key={label} className={styles.proof}>
+          <ul className={styles.chips} aria-label="Program highlights">
+            {CHIPS.map((label) => (
+              <li key={label} className={styles.chip}>
                 <CheckIcon />
                 <span>{label}</span>
               </li>
             ))}
           </ul>
+        </div>
 
-          <div className={styles.ctaRow}>
-            <a className={styles.btnSecondary} href="#location-proof">
-              <PinIcon />
-              <span>Book a Campus Visit</span>
-            </a>
-            <a className={styles.btnGhost} href={CAMPUS.whatsapp} target="_blank" rel="noopener noreferrer">
-              Talk to a Counsellor
-            </a>
+        {/* ── Recognition badges (verbatim from the homepage hero) ───────── */}
+        <div className={styles.badges} aria-label="Recognitions">
+          <div
+            className={`${styles.badge} ${styles.badge_gold}`}
+            role="img"
+            aria-label="Top 10 Digital Marketing Academies in India"
+          >
+            <Image src="/img/top.svg" alt="" width={161} height={111} className={styles.badge_top_svg} priority />
+          </div>
+          <div className={`${styles.badge} ${styles.badge_cyan}`}>
+            <p>Rated Based On Best Trained Faculty and Latest Curriculum</p>
+            <CyanBadgeStars />
           </div>
         </div>
 
+        {/* ── Right column: form ───────────────────────────────────────── */}
         <HeroNearMeForm />
       </div>
     </section>

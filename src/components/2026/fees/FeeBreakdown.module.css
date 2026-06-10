@@ -1,0 +1,250 @@
+/* ============================================================================
+   FeeBreakdown.module.css — NEW section (fees page)
+
+   New layout, existing design language: colours, type stacks, radii and the
+   --s-* spacing scale all come from globals.css. Per-track accent is injected
+   via the inline --accent / --accent-soft custom props set in the JSX.
+   ============================================================================ */
+
+.section {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(37, 99, 235, 0.06) 0%, transparent 42%),
+    var(--bg-base);
+  padding: var(--s-72) 0;
+}
+
+@media (min-width: 1024px) {
+  .section { padding: var(--s-96) 0; }
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter-mobile);
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────── */
+.head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto var(--s-40);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: var(--s-12);
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 28px;
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0 0 var(--s-16);
+}
+
+.kw { color: var(--brand-blue); }
+
+@media (min-width: 1024px) {
+  .heading { font-size: 36px; }
+}
+
+.sub {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.sub strong { color: var(--text-primary); }
+
+/* ─── Anti-bait promise ───────────────────────────────────────────────── */
+.promise {
+  display: flex;
+  align-items: center;
+  gap: var(--s-16);
+  max-width: 760px;
+  margin: 0 auto var(--s-40);
+  padding: var(--s-16) var(--s-20);
+  background: var(--tint-mint);
+  border: 1px solid rgba(31, 157, 85, 0.28);
+  border-radius: 14px;
+}
+
+.promise_icon {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  color: var(--success-green);
+}
+.promise_icon svg { width: 100%; height: 100%; }
+
+.promise_text {
+  margin: 0;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+.promise_text strong { color: var(--text-primary); }
+
+/* ─── Total-fees strip ────────────────────────────────────────────────── */
+.totals {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-16);
+}
+
+@media (min-width: 768px) {
+  .totals { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+}
+
+.total {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--bg-base);
+  border: 1px solid var(--border-default);
+  border-top: 4px solid var(--accent, var(--brand-blue));
+  border-radius: 16px;
+  padding: var(--s-24) var(--s-20);
+  box-shadow: 0 1px 2px rgba(11, 20, 34, 0.04);
+}
+
+.total_popular {
+  border-color: var(--accent, var(--pgcp-color));
+  box-shadow: var(--shadow-card-lift);
+}
+
+.popular {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent, var(--pgcp-color));
+  color: #fff;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.total_eyebrow {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent, var(--brand-blue));
+  margin-bottom: var(--s-8);
+}
+
+.total_price {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.total_note {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.total_split {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin: var(--s-8) 0 0;
+}
+
+/* ─── Assurances (icons + coloured cards) ─────────────────────────────── */
+.assurances {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-16);
+  margin-top: var(--s-32);
+}
+
+@media (min-width: 768px) {
+  .assurances { grid-template-columns: repeat(3, 1fr); }
+}
+
+.assurance {
+  position: relative;
+  border-radius: 16px;
+  padding: var(--s-24) var(--s-20) var(--s-20);
+  border: 1px solid transparent;
+  overflow: hidden;
+}
+
+.assurance_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  margin-bottom: var(--s-12);
+  color: #fff;
+}
+.assurance_icon svg { width: 22px; height: 22px; }
+
+.assurance_badge {
+  display: block;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.assurance_text {
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Scholarship — green */
+.assurance_scholarship {
+  background: linear-gradient(155deg, rgba(31, 157, 85, 0.10) 0%, rgba(31, 157, 85, 0.02) 70%);
+  border-color: rgba(31, 157, 85, 0.22);
+}
+.assurance_scholarship .assurance_icon { background: var(--success-green, #1f9d55); }
+.assurance_scholarship .assurance_badge { color: #167a41; }
+
+/* Refund — blue */
+.assurance_refund {
+  background: linear-gradient(155deg, rgba(37, 99, 235, 0.10) 0%, rgba(37, 99, 235, 0.02) 70%);
+  border-color: rgba(37, 99, 235, 0.22);
+}
+.assurance_refund .assurance_icon { background: var(--brand-blue, #2563eb); }
+.assurance_refund .assurance_badge { color: var(--brand-blue, #2563eb); }
+
+/* Salary — amber */
+.assurance_salary {
+  background: linear-gradient(155deg, rgba(217, 119, 6, 0.12) 0%, rgba(217, 119, 6, 0.02) 70%);
+  border-color: rgba(217, 119, 6, 0.24);
+}
+.assurance_salary .assurance_icon { background: #d97706; }
+.assurance_salary .assurance_badge { color: #b45309; }

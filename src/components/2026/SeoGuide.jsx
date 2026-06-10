@@ -66,7 +66,13 @@ const ITEMS = [
           BlueTick was built to answer all five with evidence: a 100% placement
           record across the last four batches, practitioner trainers, three live
           projects, an AI-native curriculum, and a 300+ Bangalore hiring-partner
-          network. Ask any institute for the same proof before you enrol.
+          network. Ask any institute for the same proof before you enrol. To see
+          exactly how we score on each of these five points, read our guide to
+          the{' '}
+          <a href="/best-digital-marketing-course-in-bangalore">
+            best digital marketing course in Bangalore
+          </a>
+          .
         </p>
       </>
     ),
@@ -84,16 +90,20 @@ const ITEMS = [
         <p>
           The number that matters more than the fee is the return. Across our
           last four batches (312 students) the average package was{' '}
-          <strong>₹5.6 LPA</strong>, with a floor of ₹3.6 LPA and a ceiling of
-          ₹18.5 LPA at Razorpay. For most learners the program pays for itself
+          <strong>₹5.6 LPA</strong>, with a floor of ₹3.2 LPA and a ceiling of
+          ₹22 LPA at Flipkart. For most learners the program pays for itself
           within the first few months of their new role.
         </p>
         <p>
           A practical tip: weigh fees against what&rsquo;s included. A slightly
           higher fee that bundles live ad budgets, 12 certifications, portfolio
           projects and six months of placement support is usually far better
-          value than a cheap course that stops at theory. We share our full fee
-          and EMI plan up front - no inflated &ldquo;today-only&rdquo; discounts.
+          value than a cheap course that stops at theory. See the full per-track
+          breakdown on our guide to{' '}
+          <a href="/digital-marketing-course-fees-bangalore">
+            digital marketing course fees in Bangalore
+          </a>{' '}
+          - shared up front, with no inflated &ldquo;today-only&rdquo; discounts.
         </p>
       </>
     ),
@@ -104,16 +114,20 @@ const ITEMS = [
       <>
         <p>
           Both formats work - the right one depends on how you learn and your
-          schedule. Classroom <strong>digital marketing training in Bangalore</strong>{' '}
+          schedule. Classroom{' '}
+          <a href="/digital-marketing-training-in-bangalore">digital marketing training in Bangalore</a>{' '}
           suits learners who want in-person mentorship, peer projects and the
-          accountability of a fixed batch. Our offline batches run at the
-          Indiranagar campus, a short walk from the metro.
+          accountability of a fixed batch. Our offline batches run at the{' '}
+          <a href="/digital-marketing-course-near-me">Indiranagar campus, a short walk from the metro</a>.
         </p>
         <p>
           Online and hybrid training suits working professionals and anyone
           outside central Bangalore. Recorded sessions, makeup classes and
           WhatsApp office hours mean you never fall behind. Our weekend PGCP
-          batch is designed specifically for people balancing a full-time job.
+          batch is designed specifically for people balancing a full-time job. If
+          you want to learn entirely remotely, our live{' '}
+          <a href="/digital-marketing-course-online">digital marketing course online</a>{' '}
+          runs the same projects and placement support from anywhere in India.
         </p>
         <p>
           Whichever you choose, insist on the same essentials: live campaigns,

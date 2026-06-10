@@ -55,3 +55,31 @@ export function smoothScrollTo(targetY) {
 
   window.requestAnimationFrame(step);
 }
+
+/**
+ * Scroll to an in-page hash target (e.g. "#hero-form"), offset so it clears the
+ * fixed header + the sticky section-nav strip, using the interruption-proof
+ * scroll above. Returns true if the target existed and the scroll was started
+ * (so the caller can preventDefault), false otherwise (let the browser fall
+ * back to the native hash jump).
+ *
+ * Used by every in-page CTA that points at the hero form — the sticky bar and
+ * the cosmic banner button — so they all land identically and never stall
+ * mid-page behind the header.
+ */
+export function smoothScrollToHash(hash) {
+  if (typeof document === 'undefined' || !hash || !hash.startsWith('#')) return false;
+
+  const target = document.querySelector(hash);
+  if (!target) return false;
+
+  const header = document.getElementById('site-header');
+  const subnav = document.querySelector('nav[aria-label="Section navigation"]');
+  // offsetHeight is still reported while the section-nav strip is
+  // visibility:hidden on scroll; it's 0 on desktop where the strip is display:none.
+  const offset = (header?.offsetHeight || 60) + (subnav?.offsetHeight || 0) + 12;
+  const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+  smoothScrollTo(top);
+  return true;
+}

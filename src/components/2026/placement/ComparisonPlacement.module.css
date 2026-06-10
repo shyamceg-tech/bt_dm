@@ -1,0 +1,243 @@
+/* ============================================================================
+   ComparisonPlacement.module.css
+   Revamped "placement-first vs certificate-only" comparison. Desktop: a
+   gradient-framed 3-column grid (criterion · BlueTick · competitor) with a
+   per-row icon, green/striped accents and hover lift. Mobile: rich stacked
+   cards (icon + criterion, then a green "BlueTick" block and a muted "others"
+   block) - replacing the old flat list. All motion is CSS-only + GPU-friendly
+   (transform/opacity); scroll reveal uses the global [data-reveal] observer.
+   ============================================================================ */
+
+.section {
+  position: relative;
+  padding: var(--s-64) var(--gutter-mobile);
+  overflow: hidden;
+  background:
+    radial-gradient(110% 110% at 0% 0%, rgba(6, 182, 212, 0.07) 0%, transparent 50%),
+    radial-gradient(120% 120% at 100% 100%, rgba(124, 58, 237, 0.08) 0%, transparent 55%),
+    linear-gradient(180deg, #0A0E27 0%, #14163B 100%);
+  color: #FFFFFF;
+}
+
+@media (min-width: 1024px) {
+  .section { padding: var(--s-80) var(--gutter-tablet); }
+}
+
+.container { max-width: var(--max-content-width); margin: 0 auto; }
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+.head { text-align: center; max-width: 52rem; margin: 0 auto var(--s-40); }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #67E8F9;
+  margin-bottom: var(--s-8);
+}
+
+.heading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.heading em {
+  font-style: normal;
+  background: linear-gradient(90deg, #FB923C 0%, #EC4899 50%, #A855F7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.subline {
+  margin-top: var(--s-12);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #C7CBE3;
+}
+
+/* ─── Desktop column header ──────────────────────────────────────────────── */
+.colHead {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: var(--s-12);
+  align-items: stretch;
+  margin-bottom: var(--s-12);
+}
+
+.colHead_label { /* spacer over the criterion column */ }
+
+.colHead_us,
+.colHead_them {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--s-12) var(--s-16);
+  border-radius: 14px 14px 0 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+}
+
+.colHead_us {
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #1F9D55 0%, #06B6D4 100%);
+  box-shadow: 0 10px 30px -12px rgba(6, 182, 212, 0.6);
+}
+
+.colHead_them {
+  color: #AEB4CF;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Desktop rows ───────────────────────────────────────────────────────── */
+.rows { display: grid; gap: 10px; }
+
+.row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: var(--s-12);
+  align-items: stretch;
+  border-radius: 14px;
+  transition: transform 0.2s ease;
+}
+
+.row:hover { transform: translateY(-2px); }
+
+.cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: var(--s-16);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.cell_label {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  font-weight: 700;
+  color: #EDEFFb;
+}
+
+.cell_icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.35), rgba(6, 182, 212, 0.30));
+  color: #E9D5FF;
+}
+
+.cell_icon svg { width: 18px; height: 18px; }
+
+.cell_us {
+  background: linear-gradient(135deg, rgba(31, 157, 85, 0.16), rgba(6, 182, 212, 0.10));
+  border: 1px solid rgba(52, 211, 153, 0.30);
+  border-radius: 14px;
+  color: #EAFBF1;
+  font-weight: 600;
+}
+
+.cell_them {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  color: #AEB4CF;
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.mark_us { background: rgba(52, 211, 153, 0.22); color: #34D399; }
+.mark_them { background: rgba(248, 113, 113, 0.16); color: #F87171; }
+.mark svg { width: 13px; height: 13px; }
+
+/* ─── Mobile cards ───────────────────────────────────────────────────────── */
+.mobileList { display: none; }
+
+@media (max-width: 860px) {
+  .colHead, .rows { display: none; }
+
+  .mobileList { display: grid; gap: var(--s-16); }
+
+  .mCard {
+    border-radius: 16px;
+    padding: var(--s-16) var(--s-16) var(--s-12);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .mCard_head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #FFFFFF;
+    margin-bottom: var(--s-12);
+  }
+
+  .mBlock {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: var(--s-12);
+    border-radius: 12px;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .mBlock + .mBlock { margin-top: 8px; }
+
+  .mBlock_us {
+    background: linear-gradient(135deg, rgba(31, 157, 85, 0.18), rgba(6, 182, 212, 0.10));
+    border: 1px solid rgba(52, 211, 153, 0.30);
+    color: #EAFBF1;
+    font-weight: 600;
+  }
+
+  .mBlock_them {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: #AEB4CF;
+  }
+
+  .mBlock_brand {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 2px;
+  }
+  .mBlock_us .mBlock_brand { color: #34D399; }
+  .mBlock_them .mBlock_brand { color: #8b93b3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row { transition: none; }
+}

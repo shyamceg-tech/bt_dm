@@ -11,6 +11,8 @@ export default function robots() {
     rules: {
       userAgent: '*',
       allow: '/',
+      /* Hoodi branch = Google-Ads-only landing pages; never index. */
+      disallow: '/hoodi/',
     },
     sitemap: `${BASE}/sitemap.xml`,
     host: BASE,

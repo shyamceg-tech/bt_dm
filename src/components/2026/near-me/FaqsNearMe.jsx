@@ -1,19 +1,52 @@
 /**
- * FaqsNearMe.jsx — FAQ accordion tuned to the near-me buyer.
- * Reuses the same native <details>/<summary> pattern as Faqs.jsx;
- * shares Faqs.module.css for visual consistency.
+ * FaqsNearMe.jsx — FAQ accordion tuned to the near-me / offline buyer.
+ * Reuses the native <details>/<summary> pattern + Faqs.module.css for visual
+ * consistency, and co-locates a FAQPage JSON-LD block (same approach as the
+ * homepage <Faqs />) so answer engines can quote these Q&As.
  */
 
 import { FAQS } from '@/data/near-me.config';
 import styles from '../Faqs.module.css';
 
+/* Plain-text helpers for the FAQPage schema: strip the <strong>/<em> tags and
+   decode the HTML entities used in the answer copy so the structured data
+   carries clean, quotable text. Operates on static config literals only. */
+const ENTITIES = {
+  '&mdash;': '—',
+  '&ndash;': '–',
+  '&amp;': '&',
+  '&rsquo;': '’',
+  '&lsquo;': '‘',
+  '&ldquo;': '“',
+  '&rdquo;': '”',
+  '&hellip;': '…',
+};
+const decode = (s) =>
+  s
+    .replace(/<\/?[^>]+>/g, '')
+    .replace(/&(?:mdash|ndash|amp|rsquo|lsquo|ldquo|rdquo|hellip);/g, (m) => ENTITIES[m] || m);
+
+const FAQ_JSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: decode(f.q),
+    acceptedAnswer: { '@type': 'Answer', text: decode(f.a) },
+  })),
+};
+
 export default function FaqsNearMe() {
   return (
     <section
-      id="faqs-near-me"
+      id="section-19"
       className={styles.section}
       aria-labelledby="faqs-near-me-heading"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSONLD) }}
+      />
       <div className={styles.container}>
         <header className={styles.head}>
           <span className={styles.eyebrow}>Before you decide</span>

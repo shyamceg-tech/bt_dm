@@ -139,9 +139,18 @@
   .form {
     grid-column: 2;
     grid-row: 1;
-    /* Drop the form so its top lines up with the top of "MASTER" (which sits
-       below the eyebrow on the left). */
-    margin-top: 71px;
+    /* Pull the form (and the badges that sit in row 2 directly beneath it) up so
+       the recognition badges line up with the bottom of the highlight chips in
+       the left column — both columns now end on the same baseline. The negative
+       margin shrinks row 1's auto track, lifting row 2 with it. Desktop-only;
+       mobile order/spacing is untouched.
+
+       The exact lift depends on each page's copy-column height, so it's exposed
+       as `--hero-form-lift`. The default below bottom-aligns the homepage layout
+       (shared verbatim by the training & best-course heroes); the fees / near-me
+       heroes — whose copy column is a different height — override the variable on
+       their own <section>. */
+    margin-top: var(--hero-form-lift, -44px);
     /* Nudge the form rightward into the page gutter. Clamped so it only shifts
        as far as the available gutter allows — zero shift on narrow desktops, so
        it can never cause horizontal overflow. ~64px ≈ 13% of the form width. */

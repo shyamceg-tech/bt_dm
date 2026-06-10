@@ -72,16 +72,10 @@ export default function CtaBanner({
 }
 
 /* ─── <CtaButton href="...">START…</CtaButton> ─────────────────────────────
-   Used in CTA Banner #3 (cosmic) which has no form, just a button. The
-   orange pulse-ring + shimmer animations live in CtaBanner.module.css. */
-export function CtaButton({ href, children, ariaLabel }) {
-  return (
-    <a className={styles.cta_btn} href={href} aria-label={ariaLabel}>
-      {children}
-      <span className={styles.cta_btn_arrow} aria-hidden="true">→</span>
-    </a>
-  );
-}
+   Used in CTA Banner #3 (cosmic) which has no form, just a button. Lives in
+   its own client island (CtaButton.jsx) so in-page anchors get the reliable
+   header-offset scroll; re-exported here so existing imports keep working. */
+export { default as CtaButton } from './CtaButton';
 
 /* ─── <ScarcityHl>9 seats left</ScarcityHl> ───────────────────────────────
    Inline amber-on-dark pill used in CTA Banner #4's sub line. */

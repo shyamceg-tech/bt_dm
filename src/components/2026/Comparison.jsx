@@ -74,7 +74,9 @@ function Cell({ data }) {
   );
 }
 
-export default function Comparison() {
+/* `keyword` lets a landing page swap the highlighted heading keyword without
+   touching the homepage (which renders the default). */
+export default function Comparison({ keyword = 'digital marketing institute in Bangalore' }) {
   return (
     <section
       id="section-17"
@@ -85,7 +87,7 @@ export default function Comparison() {
         <header className={styles.head} data-reveal>
           <span className={styles.eyebrow}>Comparison</span>
           <h2 id="comparison-heading" className={styles.heading}>
-            How our <span className={styles.kw}>digital marketing institute in Bangalore</span> compares to your other options
+            How our <span className={styles.kw}>{keyword}</span> compares to your other options
           </h2>
         </header>
 

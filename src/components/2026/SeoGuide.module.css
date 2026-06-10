@@ -138,6 +138,10 @@
 .body p { margin: 0 0 14px; }
 .body p:last-child { margin-bottom: 0; }
 .body strong { color: var(--text-primary); font-weight: 600; }
+/* In-content editorial links (e.g. to the best-course landing page). Styled as
+   a clear but low-key link so it reads as editorial, not as a CTA. */
+.body a { color: var(--brand-blue); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.body a:hover { text-decoration: none; }
 
 .body ul {
   margin: 0 0 14px;

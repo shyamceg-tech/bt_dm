@@ -21,26 +21,16 @@
  */
 
 import styles from './StickyBar.module.css';
-import { smoothScrollTo } from '@/lib/smoothScroll';
+import { smoothScrollToHash } from '@/lib/smoothScroll';
 
 export default function StickyBar({
   label = 'Apply for Next Batch',
   targetHref = '#hero-form',
 } = {}) {
   const handleClick = (e) => {
-    const form = document.querySelector(targetHref);
-    if (!form) return; // fall back to the native hash jump
-
-    e.preventDefault();
-
-    const header = document.getElementById('site-header');
-    const subnav = document.querySelector('nav[aria-label="Section navigation"]');
-    // Clear the fixed header + the sticky section-nav strip (offsetHeight is
-    // still reported even while the strip is visibility:hidden on scroll).
-    const offset = (header?.offsetHeight || 60) + (subnav?.offsetHeight || 0) + 12;
-    const top = form.getBoundingClientRect().top + window.scrollY - offset;
-
-    smoothScrollTo(top);
+    // Reliable, header-offset scroll to the hero form; falls back to the native
+    // hash jump if the target isn't on the page.
+    if (smoothScrollToHash(targetHref)) e.preventDefault();
   };
 
   return (

@@ -46,14 +46,15 @@ export default function LocationProof() {
     <section id="location-proof" className={styles.section} aria-labelledby="location-heading">
       <div className={styles.container}>
         <header className={styles.head}>
-          <span className={styles.eyebrow}>Visit the campus</span>
+          <span className={styles.eyebrow}>Find us</span>
           <h2 id="location-heading" className={styles.heading}>
-            A real classroom you can walk into -{' '}
-            <span className={styles.heading_accent}>not a Zoom-only course</span>
+            Digital marketing classes near you -{' '}
+            <span className={styles.heading_accent}>in Indiranagar, 1 minute from the Metro</span>
           </h2>
           <p className={styles.lede}>
-            Most &ldquo;near me&rdquo; searches end in a callback from a generic
-            online institute. We&rsquo;d rather you see the place first.
+            On CMH Road in the heart of Indiranagar, a minute’s walk from the
+            Purple Line. Easy to reach from Koramangala, HSR, Domlur, Old Airport
+            Road and Whitefield - students travel in from across east Bangalore.
           </p>
         </header>
 
@@ -73,6 +74,13 @@ export default function LocationProof() {
                   target="_blank" rel="noopener noreferrer"
                 >
                   Open in Google Maps →
+                </a>
+                <a
+                  className={styles.row_link}
+                  href={CAMPUS.gbpLink}
+                  target="_blank" rel="noopener noreferrer"
+                >
+                  ★ 4.9 · 344 reviews on Google →
                 </a>
               </div>
             </div>
