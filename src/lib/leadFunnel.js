@@ -32,5 +32,20 @@ export const LEAD_FUNNEL_EVENT = 'bluetick:lead-captured';
  */
 export function openLeadFunnel(detail) {
   if (typeof window === 'undefined') return;
+
+  /* Announce the lead to GTM at the SAME funnel moment the old "Register"
+     click conversion fired: the instant name + phone are saved to Zoho. GTM
+     fires the Google Ads conversion (AW-16978463601 / b123CO-9hbkaEPGW-58_)
+     and GA4 `generate_lead` off this `lead_captured` event — robust to the
+     deferred GTM load (the push queues and replays once GTM boots) and
+     immune to button-copy changes. Fired here, in the shared opener, so it
+     covers every enrollment form (home Hero/Mini + all 6 landing heroes)
+     and nothing else (franchise/hire/newsletter never call this). */
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'lead_captured',
+    form_position: detail?.formPosition || 'website',
+  });
+
   window.dispatchEvent(new CustomEvent(LEAD_FUNNEL_EVENT, { detail }));
 }
