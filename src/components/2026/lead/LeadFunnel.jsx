@@ -82,7 +82,15 @@ export default function LeadFunnel() {
     if (e.target === ref.current) close();
   };
 
-  const onDetailsComplete = useCallback(() => setStep('thankyou'), []);
+  /* Merge the details the pop-up collected (mode, center, preferred date/time)
+     into `lead` so the Thank-You step's Meet update carries them forward. The
+     /api/bigin update path rewrites Learning_Mode, Center and Description on
+     every call, so a later update that omits these would blank them back out in
+     Zoho — which is exactly what was happening. */
+  const onDetailsComplete = useCallback((details) => {
+    if (details) setLead((prev) => ({ ...prev, ...details }));
+    setStep('thankyou');
+  }, []);
 
   return (
     <dialog

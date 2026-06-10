@@ -268,6 +268,9 @@ export default function NamedPlacementsBoard() {
                 alt={`${a.name}, BlueTick Academy alumnus`}
                 width={144}
                 height={144}
+                /* Rendered in a fixed 72px slot — tell next/image so it stops
+                   serving an oversized 384px variant on mobile. */
+                sizes="72px"
                 className={styles.photo_img}
               />
             </div>

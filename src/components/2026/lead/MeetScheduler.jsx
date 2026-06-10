@@ -82,6 +82,13 @@ export default function MeetScheduler({ lead }) {
         name: lead?.name,
         mobile: lead?.mobile,
         formPosition: lead?.formPosition,
+        /* Carry forward the details from the previous step so this update does
+           NOT blank Learning_Mode / Center / Description (the route rewrites
+           those fields on every update). */
+        learningMode: lead?.learningMode,
+        center: lead?.center,
+        preferredDate: lead?.preferredDate,
+        preferredTime: lead?.preferredTime,
         meetScheduled: true,
         meetDateTime: slotLabel,
         meetLink: res?.meetLink || '',

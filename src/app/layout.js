@@ -36,6 +36,10 @@ const instrumentSerif = Instrument_Serif({
   weight: ['400'],
   style: ['normal', 'italic'],
   display: 'swap',
+  /* Accent face used sparsely (a few words). Keep it OFF the preload set so it
+     doesn't compete with the headline/body fonts for bandwidth on slow mobile —
+     it still loads via CSS and swaps in (display: swap). */
+  preload: false,
 });
 
 export const metadata = {
