@@ -73,6 +73,7 @@ function buildDescription(body) {
   if (body.preferredDate) parts.push(`Preferred date: ${body.preferredDate}`);
   if (body.preferredTime) parts.push(`Preferred time: ${body.preferredTime}`);
   if (body.role) parts.push(`Intent: ${body.role}`);
+  if (body.siteLocation) parts.push(`Site: ${body.siteLocation}`);
   if (body.pageSource) parts.push(`Page: ${body.pageSource}`);
   if (body.gAdsCampaign) parts.push(`Campaign: ${body.gAdsCampaign}`);
   if (body.gAdsAdGroup) parts.push(`Ad group: ${body.gAdsAdGroup}`);
@@ -122,15 +123,17 @@ export async function POST(req) {
     //    the existing record so we never create a duplicate.
     // -------------------------------------------------------------------
     if (body.action === "update" && body.id) {
-      const updatePayload = {
-        data: [
-          {
-            Learning_Mode: body.learningMode || "",
-            Center: body.center || "",
-            Description: buildDescription(body),
-          },
-        ],
+      const updateRecord = {
+        Learning_Mode: body.learningMode || "",
+        Center: body.center || "",
+        Description: buildDescription(body),
       };
+      /* Re-assert the site (Indiranagar/Hoodi) in case the create POST missed
+         it; harmless when it already matches. Only when present, so we never
+         blank it. */
+      if (body.siteLocation) updateRecord.Website = body.siteLocation;
+
+      const updatePayload = { data: [updateRecord] };
 
       const upRes = await fetch(`${ZOHO_BASE}/${body.id}`, {
         method: "PUT",
@@ -208,6 +211,14 @@ export async function POST(req) {
       Lead_Source_Detail: leadSourceDetail,
       Description: description,
     };
+
+    /* Which physical site the lead came from (Indiranagar vs Hoodi). `Website`
+       is a STANDARD Bigin Contacts field, so — unlike the custom attribution
+       fields below — it can be set directly without BIGIN_ATTRIBUTION_FIELDS.
+       Only set when present so non-page submits don't blank an existing value. */
+    if (body.siteLocation) {
+      record.Website = body.siteLocation;
+    }
 
     /* Page + Google Ads attribution as dedicated custom fields.
        IMPORTANT: Zoho REJECTS the whole record if you send an api_name that

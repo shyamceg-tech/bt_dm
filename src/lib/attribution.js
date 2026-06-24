@@ -50,11 +50,23 @@ const PAGE_SOURCE_MAP = {
 
 function friendlyPage(pathname) {
   if (!pathname) return 'Home';
-  const clean = pathname.replace(/\/+$/, '') || '/';
+  let clean = pathname.replace(/\/+$/, '') || '/';
+  /* Strip the location prefix so a Hoodi page resolves to the SAME intent name
+     as its Indiranagar twin (e.g. /hoodi/...-online → "Online"). The location
+     itself is captured separately by friendlyLocation(). */
+  clean = clean.replace(/^\/hoodi(?=\/|$)/, '') || '/';
   if (PAGE_SOURCE_MAP[clean]) return PAGE_SOURCE_MAP[clean];
   const slug = clean.split('/').filter(Boolean).pop();
   if (!slug) return 'Home';
   return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+/* Which physical site/centre the visitor landed on. Hoodi pages live under
+   /hoodi/...; everything else is the main Indiranagar site. Lands in the Bigin
+   "Website" field so the team can tell Indiranagar leads from Hoodi leads. */
+function friendlyLocation(pathname) {
+  if (pathname && /^\/hoodi(\/|$)/.test(pathname)) return 'Hoodi';
+  return 'Indiranagar';
 }
 
 /**
@@ -79,6 +91,7 @@ export function captureAttribution() {
 
     const record = {
       pageSource: friendlyPage(window.location.pathname),
+      siteLocation: friendlyLocation(window.location.pathname),
       isGoogleAds,
       gAdsCampaign: p.get('utm_campaign') || '',
       gAdsAdGroup: p.get('utm_content') || p.get('utm_adgroup') || '',
@@ -115,5 +128,8 @@ export function getAttribution() {
   } catch {
     /* ignore */
   }
-  return { pageSource: friendlyPage(window.location?.pathname) };
+  return {
+    pageSource: friendlyPage(window.location?.pathname),
+    siteLocation: friendlyLocation(window.location?.pathname),
+  };
 }
