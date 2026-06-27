@@ -26,9 +26,9 @@ export const CAMPUS = {
   state: 'Karnataka',
   pincode: '560048',
   country: 'IN',
-  phone: '+91 9606 9955 25',
+  phone: '+917760733466',
   whatsapp:
-    'https://wa.me/919606995525?text=Hi%20BlueTick%2C%20I%27m%20looking%20for%20the%20offline%20digital%20marketing%20course%20at%20your%20Hoodi%20centre.',
+    'https://wa.me/917760733466?text=Hi%20BlueTick%2C%20I%27m%20looking%20for%20the%20offline%20digital%20marketing%20course%20at%20your%20Hoodi%20centre.',
   email: 'academics@bluetickacademy.com',
 
   /* Walk-in / enquiry hours — front-desk hours for visits (batches run Mon–Fri,

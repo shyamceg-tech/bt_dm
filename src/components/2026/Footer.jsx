@@ -81,7 +81,14 @@ function PinIcon() {
   );
 }
 
-export default function Footer() {
+/* Default contact (Indiranagar / main site); overridable via the `contact` prop
+   so the Hoodi branch shows its own number without affecting any other page. */
+const DEFAULT_CONTACT = {
+  phoneHref: 'tel:+919606995525',
+  phoneDisplay: '+91 9606 9955 25',
+};
+
+export default function Footer({ contact = DEFAULT_CONTACT }) {
   const year = new Date().getFullYear();
   return (
     <footer className={styles.footer} role="contentinfo">
@@ -124,7 +131,7 @@ export default function Footer() {
             <ul className={styles.list}>
               <li className={styles.contact_item}>
                 <PhoneIcon />
-                <a href="tel:+919606995525">+91 9606 9955 25</a>
+                <a href={contact.phoneHref}>{contact.phoneDisplay}</a>
               </li>
               <li className={styles.contact_item}>
                 <MailIcon />

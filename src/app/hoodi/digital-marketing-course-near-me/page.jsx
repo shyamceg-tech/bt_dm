@@ -13,7 +13,7 @@
  * the site. The Indiranagar near-me page and config are untouched.
  */
 
-import Header from '@/components/2026/Header';
+import Header from '@/components/2026/hoodi/Header';
 import SectionNav from '@/components/2026/SectionNav';
 import HeroNearMe from '@/components/2026/hoodi/near-me/HeroNearMe';
 import TrustStrip from '@/components/2026/TrustStrip';
@@ -43,7 +43,7 @@ import CampusVisit from '@/components/2026/hoodi/near-me/CampusVisit';
 import FaqsNearMe from '@/components/2026/hoodi/near-me/FaqsNearMe';
 import MediaAwards from '@/components/2026/MediaAwards';
 import SeoGuideNearMe from '@/components/2026/hoodi/near-me/SeoGuideNearMe';
-import Footer from '@/components/2026/Footer';
+import Footer from '@/components/2026/hoodi/Footer';
 import StickyBar from '@/components/2026/StickyBar';
 import ScrollTopButton from '@/components/2026/ScrollTopButton';
 import AutoScrollLoop from '@/components/2026/AutoScrollLoop';

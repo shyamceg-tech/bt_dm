@@ -79,13 +79,23 @@ function PhoneIcon({ className }) {
   );
 }
 
-/* ─── Shared constants ─────────────────────────────────────────────────────── */
-const PHONE_HREF = 'tel:+919606995525';
-const WHATSAPP_HREF = 'https://wa.me/919606995525';
-const PHONE_DISPLAY = '+91-9606 9955 25';
+/* ─── Default contact (Indiranagar / main site) ───────────────────────────────
+   Overridable via the `contact` prop so the Hoodi branch can ring its own line
+   without changing the output for every other page. Pages that render <Header />
+   with no prop keep this exact number. */
+const DEFAULT_CONTACT = {
+  phoneHref: 'tel:+919606995525',
+  whatsappHref: 'https://wa.me/919606995525',
+  phoneDisplay: '+91-9606 9955 25',
+};
 
 /* ─── Header (server component) ────────────────────────────────────────────── */
-export default function Header() {
+export default function Header({ contact = DEFAULT_CONTACT }) {
+  const {
+    phoneHref: PHONE_HREF,
+    whatsappHref: WHATSAPP_HREF,
+    phoneDisplay: PHONE_DISPLAY,
+  } = contact;
   return (
     <>
       {/* Sentinel — 1px element at y=80px so the IntersectionObserver below

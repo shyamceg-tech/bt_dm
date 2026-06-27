@@ -24,7 +24,7 @@
  * the new section headings exist as real H2s to mirror in schema.
  */
 
-import Header from '@/components/2026/Header';
+import Header from '@/components/2026/hoodi/Header';
 import SectionNav from '@/components/2026/SectionNav';
 import TrustStrip from '@/components/2026/TrustStrip';
 import Salary from '@/components/2026/Salary';
@@ -45,7 +45,7 @@ import ResumeTransformation from '@/components/2026/ResumeTransformation';
 import DayInLife from '@/components/2026/DayInLife';
 import CareerSwitcher from '@/components/2026/CareerSwitcher';
 import MediaAwards from '@/components/2026/MediaAwards';
-import Footer from '@/components/2026/Footer';
+import Footer from '@/components/2026/hoodi/Footer';
 import StickyBar from '@/components/2026/StickyBar';
 import ScrollTopButton from '@/components/2026/ScrollTopButton';
 import AutoScrollLoop from '@/components/2026/AutoScrollLoop';

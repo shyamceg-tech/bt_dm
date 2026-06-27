@@ -17,7 +17,9 @@
  */
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { CONTACT } from '@/data/centers';
+import { HOODI_CONTACT } from '@/data/hoodi/contact';
 import MeetScheduler from './MeetScheduler';
 import styles from './LeadFunnel.module.css';
 
@@ -42,6 +44,12 @@ function WhatsAppIcon() {
 }
 
 export default function ThankYou({ lead, onClose }) {
+  /* Hoodi pages ring the Hoodi line; every other page keeps the default
+     number. usePathname() reflects the route the pop-up is shown on. */
+  const pathname = usePathname();
+  const contact =
+    pathname && pathname.startsWith('/hoodi') ? HOODI_CONTACT : CONTACT;
+
   /* Fire the GA4/GTM conversion event once, when this screen mounts. */
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -87,12 +95,12 @@ export default function ThankYou({ lead, onClose }) {
           Hate to wait? Call now to connect
         </p>
         <div className={styles.contactBtns}>
-          <a href={CONTACT.phoneHref} className={`${styles.contactBtn} ${styles.callBtn}`}>
+          <a href={contact.phoneHref} className={`${styles.contactBtn} ${styles.callBtn}`}>
             <PhoneIcon />
             <span>Call now</span>
           </a>
           <a
-            href={CONTACT.whatsappHref}
+            href={contact.whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
             className={`${styles.contactBtn} ${styles.waBtn}`}

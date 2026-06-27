@@ -25,7 +25,7 @@
  * All form posts route to /api/bigin via the shared Hero/MiniForm.
  */
 
-import Header from '@/components/2026/Header';
+import Header from '@/components/2026/hoodi/Header';
 import SectionNav from '@/components/2026/SectionNav';
 import Hero from '@/components/2026/hoodi/Hero';
 import TrustStrip from '@/components/2026/TrustStrip';
@@ -50,7 +50,7 @@ import Comparison from '@/components/2026/Comparison';
 import FaqsTraining from '@/components/2026/hoodi/training/FaqsTraining';
 import MediaAwards from '@/components/2026/MediaAwards';
 import TrainingGuide from '@/components/2026/hoodi/training/TrainingGuide';
-import Footer from '@/components/2026/Footer';
+import Footer from '@/components/2026/hoodi/Footer';
 import StickyBar from '@/components/2026/StickyBar';
 import ScrollTopButton from '@/components/2026/ScrollTopButton';
 import AutoScrollLoop from '@/components/2026/AutoScrollLoop';

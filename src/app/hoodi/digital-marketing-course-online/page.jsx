@@ -15,7 +15,7 @@
  * All form posts route to /api/bigin via the shared submitToBigin helper.
  */
 
-import Header from '@/components/2026/Header';
+import Header from '@/components/2026/hoodi/Header';
 import SectionNav from '@/components/2026/SectionNav';
 import HeroOnline from '@/components/2026/online/HeroOnline';
 import TrustStrip from '@/components/2026/TrustStrip';
@@ -41,7 +41,7 @@ import Comparison from '@/components/2026/Comparison';
 import FaqsOnline from '@/components/2026/online/FaqsOnline';
 import MediaAwards from '@/components/2026/MediaAwards';
 import SeoGuideOnline from '@/components/2026/hoodi/online/SeoGuideOnline';
-import Footer from '@/components/2026/Footer';
+import Footer from '@/components/2026/hoodi/Footer';
 import StickyBar from '@/components/2026/StickyBar';
 import ScrollTopButton from '@/components/2026/ScrollTopButton';
 import AutoScrollLoop from '@/components/2026/AutoScrollLoop';

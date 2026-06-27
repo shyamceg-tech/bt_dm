@@ -24,7 +24,7 @@
  * homepage and other landing pages do not carry.
  */
 
-import Header from '@/components/2026/Header';
+import Header from '@/components/2026/hoodi/Header';
 import SectionNav from '@/components/2026/SectionNav';
 import HeroFees from '@/components/2026/fees/HeroFees';
 import TracksFees from '@/components/2026/fees/TracksFees';
@@ -49,7 +49,7 @@ import Comparison from '@/components/2026/Comparison';
 import FaqsFees from '@/components/2026/fees/FaqsFees';
 import MediaAwards from '@/components/2026/MediaAwards';
 import SeoGuideFees from '@/components/2026/fees/SeoGuideFees';
-import Footer from '@/components/2026/Footer';
+import Footer from '@/components/2026/hoodi/Footer';
 import StickyBar from '@/components/2026/StickyBar';
 import ScrollTopButton from '@/components/2026/ScrollTopButton';
 import AutoScrollLoop from '@/components/2026/AutoScrollLoop';

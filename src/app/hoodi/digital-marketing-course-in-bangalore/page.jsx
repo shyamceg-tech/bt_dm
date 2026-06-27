@@ -11,7 +11,7 @@
  * not linked from anywhere on the site. The real homepage is untouched.
  */
 
-import Header from '@/components/2026/Header';
+import Header from '@/components/2026/hoodi/Header';
 import Hero from '@/components/2026/hoodi/Hero';
 import TrustStrip from '@/components/2026/TrustStrip';
 import Salary from '@/components/2026/Salary';
@@ -35,7 +35,7 @@ import Comparison from '@/components/2026/Comparison';
 import Faqs from '@/components/2026/Faqs';
 import MediaAwards from '@/components/2026/MediaAwards';
 import SeoGuide from '@/components/2026/hoodi/SeoGuide';
-import Footer from '@/components/2026/Footer';
+import Footer from '@/components/2026/hoodi/Footer';
 import StickyBar from '@/components/2026/StickyBar';
 import ScrollTopButton from '@/components/2026/ScrollTopButton';
 import SectionNav from '@/components/2026/SectionNav';
