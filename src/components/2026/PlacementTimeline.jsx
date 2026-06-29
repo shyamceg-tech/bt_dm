@@ -110,11 +110,14 @@ function Stage({ stage, cardClass, railClass, index }) {
           className={`${styles.node} ${stage.isFinal ? styles.node_final : ''}`}
         />
       </div>
-      <article className={cardClass} role="listitem" data-reveal data-reveal-delay={index}>
+      {/* div (not <article>) so role="listitem" is valid for the parent
+          role="list": axe's aria-allowed-role disallows listitem on <article>.
+          Same class → identical styling, zero visual change. */}
+      <div className={cardClass} role="listitem" data-reveal data-reveal-delay={index}>
         {stage.month && <p className={styles.month}>{stage.month}</p>}
         <h3 className={styles.card_title}>{stage.title}</h3>
         <p className={styles.card_body}>{stage.body}</p>
-      </article>
+      </div>
     </>
   );
 }
