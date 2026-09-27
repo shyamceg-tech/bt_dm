@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 
 /**
  * /api/bigin — BlueTick 2026
@@ -63,6 +63,41 @@ async function getZohoAccessToken() {
   return tokenData.access_token;
 }
 
+/* ---------------------------------------------------------------------------
+   BlueTick CRM — forward every accepted body to the CRM's intake as well.
+   Runs via after(), once the visitor already has their response, so it adds
+   no latency and a CRM failure can never fail a submission or touch Bigin.
+   The CRM decides what to keep (hire/franchisee are skipped there).
+   Contract: BT_CRM repo, docs/site-changes.md.
+--------------------------------------------------------------------------- */
+async function forwardToCrm(body, biginId) {
+  const url = process.env.CRM_INTAKE_URL;
+  const key = process.env.CRM_INTAKE_KEY;
+  if (!url || !key) return; // not configured → Bigin-only, as before
+
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-api-key": key },
+      body: JSON.stringify({
+        ...body,
+        // Lets the CRM cross-reference the Bigin record during the changeover.
+        ...(biginId && body.action !== "update" ? { biginId } : {}),
+        // This repo is bluetickacademy.com → the Digital Marketing pipeline.
+        page: process.env.CRM_PAGE || "DM",
+      }),
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!res.ok) {
+      console.error("⚠️ CRM intake refused a lead", res.status, await res.text());
+    } else {
+      console.log("📥 CRM intake:", res.status, await res.text());
+    }
+  } catch (e) {
+    console.error("⚠️ CRM intake unreachable", e);
+  }
+}
+
 /* Build a single human-readable Description string from all known fields, so
    the team sees the full enquiry in Bigin even without dedicated custom
    fields for preferred date/time and the Meet slot. */
@@ -106,6 +141,13 @@ export async function POST(req) {
         { status: 400 }
       );
     }
+
+    // ✅ 0b. Copy to the BlueTick CRM once the response is sent — after the
+    //    captcha gate (spam stops here) and whether or not Bigin succeeds
+    //    (Bigin being down is exactly when the CRM copy matters). biginId is
+    //    read when the callback runs, so it picks up the id set below.
+    let biginId = null;
+    after(() => forwardToCrm(body, biginId));
 
     // ✅ 1. Zoho access token
     const accessToken = await getZohoAccessToken();
@@ -253,6 +295,7 @@ export async function POST(req) {
     console.log("📨 Zoho Response:", result);
 
     if (result?.data?.[0]?.code === "SUCCESS") {
+      biginId = result.data[0].details?.id || null;
       return NextResponse.json({
         success: true,
         id: result.data[0].details?.id || null,
