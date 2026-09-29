@@ -9,6 +9,7 @@
 import { useId, useState } from 'react';
 import { submitToBigin } from '@/lib/submitToBigin';
 import styles from '../best/BestPageCta.module.css';
+import ConsentNote from '@/components/2026/ConsentNote';
 
 const FALLBACK_ERROR = 'Something went wrong. Please try again or call us directly.';
 
@@ -139,6 +140,8 @@ export default function PlacementPageCta() {
             >
               {submitting ? 'SUBMITTING…' : 'START YOUR DM CAREER'}
             </button>
+
+            <ConsentNote />
 
             <p className={styles.micro}>
               No spam. WhatsApp confirmation within 15 mins.

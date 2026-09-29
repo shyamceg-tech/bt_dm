@@ -4,6 +4,7 @@ import Image from 'next/image';
 const Captcha = "/img/captcha.png";
 const FormBack = "/img/formback.svg";
 import Popup from '../popup';
+import ConsentNote from '@/components/2026/ConsentNote';
 
 export default function LearningAdvisorForm({ formType, setFormType }) {
   const [showPopup, setShowPopup] = useState(false);
@@ -291,6 +292,9 @@ export default function LearningAdvisorForm({ formType, setFormType }) {
         >
           {formType === "franchisee" || formType === "hire" ? "Submit" : "Register"}
         </button>
+
+        {/* Hire and franchisee enquiries are not students; no WhatsApp opt-in to ask for. */}
+        {formType !== "franchisee" && formType !== "hire" && <ConsentNote />}
       </form>
 
       {showPopup && (

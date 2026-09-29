@@ -21,6 +21,7 @@ import { submitToBigin } from '@/lib/submitToBigin';
 import { openLeadFunnel } from '@/lib/leadFunnel';
 import { preloadRecaptcha } from '@/lib/recaptcha';
 import styles from './Hero.module.css';
+import ConsentNote from '@/components/2026/ConsentNote';
 
 const PHONE_PATTERN = '[0-9]{10}';
 
@@ -197,6 +198,8 @@ export default function HeroForm() {
       >
         {submitting ? 'SUBMITTING…' : 'START YOUR DM CAREER'}
       </button>
+
+      <ConsentNote />
 
       <p className={styles.form_micro_trust}>No spam calls - ever.</p>
 

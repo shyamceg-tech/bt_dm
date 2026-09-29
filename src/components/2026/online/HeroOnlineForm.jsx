@@ -14,6 +14,7 @@ import { submitToBigin } from '@/lib/submitToBigin';
 import { openLeadFunnel } from '@/lib/leadFunnel';
 import { preloadRecaptcha } from '@/lib/recaptcha';
 import styles from './HeroOnline.module.css';
+import ConsentNote from '@/components/2026/ConsentNote';
 
 const PHONE_PATTERN = '[0-9]{10}';
 const FALLBACK_ERROR = 'Something went wrong. Please try again or call us directly.';
@@ -144,6 +145,8 @@ export default function HeroOnlineForm() {
       >
         {submitting ? 'SUBMITTING…' : 'START YOUR DM CAREER'}
       </button>
+
+      <ConsentNote />
 
       <p className={styles.form_micro_trust}>No spam calls – ever.</p>
 

@@ -150,6 +150,8 @@ export default function Footer({ contact = DEFAULT_CONTACT }) {
         <div className={styles.bottom}>
           <p className={styles.copyright}>
             &copy; {year} BlueTick Academy. All rights reserved.
+            <br />
+            BlueTick Academy is a brand of Tech Tree.
           </p>
           <div className={styles.legal}>
             <a href="/privacypolicy">Privacy Policy</a>

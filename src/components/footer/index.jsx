@@ -7,6 +7,7 @@ import Link from "next/link";
 import LearningAdvisorForm from "../form";
 import Modal from "../model";
 import Popup from "../popup";
+import ConsentNote from '@/components/2026/ConsentNote';
 
 const Logo = "/img/logo.svg";
 
@@ -192,6 +193,8 @@ function Footer({ formType, setFormType }) {
                 >
                   SUBMIT
                 </button>
+
+                <ConsentNote />
               </form>
             </div>
           </div>
@@ -201,6 +204,8 @@ function Footer({ formType, setFormType }) {
         <div className="text-center text-white">
           <p className="text-[12px] md:text-[16px] py-3">
             © {new Date().getFullYear() } BlueTick Academy. All Rights Reserved.
+            <br />
+            BlueTick Academy is a brand of Tech Tree.
           </p>
 
           <div className="flex gap-5 justify-center text-sm md:text-lg font-[600]">
