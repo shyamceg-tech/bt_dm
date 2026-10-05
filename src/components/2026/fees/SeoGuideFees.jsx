@@ -36,7 +36,7 @@ const ITEMS = [
         <ul>
           <li><strong>PCP (3 months):</strong> ₹50,150 &mdash; ₹42,500 course fee + ₹7,650 GST.</li>
           <li><strong>PGCP (5 months):</strong> ₹89,680 &mdash; ₹76,000 course fee + ₹13,680 GST.</li>
-          <li><strong>ELEVATE (7 months):</strong> ₹1,23,900 &mdash; ₹1,05,000 course fee + ₹18,900 GST.</li>
+          <li><strong>ELEVATE (7 months):</strong> ₹1,35,000 &mdash; ₹1,14,000 course fee + 18% GST.</li>
         </ul>
         <p>
           Every figure is inclusive of 18% GST, so the number you read is the number
@@ -106,7 +106,7 @@ const ITEMS = [
         <ul>
           <li><strong>PCP:</strong> no-cost EMI from ₹5,000/month.</li>
           <li><strong>PGCP:</strong> no-cost EMI from ₹7,500/month.</li>
-          <li><strong>ELEVATE:</strong> no-cost EMI from ₹10,000/month.</li>
+          <li><strong>ELEVATE:</strong> no-cost EMI from ₹11,250/month.</li>
         </ul>
         <p>
           &ldquo;No-cost&rdquo; means exactly that &mdash; the EMI total equals the
@@ -265,7 +265,7 @@ const ITEMS = [
         <ul>
           <li><strong>PCP (₹50,150, 3 months):</strong> best for freshers and students who want a fast, hireable start in core digital marketing roles.</li>
           <li><strong>PGCP (₹89,680, 5 months):</strong> our most-chosen track &mdash; built for career switchers and serious job seekers who want depth, two specialisations and a stronger portfolio.</li>
-          <li><strong>ELEVATE (₹1,23,900, 7 months):</strong> for working professionals and future AI-led marketers who want the full curriculum plus 16 AI-for-Business modules.</li>
+          <li><strong>ELEVATE (₹1,35,000, 7 months):</strong> for working professionals and future AI-led marketers who want the full curriculum plus 16 AI-for-Business modules.</li>
         </ul>
         <p>
           All three include placement support and no-cost EMI. If you are unsure which

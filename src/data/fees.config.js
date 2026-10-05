@@ -126,7 +126,7 @@ export const COMPARE = {
     {
       key: 'bluetick',
       label: 'BlueTick Academy',
-      priceLine: '₹50,150 - ₹1,23,900 (incl. GST)',
+      priceLine: '₹50,150 - ₹1,35,000 (incl. GST)',
       highlight: true,
     },
     {
@@ -175,11 +175,11 @@ export const COMPARE = {
 export const FAQS = [
   {
     q: 'How much does a digital marketing course cost in Bangalore?',
-    a: 'At BlueTick Academy the digital marketing course fees in Bangalore are &#8377;50,150 for the 3-month PCP, &#8377;89,680 for the 5-month PGCP, and &#8377;1,23,900 for the 7-month ELEVATE program &mdash; all figures inclusive of 18% GST. Every fee is shown on this page, not gated behind a callback.',
+    a: 'At BlueTick Academy the digital marketing course fees in Bangalore are &#8377;50,150 for the 3-month PCP, &#8377;89,680 for the 5-month PGCP, and &#8377;1,35,000 for the 7-month ELEVATE program &mdash; all figures inclusive of 18% GST. Every fee is shown on this page, not gated behind a callback.',
   },
   {
     q: 'Is there a no-cost EMI option?',
-    a: 'Yes. No-cost EMI starts from &#8377;5,000/month for PCP, &#8377;7,500/month for PGCP, and &#8377;10,000/month for ELEVATE. You can start without paying the full fee upfront, and there is no interest added on top.',
+    a: 'Yes. No-cost EMI starts from &#8377;5,000/month for PCP, &#8377;7,500/month for PGCP, and &#8377;11,250/month for ELEVATE. You can start without paying the full fee upfront, and there is no interest added on top.',
   },
   {
     q: 'Are there any hidden costs in the fee?',
@@ -225,7 +225,7 @@ export const META = {
   title:
     'Digital Marketing Course Fees in Bangalore 2026 | BlueTick',
   description:
-    'Digital marketing course fees in Bangalore, shown upfront: PCP ₹50,150, PGCP ₹89,680, ELEVATE ₹1,23,900 (incl. GST). No-cost EMI from ₹5,000/month, scholarships, and the real salary ROI. No callback needed to see the price.',
+    'Digital marketing course fees in Bangalore, shown upfront: PCP ₹50,150, PGCP ₹89,680, ELEVATE ₹1,35,000 (incl. GST). No-cost EMI from ₹5,000/month, scholarships, and the real salary ROI. No callback needed to see the price.',
   canonical:
     'https://bluetickacademy.com/digital-marketing-course-fees-bangalore/',
 };
