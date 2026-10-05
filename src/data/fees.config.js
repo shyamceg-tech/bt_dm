@@ -86,10 +86,11 @@ export const FEES = [
     eyebrow: '7-Month Track',
     name: 'ELEVATE™ — Digital Marketing + AI',
     durationMonths: 7,
-    baseFee: 105000,
-    gst: withGst(105000) - 105000,
-    total: withGst(105000),
-    emiPerMonth: 10000,
+    baseFee: 114000,
+    // Total is fixed at the quoted all-inclusive price (rounded), not computed.
+    gst: 135000 - 114000,
+    total: 135000,
+    emiPerMonth: 11250,
     paybackLabel: 'under 3 months of an average starting salary',
     includes: [
       'All PGCP modules + 16 AI-for-Business modules',
