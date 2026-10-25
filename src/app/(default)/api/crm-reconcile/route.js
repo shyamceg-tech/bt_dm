@@ -117,14 +117,14 @@ async function offerToCrm(body) {
         signal: AbortSignal.timeout(15_000),
       });
       const json = await res.json().catch(() => ({}));
-      if (res.ok) return json.reconcile || "ok";
+      if (res.ok) return { tag: json.reconcile || "ok", orderId: json.orderId };
       last = `${res.status} ${JSON.stringify(json).slice(0, 120)}`;
       if (res.status < 500 && res.status !== 429) break;
     } catch (e) {
       last = String(e);
     }
   }
-  return `failed: ${last}`;
+  return { tag: `failed: ${last}` };
 }
 
 export async function GET(req) {
@@ -144,6 +144,7 @@ export async function GET(req) {
 
   const url = new URL(req.url);
   const dry = url.searchParams.get("dry") === "1";
+  const onlyPhone = (url.searchParams.get("phone") || "").replace(/\D/g, "").slice(-10);
   const days = Math.min(30, Math.max(1, Number(url.searchParams.get("days")) || 2));
   const since = new Date(Date.now() - days * 86_400_000);
 
@@ -170,6 +171,7 @@ export async function GET(req) {
       if (site !== SITE) { summary.otherSite++; continue; }
       if (NOT_STUDENTS.includes(String(c.Form_Type || "").toLowerCase())) { summary.notStudents++; continue; }
       if (!String(c.Phone || "").replace(/\D/g, "")) { summary.noPhone++; continue; }
+      if (onlyPhone && !String(c.Phone).replace(/\D/g, "").endsWith(onlyPhone)) continue;
       summary.thisSite++;
       mine.push(c);
     }
@@ -178,11 +180,12 @@ export async function GET(req) {
     for (let i = 0; i < mine.length; i += 5) {
       await Promise.all(
         mine.slice(i, i + 5).map(async (c) => {
-          const result = await offerToCrm(bodyFor(c, dry));
+          const { tag: result, orderId } = await offerToCrm(bodyFor(c, dry));
+          if (onlyPhone) recovered.push({ name: c.Last_Name, mobile: c.Phone, at: c.Created_Time, crm: result, orderId });
           if (result === "present") summary.present++;
           else if (result === "missing" || result === "created") {
             summary[result]++;
-            recovered.push({ name: c.Last_Name, mobile: c.Phone, at: c.Created_Time });
+            if (!onlyPhone) recovered.push({ name: c.Last_Name, mobile: c.Phone, at: c.Created_Time });
           } else {
             summary.failed++;
             failures.push({ name: c.Last_Name, mobile: c.Phone, result });
