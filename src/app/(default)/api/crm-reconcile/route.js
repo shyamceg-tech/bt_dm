@@ -158,10 +158,15 @@ export async function GET(req) {
     };
     const recovered = [];
     const failures = [];
+    const unsortedList = [];
     const mine = [];
     for (const c of contacts) {
       const site = siteOf(c.Website);
-      if (!site) { summary.unsorted++; continue; }
+      if (!site) {
+        summary.unsorted++;
+        unsortedList.push({ name: c.Last_Name, mobile: c.Phone, source: c.Lead_Source, form: c.Form_Type, at: c.Created_Time, note: String(c.Description || "").slice(0, 120) });
+        continue;
+      }
       if (site !== SITE) { summary.otherSite++; continue; }
       if (NOT_STUDENTS.includes(String(c.Form_Type || "").toLowerCase())) { summary.notStudents++; continue; }
       if (!String(c.Phone || "").replace(/\D/g, "")) { summary.noPhone++; continue; }
@@ -189,7 +194,7 @@ export async function GET(req) {
     console.log("CRM_RECONCILE", JSON.stringify(summary));
     for (const r of recovered) console.warn(dry ? "CRM_RECONCILE_MISSING" : "CRM_RECONCILE_RECOVERED", r.name, r.mobile, r.at);
     for (const f of failures) console.error("CRM_RECONCILE_FAILED", f.name, f.mobile, f.result);
-    return NextResponse.json({ site: SITE, ...summary, recovered, failures });
+    return NextResponse.json({ site: SITE, ...summary, recovered, failures, unsortedList });
   } catch (e) {
     console.error("CRM_RECONCILE_ERROR", e);
     return NextResponse.json({ error: String(e?.message || e) }, { status: 500 });
