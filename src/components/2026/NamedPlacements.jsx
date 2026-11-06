@@ -26,7 +26,7 @@ export default function NamedPlacements({ merged = false }) {
     <section className={sectionClass} aria-labelledby="placements-heading">
       <div className={styles.inner}>
         <h2 className={styles.heading} id="placements-heading" data-reveal>
-          Where our 2025&ndash;26 batches landed - real names, real
+          Where our 2026&ndash;27 batches landed - real names, real
           companies, real packages
         </h2>
         <p className={styles.subline}>

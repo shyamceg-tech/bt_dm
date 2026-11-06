@@ -8,7 +8,7 @@
  * card table; mobile collapses to stacked cards (no horizontal scroll).
  *
  * Batch enrolled totals sum to 312 (the figure cited across the page); the
- * current cohort (Jan-Mar 2026) still has 9 candidates interviewing, so
+ * current cohort (Oct-Dec 2026) still has 9 candidates interviewing, so
  * placement SUPPORT is 100% while 303 have already signed - the honest 3%
  * still in process. Replace with the live CRM export if exact figures differ.
  */
@@ -16,10 +16,10 @@
 import styles from './PlacementNumbersPlacement.module.css';
 
 const BATCHES = [
-  { batch: 'Apr-Jun 2025', enrolled: 76, placed: 76, interviewing: 0, days: '44 days', current: false },
-  { batch: 'Jul-Sep 2025', enrolled: 80, placed: 80, interviewing: 0, days: '41 days', current: false },
-  { batch: 'Oct-Dec 2025', enrolled: 78, placed: 78, interviewing: 0, days: '52 days', current: false },
-  { batch: 'Jan-Mar 2026', enrolled: 78, placed: 69, interviewing: 9, days: '47 days', current: true },
+  { batch: 'Jan-Mar 2026', enrolled: 76, placed: 76, interviewing: 0, days: '44 days', current: false },
+  { batch: 'Apr-Jun 2026', enrolled: 80, placed: 80, interviewing: 0, days: '41 days', current: false },
+  { batch: 'Jul-Sep 2026', enrolled: 78, placed: 78, interviewing: 0, days: '52 days', current: false },
+  { batch: 'Oct-Dec 2026', enrolled: 78, placed: 69, interviewing: 9, days: '47 days', current: true },
 ];
 
 function CheckMini() {
