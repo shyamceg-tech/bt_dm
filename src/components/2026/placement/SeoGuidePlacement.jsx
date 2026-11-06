@@ -252,7 +252,7 @@ const ITEMS = [
           A point many placement seekers miss: in 2026, AI fluency is often the
           first filter recruiters apply to digital marketing resumes. A{' '}
           <strong>digital marketing course in Bangalore with placement</strong>{' '}
-          that still teaches a 2023 SEO-and-SEM syllabus is, in effect, preparing
+          that still teaches a 2025 SEO-and-SEM syllabus is, in effect, preparing
           you for interviews you will struggle to clear.
         </p>
         <p>

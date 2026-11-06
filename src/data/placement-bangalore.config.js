@@ -136,7 +136,7 @@ export const WHY_REASONS = [
   {
     icon: 'spark',
     title: 'AI-native 2026 curriculum recruiters now demand',
-    body: 'Every module is rebuilt around the AI tools hiring managers expect on day one — ChatGPT, Gemini, Claude, Midjourney and 50+ more. AI-fluent candidates clear the resume filter; 2023-syllabus graduates don’t.',
+    body: 'Every module is rebuilt around the AI tools hiring managers expect on day one — ChatGPT, Gemini, Claude, Midjourney and 50+ more. AI-fluent candidates clear the resume filter; 2025-syllabus graduates don’t.',
     proof: '50+ AI tools across 25 modules',
   },
   {

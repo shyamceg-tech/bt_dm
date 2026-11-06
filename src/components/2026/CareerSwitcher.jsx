@@ -17,7 +17,7 @@ const STORIES = [
     initials: 'VK',
     name: 'Vinay K.',
     photo: 'Vinay.webp',
-    meta: 'March 2025 batch · Switched at age 27',
+    meta: 'November 2026 batch · Switched at age 27',
     avatarVariant: null, // default brand-blue
     from: { line: 'BPO at Infosys',                               salary: '\u20B93.2 LPA' },
     to:   { line: 'Performance Marketing Analyst at Razorpay', salary: '\u20B97.8 LPA' },
@@ -27,7 +27,7 @@ const STORIES = [
     initials: 'MR',
     name: 'Megha Raghupathy',
     photo: 'Megha.webp',
-    meta: 'January 2025 batch · Switched at age 25',
+    meta: 'September 2026 batch · Switched at age 25',
     avatarVariant: 'avatar_2', // PGCP violet
     from: { line: 'B.Tech graduate at TCS support', salary: '\u20B94.1 LPA' },
     to:   { line: 'SEO Specialist at WATConsult',     salary: '\u20B96.5 LPA' },
@@ -37,7 +37,7 @@ const STORIES = [
     initials: 'FM',
     name: 'Fazil MD',
     photo: 'Fazil.webp',
-    meta: 'November 2024 batch · Switched at age 28',
+    meta: 'October 2026 batch · Switched at age 28',
     avatarVariant: 'avatar_3', // Elevate teal
     from: { line: 'School teacher',                                salary: '\u20B92.8 LPA' },
     to:   { line: 'Content & Email Marketing at Mamaearth',      salary: '\u20B95.2 LPA' },

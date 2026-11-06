@@ -345,7 +345,7 @@ export default function BestCoursePage() {
           eyebrow={<><IconClock />Decision time</>}
           title={<>Compared. Convinced. <em>Now is the move.</em></>}
           subVariant="scarcity"
-          sub={<>Bangalore&rsquo;s next batch starts <ScarcityHl>in 12 days</ScarcityHl>. <ScarcityHl>9 seats left</ScarcityHl>.</>}
+          sub={<>Bangalore&rsquo;s next batch starts <ScarcityHl>in 12 days</ScarcityHl>. <ScarcityHl>7 seats left</ScarcityHl>.</>}
           meta={<><strong>15-min call</strong> &middot; Zero pressure &middot; Get the full picture</>}
         >
           <MiniForm id="cta-banner-4-form" formPosition="cta-banner-4" theme="dark" withArrow ariaLabel="Apply for the next batch - decision-time form" />

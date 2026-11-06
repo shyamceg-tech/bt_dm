@@ -84,7 +84,7 @@ export const RANKING = {
     {
       icon: 'spark',
       title: 'AI-native 2026 curriculum',
-      body: 'Every module is rebuilt around the AI tools recruiters expect on day one. Most &ldquo;top 10&rdquo; syllabi still run a 2023 playbook.',
+      body: 'Every module is rebuilt around the AI tools recruiters expect on day one. Most &ldquo;top 10&rdquo; syllabi still run a 2025 playbook.',
       proof: '60+ tools &middot; 25+ modules',
     },
     {
@@ -177,7 +177,7 @@ export const COMPARISON = {
     {
       criterion: 'AI-native 2026 curriculum',
       bluetick: { mark: 'yes', text: '60+ tools, quarterly updates' },
-      others:   { mark: 'na',  text: 'Often a 2023 syllabus' },
+      others:   { mark: 'na',  text: 'Often a 2025 syllabus' },
       online:   { mark: 'na',  text: 'Slow to update' },
       self:     { mark: 'na',  text: 'Self-curated' },
     },

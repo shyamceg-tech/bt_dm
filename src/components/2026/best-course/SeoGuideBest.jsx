@@ -70,7 +70,7 @@ const ITEMS = [
           Use the list to gather names, then do your own scoring. For every
           institute on it, ask the same questions: can you see named, verifiable
           placements? Are fees and EMI published openly, or only revealed on a
-          call? Is the syllabus rebuilt for AI, or still a 2023 playbook?
+          call? Is the syllabus rebuilt for AI, or still a 2025 playbook?
         </p>
         <p>
           We make this easy on purpose: our fees for all three tracks, with no-cost

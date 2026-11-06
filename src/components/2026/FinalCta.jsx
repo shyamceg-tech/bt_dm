@@ -3,7 +3,7 @@
  *
  * RSC. Final conversion beat before the footer. Section 20 in Phase 1.
  *
- *   - Scarcity-styled headline ("in 12 days" / "9 seats left" amber pills)
+ *   - Scarcity-styled headline ("in 12 days" / "7 seats left" amber pills)
  *   - Centered MiniForm (form #5 of 5; the 6th was Phase 3 territory)
  *   - WhatsApp CTA anchor below (link to #hero-form)
  *   - Office footer line
@@ -44,7 +44,7 @@ export default function FinalCta() {
           <h2 id="final-cta-heading" className={styles.heading}>
             Bangalore&rsquo;s next batch starts{' '}
             <span className={styles.scarcity_hl}>in 12 days</span>.{' '}
-            <span className={styles.scarcity_hl}>9 seats left</span>.
+            <span className={styles.scarcity_hl}>7 seats left</span>.
           </h2>
 
           {/* MiniForm — form #5 of 5 stubs */}

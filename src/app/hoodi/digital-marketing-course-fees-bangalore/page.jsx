@@ -146,7 +146,7 @@ const STRUCTURED_DATA = {
         highPrice: String(Math.max(...FEES.map((f) => f.total))),
         offerCount: String(FEES.length),
         category: 'Tuition fee (incl. 18% GST)',
-        priceValidUntil: '2026-12-31',
+        priceValidUntil: '2027-12-31',
         url: PAGE,
       },
       hasCourseInstance: FEES.map((f) => ({
@@ -163,7 +163,7 @@ const STRUCTURED_DATA = {
           priceCurrency: 'INR',
           price: String(f.total),
           category: 'Tuition fee (incl. 18% GST)',
-          priceValidUntil: '2026-12-31',
+          priceValidUntil: '2027-12-31',
           availability: 'https://schema.org/InStock',
           url: PAGE,
         },
@@ -345,7 +345,7 @@ export default function FeesPage() {
           sub={
             <>
               Bangalore&rsquo;s next batch starts <ScarcityHl>in 12 days</ScarcityHl>.{' '}
-              <ScarcityHl>9 seats left</ScarcityHl>.
+              <ScarcityHl>7 seats left</ScarcityHl>.
             </>
           }
           meta={

@@ -389,7 +389,7 @@ export default function HomePage() {
           sub={
             <>
               Bangalore&rsquo;s next batch starts <ScarcityHl>in 12 days</ScarcityHl>.{' '}
-              <ScarcityHl>9 seats left</ScarcityHl>.
+              <ScarcityHl>7 seats left</ScarcityHl>.
             </>
           }
           meta={

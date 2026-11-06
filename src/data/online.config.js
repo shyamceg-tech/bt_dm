@@ -36,30 +36,6 @@ export const FORMAT = {
   ],
 };
 
-/* Online batch visibility. Dates are absolute strings — update monthly.
-   `seatsLeft` is shown as-is; keep it honest (an online cohort still has a
-   real capacity cap for live mentoring — do not inflate). */
-export const BATCHES = [
-  {
-    id: 'aug-live-weekday',
-    startDate: '12 Aug 2026',
-    schedule: 'Mon–Fri · 7:30 PM – 9:00 PM IST',
-    mode: 'Live online · recordings included',
-    track: 'Professional Certification (PCP)',
-    seatsLeft: 8,
-    durationWeeks: 20,
-  },
-  {
-    id: 'aug-live-weekend',
-    startDate: '17 Aug 2026',
-    schedule: 'Sat–Sun · 11:00 AM – 1:30 PM IST',
-    mode: 'Live online · recordings included',
-    track: 'PG Program (PGCP) — for working professionals',
-    seatsLeft: 11,
-    durationWeeks: 24,
-  },
-];
-
 /* The certificate trust object — second-largest sub-intent in the search data
    ("...course online with certificate"). Kept concrete and verifiable. */
 export const CERTIFICATE = {

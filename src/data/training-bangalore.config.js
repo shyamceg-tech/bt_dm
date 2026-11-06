@@ -79,7 +79,7 @@ export const WHY_REASONS = [
   {
     icon: 'spark',
     title: 'AI-native 2026 syllabus',
-    body: 'Every module is rebuilt around the AI tools recruiters now expect on day one &mdash; ChatGPT, Gemini, Claude, Midjourney, plus 50+ more. Most institutes still teach a 2023 SEO syllabus.',
+    body: 'Every module is rebuilt around the AI tools recruiters now expect on day one &mdash; ChatGPT, Gemini, Claude, Midjourney, plus 50+ more. Most institutes still teach a 2025 SEO syllabus.',
     proof: '60+ tools across 25 modules',
   },
   {

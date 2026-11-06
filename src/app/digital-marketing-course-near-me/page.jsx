@@ -45,7 +45,6 @@ import ResumeTransformation from '@/components/2026/ResumeTransformation';
 import DayInLife from '@/components/2026/DayInLife';
 import CareerSwitcher from '@/components/2026/CareerSwitcher';
 import Comparison from '@/components/2026/Comparison';
-import Testimonials from '@/components/2026/Testimonials';
 import CampusVisit from '@/components/2026/near-me/CampusVisit';
 import FaqsNearMe from '@/components/2026/near-me/FaqsNearMe';
 import MediaAwards from '@/components/2026/MediaAwards';
@@ -345,7 +344,6 @@ export default function NearMePage() {
         <CareerSwitcher />
         <Comparison keyword="digital marketing institute near you" />
 
-        <Testimonials />
 
         {/* Near-me extra: "what your free campus visit looks like" — the small,
             local first ask (visit/demo, not "enrol now") this intent converts on,

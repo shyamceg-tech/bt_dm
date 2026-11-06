@@ -77,7 +77,7 @@ export default function CtaBanner({
    header-offset scroll; re-exported here so existing imports keep working. */
 export { default as CtaButton } from './CtaButton';
 
-/* ─── <ScarcityHl>9 seats left</ScarcityHl> ───────────────────────────────
+/* ─── <ScarcityHl>7 seats left</ScarcityHl> ───────────────────────────────
    Inline amber-on-dark pill used in CTA Banner #4's sub line. */
 export function ScarcityHl({ children }) {
   return <span className={styles.scarcity_hl}>{children}</span>;

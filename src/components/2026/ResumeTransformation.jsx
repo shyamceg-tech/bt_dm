@@ -16,7 +16,7 @@ const DAY1_ROWS = [
     key: 'Objective',
     val: 'Seeking a challenging position in a reputed organization where I can utilize my skills and contribute to the growth of the company.',
   },
-  { key: 'Education',      val: 'BBA, [College], 2024' },
+  { key: 'Education',      val: 'BBA, Jain University, 2026' },
   {
     key: 'Skills',
     val: 'MS Office, Communication, Teamwork, Hard Working, Quick Learner, Time Management',
