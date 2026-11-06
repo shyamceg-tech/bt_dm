@@ -19,7 +19,7 @@
  *
  * Figures mirror the live site / config: 312 placed (last 4 batches),
  * ₹3.2–22 LPA, 60+ tools, 25+ modules, 6-month support, 41% switchers,
- * 10,000+ alumni, Hoodi campus, 300+ hiring partners.
+ * 10,000+ alumni, Hoodi campus, 500+ hiring partners.
  *
  * NOTE (item 4): heading levels are H2 (section) + H3 (items) here, matching
  * the homepage guide. The item-4 pass audits the page's heading hierarchy
@@ -104,7 +104,7 @@ const ITEMS = [
         <p>
           BlueTick was built to answer all five with evidence: a 100% placement
           record across the last four batches (312 students), practitioner
-          trainers, three live projects, an AI-native curriculum, and a 300+
+          trainers, three live projects, an AI-native curriculum, and a 500+
           Bangalore hiring-partner network. Whichever institute you lean toward,
           ask for the same proof before you enrol &mdash; the best digital marketing
           institute in Bangalore for you is the one that shows its working.
@@ -228,7 +228,7 @@ const ITEMS = [
         </p>
         <ul>
           <li><strong>A portfolio that interviews for you</strong> &mdash; three live projects and up to 12 certifications by graduation.</li>
-          <li><strong>Recruiter introductions</strong> from a 300+ Bangalore hiring-partner network.</li>
+          <li><strong>Recruiter introductions</strong> from a 500+ Bangalore hiring-partner network.</li>
           <li><strong>Interview preparation</strong> &mdash; mock interviews, profile reviews and role-specific prep.</li>
           <li><strong>Six months of continued support</strong> &mdash; no artificial 90-day cut-off; we keep circulating your profile until you&rsquo;re placed.</li>
         </ul>
@@ -286,7 +286,7 @@ const ITEMS = [
           with proven campaign results; specialists and managers with two to three
           years of measurable performance often reach &#8377;10&ndash;18 LPA. Demand is
           driven by MNCs, agencies and a deep bench of funded startups &mdash; many of
-          which sit in our 300+ hiring-partner network. The pattern is consistent:
+          which sit in our 500+ hiring-partner network. The pattern is consistent:
           candidates with a real portfolio and proof of results get interviews
           faster and negotiate better than those with certificates alone.
         </p>

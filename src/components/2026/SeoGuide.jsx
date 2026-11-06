@@ -65,7 +65,7 @@ const ITEMS = [
         <p>
           BlueTick was built to answer all five with evidence: a 100% placement
           record across the last four batches, practitioner trainers, three live
-          projects, an AI-native curriculum, and a 300+ Bangalore hiring-partner
+          projects, an AI-native curriculum, and a 500+ Bangalore hiring-partner
           network. Ask any institute for the same proof before you enrol. To see
           exactly how we score on each of these five points, read our guide to
           the{' '}
@@ -182,7 +182,7 @@ const ITEMS = [
           proven campaign results; specialists and managers with two to three
           years of measurable performance often reach ₹10–18 LPA. Demand is
           driven by MNCs, agencies and a deep bench of funded startups - many of
-          which sit in our 300+ hiring-partner network.
+          which sit in our 500+ hiring-partner network.
         </p>
       </>
     ),
@@ -222,7 +222,7 @@ const ITEMS = [
         </p>
         <ul>
           <li><strong>A portfolio that interviews for you</strong> - three live projects and 12 certifications by the time you graduate.</li>
-          <li><strong>Recruiter introductions</strong> from a 300+ Bangalore hiring-partner network.</li>
+          <li><strong>Recruiter introductions</strong> from a 500+ Bangalore hiring-partner network.</li>
           <li><strong>Interview preparation</strong> - mock interviews, profile reviews and role-specific prep.</li>
           <li><strong>Six months of continued support</strong> - no artificial 90-day cut-off; we keep circulating your profile until you&rsquo;re placed.</li>
         </ul>
@@ -310,7 +310,7 @@ const ITEMS = [
         </p>
         <p>
           Being Bangalore-rooted isn&rsquo;t only about location - it&rsquo;s
-          about the network. Our 300+ local hiring partners are the same MNCs,
+          about the network. Our 500+ local hiring partners are the same MNCs,
           agencies and funded startups our students interview with, which keeps
           the curriculum and placement support tied to what the city is actually
           hiring for right now.

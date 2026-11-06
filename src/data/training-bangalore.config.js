@@ -160,7 +160,7 @@ export const FAQS = [
   },
   {
     q: 'Does the digital marketing training in Bangalore include placement?',
-    a: 'Yes, and it&rsquo;s a process, not a slogan. Placement support includes a portfolio that interviews for you (3 live projects + 12 certifications), recruiter introductions from our 300+ Bangalore hiring-partner network, mock interviews and profile reviews, and six months of continued support with no artificial 90-day cut-off. Our 100% placement record across the last 4 batches (312 learners) includes people who took 4&ndash;5 months, not only the fastest movers.',
+    a: 'Yes, and it&rsquo;s a process, not a slogan. Placement support includes a portfolio that interviews for you (3 live projects + 12 certifications), recruiter introductions from our 500+ Bangalore hiring-partner network, mock interviews and profile reviews, and six months of continued support with no artificial 90-day cut-off. Our 100% placement record across the last 4 batches (312 learners) includes people who took 4&ndash;5 months, not only the fastest movers.',
   },
   {
     q: 'What will I actually learn in the training?',
@@ -172,7 +172,7 @@ export const FAQS = [
   },
   {
     q: 'What salary and jobs can I expect after the training in Bangalore?',
-    a: 'Bangalore is one of India&rsquo;s strongest markets for digital marketers. Graduates move into roles like Performance Marketing Executive, SEO Specialist, Social &amp; Paid Ads Manager, Marketing Analyst and Growth Marketer. Entry packages generally start around &#8377;3.5&ndash;5 LPA and rise quickly with proven campaign results; specialists and managers with two to three years often reach &#8377;10&ndash;18 LPA. Demand comes from MNCs, agencies and funded startups &mdash; many in our 300+ hiring-partner network.',
+    a: 'Bangalore is one of India&rsquo;s strongest markets for digital marketers. Graduates move into roles like Performance Marketing Executive, SEO Specialist, Social &amp; Paid Ads Manager, Marketing Analyst and Growth Marketer. Entry packages generally start around &#8377;3.5&ndash;5 LPA and rise quickly with proven campaign results; specialists and managers with two to three years often reach &#8377;10&ndash;18 LPA. Demand comes from MNCs, agencies and funded startups &mdash; many in our 500+ hiring-partner network.',
   },
 ];
 

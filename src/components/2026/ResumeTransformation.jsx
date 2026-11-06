@@ -79,7 +79,7 @@ export default function ResumeTransformation() {
           >
             <span className={styles.label}>Day 1</span>
             <div className={styles.header}>
-              <div className={styles.name}>[Your Name]</div>
+              <div className={styles.name}>Pratik</div>
               <div className={styles.tagline}>Fresh Graduate</div>
             </div>
 
@@ -125,7 +125,7 @@ export default function ResumeTransformation() {
           >
             <span className={styles.label}>Day 121</span>
             <div className={styles.header}>
-              <div className={styles.name}>[Your Name]</div>
+              <div className={styles.name}>Pratik</div>
               <div className={styles.tagline}>AI-native performance marketer</div>
             </div>
 

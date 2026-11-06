@@ -91,7 +91,7 @@ export const FAQS = [
   },
   {
     q: 'Q8. Do I need to be in Bangalore to join the online course?',
-    a: 'No - you can join the live online batches from anywhere in India. The advantage is that a <strong>real, established Bangalore academy</strong> with 10,000+ alumni and a 300+ hiring-partner network is behind the program, not a faceless platform.',
+    a: 'No - you can join the live online batches from anywhere in India. The advantage is that a <strong>real, established Bangalore academy</strong> with 10,000+ alumni and a 500+ hiring-partner network is behind the program, not a faceless platform.',
   },
   {
     // Tier 5 — "best digital marketing course online"

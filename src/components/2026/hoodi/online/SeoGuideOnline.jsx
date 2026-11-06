@@ -263,7 +263,7 @@ const ITEMS = [
           What you do get, that a faceless platform cannot offer, is a real,
           established Bangalore academy behind the program. BlueTick Academy is
           rooted in Hoodi (and across Bangalore) with 10,000+ alumni across MNCs and startups and a
-          300+ hiring-partner network. Those partners are real companies that
+          500+ hiring-partner network. Those partners are real companies that
           interview our students - which keeps both the curriculum and the
           placement support tied to what employers are hiring for right now.
         </p>

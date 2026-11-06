@@ -43,7 +43,7 @@ const ROWS = [
   },
   {
     criterion: 'Local BLR network',
-    bluetick: { mark: 'yes', text: '300+ Bangalore HRs' },
+    bluetick: { mark: 'yes', text: '500+ Bangalore HRs' },
     self:     { mark: 'no',  text: 'None' },
     online:   { mark: 'na',  text: 'Pan-India, not Bangalore-specific' },
     others:   { mark: 'na',  text: 'Limited to direct contacts' },

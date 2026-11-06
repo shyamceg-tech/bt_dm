@@ -205,7 +205,7 @@ const ITEMS = [
         </p>
         <ul>
           <li><strong>A portfolio that interviews for you</strong> - three live projects and up to 12 certifications by the time you graduate.</li>
-          <li><strong>Recruiter introductions</strong> from a 300+ Bangalore hiring-partner network of MNCs, agencies and startups.</li>
+          <li><strong>Recruiter introductions</strong> from a 500+ Bangalore hiring-partner network of MNCs, agencies and startups.</li>
           <li><strong>Interview preparation</strong> - mock interviews, profile reviews and role-specific prep.</li>
           <li><strong>Continued support</strong> - no artificial 90-day cut-off; profiles keep circulating until you&rsquo;re placed.</li>
         </ul>
@@ -255,7 +255,7 @@ const ITEMS = [
         </p>
         <p>
           Being Bangalore-rooted isn&rsquo;t only about location - it&rsquo;s
-          about the network. Our 300+ local hiring partners are the same MNCs,
+          about the network. Our 500+ local hiring partners are the same MNCs,
           agencies and funded startups our students interview with, which keeps
           both the syllabus and placement support tied to what the city is
           actually hiring for right now.
